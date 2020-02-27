@@ -1,0 +1,1 @@
+# project-thyroid-ionic3
