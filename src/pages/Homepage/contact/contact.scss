@@ -1,0 +1,12 @@
+page-contact {
+  @media screen and (min-width: 601px) {
+    p {
+      font-size: 80px;
+    }
+  }
+  @media screen and (min-width: 300px) {
+    p {
+      font-size: 40px;
+    }
+  }
+}
