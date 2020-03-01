@@ -1,3 +1,5 @@
+import { DoctorHomePage } from '../../Doctorpage/doctor-home/doctor-home';
+import { LabtestresultPage } from '../labtestresult/labtestresult';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
@@ -32,5 +34,12 @@ export class NurseHomePage {
     this.navCtrl.setRoot(HomePage);
   }
 
+  navigateToLabTest(){
+    this.navCtrl.push(LabtestresultPage);
+  }
+
+  goDoctorPage(){
+    this.navCtrl.push(DoctorHomePage);
+  }
 
 }

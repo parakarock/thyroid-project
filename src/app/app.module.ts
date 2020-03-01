@@ -1,3 +1,13 @@
+import { EditlabtestPage } from '../pages/Nursepage/editlabtest/editlabtest';
+import { EdittreatmentresultPage } from '../pages/Doctorpage/edittreatmentresult/edittreatmentresult';
+import { AddtreatmentresultPage } from '../pages/Doctorpage/addtreatmentresult/addtreatmentresult';
+import { FollowuptreatmentresultPage } from '../pages/Doctorpage/followuptreatmentresult/followuptreatmentresult';
+import { EditiodineresultdetailPage } from '../pages/Doctorpage/editiodineresultdetail/editiodineresultdetail';
+import { IodineresultdetailPage } from '../pages/Doctorpage/iodineresultdetail/iodineresultdetail';
+import { IodineresultPage } from '../pages/Doctorpage/iodineresult/iodineresult';
+import { DoctorHomePage } from '../pages/Doctorpage/doctor-home/doctor-home';
+import { LabtestresultPage } from '../pages/Nursepage/labtestresult/labtestresult';
+import { AddlabtestPage } from './../pages/Nursepage/addlabtest/addlabtest';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -26,7 +36,17 @@ import { RegisterProvider } from '../providers/register/register';
     LoginPage,
     RegisterPage,
     NurseHomePage,
-    NurseTabsPage
+    NurseTabsPage,
+    AddlabtestPage,
+    EditlabtestPage,
+    LabtestresultPage,
+    DoctorHomePage,
+    IodineresultPage,
+    IodineresultdetailPage,
+    EditiodineresultdetailPage,
+    FollowuptreatmentresultPage,
+    AddtreatmentresultPage,
+    EdittreatmentresultPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +63,17 @@ import { RegisterProvider } from '../providers/register/register';
     LoginPage,
     RegisterPage,
     NurseHomePage,
-    NurseTabsPage
+    NurseTabsPage,
+    AddlabtestPage,
+    EditlabtestPage,
+    LabtestresultPage,
+    DoctorHomePage,
+    IodineresultPage,
+    IodineresultdetailPage,
+    EditiodineresultdetailPage,
+    FollowuptreatmentresultPage,
+    AddtreatmentresultPage,
+    EdittreatmentresultPage
   ],
   providers: [
     StatusBar,

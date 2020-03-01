@@ -34,8 +34,8 @@
   <ion-title id="subtitle">เมนู</ion-title>
 
   <ion-grid>
-    <ion-row>
-      <a class="col col-50 text-center" (click)="onClickRegister()">
+    <!-- <ion-row>
+      <a class="col col-50 text-center" >
         <img
           class="img-auto"
           id="logo"
@@ -52,29 +52,26 @@
         />
         <h5>ข้อมูลด้านสุขภาพ</h5>
       </a>
-    </ion-row>
+    </ion-row> -->
 
     <ion-row>
-      <a class="col col-50 text-center" (click)="navigateToLabTest()">
+      <a class="col col-50 text-center" (click)="navigateIodineResult()">
         <img
           class="img-auto"
           id="logo"
           src="../../../assets/icon/Pic_Icon/P-Exam.png"
         />
-        <h5>ผลการตรวจทางห้องปฏิบัติการ</h5>
+        <h5>ผลการกลืนแร่ไอโอดีน</h5>
       </a>
-      <a class="col col-50 text-center">
+      <a class="col col-50 text-center" (click)="navigateFollowUpResult()">
         <img
           class="img-auto"
           id="logo"
           src="../../../assets/icon/Pic_Icon/P-Advice.png"
         />
-        <h5>ขั้นตอนการเตรียมตัว</h5>
-      </a></ion-row>
+        <h5>ติดตามผลการรักษา</h5>
+      </a></ion-row
+    >
   </ion-grid>
-
-  <ion-buttons>
-    <button ion-button (click)="goDoctorPage()">Go to Doctor Page </button>
-  </ion-buttons>
 
 </ion-content>
