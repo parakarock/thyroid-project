@@ -25,6 +25,7 @@ import { NurseTabsPage } from '../pages/nurse-tabs/nurse-tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegisterProvider } from '../providers/register/register';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { RegisterProvider } from '../providers/register/register';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

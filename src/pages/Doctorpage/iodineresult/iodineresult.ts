@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'iodineresult.html',
 })
 export class IodineresultPage {
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

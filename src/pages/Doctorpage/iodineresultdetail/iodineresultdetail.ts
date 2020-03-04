@@ -16,7 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class IodineresultdetailPage {
 
+  public obj:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.obj =[
+      {
+        thysize: 12,
+        TT3orfT3: 25.5,
+        fT4: 50,
+        TSH: 20.5,
+        thyMed: "Propylthiouracil (PTU)",
+        betaBlock: "Atenolol (50)"
+      }
+    ]
   }
 
   ionViewDidLoad() {

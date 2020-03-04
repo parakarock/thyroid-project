@@ -16,8 +16,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'labtestresult.html',
 })
 export class LabtestresultPage {
-
+  round;
+  public obj:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.obj = [
+      {
+        date : "12 ธันวาคม 2563",
+        freeT3: 25.5,
+        freeT4: 50,
+        TSH: 20.5,
+        TRAb: 40,
+        Medicine: "Propylthiouracil (PTU)",
+      },
+      {
+        date : "11 พฤศจิกายน 2563",
+        freeT3: 34.5,
+        freeT4: 80,
+        TSH: 27.5,
+        TRAb: 58,
+        Medicine: "Methimazole (MMI)",
+      }
+    ]
+   this.round = this.obj.length;
   }
 
   ionViewDidLoad() {
@@ -30,6 +50,10 @@ export class LabtestresultPage {
 
   onClickEditLabTest(){
     this.navCtrl.push(EditlabtestPage);
+  }
+
+  do(){
+
   }
 
 }

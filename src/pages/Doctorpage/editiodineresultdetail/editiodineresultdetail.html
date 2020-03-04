@@ -6,15 +6,15 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>EditIodineResultDetail</ion-title>
+    <ion-title>แก้ไขข้อมูลการกลืนแร่</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
-    <ion-item>
+    <ion-item text-wrap>
       <ion-label fixed color="dark">ขนาดต่อมไทรอยด์</ion-label>
-      <ion-input type="text" value="" text-right></ion-input>
+      <ion-input [(ngModel)]="ThyroidSize" type="text" value="" text-right></ion-input>
     </ion-item>
   </ion-card>
 
@@ -23,17 +23,17 @@
     <ion-card-header>ผลการตรวจทางห้องปฏิบัติการ</ion-card-header>
     <ion-item>
       <ion-label fixed color="dark">TT3/fT3</ion-label>
-      <ion-input type="text" value="" text-right></ion-input>
+      <ion-input [(ngModel)]="TT3orfT3" type="text" value="" text-right></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed color="dark">fT4</ion-label>
-        <ion-input type="text" value="" text-right></ion-input>
+        <ion-input [(ngModel)]="fT4" type="text" value="" text-right></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed color="dark">TSH</ion-label>
-      <ion-input type="text" value="" text-right></ion-input>
+      <ion-input [(ngModel)]="TSH" type="text" value="" text-right></ion-input>
     </ion-item>
   </ion-card>
 
@@ -41,7 +41,7 @@
     <ion-card-header>การรักษา</ion-card-header>
     <ion-item>
       <ion-label>ยาต้านอาการไทรอยด์</ion-label>
-      <ion-select [(ngModel)]="title" placeholder="เลือก">
+      <ion-select [(ngModel)]="ThyroidMed" placeholder="เลือก">
         <ion-option value='Propylthiouracil (PTU)'>Propylthiouracil (PTU)</ion-option>
         <ion-option value='Methimazole (MMI)'>Methimazole (MMI)</ion-option>
         <ion-option value='Tapazole'>Tapazole</ion-option>
@@ -49,38 +49,48 @@
         <ion-option value='ไม่ต้องรับประทาน'>ไม่ต้องรับประทาน</ion-option>
         <ion-option value='อื่นๆ'>อื่นๆ</ion-option>
       </ion-select>
-      <ion-input  #flName type="text" placeholder=""></ion-input>
+      <ion-input [(ngModel)]="ThyroidMedEtc" type="text" placeholder=""></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" fixed>จำนวนยา</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนยา"></ion-input>
-
-      <ion-label color="primary" fixed>จำนวนครั้งต่อวัน</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนครั้ง"></ion-input>
+    <ion-item text-wrap>
+      <ion-label color="primary" fixed>ระบุปริมาณ</ion-label>
+        <ion-row item-content>
+          <ion-col>
+            <ion-input [(ngModel)]="ThyroidMedVol"  type="number" min="0" placeholder=""></ion-input>
+          </ion-col>
+          <ion-label color="primary" fixed>จำนวนครั้งต่อวัน</ion-label>
+          <ion-col>
+            <ion-input [(ngModel)]="ThyroidMedRoundPerDay" type="number" min="0" placeholder=""></ion-input>
+          </ion-col>
+        </ion-row>
     </ion-item>
 
     <ion-item>
       <ion-label>ยากลุ่ม Beta-Blocker</ion-label>
-      <ion-select [(ngModel)]="title" placeholder="เลือก">
+      <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก">
         <ion-option value='Propranolol (10)'>Propranolol (10)</ion-option>
         <ion-option value='Propranolol (40)'>Propranolol (40)</ion-option>
         <ion-option value='Betalol (10)'>Betalol (10)</ion-option>
         <ion-option value='Atenolol (50)'>Atenolol (50)</ion-option>
         <ion-option value='อื่นๆ'>อื่นๆ</ion-option>
       </ion-select>
-      <ion-input  #flName type="text" placeholder=""></ion-input>
+      <ion-input [(ngModel)]="BetaBlockEtc" type="text" placeholder=""></ion-input>
     </ion-item>
 
 
-    <ion-item>
-      <ion-label color="primary" fixed>จำนวนยา</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนยา"></ion-input>
-
-      <ion-label color="primary" fixed>จำนวนครั้งต่อวัน</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนครั้ง"></ion-input>
+    <ion-item text-wrap>
+      <ion-label color="primary" fixed>ระบุปริมาณ</ion-label>
+        <ion-row item-content>
+          <ion-col>
+            <ion-input [(ngModel)]="BetaBlockVol" type="number" min="0" placeholder=""></ion-input>
+          </ion-col>
+          <ion-label color="primary" fixed>จำนวนครั้งต่อวัน</ion-label>
+          <ion-col>
+            <ion-input [(ngModel)]="BetaBlockRoundPerDay" type="number" min="0" placeholder=""></ion-input>
+          </ion-col>
+        </ion-row>
     </ion-item>
   </ion-card>
 
-  <button ion-button full >บันทึก</button>
+  <button ion-button full (click)=do()>บันทึก</button>
 </ion-content>
