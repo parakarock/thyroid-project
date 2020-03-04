@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Events } from 'ionic-angular';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { NurseTabsPage } from '../pages/nurse-tabs/nurse-tabs';
 
 @Component({
   templateUrl: 'app.html'

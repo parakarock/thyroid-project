@@ -43,8 +43,7 @@
         />
         <h5>ลงทะเบียนผู้ป่วยใหม่</h5>
       </a>
-
-      <a class="col col-50 text-center">
+      <a class="col col-50 text-center" (click)="onClickHealthdatahome()">
         <img
           class="img-auto"
           id="logo"
@@ -63,7 +62,7 @@
         />
         <h5>ผลการตรวจทางห้องปฏิบัติการ</h5>
       </a>
-      <a class="col col-50 text-center">
+      <a class="col col-50 text-center"  (click)="onClickPreparehome()">
         <img
           class="img-auto"
           id="logo"
@@ -76,5 +75,17 @@
   <ion-buttons>
     <button ion-button (click)="goDoctorPage()">Go to Doctor Page </button>
   </ion-buttons>
+
+      </a>
+    </ion-row>
+    <a class="col col-50 text-center"  (click)="onClicktestresult()">
+      <img
+        class="img-auto"
+        id="logo"
+        src="../../../assets/icon/Pic_Icon/P-Advice.png"
+      />
+      <h5>ผลการตรวจ</h5>
+    </a>
+  </ion-grid>
 
 </ion-content>

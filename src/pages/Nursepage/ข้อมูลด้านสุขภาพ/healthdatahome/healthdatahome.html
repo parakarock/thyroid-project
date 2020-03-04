@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ข้อมูลด้านสุขภาพ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card  (click)="general()">
+  <ion-card-header>
+    <div>ประวัติทั่วไป  
+      <ion-icon name="arrow-forward-outline"></ion-icon>      
+  </div>
+  </ion-card-header>
+</ion-card>
+
+<ion-card (click)="initially()">
+  <ion-card-header>
+    <div>อาการเริ่มแรก 
+      <ion-icon name="arrow-forward-outline"></ion-icon>     
+  </div>
+  </ion-card-header>
+</ion-card>
+
+<ion-card (click)="risky()">
+  <ion-card-header>
+    <div>ปัจจัยเสี่ยง        
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </div>
+  </ion-card-header>
+</ion-card>
+
+<ion-card (click)="taboo()">
+  <ion-card-header>
+    <div>ข้อห้ามของการกลืนแร่ 
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </div>
+  </ion-card-header>
+</ion-card>
+
+
+<ion-card (click)="history()">
+  <ion-card-header>
+    <div>ประวัติการกลืนแร่ 
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </div>
+  </ion-card-header>
+</ion-card>
+</ion-content>
+

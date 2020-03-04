@@ -20,20 +20,21 @@
     </ion-card-content>
   </ion-card> -->
 
-  <ion-card>
+  <ion-card *ngFor="let Obj of myObj">
     <ion-grid>
       <ion-row>
         <ion-col col-3>
           <img
             id="logo"
-            src="../../../assets/icon/nurse/1.png"
+            src="../../../assets/icon/Pic_Icon/{{Obj.img}}"
             class="img-thumbnail"
           />
         </ion-col>
         <ion-col col-9>
-          <p>ชื่อ</p>
-          <p>ตำแหน่ง</p>
-          <p>ติดต่อ</p>
+          <p>{{Obj.name}}</p>
+          <p>{{Obj.major}}</p>
+          <p>{{Obj.branch}}</p>
+          <p>{{Obj.hospital}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
