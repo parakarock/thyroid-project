@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>การหลีกเลี่ยงรับประทานอาหารที่มีไอโอดีนสูง</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>ผู้ป่วยควรการหลีกเลี่ยงการรับประทานอาหารที่มีไอโอดีนสูง</div>
+  <div>ก่อนการกลืนแร่เป็นเวลา 7 วัน</div>
+  <br>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+    </ion-card-header>
+    </ion-card>
+  <br>
+  <div>และสามารถกินอาหารตามปกติหลังการกลืนแร่ในวันที่ 4</div>
+  <br>
+  <ion-card>
+    <ion-card-header>
+    <ion-item>
+   <ion-input type="text" [(ngModel)]="AfterIngestion" ></ion-input>
+  </ion-item>
+  </ion-card-header>
+</ion-card>
+
+  <button ion-button >Save</button>
+</ion-content>

@@ -1,0 +1,44 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+ <div style="text-align: center;">
+  <img
+  id="logo"
+  src="../../../assets/imgs/buu.jpg"
+  class="img-responsive"
+  width="128" height="128"
+  
+/>
+
+ </div>
+  
+ <div style="text-align: center;">
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>รหัสบัตรประชาชน</ion-label>
+      <ion-input [(ngModel)]="usernameInput" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>รหัสผ่าน</ion-label>
+      <ion-input #passwordInput type="password"></ion-input>
+    </ion-item>
+    
+  </ion-list>
+  <button ion-button full (click)="onClickLoginButton()">เข้าสู่ระบบ</button>
+  <a href="" ><p style="text-align:right">ลืมพาสเวิร์ด</p></a>
+
+ </div>
+  
+</ion-content>

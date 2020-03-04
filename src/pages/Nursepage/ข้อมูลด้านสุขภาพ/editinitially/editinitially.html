@@ -1,0 +1,112 @@
+<!--
+  Generated template for the EditinitiallyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>อาการเริ่มแรก</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
+  <div>กรุณาเลือกข้อที่ท่านมีอาการดังต่อไปนี้ (เลือกได้มากกว่า1คำตอบ)</div>
+
+  <ion-item no-lines >
+    <ion-label><h3>หงุดหงิด กระสับกระส่าย วิตกกังวล นอนหลับยาก กินจุ</h3></ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="edgy"></ion-checkbox>
+  </ion-item>
+  
+  <ion-item no-lines>
+    <ion-label><h3>ขี้ร้อน เหงื่อแตก ผิวชุ่มเหงื่อ แม้อากาศจะไม่ร้อน</h3></ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="hot"></ion-checkbox>
+  </ion-item>
+  
+  <ion-item no-lines>
+    <ion-label><h3>มือสั่น</h3></ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="ShakinHands"></ion-checkbox>
+  </ion-item>
+  
+  <ion-item no-lines>
+    <ion-label><h3>คอโต</h3></ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="neck"></ion-checkbox>
+  </ion-item>
+  
+  <ion-item no-lines>
+    <ion-label><h3>คลำก้อนได้ในต่อมไทรอยด์</h3></ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="Gland"></ion-checkbox>
+  </ion-item>
+  
+  <ion-item no-lines>
+    <ion-label><h3>ตาโต หรือตาโปนมากกว่าปกติ</h3></ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="BigEyes"></ion-checkbox>
+  </ion-item>
+
+
+
+  
+<ion-grid>
+  <ion-row>
+    
+    <ion-col col-5>
+      <ion-item no-lines >
+        <ion-label input><h3>ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน (ระบุ</h3>
+        </ion-label>
+        <ion-checkbox checked="isChecked" [(ngModel)]="Shit"></ion-checkbox>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+      <ion-item no-lines>
+        <ion-card>
+          <ion-card-header>
+          <ion-item>
+         <ion-input type="text" [(ngModel)]="specify"></ion-input>
+        </ion-item>
+        </ion-card-header>
+        </ion-card>
+      </ion-item>
+      </ion-col> 
+      <ion-col col-3>
+        <ion-item no-lines >
+          <ion-label input><h3>กิโลกรัมใน 3เดือน)</h3>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+  </ion-row>
+</ion-grid>
+  
+  
+  
+  <ion-item no-lines>
+    <ion-label><h3>น้ำหนักลดแม้จะรับประทานอาหารได้</h3></ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="weight"></ion-checkbox>
+  </ion-item>
+  
+  <ion-item no-lines>
+    <ion-label><h3>(สำหรับผู้หญิง)ประจำเดือนมาน้อยครั้งแะปริมาณลดลง</h3></ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="period" ></ion-checkbox>
+  </ion-item>
+  
+  <h3>ท่านมีโรคประจำตัวอื่นๆหรือไม่</h3>
+  <ion-card>
+        <ion-card-header>
+          <ion-item>
+            <ion-label>   <p>ท่านมีโรคประจำตัวอื่นๆหรือไม่</p></ion-label>
+            <ion-select [(ngModel)]="disease">
+              <ion-option value="มี">มี</ion-option>
+              <ion-option value="ไม่มี">ไม่มี</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-card-header>
+      </ion-card>
+  
+  <ion-label color='danger'>*ถ้ามี(โปรดระบุโรค)</ion-label>
+  <ion-card text-center padding  class="block">
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="assign"></ion-input>
+    </ion-item>
+  </ion-card>
+  <button ion-button small >save</button>
+</ion-content>

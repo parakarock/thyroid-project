@@ -1,0 +1,101 @@
+<!--
+  Generated template for the EdithistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>ประวัติการกลืนแร่</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  
+
+<div>ท่านเคยรักษาด้วยแร่ไอโอดีนหรือไม่</div>
+
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-3>
+      <ion-item no-lines>
+        <ion-checkbox checked="isChecked" ></ion-checkbox>
+        <ion-label input><div>ไม่เคย</div></ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+    <ion-item no-lines>
+      <ion-label input><div>เคย (โปรดระบุ)</div>
+      </ion-label>
+      <ion-checkbox checked="isChecked" ></ion-checkbox>
+    </ion-item>
+  
+    </ion-col>
+    <ion-col col-3>
+      <ion-item no-lines>
+        <ion-card>
+          <ion-card-header>
+          <ion-item>
+         <ion-input type="text" [(ngModel)]="specify"></ion-input>
+        </ion-item>
+        </ion-card-header>
+        </ion-card>
+      </ion-item>
+      </ion-col> 
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-5>
+<div>โรงพยาบาลหรือสถาบัน</div>
+</ion-col>
+
+<ion-col col-7>
+<ion-card>
+  <ion-card-header>
+  <ion-item>
+ <ion-input type="text" [(ngModel)]="hospital"></ion-input>
+</ion-item>
+</ion-card-header>
+</ion-card>
+</ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col col-5>
+<div>วันที่กลืนแร่ </div>
+</ion-col>
+
+<ion-col col-7>
+<ion-card>
+<ion-card-header>
+<ion-item>
+<ion-input type="text" [(ngModel)]="datemineral"></ion-input>
+</ion-item>
+</ion-card-header>
+</ion-card>
+</ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col col-5>
+<div>ปริมาณ (mCi)</div>
+</ion-col>
+
+<ion-col col-7>
+<ion-card>
+<ion-card-header>
+<ion-item>
+<ion-input type="text"[(ngModel)]="amount" ></ion-input>
+</ion-item>
+</ion-card-header>
+</ion-card>
+</ion-col>
+</ion-row>
+</ion-grid>
+
+<button ion-button small >save</button>
+</ion-content>

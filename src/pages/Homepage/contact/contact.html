@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-card>
+    <img id="logo" src="../../../assets/icon/nurse/1.png" class="rounded float-left">
+    <ion-card-content >
+      <ion-card-title>
+        Nine Inch Nails Live
+        </ion-card-title>
+      <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-card *ngFor="let Obj of myObj">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <img
+            id="logo"
+            src="../../../assets/icon/Pic_Icon/{{Obj.img}}"
+            class="img-thumbnail"
+          />
+        </ion-col>
+        <ion-col col-9>
+          <p>{{Obj.name}}</p>
+          <p>{{Obj.major}}</p>
+          <p>{{Obj.branch}}</p>
+          <p>{{Obj.hospital}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  
+
+  
+</ion-content>
