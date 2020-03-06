@@ -16,7 +16,7 @@
 <ion-menu side="right" [content]="mycontent">
   <ion-content>
     <ion-list>
-      <img class="profile" src="../../../assets/icon/Pic_Icon/nurse.png" />
+      <img class="profile" src="../../../assets/icon/Pic_Icon/doctor.png" />
       <ion-item>
         <ion-label>Status</ion-label>
         <ion-select [(ngModel)]="status" interface="popover">
@@ -34,14 +34,14 @@
   <ion-title id="subtitle">เมนู</ion-title>
 
   <ion-grid>
-    <!-- <ion-row>
+     <ion-row>
       <a class="col col-50 text-center" >
         <img
           class="img-auto"
           id="logo"
           src="../../../assets/icon/Pic_Icon/P-QR.png"
         />
-        <h5>ลงทะเบียนผู้ป่วยใหม่</h5>
+        <h5>ข้อมูลด้านสุขภาพ</h5>
       </a>
 
       <a class="col col-50 text-center">
@@ -50,9 +50,9 @@
           id="logo"
           src="../../../assets/icon/Pic_Icon/P-Info.png"
         />
-        <h5>ข้อมูลด้านสุขภาพ</h5>
+        <h5>ผลการตรวจ</h5>
       </a>
-    </ion-row> -->
+    </ion-row> -
 
     <ion-row>
       <a class="col col-50 text-center" (click)="navigateIodineResult()">

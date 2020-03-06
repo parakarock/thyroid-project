@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>ผลการตรวจร่างกาย</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>วันที่</div>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+    </ion-card-header>
+    </ion-card>
+
+   
+
+  <div>เหงื่อแตก ผิวอุ่นและชื้น</div>
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="Sweat" >
+      ไม่พบ
+    </ion-label>
+    <ion-label class="radio-inline">
+      <input type="radio" name="Sweat">
+      พบ
+    </ion-label>
+  </ion-item>
+
+  <div>ผมเส้นเล็กและร่วงง่าย</div>
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="ThiHair" >
+      ไม่พบ
+    </ion-label>
+  </ion-item>
+  <ion-item no-lines>
+    <ion-label class="radio-inline">
+      <input type="radio" name="ThiHair">
+      พบ
+    </ion-label>
+  </ion-item>
+
+  <div>BW</div>
+  <ion-card>
+    <ion-card-header>
+    <ion-item>
+   <ion-input type="text" ></ion-input>
+  </ion-item>
+  </ion-card-header>
+</ion-card>
+<div>kg</div>
+
+  <div>PR</div>
+  <ion-card>
+    <ion-card-header>
+    <ion-item>
+   <ion-input type="text" ></ion-input>
+  </ion-item>
+  </ion-card-header>
+</ion-card>
+<div>bpm</div>
+
+  <div>BP</div>
+  <ion-card>
+    <ion-card-header>
+    <ion-item>
+   <ion-input type="text" ></ion-input>
+  </ion-item>
+  </ion-card-header>
+</ion-card>
+<div>/</div>
+<ion-card>
+  <ion-card-header>
+  <ion-item>
+ <ion-input type="text" ></ion-input>
+</ion-item>
+</ion-card-header>
+</ion-card>
+
+  <div>ตาโปนหรือตาโตกว่าปกติ</div>
+  
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="Eye" >
+      พบ
+    </ion-label>
+  </ion-item>
+
+  <div>ระบุ</div>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-select [(ngModel)]="specify">
+          <ion-option value="น้อย">น้อย</ion-option>
+          <ion-option value="ปานกลาง">ปานกลาง</ion-option>
+          <ion-option value="มาก">มาก</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-header>
+  </ion-card>
+
+  <div>ส่งปรึกษาจักษุแพทย์</div>
+  <div>ชื่อจักษุแพทย์</div>
+  <ion-card>
+    <ion-card-header>
+    <ion-item>
+   <ion-input type="text" ></ion-input>
+  </ion-item>
+  </ion-card-header>
+  </ion-card>
+  <div>วันที่</div>
+  <ion-card>
+    <ion-card-header>
+    <ion-item>
+   <ion-input type="text" ></ion-input>
+  </ion-item>
+  </ion-card-header>
+  </ion-card>
+  <div>ไฟล์ผลการตรวจ</div>
+  <button ion-button  >อัปโหลดไฟล์</button>
+  <div>ผลการวินิจฉัย</div>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-select [(ngModel)]="diagnose">
+          <ion-option value="สามารถกลืนแร่ได้">สามารถกลืนแร่ได้</ion-option>
+          <ion-option value="ไม่สามารถกลืนแร่ได้">ไม่สามารถกลืนแร่ได้</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-header>
+  </ion-card>
+  <div>การรักษา</div>
+  <ion-card>
+    <ion-card-header>
+    <ion-item>
+   <ion-input type="text" ></ion-input>
+  </ion-item>
+  </ion-card-header>
+  </ion-card>
+  <button ion-button >Save</button>
+
+  
+</ion-content>

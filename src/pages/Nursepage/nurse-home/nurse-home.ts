@@ -1,12 +1,12 @@
 import { DoctorHomePage } from '../../Doctorpage/doctor-home/doctor-home';
-import { LabtestresultPage } from '../labtestresult/labtestresult';
+import { LabtestresultPage } from '../ผลการตรวจทางห้องแลป/labtestresult/labtestresult';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { HomePage} from '../../Homepage/home/home'
 import { HealthdatahomePage } from '../ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome';
 import { PreparehomePage } from '../ขั้นตอนการเตรียมตัว/preparehome/preparehome';
-import { TestresultPage } from '../ผลการตรวจ/testresult/testresult';
+import { LoginPage } from '../../Homepage/login/login';
 
 /**
  * Generated class for the NurseHomePage page.
@@ -37,6 +37,11 @@ export class NurseHomePage {
     this.navCtrl.setRoot(HomePage);
   }
 
+  
+  ChangePass(){
+    this.navCtrl.push(LoginPage);
+  }
+
   navigateToLabTest(){
     this.navCtrl.push(LabtestresultPage);
   }
@@ -51,7 +56,5 @@ export class NurseHomePage {
   onClickPreparehome(){
     this.navCtrl.push(PreparehomePage);
   }
-  onClicktestresult(){
-    this.navCtrl.push(TestresultPage);
-  }
+
 }

@@ -1,26 +1,16 @@
-<!--
-  Generated template for the EditcontraceptivePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="1">
     <ion-title>การคุมกำเนิด</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6>
-        <div>ผู้ป่วยคุมกำเนิดหรือไม่</div>
-      </ion-col>
-      <ion-col col-6>
-        <ion-card>
-          <ion-card-header>
-            <ion-item>
-              <ion-select [(ngModel)]="patient">
+ 
+        
+        
+            <ion-item >
+              <ion-label color="dark">ผู้ป่วยคุมกำเนิดหรือไม่</ion-label>
+              <ion-select [(ngModel)]="patient" placeholder=เลือก>
                 <ion-option value="ไม่ได้คุม">ไม่ได้คุม</ion-option>
                 <ion-option value="รับประทานยาคุมกำเนิด">รับประทานยาคุมกำเนิด</ion-option>
                 <ion-option value="ฉีดยาคุมกำเนิด">ฉีดยาคุมกำเนิด</ion-option>
@@ -29,124 +19,57 @@
                 <ion-option value="หมดประจำเดือน">หมดประจำเดือน</ion-option>
               </ion-select>
             </ion-item>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-4>
-        <div>คุมกำเนิด</div>
-      </ion-col>
-      <ion-col col-3>
-        <ion-card>
-          <ion-card-header>
-          <ion-item>
-         <ion-input type="text" [(ngModel)]="contraceptive"></ion-input>
-        </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-3>
-        <ion-card>
-          <ion-card-header>
-            <ion-item>
-              <ion-select [(ngModel)]="monthyear">
+    
+            <ion-item >
+              <ion-label color="dark">คุมกำเนิด</ion-label>
+              <ion-input type="text" [(ngModel)]="contraceptive"></ion-input>
+              <ion-select [(ngModel)]="monthyear" placeholder="เลือก">
                 <ion-option value="เดือน">เดือน</ion-option>
                 <ion-option value="ปี">ปี</ion-option>
               </ion-select>
             </ion-item>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-      <ion-col col-2>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-6>
-        <div>ประจำเดือนครั้งสุดท้ายของท่าน</div>
-      </ion-col>
-      <ion-col col-6>
-        <ion-card>
-          <ion-card-header>
+            
             <ion-item>
-              <ion-label>Date</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+              <ion-label color="dark">ประจำเดือนครั้งสุดท้ายของท่าน</ion-label>
+              <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
             </ion-item>
-          </ion-card-header>
-          </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-4>
-        <div>จำนวน</div>
-      </ion-col>
-      <ion-col col-3>
-        <ion-card>
-          <ion-card-header>
-          <ion-item>
-         <ion-input type="text" [(ngModel)]="number"></ion-input>
-        </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-3>
-        <div>วัน</div>
-      </ion-col>
-      <ion-col col-2>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
- 
-  <div >กรณีที่ผู้ป่วยมีเพศสัมพันธ์แต่ไม่ได้คุมกำเนิดหรือประจำเดือนมาไม่สม่ำเสมอ ผู้ป่วยจะต้องเก็บปัสสาวะเพื่อตรวจการตั้งครรภ์</div>
-<ion-grid>
-  <ion-row>
-    <ion-col col-8>
-      <h2>ผลตรวจ UPT</h2>
-    </ion-col>
-    <ion-col col-4>
-     <ion-item no-lines> 
-       <ion-icon name="add-circle" (click)="addcontraceptive()" ></ion-icon>
-    </ion-item>
-     
 
-   
-     
-    </ion-col>
-  </ion-row>
-</ion-grid>
+            <ion-item >
+              <ion-label color="dark">จำนวน</ion-label>
+              <ion-row item-content>
+            <ion-col>
+              <ion-input type="text" [(ngModel)]="number"></ion-input>
+            </ion-col>
+              <div><ion-label color="dark">วัน</ion-label></div>
+          </ion-row>
+            </ion-item>
+
+            <div padding></div>
+            <ion-item no-lines>
+              <ion-label color="dark">กรณีที่ผู้ป่วยมีเพศสัมพันธ์แต่ไม่ได้คุมกำเนิดหรือประจำเดือนมาไม่สม่ำเสมอ ผู้ป่วยจะต้องเก็บปัสสาวะเพื่อตรวจการตั้งครรภ์</ion-label>
+            </ion-item>
+
+            <ion-item no-lines> 
+            <h2>ผลตรวจ UPT</h2>
+            <ion-icon name="add-circle" float-right large round (click)="addcontraceptive()" color="1"></ion-icon>
+            </ion-item>
+
   
 
 <ion-card >
   <ion-card-header>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-2>
-          <div>UPT </div>
-        </ion-col>
-        <ion-col col-4>
-          <div>วันที่ </div>
-        </ion-col>
-        <ion-col col-6>
-          <div>DD/MM/YYYY</div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-2>
-          <div>ผลการตรวจ</div>
-        </ion-col>
-        <ion-col col-4>
-    
-        </ion-col>
-        <ion-col col-4>
-          <div>negative</div>
-        </ion-col>
-        <ion-col col-2>
-          <button ion-button (click)="addcontraceptive()">Edit</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-   
+   <ion-item >
+          <ion-label color="dark">UPT </ion-label>
+          <ion-label color="dark">วันที่ </ion-label>
+          <ion-label color="dark">DD/MM/YYYY </ion-label>
+      </ion-item>
+      <button ion-button  float-right large round (click)="addcontraceptive()">Edit</button>
+      <ion-item >
+          <ion-label color="dark">ผลการตรวจ </ion-label>
+          <ion-label color="dark">negative </ion-label>
+        </ion-item>
+        
+     
   </ion-card-header>
 </ion-card>
 <button ion-button >Save</button>

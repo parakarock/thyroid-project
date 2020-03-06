@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title >ลงทะเบียนผู้ป่วยใหม่</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">ส่งตัวมาจากโรงพยาบาล</ion-label>
+      <ion-select [(ngModel)]="item" placeholder="เลือก">
+        <ion-option value='1'>1</ion-option>
+        <ion-option value='2'>2</ion-option>
+        <ion-option value='3'>3</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed color="dark">กรุณาระบุ</ion-label>
+      <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed color="dark">HN</ion-label>
+      <ion-input  #ltName type="text" placeholder="ภาษาไทย"></ion-input>
+    </ion-item>
+    
+      <ion-item>
+        <ion-label undefined color="dark">โรงพยาบาลมหาวิทยาลัยบูรพา HN</ion-label>
+        <ion-input  #ltName type="text" placeholder="ภาษาไทย" value=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark">โรงพยาบาลที่ส่งตัวกลับ</ion-label>
+        <ion-select [(ngModel)]="item2" placeholder="เลือก">
+          <ion-option value='1'>1</ion-option>
+          <ion-option value='2'>2</ion-option>
+          <ion-option value='3'>3</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label fixed color="dark">กรุณาระบุ</ion-label>
+        <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed color="dark">HN</ion-label>
+        <ion-input  #ltName type="text" placeholder="ภาษาไทย"></ion-input>
+      </ion-item>
+      
+  </ion-list>
+  <button ion-button small color="1">ยืนยันการสมัคร</button>
+</ion-content>

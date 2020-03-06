@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 
 import { Http, Headers, RequestOptions, ResponseOptions } from "@angular/http";
 import "rxjs/add/operator/map";
+import { RegistersPage } from "../registers/registers";
 // import "rxjs/add/operator/catch";
 
 
@@ -62,6 +63,8 @@ export class RegisterPage {
       },error=>{
         console.log(error);
       });
+
+      this.navCtrl.push(RegistersPage)
      
   //   this.http
   //     .get("http://localhost:3000/", data)

@@ -5,31 +5,38 @@
 </ion-header>
 
 <ion-content padding>
-  <div>สำหรับผู้ป่วยที่ใช้วิธีการประมาณ</div>
- <br>
-  <div>1.ผู้ป่วยควรรับประทานอาหารหรือของทานเล่น ก่อนเวลา </div>
-  <ion-card>
-    <ion-card-header>
-    <ion-item>
-   <ion-input type="text" [(ngModel)]="eat"></ion-input>
+ 
+ <ion-item no-lines>
+  <ion-label  color="dark">สำหรับผู้ป่วยที่ใช้วิธีการประมาณ </ion-label>
+</ion-item>
+
+<ion-item no-lines>
+<ion-label color="dark">1.ผู้ป่วยควรรับประทานอาหารหรือของทานเล่น ก่อนเวลา</ion-label>
+<ion-row item-content>
+<ion-col>
+<ion-input type="text" [(ngModel)]="eat"></ion-input>
+</ion-col>
+<div><ion-label color="dark">น.</ion-label></div>
+</ion-row>
+</ion-item>
+
+<ion-item no-lines>
+  <ion-label color="dark">2.ผู้ป่วยควรติดต่อที่ห้องกลืนแร่ งานรังสีฯ รพ.มหาวิทยาลัยบูรพา เวลา</ion-label>
+  <ion-row item-content>
+  <ion-col>
+  <ion-input type="text" [(ngModel)]="time"></ion-input>
+  </ion-col>
+  <div><ion-label color="dark">น.</ion-label></div>
+  </ion-row>
   </ion-item>
-  </ion-card-header>
-</ion-card>
-<div>น.</div>
-  <br>
-  <div>2.ผู้ป่วยควรติดต่อที่ห้องกลืนแร่ งานรังสีฯ รพ.มหาวิทยาลัยบูรพา เวลา </div>
-  <ion-card>
-    <ion-card-header>
-    <ion-item>
-   <ion-input type="text" [(ngModel)]="time"></ion-input>
+
+  <ion-item no-lines>
+    <ion-label  color="dark">3.ระหว่างรอกลืนแร่ ผู้ป่วยควรงดอาหารและของทานเล่นอย่างน้อย 6 ชั่วโมงก่อนการกลืนแร่ แต่สามารถดื่มน้ำเปล่าและน้ำหวานที่ห้องกลืนแร่เตรียมไว้ให้ </ion-label>
   </ion-item>
-  </ion-card-header>
-</ion-card>
-<div>น.</div>
-  <br>
-  <div>3.ระหว่างรอกลืนแร่ ผู้ป่วยควรงดอาหารและของทานเล่นอย่างน้อย 6 ชั่วโมงก่อนการกลืนแร่ แต่สามารถดื่มน้ำเปล่าและน้ำหวานที่ห้องกลืนแร่เตรียมไว้ให้
-  </div>
-  <br>
-  <div>4.ผู้ป่วยควรรออย่างน้อย 30 นาทีหลังจากกลืนแคปซูลบรรจุแร่ก่อนเริ่มรับประทานอาหารหรือของทานเล่น </div>
-  <button ion-button >Save</button>
+
+  <ion-item no-lines>
+    <ion-label color="dark">4.ผู้ป่วยควรรออย่างน้อย 30 นาทีหลังจากกลืนแคปซูลบรรจุแร่ก่อนเริ่มรับประทานอาหารหรือของทานเล่น</ion-label>
+  </ion-item>
+  
+  <button ion-button color="1">Save</button>
 </ion-content>

@@ -1,3 +1,24 @@
 page-edithistory {
-    
+    div{
+        font-size:  15px;
+     }
+
+    ion-list{
+        width: 70%;
+    }
+    .button{
+        font-size: 15px;
+    }
+    @media only screen and (min-width: 1024px) {
+     
+        ion-list{
+            width: 30%;
+        }
+        div{
+            font-size:  20px;
+         }
+         .button{
+            font-size: 20px;
+        }
+}
 }

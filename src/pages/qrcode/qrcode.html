@@ -1,0 +1,21 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>qrcode</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<div>
+    <ion-input style="background-color: grey" type="text" [(ngModel)]="encodText"></ion-input>
+  <button ion-button block (click)="encode()">encode</button>
+</div>
+<div >
+<button ion-button block (click)="Scan()">Scan</button>
+<div *ngIf="scannedData.text"> 
+ <label >Your barcode is</label>
+ <br>
+ <span>{{scannedData.text}}</span>
+</div>
+</div>
+</ion-content>

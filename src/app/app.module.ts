@@ -1,4 +1,4 @@
-import { EditlabtestPage } from '../pages/Nursepage/editlabtest/editlabtest';
+import { EditlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/editlabtest/editlabtest';
 import { EdittreatmentresultPage } from '../pages/Doctorpage/edittreatmentresult/edittreatmentresult';
 import { AddtreatmentresultPage } from '../pages/Doctorpage/addtreatmentresult/addtreatmentresult';
 import { FollowuptreatmentresultPage } from '../pages/Doctorpage/followuptreatmentresult/followuptreatmentresult';
@@ -6,8 +6,8 @@ import { EditiodineresultdetailPage } from '../pages/Doctorpage/editiodineresult
 import { IodineresultdetailPage } from '../pages/Doctorpage/iodineresultdetail/iodineresultdetail';
 import { IodineresultPage } from '../pages/Doctorpage/iodineresult/iodineresult';
 import { DoctorHomePage } from '../pages/Doctorpage/doctor-home/doctor-home';
-import { LabtestresultPage } from '../pages/Nursepage/labtestresult/labtestresult';
-import { AddlabtestPage } from './../pages/Nursepage/addlabtest/addlabtest';
+import { LabtestresultPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/labtestresult/labtestresult';
+import { AddlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/addlabtest/addlabtest';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -29,6 +29,7 @@ import { NurseTabsPage } from '../pages/nurse-tabs/nurse-tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegisterProvider } from '../providers/register/register';
+import { RegistersPage } from "../pages/Nursepage/registers/registers";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -56,19 +57,19 @@ import { EditdataswallowPage } from '../pages/Nursepage/ขั้นตอนก
 import { AddcontraceptivePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/addcontraceptive/addcontraceptive';
 import { EditdatePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/editdate/editdate';
 
-import { TestresultPage} from '../pages/Nursepage/ผลการตรวจ/testresult/testresult';
-import { PhysicalPage} from '../pages/Nursepage/ผลการตรวจ/physical/physical';
-import { PhysicalsPage} from '../pages/Nursepage/ผลการตรวจ/physicals/physicals';
-import { LabPage} from '../pages/Nursepage/ผลการตรวจ/lab/lab';
-import { RadiographicPage} from '../pages/Nursepage/ผลการตรวจ/radiographic/radiographic';
-import { RadiographicsPage} from '../pages/Nursepage/ผลการตรวจ/radiographics/radiographics';
-import { ExaminationPage} from '../pages/Nursepage/ผลการตรวจ/examination/examination';
-import { BiopsyPage} from '../pages/Nursepage/ผลการตรวจ/biopsy/biopsy';
-import { EditphysicalPage} from '../pages/Nursepage/ผลการตรวจ/editphysical/editphysical';
-import { EditphysicalsPage} from '../pages/Nursepage/ผลการตรวจ/editphysicals/editphysicals';
-import { EditlabPage} from '../pages/Nursepage/ผลการตรวจ/editlab/editlab';
-import { EditbiopsyPage} from '../pages/Nursepage/ผลการตรวจ/editbiopsy/editbiopsy';
-import { DiagnosticResultsPage} from '../pages/Nursepage/ผลการตรวจ/diagnostic-results/diagnostic-results';
+import { TestresultPage} from '../pages/Doctorpage/ผลการตรวจ/testresult/testresult';
+import { PhysicalPage} from '../pages/Doctorpage/ผลการตรวจ/physical/physical';
+import { PhysicalsPage} from '../pages/Doctorpage/ผลการตรวจ/physicals/physicals';
+import { LabPage} from '../pages/Doctorpage/ผลการตรวจ/lab/lab';
+import { RadiographicPage} from '../pages/Doctorpage/ผลการตรวจ/radiographic/radiographic';
+import { RadiographicsPage} from '../pages/Doctorpage/ผลการตรวจ/radiographics/radiographics';
+import { ExaminationPage} from '../pages/Doctorpage/ผลการตรวจ/examination/examination';
+import { BiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/biopsy/biopsy';
+import { EditphysicalPage} from '../pages/Doctorpage/ผลการตรวจ/editphysical/editphysical';
+import { EditphysicalsPage} from '../pages/Doctorpage/ผลการตรวจ/editphysicals/editphysicals';
+import { EditlabPage} from '../pages/Doctorpage/ผลการตรวจ/editlab/editlab';
+import { EditbiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/editbiopsy/editbiopsy';
+import { DiagnosticResultsPage} from '../pages/Doctorpage/ผลการตรวจ/diagnostic-results/diagnostic-results';
 import { GlobalProvider } from '../providers/global/global';
 
 @NgModule({
@@ -80,6 +81,7 @@ import { GlobalProvider } from '../providers/global/global';
     TabsPage,
     LoginPage,
     RegisterPage,
+    RegistersPage,
     NurseHomePage,
     NurseTabsPage,
     AddlabtestPage,
@@ -146,6 +148,7 @@ import { GlobalProvider } from '../providers/global/global';
     TabsPage,
     LoginPage,
     RegisterPage,
+    RegistersPage,
     NurseHomePage,
     NurseTabsPage,
     AddlabtestPage,
