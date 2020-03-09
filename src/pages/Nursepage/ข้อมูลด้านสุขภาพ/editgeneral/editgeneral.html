@@ -1,177 +1,106 @@
-<!--
-  Generated template for the EditgeneralPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="1">
     <ion-title>ประวัติทั่วไป</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<ion-grid>
-  <ion-row>
-    <ion-col col-3>
-    <div>คำนำหน้า</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-          <ion-item>
-            <ion-label>คำนำหน้า</ion-label>
-            <ion-select [(ngModel)]="title">
-              <ion-option value="นาย">นาย</ion-option>
-              <ion-option value="นาง">นาง</ion-option>
-              <ion-option value="นางสาว">นางสาว</ion-option>
-              <ion-option value="เด็กหญิง">เด็กหญิง</ion-option>
-              <ion-option value="เด็กชาย">เด็กชาย</ion-option>
-             
-            </ion-select>
-          </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-      </ion-col>
-  </ion-row>
+  
+  <ion-list >
+  <ion-item >
+    <ion-label color="dark">คำนำหน้า</ion-label>
+    <ion-select [(ngModel)]="nametitle" placeholder=เลือก>
+      <ion-option value='นาย'>นาย </ion-option>
+      <ion-option value='นาง'>นาง </ion-option>
+      <ion-option value='นางสาว'>นางสาว</ion-option>
+      <ion-option value='เด็กหญิง'>เด็กหญิง</ion-option>
+      <ion-option value='เด็กชาย'>เด็กชาย</ion-option>
+    </ion-select>
+  </ion-item>
 
-  <ion-row>
-    <ion-col col-3>
-    <div >ชื่อ</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-           <ion-input type="text" [(ngModel)]="fname"></ion-input>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-        
-        </ion-col>
-  </ion-row>
+  <ion-item >
+    <ion-label  color="dark">ชื่อ</ion-label>
+    <ion-input [(ngModel)]="fname" type="text" placeholder=""></ion-input>
+  </ion-item>
 
-  <ion-row>
-    <ion-col col-3>
-    <div>นามสกุล</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-           <ion-input type="text" [(ngModel)]="lname" ></ion-input>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-        
-        </ion-col>
-  </ion-row>
+  <ion-item >
+    <ion-label  color="dark">นามสกุล</ion-label>
+    <ion-input [(ngModel)]="fname" type="text" placeholder=""></ion-input>
+  </ion-item>
 
-  <ion-row>
-    <ion-col col-3>
-    <div>วัน/เดือน/ปีเกิด</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-          <ion-label>Date</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
+    <ion-item >
+      <ion-label color="dark">วัน/เดือน/ปีเกิด</ion-label>
+      <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
+    </ion-item>
 
-      </ion-col>
-      <ion-col col-2>
-        </ion-col>
-  </ion-row>
+    <ion-item >
+      <ion-label  color="dark">เลขบัตรประชาชน</ion-label>
+      <ion-input [(ngModel)]="idcard" type="text" placeholder=""></ion-input>
+    </ion-item>
 
-  <ion-row>
-    <ion-col col-3>
-    <div>เลขบัตรประจำตัวประชาชน</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-           <ion-input type="text" [(ngModel)]="idcard" ></ion-input>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-        </ion-col>
-  </ion-row>
+    <ion-item >
+      <ion-label color="dark">เพศ</ion-label>
+      <ion-select [(ngModel)]="gender" placeholder=เลือก>
+        <ion-option value='ชาย'>ชาย </ion-option>
+        <ion-option value='หญิง'>หญิง </ion-option>
+        <ion-option value='ไม่ระบุ'>ไม่ระบุ</ion-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-row>
-    <ion-col col-3>
-    <div>เพศ</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-          <ion-item>
-            <ion-label>เพศ</ion-label>
-            <ion-select [(ngModel)]="gender">
-              <ion-option value="ชาย">ชาย</ion-option>
-              <ion-option value="หญิง">หญิง</ion-option>
-              <ion-option value="ไม่ระบุ">ไม่ระบุ</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-      </ion-col>
-  </ion-row>
+    <ion-item >
+      <ion-label  color="dark">สัญชาติ</ion-label>
+      <ion-input [(ngModel)]="national" type="text" placeholder=""></ion-input>
+    </ion-item>
 
-  <ion-row>
-    <ion-col col-3>
-    <div>สัญชาติ</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-           <ion-input type="text"  [(ngModel)]="national"></ion-input>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-        </ion-col>
-  </ion-row>
+    <ion-item >
+      <ion-label color="dark">สถานะ</ion-label>
+      <ion-select [(ngModel)]="status" placeholder=เลือก>
+        <ion-option value='โสด'>โสด </ion-option>
+        <ion-option value='คู่'>คู่ </ion-option>
+        <ion-option value='หย่า'>หย่า</ion-option>
+        <ion-option value='คู่สมรสเสียชีวิต'>คู่สมรสเสียชีวิต</ion-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-row>
-    <ion-col col-3>
-    <div>สถานะ</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-          <ion-item>
-            <ion-label>สถานะ</ion-label>
-            <ion-select [(ngModel)]="status">
-              <ion-option value="โสด">โสด</ion-option>
-              <ion-option value="คู่">คู่</ion-option>
-              <ion-option value="หย่า">หย่า</ion-option>
-              <ion-option value="คู่สมรสเสียชีวิต">คู่สมรสเสียชีวิต</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-      </ion-col>
-  </ion-row>
+    <ion-item >
+      <ion-label color="dark">ส่งตัวมาจากโรงพยาบาล</ion-label>
+      <ion-select [(ngModel)]="hospitalinput" placeholder=เลือก>
+        <ion-option value='item1'>item1 </ion-option>
+        <ion-option value='item2'>item2 </ion-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-row>
+    <ion-item >
+      <ion-label  color="dark">HN</ion-label>
+      <ion-input [(ngModel)]="hninput" type="text" placeholder=""></ion-input>
+    </ion-item>
+
+    <ion-item >
+      <ion-label  color="dark" style="margin-right: auto ;">โรงพยาบาลบูรพา HN</ion-label>
+      <ion-input [(ngModel)]="hnbuu" type="text" placeholder=""></ion-input>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="dark">โรงพยาบาลส่งตัวกลับ</ion-label>
+      <ion-select [(ngModel)]="hospitaloutput" placeholder=เลือก>
+        <ion-option value='item1'>item1 </ion-option>
+        <ion-option value='item2'>item2 </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="dark">HN</ion-label>
+      <ion-input [(ngModel)]="hnoutput" type="text" placeholder=""></ion-input>
+    </ion-item>
+
+    <ion-item >
+      <ion-label  color="dark">เบอร์โทรศัพท์ที่ติดต่อได้</ion-label>
+      <ion-input [(ngModel)]="tel" type="text" placeholder=""></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- <ion-row>
     <ion-col col-3>
     <div>ส่งตัวมาจากโรงพยาบาล</div>
     </ion-col>
@@ -181,7 +110,7 @@
           <ion-item>
             <ion-label>ส่งตัวมาจากโรงพยาบาล</ion-label>
             <ion-select [(ngModel)]="input">
-              <!-- <ion-option value={{obj.hos}}>{{obj.hos}}</ion-option> -->
+              <ion-option value={{obj.hos}}>{{obj.hos}}</ion-option> 
             </ion-select>
           </ion-item>
         </ion-card-header>
@@ -189,97 +118,7 @@
       </ion-col>
       <ion-col col-2>
       </ion-col>
-  </ion-row>
+  </ion-row> -->
 
-  <ion-row>
-    <ion-col col-3>
-    <div>HN</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-           <ion-input type="text" [(ngModel)]="hninput"></ion-input>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-        </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col col-3>
-    <div>โรงพยาบาลมหาวิทยาลัยบูรพา HN</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-           <ion-input type="text" [(ngModel)]="hnbuu"></ion-input>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-        </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col col-3>
-    <div>โรงพยาบาลส่งตัวกลับ</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-          <ion-item>
-            <ion-label>โรงพยาบาลส่งตัวกลับ</ion-label>
-            <ion-select [(ngModel)]="output">
-              <ion-option value="1">item1</ion-option>
-              <ion-option value="2">item2</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-      </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col col-3>
-    <div>HN</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-           <ion-input type="text" [(ngModel)]="hnoutput"></ion-input>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-        </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col col-3>
-    <div>เบอร์โทรศัพท์ที่ติดต่อได้</div>
-    </ion-col>
-    <ion-col col-7>
-      <ion-card>
-        <ion-card-header>
-         <ion-item>
-           <ion-input type="text" [(ngModel)]="tel"></ion-input>
-         </ion-item>
-        </ion-card-header>
-      </ion-card>
-      </ion-col>
-      <ion-col col-2>
-        </ion-col>
-  </ion-row>
-</ion-grid>
-
-<button ion-button small >save</button>
+<button ion-button color="1" >บันทึก</button>
 </ion-content>

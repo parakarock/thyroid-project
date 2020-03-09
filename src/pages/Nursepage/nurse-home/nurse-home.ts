@@ -1,15 +1,17 @@
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
-import { LabtestresultPage } from "../labtestresult/labtestresult";
+import { LabtestresultPage } from "../../Nursepage/ผลการตรวจทางห้องแลป/labtestresult/labtestresult";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams, Events } from "ionic-angular";
 import { RegisterPage } from "../register/register";
 import { HomePage } from "../../Homepage/home/home";
 import { HealthdatahomePage } from "../ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome";
 import { PreparehomePage } from "../ขั้นตอนการเตรียมตัว/preparehome/preparehome";
-import { TestresultPage } from "../ผลการตรวจ/testresult/testresult";
+import { TestresultPage } from "../../Doctorpage/ผลการตรวจ/testresult/testresult";
 import { GlobalProvider } from "../../../providers/global/global";
+import { QrscanPage } from '../../qrscan/qrscan';
 
 
+import { ChangepassPage } from '../../changepass/changepass';
 /**
  * Generated class for the NurseHomePage page.
  *
@@ -55,6 +57,16 @@ export class NurseHomePage {
   goDoctorPage() {
     this.navCtrl.push(DoctorHomePage);
   }
+  
+  ChangePass(){
+    this.navCtrl.push(ChangepassPage);
+  }
+
+
+
+  // goDoctorPage(){
+  //   this.navCtrl.push(DoctorHomePage);
+  // }
 
   onClickHealthdatahome() {
     this.navCtrl.push(HealthdatahomePage);
@@ -69,4 +81,12 @@ export class NurseHomePage {
   onChange($event) {
     console.log($event);
   }
+
+  qrcode(){
+    this.navCtrl.push(QrscanPage);
+    // if(this.role){
+
+    // }
+  }
+
 }

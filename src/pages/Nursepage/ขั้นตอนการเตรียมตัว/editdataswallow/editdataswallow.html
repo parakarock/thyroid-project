@@ -5,31 +5,39 @@
 </ion-header>
 
 <ion-content padding>
-  <div>สำหรับผู้ป่วยที่ใช้วิธีการประมาณ</div>
- <br>
-  <div>1.ผู้ป่วยควรรับประทานอาหารหรือของทานเล่น ก่อนเวลา </div>
-  <ion-card>
-    <ion-card-header>
-    <ion-item>
-   <ion-input type="text" [(ngModel)]="eat"></ion-input>
+ 
+ <ion-item no-lines>
+  <ion-label  color="dark">สำหรับผู้ป่วยที่ใช้วิธีการประมาณ </ion-label>
+</ion-item>
+
+<ion-item no-lines>
+  <ion-row item-content>
+  <div>1.ผู้ป่วยควรรับประทานอาหารหรือของทานเล่น ก่อนเวลา</div>
+      <ion-col  col-5>
+        <ion-input [(ngModel)]="eat"  type="number" min="0" placeholder=""></ion-input>
+      </ion-col >
+      <ion-label color="dark">นาฬิกา</ion-label>
+    </ion-row>
+</ion-item>
+
+  <ion-item no-lines>
+    <ion-row item-content>
+    <div>2.ผู้ป่วยควรติดต่อที่ห้องกลืนแร่ งานรังสีฯ รพ.มหาวิทยาลัยบูรพา เวลา</div>
+        <ion-col  col-5>
+          <ion-input [(ngModel)]="hos"  type="number" min="0" placeholder=""></ion-input>
+        </ion-col >
+        <ion-label color="dark" >นาฬิกา</ion-label>
+      </ion-row>
   </ion-item>
-  </ion-card-header>
-</ion-card>
-<div>น.</div>
-  <br>
-  <div>2.ผู้ป่วยควรติดต่อที่ห้องกลืนแร่ งานรังสีฯ รพ.มหาวิทยาลัยบูรพา เวลา </div>
-  <ion-card>
-    <ion-card-header>
-    <ion-item>
-   <ion-input type="text" [(ngModel)]="time"></ion-input>
-  </ion-item>
-  </ion-card-header>
-</ion-card>
-<div>น.</div>
-  <br>
-  <div>3.ระหว่างรอกลืนแร่ ผู้ป่วยควรงดอาหารและของทานเล่นอย่างน้อย 6 ชั่วโมงก่อนการกลืนแร่ แต่สามารถดื่มน้ำเปล่าและน้ำหวานที่ห้องกลืนแร่เตรียมไว้ให้
-  </div>
-  <br>
-  <div>4.ผู้ป่วยควรรออย่างน้อย 30 นาทีหลังจากกลืนแคปซูลบรรจุแร่ก่อนเริ่มรับประทานอาหารหรือของทานเล่น </div>
-  <button ion-button >Save</button>
+
+  <ion-item no-lines>
+    <div>3.ระหว่างรอกลืนแร่ ผู้ป่วยควรงดอาหารและของทานเล่นอย่างน้อย6 ชั่วโมงก่อนการกลืนแร่ แต่สามารถดื่มน้ำเปล่าและน้ำหวานที่ห้องกลืนแร่เตรียมไว้ให้ </div>
+  </ion-item> 
+    <ion-item no-lines>
+    <div>4.ผู้ป่วยควรรออย่างน้อย 30 นาทีหลังจากกลืนแคปซูลบรรจุแร่ก่อนเริ่มรับประทานอาหารหรือของทานเล่น </div>
+    </ion-item>
+
+
+  
+  <button ion-button color="1">บันทึก</button>
 </ion-content>

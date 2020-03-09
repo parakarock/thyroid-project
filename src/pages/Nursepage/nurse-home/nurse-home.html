@@ -1,34 +1,43 @@
-<!--
-  Generated template for the NurseHomePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar color="1">
-    <ion-title >หน้าหลัก</ion-title>
+  <ion-navbar color="1" >
+    <ion-title>เมนู</ion-title>
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
 </ion-header>
 
-<ion-menu side="right" [content]="mycontent">
+<ion-menu side="right" [content]="mycontent" >
   <ion-content>
     <ion-list>
+      <br>
       <img class="profile" src="../../../assets/icon/Pic_Icon/nurse.png" />
-      <ion-item>นายหกหกหก ดเดก้ดกเ</ion-item>
+      
+        <h3>นางแสนสุข ใจดี</h3>
+        
+        <ion-item>
+          <ion-label>รักษาครั้งที่</ion-label>
+          <ion-select [(ngModel)]="number" interface="popover">
+            <ion-option value="1">1</ion-option>
+            <ion-option value="2">2</ion-option>
+          </ion-select>
+        </ion-item>
+     
       <ion-item>
         <ion-label>Status</ion-label>
-        <ion-select interface="popover" *ngFor="let Obj of role" (ionChange)="onChange($event)">
-          <ion-option value="{{Obj.role_name}}">{{Obj.role_name}}</ion-option>
+        <ion-select [(ngModel)]="status" interface="popover">
+          <ion-option value="nu">Nurse</ion-option>
+          <ion-option value="doc">Docter</ion-option>
+          <ion-option value="Pac">Patient</ion-option>
         </ion-select>
       </ion-item>
-      <button ion-item (click)="onClickLogoutButton()">ออกจากระบบ</button>
+
+      <button ion-item (click)="ChangePass()" color="2">เปลี่ยนรหัสผ่าน</button>
+      <button ion-item (click)="onClickLogoutButton()" color="2">ออกจากระบบ</button>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-nav #mycontent [root]="rootPage"></ion-nav>
+<ion-nav #mycontent [root]="rootPage" ></ion-nav>
 
 <ion-content padding>
   <ion-title id="subtitle">เมนู</ion-title>
@@ -42,9 +51,9 @@
         <img
           class="img-auto"
           id="logo"
-          src="../../../assets/icon/Pic_Icon/P-QR.png"
+          src="../../../assets/icon/Pic_Icon/N_Regis.png"
         />
-        <h5>ลงทะเบียนผู้ป่วยใหม่</h5>
+        <h5 >ลงทะเบียนผู้ป่วยใหม่</h5>
       </a>
       <a class="col col-50 text-center" (click)="onClickHealthdatahome()">
         <img
@@ -76,7 +85,11 @@
     >
   </ion-grid>
 
-  <a class="col col-50 text-center" (click)="onClicktestresult()">
+
+
+
+ 
+  <!-- <a class="col col-50 text-center"  (click)="onClicktestresult()">
     <img
       class="img-auto"
       id="logo"
@@ -86,6 +99,6 @@
   </a>
 
   <ion-buttons>
-    <button ion-button (click)="goDoctorPage()">Go to Doctor Page</button>
-  </ion-buttons>
+    <button ion-button (click)="goDoctorPage()">Go to Doctor Page </button>
+  </ion-buttons> -->
 </ion-content>

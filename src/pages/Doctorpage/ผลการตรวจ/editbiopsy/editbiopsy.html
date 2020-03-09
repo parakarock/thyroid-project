@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>ผลการเจาะตรวจชิ้นเนื้อ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item >
+    <ion-label  color="dark">ลำดับก้อน</ion-label>
+    <ion-input [(ngModel)]="order" type="text" placeholder=""></ion-input>
+  </ion-item>
+  
+  <ion-item >
+    <ion-label color="dark">วันที่ตรวจ</ion-label>
+    <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
+  </ion-item>
+
+
+  <ion-item >
+    <ion-label color="dark">ผลทางเซลล์วิทยา</ion-label>
+    <ion-select [(ngModel)]="result" placeholder=เลือก>
+      <ion-option value="I">I</ion-option>
+      <ion-option value="II">II</ion-option>
+      <ion-option value="III">III</ion-option>
+      <ion-option value="IV">IV</ion-option>
+      <ion-option value="V">V</ion-option>
+    </ion-select>
+  </ion-item>
+
+<button ion-button  color="1">Save</button>
+</ion-content>

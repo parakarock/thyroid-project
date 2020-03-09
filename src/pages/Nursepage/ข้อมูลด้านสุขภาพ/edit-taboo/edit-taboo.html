@@ -5,125 +5,126 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="1">
     <ion-title>การรักษาด้วยการกลืนแร่</ion-title>
   </ion-navbar>
 </ion-header>
 
-
-
-
-
 <ion-content padding>
-<div>ท่านเคยผ่าตัดที่ลำคอหรือมีแผลเป็นที่ลำคอด้านหน้าหรือไม่</div>
+
+<div>1.ท่านเคยผ่าตัดที่ลำคอหรือมีแผลเป็นที่ลำคอด้านหน้าหรือไม่</div>
+<ion-list >
 <ion-item no-lines >
-  <ion-label input><div>ไม่เคย </div>
+  <ion-label class="radio-inline">
+    <input type="radio" name="NeckSurgery" >
+    ไม่เคย
   </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>เคย </div>
+  <ion-label class="radio-inline">
+    <input type="radio" name="NeckSurgery">
+    เคย
   </ion-label>
-  <ion-checkbox checked="isChecked"  > </ion-checkbox>
 </ion-item>
+</ion-list>
+
+<div>2.ท่านเคยฉายรังสีที่ลำคอมาก่อนหรือไม่</div>
+<ion-list >
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="Irradiate" >
+      ไม่เคย
+    </ion-label>
+    <ion-label class="radio-inline">
+      <input type="radio" name="Irradiate">
+      เคย
+    </ion-label>
+  </ion-item>
+  </ion-list>
 
 
-<div>ท่านเคยฉายรังสีที่ลำคอมาก่อนหรือไม่</div>
-<ion-item no-lines>
-  <ion-label input><div>ไม่เคย </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>เคย </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
- 
+<div>3.(สำหรับสตรี)ท่านกำลังตั้งครรภ์หรือให้นมบุตร</div>
+<ion-list >
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="Correction" >
+      ไม่ใช่
+    </ion-label>
+    <ion-label class="radio-inline">
+      <input type="radio" name="Correction">
+      ใช่
+    </ion-label>
+  </ion-item>
+  </ion-list>
 
-<div>(สำหรับสตรี)ท่านกำลังตั้งครรภ์หรือให้นมบุตร</div>
-<ion-item no-lines>
-  <ion-label input><div>ไม่ใช่ </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>ใช่ </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
+<div>4.(สำหรับสตรี)ท่านวางแผนจะมีบุตรภายใน4-6เดือนนี้</div>
+<ion-list >
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="child" >
+      ไม่ใช่
+    </ion-label>
+    <ion-label class="radio-inline">
+      <input type="radio" name="child">
+      ใช่
+    </ion-label>
+  </ion-item>
+  </ion-list>
 
-<div>(สำหรับสตรี)ท่านวางแผนจะมีบุตรภายใน4-6เดือนนี้</div>
-<ion-item no-lines>
-  <ion-label input><div>ไม่ใช่ </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>ใช่ </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
+<div>5.ท่านมีอาการตาแดง ระคายเคืองตา ตามัว หรือมองเห็นภาพซ้อน</div>
+<ion-list >
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="Amblyopia" >
+      ไม่มี
+    </ion-label>
+    <ion-label class="radio-inline">
+      <input type="radio" name="Amblyopia">
+      มี
+    </ion-label>
+  </ion-item>
+  </ion-list>
 
-<div>ท่านมีอาการตาแดง ระคายเคืองตา ตามัว หรือมองเห็นภาพซ้อน</div>
-<ion-item no-lines>
-  <ion-label input><div>ไม่มี </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>มี </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
+<div>6.ท่านมีอาการหายใจลำบากหรือเสียงแหบ</div>
+<ion-list >
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="difficult" >
+      ไม่มี
+    </ion-label>
+    <ion-label class="radio-inline">
+      <input type="radio" name="difficult">
+      มี
+    </ion-label>
+  </ion-item>
+  </ion-list>
 
-<div>ท่านมีอาการหายใจลำบากหรือเสียงแหบ</div>
-<ion-item no-lines>
-  <ion-label input><div>ไม่มี </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>มี </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
+<div>7.ท่านสามารถทำตามคำแนะนำการป้องกันรังสีได้หรือไม่</div>
+<ion-list >
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="recommend" >
+      ไม่ได้
+    </ion-label>
+    <ion-label class="radio-inline">
+      <input type="radio" name="recommend">
+      ได้
+    </ion-label>
+  </ion-item>
+  </ion-list>
 
-<div>ท่านสามารถทำตามคำแนะนำการป้องกันรังสีได้หรือไม่</div>
-<ion-item no-lines>
-  <ion-label input><div>ไม่ได้ </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>ได้</div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
 
-<div>ภายใน1-2เดือนที่ผ่านมาท่านเคยได้รับการตรวจเอกซเรย์</div>
-<ion-item no-lines>
-  <ion-label input><div>ไม่ได้ </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>ได้</div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
+<div>8.ภายใน1-2เดือนที่ผ่านมาท่านเคยได้รับการตรวจเอกซเรย์ หรือเอกซเรย์คอมพิวเตอร์ที่ต้องรับประทาน สวน หรือฉีดสารทึบรังสีร่วมด้วย</div>
+<ion-list >
+  <ion-item no-lines >
+    <ion-label class="radio-inline">
+      <input type="radio" name="Injection" >
+      ไม่เคย
+    </ion-label>
+    <ion-label class="radio-inline">
+      <input type="radio" name="Injection">
+      เคย
+    </ion-label>
+  </ion-item>
+  </ion-list>
 
-<div>หรือเอกซเรย์คอมพิวเตอร์ที่ต้องรับประทาน สวน หรือฉีดสารทึบรังสีร่วมด้วย</div>
-<ion-item no-lines>
-  <ion-label input><div>ไม่เคย </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-<ion-item no-lines>
-  <ion-label input><div>เคย </div>
-  </ion-label>
-  <ion-checkbox checked="isChecked" > </ion-checkbox>
-</ion-item>
-
-<button ion-button small >save</button>
+<button ion-button  color="1" >บันทึก</button>
 </ion-content>

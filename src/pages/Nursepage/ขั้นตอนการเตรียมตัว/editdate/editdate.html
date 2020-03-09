@@ -1,19 +1,13 @@
-<!--
-  Generated template for the EditdatePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="1">
     <ion-title>วันที่นัดกลืนแร่</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-grid>
-    <ion-row>
+  
+    <!-- <ion-row>
       <ion-col col-3>
       <div>วิธีการเลือก</div>
 </ion-col>
@@ -32,45 +26,30 @@
   </ion-card>
 
 </ion-col>
-</ion-row>
+</ion-row> -->
 
-<ion-row>
-  <ion-col col-3>
-  <div>ในวันที่</div>
-</ion-col>
+<ion-item >
+  <ion-label color="dark">วิธีการเลือก</ion-label>
+  <ion-select [(ngModel)]="howto" placeholder="เลือก">
+    <ion-option value="วิธีการประมาณ">วิธีการประมาณ</ion-option>
+    <ion-option value="วิธีคำนวณ">วิธีคำนวณ </ion-option>
+  </ion-select>
+</ion-item>
 
-<ion-col col-5>
-<ion-card>
-<ion-card-header>
-  <ion-item>
-    <ion-label>Date</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="inDate" ></ion-datetime>
-  </ion-item>
-</ion-card-header>
-</ion-card>
 
-</ion-col>
-</ion-row>
 
-<ion-row>
-  <ion-col col-3>
-  <div>ถึงวันที่</div>
-</ion-col>
 
-<ion-col col-5>
-<ion-card>
-<ion-card-header>
-  <ion-item>
-    <ion-label>Date</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDate"></ion-datetime>
-  </ion-item>
-</ion-card-header>
-</ion-card>
-<div>{{currentDate}}</div>
-<div>------------{{global.mydate}}</div>
-</ion-col>
-</ion-row>
-</ion-grid>
+<ion-item>
+  <ion-label color="dark">ในวันที่</ion-label>
+  <ion-datetime [(ngModel)]="inDate" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
+</ion-item>
 
-<button ion-button small (click)="datadate()">Save</button>
+<ion-item>
+  <ion-label color="dark">ถึงวันที่</ion-label>
+  <ion-datetime [(ngModel)]="toDate" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
+</ion-item>
+
+
+
+<button ion-button small color="1" (click)="datadate()">บันทึก</button>
 </ion-content>

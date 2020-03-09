@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>เมนู</ion-title>
+    <button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-menu side="right" [content]="mycontent">
+<ion-content>
+  <br>
+  <img class="profile" src="../../../assets/icon/Pic_Icon/doctor.png" />
+    
+  <h3>Admin</h3>
+  <ion-list>
+    <button ion-item (click)="onClickLogoutButton()" color="2">ออกจากระบบ</button>
+  </ion-list>
+</ion-content>
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage" ></ion-nav>
+
+<ion-content padding>
+
+
+  <ion-grid>
+     <ion-row>
+      <a class="col col-50 text-center" (click)="user()">
+        <img
+          class="img-auto"
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/P-Info.png"
+        />
+        <h5>จัดการผู้ใช้</h5>
+      </a>
+
+      <a class="col col-50 text-center" (click)="hos()">
+        <img
+          class="img-auto"
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/P-Exam.png"
+        />
+        <h5>จัดการข้อมูลโรงพยาบาล</h5>
+      </a>
+    </ion-row> 
+
+   
+  </ion-grid>
+
+</ion-content>
