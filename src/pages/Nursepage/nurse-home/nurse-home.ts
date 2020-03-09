@@ -6,8 +6,9 @@ import { RegisterPage } from '../register/register';
 import { HomePage} from '../../Homepage/home/home'
 import { HealthdatahomePage } from '../ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome';
 import { PreparehomePage } from '../ขั้นตอนการเตรียมตัว/preparehome/preparehome';
-import { LoginPage } from '../../Homepage/login/login';
+import { QrscanPage } from '../../qrscan/qrscan';
 
+import { ChangepassPage } from '../../changepass/changepass';
 /**
  * Generated class for the NurseHomePage page.
  *
@@ -39,22 +40,29 @@ export class NurseHomePage {
 
   
   ChangePass(){
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.push(ChangepassPage);
   }
 
   navigateToLabTest(){
     this.navCtrl.push(LabtestresultPage);
   }
 
-  goDoctorPage(){
-    this.navCtrl.push(DoctorHomePage);
-  }
+  // goDoctorPage(){
+  //   this.navCtrl.push(DoctorHomePage);
+  // }
 
   onClickHealthdatahome(){
     this.navCtrl.push(HealthdatahomePage);
   }
   onClickPreparehome(){
     this.navCtrl.push(PreparehomePage);
+  }
+
+  qrcode(){
+    this.navCtrl.push(QrscanPage);
+    // if(this.role){
+
+    // }
   }
 
 }

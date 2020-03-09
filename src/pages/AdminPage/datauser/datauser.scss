@@ -1,0 +1,32 @@
+page-datauser {
+    ion-label{
+        font-size: 15px;
+        
+    }
+    
+    .button{
+        font-size: 15px;
+    }
+    ion-card{
+        font-size: 15px;
+        
+    }
+ 
+    
+    @media only screen and (min-width: 1224px) {
+      
+        ion-label{
+            font-size: 20px;
+            
+        }
+        .button{
+            font-size: 20px;
+        }
+    
+        ion-card{
+            font-size: 20px;
+            
+        }
+    
+      }
+}

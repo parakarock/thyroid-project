@@ -6,8 +6,12 @@
 </ion-header>
 
 <ion-content padding>
-  <h6>ขณะท่านมีอาการไทรอยด์เป็นพิษ กรุณาใส่เครื่องหมายถูกในช่องสี่เหลี่ยมหากท่านมีปัจจัยที่ก่อให้เกิดโรคดังต่อไปนี้</h6>
-  <button ion-button small (click)="editrisky()">Edit</button>
+  
+  <ion-item no-lines>
+    <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
+  </ion-item>
+
+  <button ion-button small (click)="editrisky()" color="1">แก้ไข</button>
 
 
 </ion-content>

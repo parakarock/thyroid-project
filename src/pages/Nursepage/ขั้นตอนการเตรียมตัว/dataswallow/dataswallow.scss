@@ -1,3 +1,24 @@
 page-dataswallow {
-
+    div {
+        font-size: 15px;
+        
+    }
+    
+    .button{
+        font-size: 15px;
+        text-align: center;
+    }
+    
+    @media only screen and (min-width: 1224px) {
+        div {
+            font-size: 20px;
+        } 
+        .button{
+            font-size: 20px;
+            text-align: center;
+        }
+    
+      }
 }
+
+

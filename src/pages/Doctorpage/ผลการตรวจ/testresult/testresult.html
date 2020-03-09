@@ -5,37 +5,25 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card  (click)="physical()">
-  <ion-card-header>
-    <div>ผลการตรวจร่างกาย 
-      <ion-icon name="arrow-forward-outline"></ion-icon>      
-  </div>
-  </ion-card-header>
+<ion-card >
+  <button ion-item (click)="physical()">
+    ผลการตรวจร่างกาย
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
 </ion-card>
 
-<ion-card (click)="lab()">
-  <ion-card-header>
-    <div>ผลการตรวจทางห้องปฏิบัติการ
-      <ion-icon name="arrow-forward-outline"></ion-icon>     
-  </div>
-  </ion-card-header>
+<ion-card >
+  <button ion-item (click)="lab()">
+    ผลการตรวจทางห้องปฏิบัติการ
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
 </ion-card>
 
-<ion-card (click)="radiographic()">
-  <ion-card-header>
-    <div>ผลการตรวจรังสีวินิจฉัย      
-    <ion-icon name="arrow-forward-outline"></ion-icon>
-  </div>
-  </ion-card-header>
+<ion-card >
+  <button ion-item (click)="radiographic()">
+    ผลการตรวจรังสีวินิจฉัย
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
 </ion-card>
-
-<ion-card (click)="biopsy()">
-  <ion-card-header>
-    <div>ผลการเจาะตรวจชิ้นเนื้อ และผลวินิจฉัย
-    <ion-icon name="arrow-forward-outline"></ion-icon>
-  </div>
-  </ion-card-header>
-</ion-card>
-
 
 </ion-content>

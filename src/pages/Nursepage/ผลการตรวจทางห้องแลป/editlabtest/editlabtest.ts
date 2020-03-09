@@ -73,4 +73,5 @@ export class EditlabtestPage {
     alert(this.Hospital)
   }
 
+
 }

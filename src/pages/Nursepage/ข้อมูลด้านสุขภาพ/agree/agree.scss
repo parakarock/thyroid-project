@@ -1,0 +1,19 @@
+page-agree {
+    #subtitle {
+        background-color: rgb(255, 255, 255);
+        margin: 15px;
+        padding: 5px;
+        border: 0.5px solid black;
+       height: 200px;
+      }
+      @media only screen and (min-width: 1024px) {
+     
+        #subtitle {
+            background-color: rgb(255, 255, 255);
+            margin: 15px;
+            padding: 5px;
+            border: 0.5px solid black;
+           height: 500px;
+          }
+}
+}

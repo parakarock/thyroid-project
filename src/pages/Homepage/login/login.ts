@@ -9,7 +9,9 @@ import {
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import { Http, Response, Headers, ResponseOptions } from "@angular/http";
 import "rxjs/add/operator/map";
-
+import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
+import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
+import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
 /**
  * Generated class for the LoginPage page.
  *
@@ -79,5 +81,15 @@ export class LoginPage {
     // this.navCtrl.push(NurseTabsPage,{text:true});
     this.events.publish("user:nurse");
     this.navCtrl.setRoot(NurseHomePage);
+  }
+
+   goDoctorPage(){
+    this.navCtrl.setRoot(DoctorHomePage);
+  }
+  go(){
+    this.navCtrl.setRoot(PatientHomePage);
+  }
+  admin(){
+    this.navCtrl.setRoot(AdminhomePage);
   }
 }

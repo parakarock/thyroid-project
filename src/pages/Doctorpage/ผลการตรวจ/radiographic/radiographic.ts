@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EditPage } from '../edit/edit';
 import { RadiographicsPage } from '../radiographics/radiographics';
-
+import { BiopsyPage } from '../biopsy/biopsy';
 /**
  * Generated class for the RadiographicPage page.
  *
@@ -30,5 +30,8 @@ export class RadiographicPage {
   }
   radiographic(){
     this.navCtrl.push(RadiographicsPage)
+  }
+  biopsy(){
+    this.navCtrl.push(BiopsyPage)
   }
 }

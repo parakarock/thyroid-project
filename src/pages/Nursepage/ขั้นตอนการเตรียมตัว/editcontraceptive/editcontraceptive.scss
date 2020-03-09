@@ -1,3 +1,36 @@
 page-editcontraceptive {
-
+    ion-icon{
+        font-size: 40px;
+       }
+    ion-label{
+        font-size: 15px;
+        
+    }
+    
+    .button{
+        font-size: 15px;
+    }
+    div{
+        font-size: 15px;
+        
+    }
+ 
+    
+    @media only screen and (min-width: 1224px) {
+        ion-icon{
+            font-size: 64px;
+           }
+        ion-label{
+            font-size: 20px;
+            
+        } 
+        .button{
+            font-size: 20px;
+            
+        }
+        .div{
+            font-size: 20px;
+            
+        }
+      }
 }

@@ -13,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
+import { AppointmentPage } from "../pages/Nursepage/appointment/appointment";
 
 // import { File } from '@ionic-native/file';
 // import { IonicStorageModule } from '@ionic/storage'
@@ -30,8 +31,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegisterProvider } from '../providers/register/register';
 import { RegistersPage } from "../pages/Nursepage/registers/registers";
+import { ToxinthyPage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/toxinthy/toxinthy";
+import { AgreePage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/agree/agree";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ChangepassPage} from "../pages/changepass/changepass";
 
 import { HealthdatahomePage } from '../pages/Nursepage/ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome';
 import { GeneralPage } from '../pages/Nursepage/ข้อมูลด้านสุขภาพ/general/general';
@@ -56,6 +59,8 @@ import { EditavoideatingPage } from '../pages/Nursepage/ขั้นตอนก
 import { EditdataswallowPage } from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/editdataswallow/editdataswallow';
 import { AddcontraceptivePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/addcontraceptive/addcontraceptive';
 import { EditdatePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/editdate/editdate';
+import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/eatfood/eatfood';
+import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
 
 import { TestresultPage} from '../pages/Doctorpage/ผลการตรวจ/testresult/testresult';
 import { PhysicalPage} from '../pages/Doctorpage/ผลการตรวจ/physical/physical';
@@ -71,6 +76,18 @@ import { EditlabPage} from '../pages/Doctorpage/ผลการตรวจ/edit
 import { EditbiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/editbiopsy/editbiopsy';
 import { DiagnosticResultsPage} from '../pages/Doctorpage/ผลการตรวจ/diagnostic-results/diagnostic-results';
 import { GlobalProvider } from '../providers/global/global';
+
+import { PatientHomePage } from '../pages/Patientpage/patient-home/patient-home';
+
+import { AdminhomePage } from '../pages/AdminPage/adminhome/adminhome';
+import { DatauserPage } from '../pages/AdminPage/datauser/datauser';
+import { DatahosPage } from '../pages/AdminPage/datahos/datahos';
+import { DdPage } from '../pages/AdminPage/dd/dd';
+import { DpPage } from '../pages/AdminPage/dp/dp';
+import { DnPage } from '../pages/AdminPage/dn/dn';
+import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
+
+import { QrscanPage } from '../pages/qrscan/qrscan';
 
 @NgModule({
   declarations: [
@@ -129,7 +146,22 @@ import { GlobalProvider } from '../providers/global/global';
     EditphysicalPage,
     EditlabPage,
     DiagnosticResultsPage,
-    EditbiopsyPage
+    EditbiopsyPage,
+    PatientHomePage,
+    ToxinthyPage,
+    AgreePage,
+    ChangepassPage,
+    AdminhomePage,
+    DatauserPage,
+    DatahosPage,
+    DdPage,
+    DpPage,
+    DnPage,
+    QrscanPage,
+    AdddatauserPage,
+    EatfoodPage,
+    NofoodPage,
+    AppointmentPage
   ],
   imports: [
     BrowserModule,
@@ -161,7 +193,6 @@ import { GlobalProvider } from '../providers/global/global';
     FollowuptreatmentresultPage,
     AddtreatmentresultPage,
     EdittreatmentresultPage,
-
     HealthdatahomePage,
     GeneralPage,
     InitiallyPage,
@@ -197,7 +228,22 @@ import { GlobalProvider } from '../providers/global/global';
     EditphysicalPage,
     EditlabPage,
     DiagnosticResultsPage,
-    EditbiopsyPage
+    EditbiopsyPage,
+    PatientHomePage,
+    ToxinthyPage,
+    AgreePage,
+    ChangepassPage,
+    AdminhomePage,
+    DatauserPage,
+    DatahosPage,
+    DdPage,
+    DpPage,
+    DnPage,
+    QrscanPage,
+    AdddatauserPage,
+    EatfoodPage,
+    NofoodPage,
+    AppointmentPage
   ],
   providers: [
     StatusBar,

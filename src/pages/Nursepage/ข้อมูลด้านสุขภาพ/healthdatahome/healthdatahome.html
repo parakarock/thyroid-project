@@ -5,45 +5,57 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card  (click)="general()">
-  <ion-card-header>
-    <div>ประวัติทั่วไป  
-      <ion-icon name="arrow-forward-outline"></ion-icon>      
-  </div>
-  </ion-card-header>
+<ion-card >
+  <button ion-item (click)="general()">
+    ประวัติทั่วไป
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
 </ion-card>
 
-<ion-card (click)="initially()">
-  <ion-card-header>
-    <div>อาการเริ่มแรก 
-      <ion-icon name="arrow-forward-outline"></ion-icon>     
-  </div>
-  </ion-card-header>
+<ion-card >
+  <button ion-item (click)="initially()">
+    อาการเริ่มแรก
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
 </ion-card>
 
-<ion-card (click)="risky()">
-  <ion-card-header>
-    <div>ปัจจัยเสี่ยง        
-    <ion-icon name="arrow-forward-outline"></ion-icon>
-  </div>
-  </ion-card-header>
-</ion-card>
-
-<ion-card (click)="taboo()">
-  <ion-card-header>
-    <div>ข้อห้ามของการกลืนแร่ 
-    <ion-icon name="arrow-forward-outline"></ion-icon>
-  </div>
-  </ion-card-header>
+<ion-card >
+  <button ion-item (click)="risky()">
+    ปัจจัยเสี่ยง
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
 </ion-card>
 
 
-<ion-card (click)="history()">
-  <ion-card-header>
-    <div>ประวัติการกลืนแร่ 
-    <ion-icon name="arrow-forward-outline"></ion-icon>
-  </div>
-  </ion-card-header>
+<ion-card >
+  <button ion-item (click)="taboo()">
+    ข้อห้ามของการกลืนแร่
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
 </ion-card>
+
+<ion-card >
+  <button ion-item (click)="history()">
+    ประวัติการกลืนแร่
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
+</ion-card>
+
+<ion-card >
+  <button ion-item (click)="toxin()">
+    ภาวะแทรกซ้อนของต่อมไทรอยด์เป็นพิษ
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
+</ion-card>
+
+
+<ion-card >
+  <button ion-item (click)="agree()">
+    ใบยินยอมการรับเข้ารักษา
+    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+  </button>
+</ion-card>
+
+
 </ion-content>
 

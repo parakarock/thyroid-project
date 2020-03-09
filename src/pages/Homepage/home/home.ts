@@ -19,6 +19,7 @@ export class HomePage {
   ionViewDidLoad() {
     // this.loadUser();
     // console.log("dddd")
+    this.events.publish("user:guest");
     
   }
   slideChanged() {

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditavoideatingPage } from '../editavoideating/editavoideating';
-
-
+import { EatfoodPage } from '../eatfood/eatfood';
+import { NofoodPage } from '../nofood/nofood';
 /**
  * Generated class for the AvoideatingPage page.
  *
@@ -26,5 +26,11 @@ export class AvoideatingPage {
 
   editavoideating(){
     this.navCtrl.push(EditavoideatingPage)
+  }
+  nofood(){
+    this.navCtrl.push(NofoodPage)
+  }
+  eatfood(){
+    this.navCtrl.push(EatfoodPage)
   }
 }

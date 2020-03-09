@@ -10,7 +10,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalProvider {
 
-  public mydate: string = "2020-03-02";
+  public mydate: string = "2020-03-05";
+
+  
   constructor() {
     console.log('Hello GlobalProvider Provider');
   }

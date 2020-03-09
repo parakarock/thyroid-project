@@ -11,13 +11,22 @@
 </ion-header>
 
 <ion-content padding>
-  <div>ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์</div>
-  <div>ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่</div>
-  <br>
-  <div>{{dateBefore}}</div>
-  <br>
-  <div>และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</div>
-  <br>
-  <div>{{dateAfter}}</div>
-  <button ion-button (click)=" editantidepressant()">Edit</button>
+
+
+
+  <ion-label color="dark" >ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์ ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่</ion-label>
+  <ion-item no-lines>
+    <ion-label color="dark">{{dateBefore}}</ion-label>
+  </ion-item>
+  
+
+  <ion-label color="dark">และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</ion-label>
+  <ion-item no-lines>
+    <ion-label color="dark">{{dateAfter}}</ion-label>
+  </ion-item>
+  <div padding></div>
+
+
+
+  <button ion-button color="1" (click)=" editantidepressant()">แก้ไข</button>
 </ion-content>
