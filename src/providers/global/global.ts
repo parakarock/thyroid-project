@@ -11,8 +11,16 @@ import { Injectable } from '@angular/core';
 export class GlobalProvider {
 
   public mydate: string = "2020-03-02";
+  public role:any;
   constructor() {
     console.log('Hello GlobalProvider Provider');
+    this.role = [{
+      role_name : 'nurse'
+    },{
+      role_name : 'docter'
+    },{
+      role_name : 'patient'
+    },
+  ];
   }
-
 }

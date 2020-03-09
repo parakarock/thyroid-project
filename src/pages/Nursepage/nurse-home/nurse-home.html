@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>หน้าหลัก</ion-title>
+    <ion-title >หน้าหลัก</ion-title>
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -17,11 +17,11 @@
   <ion-content>
     <ion-list>
       <img class="profile" src="../../../assets/icon/Pic_Icon/nurse.png" />
+      <ion-item>นายหกหกหก ดเดก้ดกเ</ion-item>
       <ion-item>
         <ion-label>Status</ion-label>
-        <ion-select [(ngModel)]="status" interface="popover">
-          <ion-option value="nu">Nurse</ion-option>
-          <ion-option value="doc">Docter</ion-option>
+        <ion-select interface="popover" *ngFor="let Obj of role" (ionChange)="onChange($event)">
+          <ion-option value="{{Obj.role_name}}">{{Obj.role_name}}</ion-option>
         </ion-select>
       </ion-item>
       <button ion-item (click)="onClickLogoutButton()">ออกจากระบบ</button>
@@ -32,7 +32,10 @@
 
 <ion-content padding>
   <ion-title id="subtitle">เมนู</ion-title>
-
+<div style="font-size: 16px;">เมนู</div>
+<div style="font-size: 18px;">เมนู</div>
+<div style="font-size: 24px;">เมนู</div>
+<div style="font-size: 48px;">เมนู</div>
   <ion-grid>
     <ion-row>
       <a class="col col-50 text-center" (click)="onClickRegister()">
