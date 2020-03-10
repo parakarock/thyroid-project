@@ -4,7 +4,8 @@ import {
   NavController,
   NavParams,
   AlertController,
-  Events
+  Events,
+  Form
 } from "ionic-angular";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import { Http, Response, Headers, ResponseOptions } from "@angular/http";
@@ -13,6 +14,7 @@ import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
 import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
 import { GlobalProvider } from "../../../providers/global/global";
+import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
 /**
  * Generated class for the LoginPage page.
  *
@@ -26,6 +28,9 @@ import { GlobalProvider } from "../../../providers/global/global";
   templateUrl: "login.html"
 })
 export class LoginPage {
+  formgroup: FormGroup;
+  username:AbstractControl;
+  password:AbstractControl;
   usernameInput: string;
   role: any;
   nurse;
@@ -40,8 +45,15 @@ export class LoginPage {
     public alertCtrl: AlertController,
     public events: Events,
     private http: Http,
-    public global: GlobalProvider
-  ) {}
+    public global: GlobalProvider,
+    public formBuilder:FormBuilder
+  ) {
+    this.formgroup = formBuilder.group({
+      username: ['', Validators.required],
+     
+    });
+   this.username = this.formgroup.controls['username'];
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad LoginPage");

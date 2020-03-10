@@ -11,9 +11,23 @@
 </ion-header>
 
 <ion-content padding>
-<div>กรุณาแสกน QR Code หรือ ใส่รหัสของผู้ป่วย</div>
+<!-- <div>กรุณาแสกน QR Code หรือ ใส่รหัสของผู้ป่วย</div>
 <div>ชื่อ นามสกุล (ของหมอหรือพยาบาล)</div>
 
 <button ion-button  color="1">Scan</button>
-<button ion-button    color="1">ใส่รหัสของผู้ป่วย</button>
+<button ion-button    color="1">ใส่รหัสของผู้ป่วย</button> -->
+
+
+<div>
+  <ion-input style="background-color: grey" type="text" [(ngModel)]="encodText"></ion-input>
+<button ion-button block (click)="encode()">encode</button>
+</div>
+<div >
+<button ion-button block (click)="Scan()">Scan</button>
+<div *ngIf="scannedData.text"> 
+<label >Your barcode is</label>
+<br>
+<span>{{scannedData.text}}</span>
+</div>
+</div>
 </ion-content>

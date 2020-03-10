@@ -85,7 +85,7 @@ import { DpPage } from '../pages/AdminPage/dp/dp';
 import { DnPage } from '../pages/AdminPage/dn/dn';
 import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
 
-import { QrscanPage } from '../pages/qrscan/qrscan';
+import { QrcodePage } from '../pages/qrscan/qrscan';
 
 @NgModule({
   declarations: [
@@ -154,11 +154,13 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     DdPage,
     DpPage,
     DnPage,
-    QrscanPage,
+    QrcodePage,
     AdddatauserPage,
     EatfoodPage,
     NofoodPage,
     AppointmentPage
+
+
   ],
   imports: [
     BrowserModule,
@@ -235,11 +237,12 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     DdPage,
     DpPage,
     DnPage,
-    QrscanPage,
+    QrcodePage,
     AdddatauserPage,
     EatfoodPage,
     NofoodPage,
     AppointmentPage
+  
   ],
   providers: [
     StatusBar,

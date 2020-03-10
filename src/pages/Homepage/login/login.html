@@ -37,29 +37,36 @@
   </ion-grid>
 
 
-
+  <form [formGroup]="formgroup">
  <div style="text-align: center;">
 
- 
+  
   <ion-list>
 <ion-card style="height:100%">
     <ion-item no-lines>
       <ion-label floating color="dark">รหัสบัตรประชาชน</ion-label>
-      <ion-input [(ngModel)]="usernameInput" type="text"></ion-input>
+      <ion-input formControlName="username" type="text"></ion-input>
     </ion-item>
+  <ion-item no-lines *ngIf="username.hasError('required') && username.touched"> 
+  <p>*username is required</p>
+</ion-item> 
     <div style="margin: 10px;"></div>
 </ion-card>
  
-<ion-card style="height:100%">
+<!-- <ion-card style="height:100%">
     <ion-item no-lines>
       <ion-label floating color="dark">รหัสผ่าน</ion-label>
-      <ion-input #passwordInput type="password"></ion-input>
+      <ion-input formControlName="password"  type="password"></ion-input>
     </ion-item>
     <div style="margin: 10px;"></div>
-</ion-card>
+</ion-card> -->
+
+
    </ion-list>
+ 
    <div padding></div>
   <button ion-button small (click)="onClickLoginButton()" color="1" >เข้าสู่ระบบ</button>
+
   <!-- ทดลอง -->
   <button ion-button small (click)="goDoctorPage()" color="1" >เข้าสู่ระบบหมอ</button>
   <button ion-button small (click)="go()" color="1" >เข้าสู่ระบบผู้ป่วย</button>
@@ -67,5 +74,6 @@
   <a href="" ><p style="text-align:right">ลืมพาสเวิร์ด</p></a>
 
  </div>
+</form>
   
 </ion-content>
