@@ -33,14 +33,15 @@ export class NurseHomePage {
   ) {}
   role;
   pic;
+  name;
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad NurseHomePage");
     // this.events.publish('user:nurse');
+    this.name = this.global.getname();
   }
   ionViewWillEnter(){
-    this.role = this.global.role;
-    this.pic = this.global.role[0];
+    
   }
   onClickRegister() {
     this.navCtrl.push(RegisterPage);

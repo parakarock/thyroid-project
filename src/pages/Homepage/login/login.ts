@@ -12,6 +12,7 @@ import "rxjs/add/operator/map";
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
 import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
+import { GlobalProvider } from "../../../providers/global/global";
 /**
  * Generated class for the LoginPage page.
  *
@@ -27,69 +28,71 @@ import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
 export class LoginPage {
   usernameInput: string;
   role: any;
+  nurse;
+  doctor;
+  patient;
+  name;
+  data;
   @ViewChild("passwordInput") mPassword;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public events: Events,
-    private http: Http
+    private http: Http,
+    public global: GlobalProvider
   ) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad LoginPage");
   }
 
-  onClickLoginButton() {
-    console.log('input : '+this.usernameInput);
-    let headers = new Headers({ "Content-type": "application/json" });
-    let options = new ResponseOptions({ headers: headers });
-    let body = { idcard: this.usernameInput };
-    this.http
-      .post("http://localhost:8000/getuser.php", body, options)
+  async onClickLoginButton() {
+    console.log("input : " + this.usernameInput);
+    let body = { username: this.usernameInput, password: this.usernameInput };
+    console.log("body : " + body);
+    await this.http
+      .post("http://10.80.34.218:8000/login.php?method=login&role=guest", body)
       .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        this.role = data.role_name;
-        console.log('output : '+this.role);
-      },error=>{
-        console.log(error);
-      });
-    // if(this.mUsername.value == "example"&&this.mPassword.value == "1234"){
-    //   this.navCtrl.push(TabsPage);
-    // }else{
-    //   const alert = this.alertCtrl.create({
-    //   title: 'Fail to Login',
-    //   subTitle: 'Your username or password is incorrect',
-    //   buttons: ['OK']
-    // });
-    // alert.present();
-    // }
-    // if (this.role.role_name == "nurse") {
-    //   this.events.publish("user:nurse");
-    //   this.navCtrl.setRoot(NurseHomePage);
-    // } else {
-    //   const alert = this.alertCtrl.create({
-    //     title: "Fail to Login",
-    //     subTitle: "Your username or password is incorrect",
-    //     buttons: ["OK"]
-    //   });
-    //   alert.present();
-    // }
+      .subscribe(
+        data => {
+          this.data = JSON.stringify(data);
+          this.global.name = data.title + data.firstname + " " + data.lastname;
+          console.log(this.global.name);
 
-    // this.navCtrl.popToRoot();
-    // this.navCtrl.push(NurseTabsPage,{text:true});
-    this.events.publish("user:nurse");
-    this.navCtrl.setRoot(NurseHomePage);
+          this.nurse = this.global.role.findIndex(
+            role_name => role_name.role_name === "nurse"
+          );
+          this.doctor = this.global.role.findIndex(
+            role_name => role_name.role_name === "doctor"
+          );
+          this.patient = this.global.role.findIndex(
+            role_name => role_name.role_name === "patient"
+          );
+          if (this.doctor >= 0) {
+            this.events.publish("user:doctor");
+            this.navCtrl.setRoot(DoctorHomePage);
+          }else if(this.nurse >= 0){
+            this.events.publish("user:nurse");
+            this.navCtrl.setRoot(NurseHomePage);
+          }else if(this.patient >= 0){
+            this.events.publish("user:patient");
+            this.navCtrl.setRoot(PatientHomePage);
+          }
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
-   goDoctorPage(){
+  goDoctorPage() {
     this.navCtrl.setRoot(DoctorHomePage);
   }
-  go(){
+  go() {
     this.navCtrl.setRoot(PatientHomePage);
   }
-  admin(){
+  admin() {
     this.navCtrl.setRoot(AdminhomePage);
   }
 }

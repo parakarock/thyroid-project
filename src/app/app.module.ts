@@ -25,7 +25,6 @@ import { TabsPage } from "../pages/tabs/tabs";
 import { LoginPage } from "../pages/Homepage/login/login";
 import { RegisterPage } from "../pages/Nursepage/register/register";
 import { NurseHomePage } from "../pages/Nursepage/nurse-home/nurse-home";
-import { NurseTabsPage } from "../pages/nurse-tabs/nurse-tabs";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { RegisterProvider } from "../providers/register/register";
@@ -99,7 +98,6 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     RegisterPage,
     RegistersPage,
     NurseHomePage,
-    NurseTabsPage,
     AddlabtestPage,
     EditlabtestPage,
     LabtestresultPage,
@@ -181,7 +179,6 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     RegisterPage,
     RegistersPage,
     NurseHomePage,
-    NurseTabsPage,
     AddlabtestPage,
     EditlabtestPage,
     LabtestresultPage,
