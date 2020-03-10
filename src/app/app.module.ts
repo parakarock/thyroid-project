@@ -23,7 +23,7 @@ import { AboutPage } from '../pages/Homepage/about/about';
 import { ContactPage } from '../pages/Homepage/contact/contact';
 import { HomePage } from '../pages/Homepage/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { LoginPage } from '../pages/Homepage/login/login';
+import { LoginPage } from "../pages/Homepage/login/login";
 import { RegisterPage } from '../pages/Nursepage/register/register';
 import { NurseHomePage } from '../pages/Nursepage/nurse-home/nurse-home';
 import { NurseTabsPage } from '../pages/nurse-tabs/nurse-tabs';
@@ -162,6 +162,8 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     EatfoodPage,
     NofoodPage,
     AppointmentPage
+
+
   ],
   imports: [
     BrowserModule,
@@ -244,6 +246,7 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     EatfoodPage,
     NofoodPage,
     AppointmentPage
+  
   ],
   providers: [
     StatusBar,

@@ -11,6 +11,7 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
   <ion-list>
     <ion-item>
       <ion-label color="dark">คำนำหน้าชื่อ</ion-label>
@@ -43,7 +44,7 @@
     
     <ion-item>
       <ion-label color="dark">เพศ</ion-label>
-      <ion-select [(ngModel)]="sex" placeholder="เลือก">
+      <ion-select [(ngModel)]="sex" placeholder="เลือก" interface="popover">
         <ion-option value='หญิง'>หญิง</ion-option>
         <ion-option value='ชาย'>ชาย</ion-option>
       </ion-select>
@@ -64,6 +65,7 @@
       </ion-select>
     </ion-item>
 
+ 
     <ion-item>
       <ion-label color="dark" style="margin-right: auto ;">เบอร์โทรศัพท์ที่ติดต่อได้</ion-label>
       <ion-input type="tel" placeholder="เบอร์โทรศัพท์" #Tel ></ion-input>
@@ -79,5 +81,6 @@
     </ion-item> -->
   
   </ion-list>
+</ion-card>
   <button ion-button  (click)="onClickToRegister()" color="1">ยืนยันการสมัคร</button>
 </ion-content>

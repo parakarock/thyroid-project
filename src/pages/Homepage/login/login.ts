@@ -4,7 +4,8 @@ import {
   NavController,
   NavParams,
   AlertController,
-  Events
+  Events,
+  Form
 } from "ionic-angular";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import { Http, Response, Headers, ResponseOptions } from "@angular/http";
@@ -12,6 +13,7 @@ import "rxjs/add/operator/map";
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
 import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
+import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
 /**
  * Generated class for the LoginPage page.
  *
@@ -25,16 +27,24 @@ import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
   templateUrl: "login.html"
 })
 export class LoginPage {
+// myfrom: FormGroup;
   usernameInput: string;
   role: any;
+ formgroup: FormGroup;
+ username:AbstractControl;
+ password:AbstractControl;
+
   @ViewChild("passwordInput") mPassword;
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public alertCtrl: AlertController,
-    public events: Events,
-    private http: Http
-  ) {}
+  constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl: AlertController,public events: Events,private http: Http, public formBuilder:FormBuilder
+  ) {
+
+    this.formgroup = formBuilder.group({
+      username: ['', Validators.required],
+     
+    });
+   this.username = this.formgroup.controls['username'];
+   
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad LoginPage");
@@ -55,6 +65,9 @@ export class LoginPage {
       },error=>{
         console.log(error);
       });
+
+
+      
     // if(this.mUsername.value == "example"&&this.mPassword.value == "1234"){
     //   this.navCtrl.push(TabsPage);
     // }else{
