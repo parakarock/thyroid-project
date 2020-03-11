@@ -45,7 +45,7 @@
 <ion-card style="height:100%">
     <ion-item no-lines>
       <ion-label floating color="dark">รหัสบัตรประชาชน</ion-label>
-      <ion-input formControlName="username" type="text"></ion-input>
+      <ion-input formControlName="username" [(ngModel)]="usernameInput"  type="text"></ion-input>
     </ion-item>
   <ion-item no-lines *ngIf="username.hasError('required') && username.touched"> 
   <p>*username is required</p>

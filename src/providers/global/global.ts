@@ -1,5 +1,4 @@
-
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 /*
   Generated class for the GlobalProvider provider.
@@ -9,27 +8,26 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class GlobalProvider {
-
   public mydate: string = "2020-03-02";
-  public role:any;
-  public name:string;
+  public role: any;
+  public name: string;
+
+  public patientID: string;
+  public round: any;
+  public selectRound;
   constructor() {
-    console.log('Hello GlobalProvider Provider');
-    this.role = [
-    {
-      role_name : 'doctor'
-    },
-    {
-      role_name : 'patient'
-    }
-  ];
-  
+    console.log("Hello GlobalProvider Provider");
   }
- getname(){
+  getname() {
     return this.name;
   }
-  getrole(){
+  getrole() {
     return this.role;
   }
- 
+  getpatientID() {
+    return this.patientID;
+  }
+  getround() {
+    return this.round;
+  }
 }

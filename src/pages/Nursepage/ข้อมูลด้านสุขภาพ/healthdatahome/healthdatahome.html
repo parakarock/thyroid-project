@@ -1,8 +1,32 @@
 <ion-header>
-  <ion-navbar color="1">
+  <ion-navbar color="1" >
     <ion-title>ข้อมูลด้านสุขภาพ</ion-title>
+    <button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
+
+<ion-menu side="right" [content]="mycontent" >
+  <ion-content>
+    <ion-list>
+      <br>
+      <img class="profile" src="../../../assets/icon/Pic_Icon/nurse.png" />
+      
+        <h3>{{ name }}</h3>
+        
+        <ion-item>
+          <ion-label>รักษาครั้งที่</ion-label>
+          <ion-select [(ngModel)]="number" interface="popover" (ionChange)="selectRound()">
+            <ion-option *ngFor="let round of rounds" [value]="round.rou_id" >{{round.rou_id}}</ion-option>
+          </ion-select>
+        </ion-item>
+     
+      <button ion-item (click)="onClickLogoutButton()" color="2">ออกจากระบบ</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage" ></ion-nav>
 
 <ion-content padding>
 <ion-card >
@@ -41,15 +65,15 @@
   </button>
 </ion-card>
 
-<ion-card >
-  <button ion-item (click)="toxin()">
+<ion-card *ngIf="show1">
+  <button ion-item (click)="toxin()"  >
     ภาวะแทรกซ้อนของต่อมไทรอยด์เป็นพิษ
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
   </button>
 </ion-card>
 
 
-<ion-card >
+<ion-card *ngIf="show2">
   <button ion-item (click)="agree()">
     ใบยินยอมการรับเข้ารักษา
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>

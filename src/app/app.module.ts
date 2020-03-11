@@ -85,7 +85,9 @@ import { DpPage } from '../pages/AdminPage/dp/dp';
 import { DnPage } from '../pages/AdminPage/dn/dn';
 import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
 
-import { QrcodePage } from '../pages/qrscan/qrscan';
+import {  QrcodePage } from '../pages/qrscan/qrscan';
+import {  GenPage } from '../pages/gen/gen';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
@@ -158,7 +160,8 @@ import { QrcodePage } from '../pages/qrscan/qrscan';
     AdddatauserPage,
     EatfoodPage,
     NofoodPage,
-    AppointmentPage
+    AppointmentPage,
+    GenPage
 
 
   ],
@@ -167,7 +170,7 @@ import { QrcodePage } from '../pages/qrscan/qrscan';
     IonicModule.forRoot(MyApp),
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     // IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -241,8 +244,8 @@ import { QrcodePage } from '../pages/qrscan/qrscan';
     AdddatauserPage,
     EatfoodPage,
     NofoodPage,
-    AppointmentPage
-  
+    AppointmentPage,
+    GenPage
   ],
   providers: [
     StatusBar,
@@ -250,6 +253,8 @@ import { QrcodePage } from '../pages/qrscan/qrscan';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     RegisterProvider,
     GlobalProvider,
+    BarcodeScanner
+    
     // FileTransfer,
     // File
     // Camera

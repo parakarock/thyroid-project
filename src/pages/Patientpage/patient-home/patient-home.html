@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="1" >
+  <ion-navbar color="1" hideBackButton="true">
     <ion-title>เมนู</ion-title>
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu side="right" [content]="mycontent" >
+<ion-menu persistent="true" menuId="first" side="right" [content]="mycontent" >
   
   <ion-content>
   
@@ -17,7 +17,7 @@
       <br>
       <img class="profile" src="../../../assets/icon/Pic_Icon/fracture.png" />
       
-        <h3>นายแสน ใจร้าย</h3>
+        <h3>{{ name }}</h3>
         
         <ion-item>
           <ion-label>รักษาครั้งที่</ion-label>
@@ -29,10 +29,8 @@
      
       <ion-item>
         <ion-label>Status</ion-label>
-        <ion-select [(ngModel)]="status" interface="popover">
-          <ion-option value="nu">Nurse</ion-option>
-          <ion-option value="doc">Docter</ion-option>
-          <ion-option value="Pac">Patient</ion-option>
+        <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
+          <ion-option *ngFor="let role of roles" [value]="role.role_name" [selected]="role.role_name === 'patient'">{{role.role_name}}</ion-option>
         </ion-select>
       </ion-item>
 
@@ -44,7 +42,6 @@
 <ion-nav #mycontent [root]="rootPage" ></ion-nav>
 
 <ion-content >
-
   <ion-slides pager="true" autoplay="400" loop="true" speed="3000">
     <ion-slide style="background-color: green">
       <h2>Slide 1</h2>

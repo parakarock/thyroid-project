@@ -8,13 +8,24 @@ import {
   Form
 } from "ionic-angular";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
-import { Http, Response, Headers, ResponseOptions } from "@angular/http";
+import {
+  Http,
+  Response,
+  Headers,
+  ResponseOptions,
+  RequestOptions
+} from "@angular/http";
 import "rxjs/add/operator/map";
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
 import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
 import { GlobalProvider } from "../../../providers/global/global";
-import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  AbstractControl
+} from "@angular/forms";
 /**
  * Generated class for the LoginPage page.
  *
@@ -29,8 +40,8 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/fo
 })
 export class LoginPage {
   formgroup: FormGroup;
-  username:AbstractControl;
-  password:AbstractControl;
+  username: AbstractControl;
+  password: AbstractControl;
   usernameInput: string;
   role: any;
   nurse;
@@ -46,13 +57,12 @@ export class LoginPage {
     public events: Events,
     private http: Http,
     public global: GlobalProvider,
-    public formBuilder:FormBuilder
+    public formBuilder: FormBuilder
   ) {
     this.formgroup = formBuilder.group({
-      username: ['', Validators.required],
-     
+      username: ["", Validators.required]
     });
-   this.username = this.formgroup.controls['username'];
+    this.username = this.formgroup.controls["username"];
   }
 
   ionViewDidLoad() {
@@ -60,34 +70,40 @@ export class LoginPage {
   }
 
   async onClickLoginButton() {
-    console.log("input : " + this.usernameInput);
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
     let body = { username: this.usernameInput, password: this.usernameInput };
     console.log("body : " + body);
     await this.http
-      .post("http://10.80.34.218:8000/login.php?method=login&role=guest", body)
+      .post(
+        "http://10.80.34.218:8000/login.php?method=login&role=guest",
+        body,
+        options
+      )
       .map(res => res.json())
       .subscribe(
         data => {
           this.data = JSON.stringify(data);
-          this.global.name = data.title + data.firstname + " " + data.lastname;
+          this.global.name =
+            data[0].title + data[0].firstname + " " + data[0].lastname;
+          this.global.role = data[1];
           console.log(this.global.name);
 
-          this.nurse = this.global.role.findIndex(
-            role_name => role_name.role_name === "nurse"
-          );
-          this.doctor = this.global.role.findIndex(
-            role_name => role_name.role_name === "doctor"
-          );
-          this.patient = this.global.role.findIndex(
-            role_name => role_name.role_name === "patient"
-          );
-          if (this.doctor >= 0) {
+          if (
+            data[1].findIndex(role_name => role_name.role_name === "doctor") >=
+            0
+          ) {
             this.events.publish("user:doctor");
             this.navCtrl.setRoot(DoctorHomePage);
-          }else if(this.nurse >= 0){
+          } else if (
+            data[1].findIndex(role_name => role_name.role_name === "nurse") >= 0
+          ) {
             this.events.publish("user:nurse");
             this.navCtrl.setRoot(NurseHomePage);
-          }else if(this.patient >= 0){
+          } else if (
+            data[1].findIndex(role_name => role_name.role_name === "patient") >=
+            0
+          ) {
             this.events.publish("user:patient");
             this.navCtrl.setRoot(PatientHomePage);
           }

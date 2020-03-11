@@ -1,7 +1,7 @@
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { LabtestresultPage } from "../../Nursepage/ผลการตรวจทางห้องแลป/labtestresult/labtestresult";
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams, Events } from "ionic-angular";
+import { IonicPage, NavController, NavParams, Events,ViewController,MenuController } from "ionic-angular";
 import { RegisterPage } from "../register/register";
 import { HomePage } from "../../Homepage/home/home";
 import { HealthdatahomePage } from "../ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome";
@@ -9,6 +9,9 @@ import { PreparehomePage } from "../ขั้นตอนการเตรี�
 import { TestresultPage } from "../../Doctorpage/ผลการตรวจ/testresult/testresult";
 import { GlobalProvider } from "../../../providers/global/global";
 import { QrcodePage } from "../../qrscan/qrscan";
+import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
+
+
 
 import { ChangepassPage } from "../../changepass/changepass";
 /**
@@ -28,18 +31,34 @@ export class NurseHomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public events: Events,
+    public viewCtrl: ViewController,
+    public menu: MenuController,
     public global: GlobalProvider
   ) {}
-  role;
-  pic;
+  roles;
   name;
+  status: string;
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad NurseHomePage");
-    // this.events.publish('user:nurse');
+    this.roles = this.global.getrole();
     this.name = this.global.getname();
   }
   ionViewWillEnter() {}
+
+  selectRole() {
+    if (this.status === "patient") {
+      this.events.publish("user:patient");
+      this.menu.enable(false);
+      this.navCtrl.setRoot(PatientHomePage);
+    }
+    if (this.status === "doctor") {
+      this.events.publish("user:doctor");
+      this.menu.enable(false);
+      this.navCtrl.setRoot(DoctorHomePage);
+    }
+  }
+
   onClickRegister() {
     this.navCtrl.push(RegisterPage);
   }
@@ -49,7 +68,7 @@ export class NurseHomePage {
   }
 
   navigateToLabTest() {
-    this.navCtrl.push(LabtestresultPage);
+    this.navCtrl.push(QrcodePage,{page: "LabtestresultPage"});
   }
 
   goDoctorPage() {
@@ -60,28 +79,15 @@ export class NurseHomePage {
     this.navCtrl.push(ChangepassPage);
   }
 
-  // goDoctorPage(){
-  //   this.navCtrl.push(DoctorHomePage);
-  // }
 
   onClickHealthdatahome() {
-    this.navCtrl.push(HealthdatahomePage);
+    this.navCtrl.push(QrcodePage,{page: "HealthdatahomePage"});
   }
   onClickPreparehome() {
-    this.navCtrl.push(PreparehomePage);
-  }
-  onClicktestresult() {
-    this.navCtrl.push(TestresultPage);
+    this.navCtrl.push(QrcodePage,{page: "PreparehomePage"});
   }
 
   onChange($event) {
     console.log($event);
-  }
-
-  qrcode() {
-    this.navCtrl.push(QrcodePage);
-    // if(this.role){
-
-    // }
   }
 }
