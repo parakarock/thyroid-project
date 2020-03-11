@@ -96,7 +96,6 @@ import { EditlabPage} from '../pages/Nursepage/ผลการตรวจ/editl
 import { EditbiopsyPage} from '../pages/Nursepage/ผลการตรวจ/editbiopsy/editbiopsy';
 import { DiagnosticResultsPage} from '../pages/Nursepage/ผลการตรวจ/diagnostic-results/diagnostic-results';
 
-import { GlobalProvider } from '../providers/';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
@@ -120,6 +119,7 @@ import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
 
 import {  QrcodePage } from '../pages/qrscan/qrscan';
 import {  GenPage } from '../pages/gen/gen';
+import { GlobalProvider } from '../providers/global/global';
 
 
 @NgModule({
@@ -326,7 +326,8 @@ import {  GenPage } from '../pages/gen/gen';
     File,
     Camera,
     BarcodeScanner,
-    IonicStorageModule
+    IonicStorageModule,
+    GlobalProvider
     // DomSanitizer
     // BarcodeScannerOptions
   ]
