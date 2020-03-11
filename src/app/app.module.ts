@@ -18,22 +18,20 @@ import { AppointmentPage } from "../pages/Nursepage/appointment/appointment";
 // import { File } from '@ionic-native/file';
 // import { IonicStorageModule } from '@ionic/storage'
 
-
-import { AboutPage } from '../pages/Homepage/about/about';
-import { ContactPage } from '../pages/Homepage/contact/contact';
-import { HomePage } from '../pages/Homepage/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { AboutPage } from "../pages/Homepage/about/about";
+import { ContactPage } from "../pages/Homepage/contact/contact";
+import { HomePage } from "../pages/Homepage/home/home";
+import { TabsPage } from "../pages/tabs/tabs";
 import { LoginPage } from "../pages/Homepage/login/login";
-import { RegisterPage } from '../pages/Nursepage/register/register';
-import { NurseHomePage } from '../pages/Nursepage/nurse-home/nurse-home';
-import { NurseTabsPage } from '../pages/nurse-tabs/nurse-tabs';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { RegisterProvider } from '../providers/register/register';
+import { RegisterPage } from "../pages/Nursepage/register/register";
+import { NurseHomePage } from "../pages/Nursepage/nurse-home/nurse-home";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { RegisterProvider } from "../providers/register/register";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegistersPage } from "../pages/Nursepage/registers/registers";
 import { ToxinthyPage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/toxinthy/toxinthy";
 import { AgreePage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/agree/agree";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChangepassPage} from "../pages/changepass/changepass";
 
 import { HealthdatahomePage } from '../pages/Nursepage/ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome';
@@ -88,7 +86,7 @@ import { DnPage } from '../pages/AdminPage/dn/dn';
 import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
 import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
 
-import { QrscanPage } from '../pages/qrscan/qrscan';
+import { QrcodePage } from '../pages/qrscan/qrscan';
 
 @NgModule({
   declarations: [
@@ -101,7 +99,6 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     RegisterPage,
     RegistersPage,
     NurseHomePage,
-    NurseTabsPage,
     AddlabtestPage,
     EditlabtestPage,
     LabtestresultPage,
@@ -158,7 +155,7 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     DdPage,
     DpPage,
     DnPage,
-    QrscanPage,
+    QrcodePage,
     AdddatauserPage,
     EatfoodPage,
     NofoodPage,
@@ -186,7 +183,6 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     RegisterPage,
     RegistersPage,
     NurseHomePage,
-    NurseTabsPage,
     AddlabtestPage,
     EditlabtestPage,
     LabtestresultPage,
@@ -243,7 +239,7 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     DdPage,
     DpPage,
     DnPage,
-    QrscanPage,
+    QrcodePage,
     AdddatauserPage,
     EatfoodPage,
     NofoodPage,
@@ -254,10 +250,12 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     RegisterProvider,
-    GlobalProvider
-    
+    GlobalProvider,
+    // FileTransfer,
+    // File
+    // Camera
   ]
 })
 export class AppModule {}

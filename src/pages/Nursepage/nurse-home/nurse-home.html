@@ -13,7 +13,7 @@
       <br>
       <img class="profile" src="../../../assets/icon/Pic_Icon/nurse.png" />
       
-        <h3>นางแสนสุข ใจดี</h3>
+        <h3>{{ name }}</h3>
         
         <ion-item>
           <ion-label>รักษาครั้งที่</ion-label>
@@ -40,8 +40,7 @@
 <ion-nav #mycontent [root]="rootPage" ></ion-nav>
 
 <ion-content padding>
-  <!-- <ion-title id="subtitle">Menu</ion-title> -->
-
+  <ion-title id="subtitle">เมนู</ion-title>
   <ion-grid>
     <ion-row>
       <a class="col col-50 text-center" (click)="onClickRegister()">
@@ -81,6 +80,7 @@
       </a></ion-row
     >
   </ion-grid>
+  {{ name }}
 
 
 
