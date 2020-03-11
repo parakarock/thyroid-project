@@ -6,8 +6,13 @@ page-editantidepressant {
     
     .button{
         font-size: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
-
+    div{
+        font-size: 15px;
+    }
  
     
     @media only screen and (min-width: 1224px) {
@@ -17,8 +22,18 @@ page-editantidepressant {
         } 
         .button{
             font-size: 20px;
-            
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
-    
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
+        }
+        div{
+            font-size: 20px;
+        }
       }
 }

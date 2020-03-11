@@ -9,11 +9,8 @@ ion-label{
     margin-left: auto;
     margin-right: auto;
 }
-ion-card{
-        font-size: 15px;
-        display: block;
-       
-    }
+
+
 
 
 
@@ -28,5 +25,11 @@ ion-card{
         margin-right: auto;
     }
 
+    #css{
+        width: 40%;
+        position: relative;
+        left: 30%;
+      
+    }
   }
 }

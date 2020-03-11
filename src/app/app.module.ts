@@ -86,6 +86,7 @@ import { DdPage } from '../pages/AdminPage/dd/dd';
 import { DpPage } from '../pages/AdminPage/dp/dp';
 import { DnPage } from '../pages/AdminPage/dn/dn';
 import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
+import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
 
 import { QrscanPage } from '../pages/qrscan/qrscan';
 
@@ -161,7 +162,8 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     AdddatauserPage,
     EatfoodPage,
     NofoodPage,
-    AppointmentPage
+    AppointmentPage,
+    AddhosPage
 
 
   ],
@@ -245,7 +247,8 @@ import { QrscanPage } from '../pages/qrscan/qrscan';
     AdddatauserPage,
     EatfoodPage,
     NofoodPage,
-    AppointmentPage
+    AppointmentPage,
+    AddhosPage
   
   ],
   providers: [

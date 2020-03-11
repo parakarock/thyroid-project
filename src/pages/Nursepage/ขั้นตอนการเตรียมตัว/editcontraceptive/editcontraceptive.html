@@ -6,11 +6,11 @@
 
 <ion-content padding>
  
-        
-        
+  <ion-card id="css" padding>
+        <ion-card  padding>
             <ion-item >
               <ion-label color="dark">ผู้ป่วยคุมกำเนิดหรือไม่</ion-label>
-              <ion-select [(ngModel)]="patient" placeholder=เลือก>
+              <ion-select [(ngModel)]="patient" placeholder=เลือก interface="popover">
                 <ion-option value="ไม่ได้คุม">ไม่ได้คุม</ion-option>
                 <ion-option value="รับประทานยาคุมกำเนิด">รับประทานยาคุมกำเนิด</ion-option>
                 <ion-option value="ฉีดยาคุมกำเนิด">ฉีดยาคุมกำเนิด</ion-option>
@@ -23,7 +23,7 @@
             <ion-item >
               <ion-label color="dark">คุมกำเนิด</ion-label>
               <ion-input type="text" [(ngModel)]="contraceptive"></ion-input>
-              <ion-select [(ngModel)]="monthyear" placeholder="เลือก">
+              <ion-select [(ngModel)]="monthyear" placeholder="เลือก" interface="popover">
                 <ion-option value="เดือน">เดือน</ion-option>
                 <ion-option value="ปี">ปี</ion-option>
               </ion-select>
@@ -43,20 +43,20 @@
               <div><ion-label color="dark">วัน</ion-label></div>
           </ion-row>
             </ion-item>
-
+          </ion-card>
             <div padding></div>
-            <ion-item no-lines> 
-              <div>กรณีที่ผู้ป่วยมีเพศสัมพันธ์แต่ไม่ได้คุมกำเนิดหรือประจำเดือนมาไม่สม่ำเสมอ ผู้ป่วยจะต้องเก็บปัสสาวะเพื่อตรวจการตั้งครรภ์</div>
+            <ion-item no-lines > 
+              <div >กรณีที่ผู้ป่วยมีเพศสัมพันธ์แต่ไม่ได้คุมกำเนิดหรือประจำเดือนมาไม่สม่ำเสมอ ผู้ป่วยจะต้องเก็บปัสสาวะเพื่อตรวจการตั้งครรภ์</div>
             </ion-item > 
 
             <ion-item no-lines> 
-            <h2>ผลตรวจ UPT</h2>
+            <div>ผลตรวจ UPT</div>
             <ion-icon name="add-circle" float-right round (click)="addcontraceptive()" color="1"></ion-icon>
             </ion-item>
-
+         
   
 
-<ion-card >
+<ion-card padding>
    <ion-item >
           <ion-label color="dark">UPT </ion-label>
           <ion-label color="dark">วันที่ </ion-label>
@@ -68,6 +68,7 @@
         </ion-item>
         <div padding></div>
         <button ion-button  float-right color="1" (click)="addcontraceptive()">แก้ไข</button>
+</ion-card>
 </ion-card>
 <button ion-button color="1" >บันทึก</button>
 </ion-content>

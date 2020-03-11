@@ -16,6 +16,19 @@ page-physical {
     div{
         font-size: 15px;
     }
+    #css{
+        width: 40%;
+        position: relative;
+        left: 30%;
+      
+    }
+    #button{
+        font-size: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     @media only screen and (min-width: 1024px) {
         
         #editphysical{
@@ -35,5 +48,19 @@ page-physical {
         div{
             font-size: 20px;
         }
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
+        }
+        #button{
+            font-size: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+     
+    
       }
 }

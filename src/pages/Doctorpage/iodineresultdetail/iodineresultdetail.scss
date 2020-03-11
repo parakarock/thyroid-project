@@ -7,6 +7,9 @@ page-iodineresultdetail {
     
     .button{
         font-size: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     ion-card{
         font-size: 15px;
@@ -22,12 +25,20 @@ page-iodineresultdetail {
         }
         .button{
             font-size: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     
         ion-card{
             font-size: 20px;
             
         }
-    
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
+        }
       }
 }

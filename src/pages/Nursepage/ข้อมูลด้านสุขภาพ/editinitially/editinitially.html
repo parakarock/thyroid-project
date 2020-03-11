@@ -11,8 +11,9 @@
 </ion-header>
 
 <ion-content padding>
-  <div>อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
-  <div>กรุณาเลือกข้อที่ท่านมีอาการดังต่อไปนี้ (เลือกได้มากกว่า1คำตอบ)</div>
+  <ion-card id="css" padding>
+  <div >อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
+  <div >กรุณาเลือกข้อที่ท่านมีอาการดังต่อไปนี้ (เลือกได้มากกว่า1คำตอบ)</div>
 
 
   <!-- <ion-list >
@@ -60,21 +61,30 @@
   </ion-item>
 
 
-
+ 
+   
+  
 
       <ion-item no-lines >
         <ion-label color="dark">ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน 
         </ion-label>
         <ion-checkbox checked="isChecked" [(ngModel)]="shit"></ion-checkbox>
       </ion-item>
-          <ion-item> 
-            <ion-label color="dark">โปรดระบุ กี่กิโลกรัม/3เดือน</ion-label>
-         <ion-input type="text" [(ngModel)]="specify" placeholder=""></ion-input>
-        </ion-item>
- 
+          
+        <ion-grid>
+          <ion-row>
+            <ion-col >
+              <ion-item>
+              <ion-label color="dark">โปรดระบุ </ion-label>
+                <ion-input type="text" [(ngModel)]="specify" placeholder=""></ion-input>
+              </ion-item>
+                </ion-col>
+                <ion-col >
+                <ion-label color="dark"> กี่กิโลกรัม/3เดือน</ion-label>
+                </ion-col>
+      </ion-row>
+    </ion-grid>
 
-  
-  
   <ion-item no-lines>
     <ion-label>น้ำหนักลดแม้จะรับประทานอาหารได้</ion-label>
     <ion-checkbox checked="isChecked" [(ngModel)]="weight"></ion-checkbox>
@@ -85,21 +95,19 @@
     <ion-checkbox checked="isChecked" [(ngModel)]="period" ></ion-checkbox>
   </ion-item>
   
-
- 
-  
       <ion-item >
         <ion-label color="dark">ท่านมีโรคประจำตัวอื่นๆหรือไม่</ion-label>
-        <ion-select [(ngModel)]="disease" placeholder=เลือก>
+        <ion-select [(ngModel)]="disease" placeholder=เลือก interface="popover">
           <ion-option value='มี'>มี </ion-option>
           <ion-option value='ไม่มี'>ไม่มี </ion-option>
         </ion-select>
       </ion-item>
 
   <ion-item >
-    <ion-label color="danger">*ถ้ามี(โปรดระบุโรค)</ion-label>
+    <ion-label color="danger" >*ถ้ามี(โปรดระบุโรค)</ion-label>
     <ion-input [(ngModel)]="assign" type="text" placeholder=""></ion-input>
   </ion-item>
-
+  <div padding></div>
+</ion-card>
   <button ion-button  color="1">บันทึก</button>
 </ion-content>

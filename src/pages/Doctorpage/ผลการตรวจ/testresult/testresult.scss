@@ -1,7 +1,9 @@
 page-testresult {
     ion-label {
         font-size: 15px;
-        
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .button{
@@ -11,11 +13,19 @@ page-testresult {
     @media only screen and (min-width: 1224px) {
         ion-label {
             font-size: 20px;
-           
+         
         } 
         .button{
             font-size: 20px;
-           
+            display: block;
+        margin-left: auto;
+        margin-right: auto;
+        }
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
         }
     
       }

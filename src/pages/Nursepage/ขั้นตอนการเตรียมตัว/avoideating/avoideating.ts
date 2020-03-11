@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditavoideatingPage } from '../editavoideating/editavoideating';
 import { EatfoodPage } from '../eatfood/eatfood';
 import { NofoodPage } from '../nofood/nofood';
+
+
 /**
  * Generated class for the AvoideatingPage page.
  *
@@ -16,12 +18,14 @@ import { NofoodPage } from '../nofood/nofood';
   templateUrl: 'avoideating.html',
 })
 export class AvoideatingPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  dateBefore;
+  dateAfter;
+  constructor(public navCtrl: NavController, public navParams: NavParams )  {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AvoideatingPage');
+  
   }
 
   editavoideating(){

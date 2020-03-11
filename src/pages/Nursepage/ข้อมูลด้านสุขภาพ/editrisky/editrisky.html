@@ -11,7 +11,9 @@
 </ion-header>
 
 <ion-content padding>
-  <div>ขณะท่านมีอาการไทรอยด์เป็นพิษ กรุณาใส่เครื่องหมายถูกในช่องสี่เหลี่ยมหากท่านมีปัจจัยที่ก่อให้เกิดโรคดังต่อไปนี้</div>
+  <ion-card id="css">
+
+  <div padding>ขณะท่านมีอาการไทรอยด์เป็นพิษ กรุณาใส่เครื่องหมายถูกในช่องสี่เหลี่ยมหากท่านมีปัจจัยที่ก่อให้เกิดโรคดังต่อไปนี้</div>
 
   <ion-item no-lines>
     <ion-label>มีความเครียด</ion-label>
@@ -66,10 +68,10 @@
   </ion-item>
   
   <ion-item >
-    <ion-label color="dark">ระบุ</ion-label>
+    <ion-label color="dark">ระบุกี่ซอง หรือม้วนต่อวัน</ion-label>
     <ion-input [(ngModel)]="specify" type="text" placeholder=""></ion-input>
-    <ion-select [(ngModel)]="perday" placeholder=เลือก>
-      <ion-option value='ม้วนต่อวัน'>ซองต่อวัน </ion-option>
+    <ion-select [(ngModel)]="perday" placeholder=เลือก interface="popover">
+      <ion-option value='ม้วนต่อวัน'>ม้วนต่อวัน </ion-option>
       <ion-option value='ซองต่อวัน'>ซองต่อวัน </ion-option>
     </ion-select>
   </ion-item>
@@ -77,7 +79,7 @@
   <ion-item >
     <ion-label color="dark">ระยะเวลาที่สูบ</ion-label>
     <ion-input [(ngModel)]="duration" type="text" placeholder=""></ion-input>
-    <ion-select [(ngModel)]="yearmonth" placeholder=เลือก>
+    <ion-select [(ngModel)]="yearmonth" placeholder=เลือก interface="popover">
       <ion-option value='ปี'>ปี </ion-option>
       <ion-option value='เดือน'>เดือน </ion-option>
     </ion-select>
@@ -195,6 +197,7 @@
     </ion-label>
     <ion-checkbox checked="isChecked" [(ngModel)]="Workingrelatives"></ion-checkbox>
   </ion-item>
+</ion-card>
 
   <button ion-button small color="1">บันทึก</button>
 </ion-content>

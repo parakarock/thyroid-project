@@ -5,10 +5,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+<ion-card id="css" padding>
+
+  <!-- <form [formGroup]="formgroup"  > -->
+  <ion-list >
     <ion-item>
       <ion-label color="dark">ส่งตัวมาจากโรงพยาบาล</ion-label>
-      <ion-select [(ngModel)]="item" placeholder="เลือก">
+      <ion-select [(ngModel)]="item" placeholder="เลือก" interface="popover">
         <ion-option value='1'>1</ion-option>
         <ion-option value='2'>2</ion-option>
         <ion-option value='3'>3</ion-option>
@@ -22,17 +25,24 @@
 
     <ion-item>
       <ion-label fixed color="dark">HN</ion-label>
-      <ion-input  #ltName type="text" placeholder="ภาษาไทย"></ion-input>
+      <ion-input  #ltName type="text" placeholder=""></ion-input>
     </ion-item>
-    
+
+
+ 
       <ion-item>
         <ion-label undefined color="dark">โรงพยาบาลบูรพา HN</ion-label>
-        <ion-input  #ltName type="text" placeholder="ภาษาไทย" value=""></ion-input>
+        <ion-input  type="text" placeholder="" value=""></ion-input>
       </ion-item>
+      <!-- <ion-item no-lines *ngIf="hn.hasError('required') && hn.touched"> 
+        <p>*กรุณาตรวจสอบให้ถูกต้อง</p>
+      </ion-item>  -->
+   
+  
 
       <ion-item>
         <ion-label color="dark">โรงพยาบาลที่ส่งตัวกลับ</ion-label>
-        <ion-select [(ngModel)]="item2" placeholder="เลือก">
+        <ion-select [(ngModel)]="item2" placeholder="เลือก" interface="popover">
           <ion-option value='1'>1</ion-option>
           <ion-option value='2'>2</ion-option>
           <ion-option value='3'>3</ion-option>
@@ -44,11 +54,15 @@
         <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item  >
         <ion-label fixed color="dark">HN</ion-label>
-        <ion-input  #ltName type="text" placeholder="ภาษาไทย"></ion-input>
+        <ion-input   type="text" placeholder=""></ion-input>
       </ion-item>
       
   </ion-list>
-  <button ion-button  color="1">ยืนยันการสมัคร</button>
+<!-- </form> -->
+
+</ion-card>
+  <button  ion-button  color="1">ยืนยันการสมัคร</button>
+
 </ion-content>

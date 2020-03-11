@@ -1,4 +1,8 @@
 page-addcontraceptive {
+    #div{
+        font-size: 15px;
+        text-align: center;
+    }
     ion-label{
         font-size: 15px;
         
@@ -6,19 +10,33 @@ page-addcontraceptive {
     
     .button{
         font-size: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
  
     
     @media only screen and (min-width: 1224px) {
+        #div{
+            font-size: 20px;
+            text-align: center;
+        }
         ion-label{
             font-size: 20px;
             
         } 
         .button{
             font-size: 20px;
-            
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
-    
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
+        }
       }
 }

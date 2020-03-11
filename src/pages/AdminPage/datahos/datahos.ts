@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {AddhosPage } from '../../AdminPage/addhos/addhos';
 /**
  * Generated class for the DatahosPage page.
  *
@@ -21,5 +21,7 @@ export class DatahosPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DatahosPage');
   }
-
+  addhos(){
+    this.navCtrl.push(AddhosPage);
+  }
 }

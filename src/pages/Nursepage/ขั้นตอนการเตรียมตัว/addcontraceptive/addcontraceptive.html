@@ -11,9 +11,9 @@
 </ion-header>
 
 <ion-content padding>
-<div>ผลการตรวจ UPT</div>
+<div id="div">ผลการตรวจ UPT</div>
 
-<ion-card>
+<ion-card id="css" padding>
 <ion-item >
   <ion-label color="dark">UPT วันที่</ion-label>
   <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
@@ -21,7 +21,7 @@
 
 <ion-item >
   <ion-label color="dark">ผลการตรวจ</ion-label>
-  <ion-select [(ngModel)]="examination">
+  <ion-select [(ngModel)]="examination" interface="popover">
     <ion-option value="negative">negative</ion-option>
     <ion-option value="positive">positive</ion-option>
   </ion-select>
