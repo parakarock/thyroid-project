@@ -14,12 +14,13 @@ export class HomePage {
   url: string;
   data: string;
   @ViewChild(Slides) slides: Slides;
-  
+
   constructor(public navCtrl: NavController,public menuCtrl:MenuController,public events: Events) {}
   ionViewDidLoad() {
     // this.loadUser();
     // console.log("dddd")
-    
+    this.events.publish("user:guest");
+
   }
   slideChanged() {
     let currentIndex = this.slides.getActiveIndex();

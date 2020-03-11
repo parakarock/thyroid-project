@@ -14,7 +14,8 @@ import { DocEditPage } from '../pages/Doctorpage/ผลการตรวจ/doc
 import { DocDiagnosticResultPage } from '../pages/Doctorpage/ผลการตรวจ/doc-diagnostic-result/doc-diagnostic-result';
 import { DocBiopsyPage } from '../pages/Doctorpage/ผลการตรวจ/doc-biopsy/doc-biopsy';
 
-import { EditlabtestPage } from '../pages/Nursepage/editlabtest/editlabtest';
+// import { EditlabtestPage } from '../pages/Nursepage/editlabtest/editlabtest';
+import { EditlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/editlabtest/editlabtest';
 import { EdittreatmentresultPage } from '../pages/Doctorpage/edittreatmentresult/edittreatmentresult';
 import { AddtreatmentresultPage } from '../pages/Doctorpage/addtreatmentresult/addtreatmentresult';
 import { FollowuptreatmentresultPage } from '../pages/Doctorpage/followuptreatmentresult/followuptreatmentresult';
@@ -22,8 +23,10 @@ import { EditiodineresultdetailPage } from '../pages/Doctorpage/editiodineresult
 import { IodineresultdetailPage } from '../pages/Doctorpage/iodineresultdetail/iodineresultdetail';
 import { IodineresultPage } from '../pages/Doctorpage/iodineresult/iodineresult';
 import { DoctorHomePage } from '../pages/Doctorpage/doctor-home/doctor-home';
-import { LabtestresultPage } from '../pages/Nursepage/labtestresult/labtestresult';
-import { AddlabtestPage } from './../pages/Nursepage/addlabtest/addlabtest';
+// import { LabtestresultPage } from '../pages/Nursepage/labtestresult/labtestresult';
+// import { AddlabtestPage } from './../pages/Nursepage/addlabtest/addlabtest';
+import { LabtestresultPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/labtestresult/labtestresult';
+import { AddlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/addlabtest/addlabtest';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -33,20 +36,26 @@ import { HttpModule } from '@angular/http';
 // import { File } from '@ionic-native/file';
 import { IonicStorageModule } from '@ionic/storage'
 
+import { AppointmentPage } from "../pages/Nursepage/appointment/appointment";
 
-import { AboutPage } from '../pages/Homepage/about/about';
-import { ContactPage } from '../pages/Homepage/contact/contact';
-import { HomePage } from '../pages/Homepage/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-import { LoginPage } from '../pages/Homepage/login/login';
-import { RegisterPage } from '../pages/Nursepage/register/register';
-import { NurseHomePage } from '../pages/Nursepage/nurse-home/nurse-home';
-import { NurseTabsPage } from '../pages/nurse-tabs/nurse-tabs';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { RegisterProvider } from '../providers/register/register';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { File } from '@ionic-native/file';
+// import { IonicStorageModule } from '@ionic/storage'
 
+import { AboutPage } from "../pages/Homepage/about/about";
+import { ContactPage } from "../pages/Homepage/contact/contact";
+import { HomePage } from "../pages/Homepage/home/home";
+import { TabsPage } from "../pages/tabs/tabs";
+import { LoginPage } from "../pages/Homepage/login/login";
+import { RegisterPage } from "../pages/Nursepage/register/register";
+import { NurseHomePage } from "../pages/Nursepage/nurse-home/nurse-home";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { RegisterProvider } from "../providers/register/register";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RegistersPage } from "../pages/Nursepage/registers/registers";
+import { ToxinthyPage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/toxinthy/toxinthy";
+import { AgreePage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/agree/agree";
+import { ChangepassPage} from "../pages/changepass/changepass";
 
 import { HealthdatahomePage } from '../pages/Nursepage/ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome';
 import { GeneralPage } from '../pages/Nursepage/ข้อมูลด้านสุขภาพ/general/general';
@@ -87,13 +96,30 @@ import { EditlabPage} from '../pages/Nursepage/ผลการตรวจ/editl
 import { EditbiopsyPage} from '../pages/Nursepage/ผลการตรวจ/editbiopsy/editbiopsy';
 import { DiagnosticResultsPage} from '../pages/Nursepage/ผลการตรวจ/diagnostic-results/diagnostic-results';
 
-import { GlobalProvider } from '../providers/global/global';
+import { GlobalProvider } from '../providers/';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { HttpClientModule } from '@angular/common/http';
 
+
+import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/eatfood/eatfood';
+import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
+
+import { PatientHomePage } from '../pages/Patientpage/patient-home/patient-home';
+
+import { AdminhomePage } from '../pages/AdminPage/adminhome/adminhome';
+import { DatauserPage } from '../pages/AdminPage/datauser/datauser';
+import { DatahosPage } from '../pages/AdminPage/datahos/datahos';
+import { DdPage } from '../pages/AdminPage/dd/dd';
+import { DpPage } from '../pages/AdminPage/dp/dp';
+import { DnPage } from '../pages/AdminPage/dn/dn';
+import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
+import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
+
+import {  QrcodePage } from '../pages/qrscan/qrscan';
+import {  GenPage } from '../pages/gen/gen';
 
 
 @NgModule({
@@ -106,7 +132,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPage,
     RegisterPage,
     NurseHomePage,
-    NurseTabsPage,
+    RegistersPage,
+    NurseHomePage,
     AddlabtestPage,
     EditlabtestPage,
     LabtestresultPage,
@@ -166,7 +193,26 @@ import { HttpClientModule } from '@angular/common/http';
     DocPhysicalsPage,
     DocRadiographicPage,
     DocRadiographicsPage,
-    DocTestresultPage
+    DocTestresultPage,
+    PatientHomePage,
+    ToxinthyPage,
+    AgreePage,
+    ChangepassPage,
+    AdminhomePage,
+    DatauserPage,
+    DatahosPage,
+    DdPage,
+    DpPage,
+    DnPage,
+    QrcodePage,
+    AdddatauserPage,
+    EatfoodPage,
+    NofoodPage,
+    AppointmentPage,
+    GenPage,
+    AddhosPage
+
+
   ],
   imports: [
     BrowserModule,
@@ -187,7 +233,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPage,
     RegisterPage,
     NurseHomePage,
-    NurseTabsPage,
+    RegistersPage,
+    NurseHomePage,
     AddlabtestPage,
     EditlabtestPage,
     LabtestresultPage,
@@ -198,7 +245,6 @@ import { HttpClientModule } from '@angular/common/http';
     FollowuptreatmentresultPage,
     AddtreatmentresultPage,
     EdittreatmentresultPage,
-
     HealthdatahomePage,
     GeneralPage,
     InitiallyPage,
@@ -248,7 +294,25 @@ import { HttpClientModule } from '@angular/common/http';
     DocPhysicalsPage,
     DocRadiographicPage,
     DocRadiographicsPage,
-    DocTestresultPage
+    DocTestresultPage,
+    PatientHomePage,
+    ToxinthyPage,
+    AgreePage,
+    ChangepassPage,
+    AdminhomePage,
+    DatauserPage,
+    DatahosPage,
+    DdPage,
+    DpPage,
+    DnPage,
+    QrcodePage,
+    AdddatauserPage,
+    EatfoodPage,
+    NofoodPage,
+    AppointmentPage,
+    GenPage,
+    AddhosPage
+
   ],
   providers: [
     StatusBar,
@@ -267,7 +331,6 @@ import { HttpClientModule } from '@angular/common/http';
     // BarcodeScannerOptions
   ]
 })
+
 export class AppModule {}
-
-
 

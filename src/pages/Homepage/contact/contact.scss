@@ -1,12 +1,28 @@
 page-contact {
-  @media screen and (min-width: 601px) {
-    p {
-      font-size: 80px;
+
+  div{
+    font-size: 14px;
+}
+
+img{
+   width: 120px;
+   height: 120px;
+}
+
+
+
+@media only screen and (min-width: 1224px) {
+
+   div{
+        font-size: 20px;
+
+
     }
-  }
-  @media screen and (min-width: 300px) {
-    p {
-      font-size: 40px;
-    }
+    img{
+      width: 300px;
+      height: 300px;
+   }
+
   }
 }
+

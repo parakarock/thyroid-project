@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>ผลการเจาะตรวจชิ้นเนื้อ และผลวินิจฉัย</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card id="css" padding>
+  <ion-item no-lines>
+    <h1>คำแนะนำเพิ่มเติม</h1>
+  </ion-item>
+
+
+  
+
+    <ion-label class="radio-inline">
+      <input type="radio" name="ThiHair" >
+      ควรติตตามผล Thyroid Ultrasound
+    </ion-label>
+
+ 
+    <ion-label class="radio-inline">
+      <input type="radio" name="ThiHair">
+      ส่ง fine needle aspiration
+    </ion-label>
+  
+    <ion-label class="radio-inline">
+    <input type="radio" name="ThiHair">
+    ส่งผ่าตัด
+    </ion-label>
+  
+    <ion-label color="dark">ตามผลThyroid Ultrasound</ion-label>
+    <ion-item >
+      <ion-input [(ngModel)]="Thyroid" type="text" placeholder=""></ion-input>
+        
+            
+              <ion-select [(ngModel)]="Thyroidu" placeholder="เลือก">
+                <ion-option value="เดือน">เดือน </ion-option>
+                <ion-option value="ปี">ปี</ion-option>
+              </ion-select>
+            </ion-item>
+     
+    
+      
+    
+    
+<ion-item no-lines>
+<ion-icon name="add-circle" float-right  round color="1" (click)="editbiopsy()"></ion-icon>
+<ion-card>
+  <ion-card-header>
+    <div>ลำดับก้อน</div>
+    <div>วันที่ตรวจ</div>
+<div>ผลทางเซลล์วิทยา</div>
+<button ion-button (click)="editbiopsy()" color="1">แก้ไข</button>
+  </ion-card-header>
+</ion-card>
+</ion-item>
+<ion-item >
+        <ion-label  color="dark">ระบุการผ่าตัด</ion-label>
+        <ion-input [(ngModel)]="sec" type="text" placeholder=""></ion-input>
+      </ion-item>
+
+</ion-card>
+
+
+
+
+</ion-content>

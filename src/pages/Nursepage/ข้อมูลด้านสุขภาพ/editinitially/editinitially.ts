@@ -15,14 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EditinitiallyPage {
 
-  
+
   edgy:String;
   hot:String;
-  ShakinHands:String;
+  shakinHands:String;
   neck:String;
-  Gland:String;
-  BigEyes:String;
-  Shit:String;
+  gland:String;
+  bigeyes:String;
+  shit:String;
   specify:String;
   weight:String;
   period:String;
@@ -38,21 +38,21 @@ export class EditinitiallyPage {
 
   do(){
     let body = JSON.stringify({
-     
+
       edgy: this.edgy,
       hot: this.hot,
-      ShakinHands: this.ShakinHands,
+      shakinHands: this.shakinHands,
       neck: this.neck,
-      Gland: this.Gland,
-      BigEyes: this.BigEyes,
-      Shit: this.Shit,
+      gland: this.gland,
+      bigryes: this.bigeyes,
+      shit: this.shit,
       specify: this.specify,
       weight: this.weight,
       period: this.period,
       disease: this.disease,
       assignl: this.assign
-     
-     
+
+
     });
   }
 }

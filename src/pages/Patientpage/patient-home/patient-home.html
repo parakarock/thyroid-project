@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-navbar color="1" hideBackButton="true">
+    <ion-title>เมนู</ion-title>
+    <button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-menu persistent="true" menuId="first" side="right" [content]="mycontent" >
+  
+  <ion-content>
+  
+
+
+    <ion-list>
+      <br>
+      <img class="profile" src="../../../assets/icon/Pic_Icon/fracture.png" />
+      
+        <h3>{{ name }}</h3>
+        
+        <ion-item>
+          <ion-label>รักษาครั้งที่</ion-label>
+          <ion-select [(ngModel)]="number" interface="popover">
+            <ion-option value="1">1</ion-option>
+            <ion-option value="2">2</ion-option>
+          </ion-select>
+        </ion-item>
+     
+      <ion-item>
+        <ion-label>Status</ion-label>
+        <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
+          <ion-option *ngFor="let role of roles" [value]="role.role_name" [selected]="role.role_name === 'patient'">{{role.role_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <button ion-item (click)="ChangePass()" color="2">เปลี่ยนรหัสผ่าน</button>
+      <button ion-item (click)="onClickLogoutButton()" color="2">ออกจากระบบ</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage" ></ion-nav>
+
+<ion-content >
+  <ion-slides pager="true" autoplay="400" loop="true" speed="3000">
+    <ion-slide style="background-color: green">
+      <h2>Slide 1</h2>
+    </ion-slide>
+
+    <ion-slide style="background-color: blue">
+      <h2>Slide 2</h2>
+    </ion-slide>
+
+    <ion-slide style="background-color: red">
+      <h2>Slide 3</h2>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row>
+      <a class="col col-33 text-center" >
+        <img
+          class="img-auto"
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/P-QR.png"
+        />
+        <h5 >คิวอาร์โค้ด</h5>
+      </a>
+      <a class="col col-33 text-center" (click)="healthdatahome()">
+        <img
+          class="img-auto"
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/P-Info.png"
+        />
+        <h5>ข้อมูลผู้ป่วย</h5>
+      </a>
+      <a class="col col-33 text-center" (click)="testresult()">
+        <img
+          class="img-auto"
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/P-Exam.png"
+        />
+        <h5>ผลการตรวจ</h5>
+      </a>
+    </ion-row>
+
+    <ion-row>
+      <a class="col col-33 text-center" (click)="Preparehome()">
+        <img
+          class="img-auto"
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/P-Advice.png"
+        />
+        <h5>คำแนะนำในการรักษา</h5>
+      </a>
+      <a class="col col-33 text-center" (click)="Iodineresult()">
+        <img
+          class="img-auto"
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/P-Result.png"
+        />
+        <h5>สรุปผลการรักษา</h5>
+      </a>
+      <a class="col col-33 text-center" (click)="follow()">
+        <img
+          class="img-auto"
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/P-Follow.png"
+        />
+        <h5>ติดตามผลการรักษา</h5>
+      </a>
+      </ion-row>
+  
+  </ion-grid>
+
+
+
+
+ 
+  <!-- <a class="col col-50 text-center"  (click)="onClicktestresult()">
+    <img
+      class="img-auto"
+      id="logo"
+      src="../../../assets/icon/Pic_Icon/P-Advice.png"
+    />
+    <h5>ผลการตรวจ</h5>
+  </a>
+
+  <ion-buttons>
+    <button ion-button (click)="goDoctorPage()">Go to Doctor Page </button>
+  </ion-buttons> -->
+</ion-content>

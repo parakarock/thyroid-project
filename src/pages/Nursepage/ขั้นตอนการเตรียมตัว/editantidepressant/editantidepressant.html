@@ -11,45 +11,31 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6>
-        <div>ผู้ป่วยต้องงดยาต้านไทรอยด์หรือไม่</div>
-      </ion-col>
-      <ion-col col-6>
-        <ion-card>
-          <ion-card-header>
-            <ion-item>
-              <ion-select [(ngModel)]="AbstainFromMedication">
-                <ion-option value="ต้อง">ต้อง</ion-option>
-                <ion-option value="ไม่ต้อง">ไม่ต้อง</ion-option>
-              </ion-select>
-            </ion-item>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <div>ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์</div>
-  <div>ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่</div>
-  <br>
-  <ion-card>
-    <ion-card-header>
-      <ion-item>
-        <ion-label>Date</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
-      </ion-item>
-    </ion-card-header>
-    </ion-card>
-  <br>
-  <div>และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</div>
-  <br>
-  <ion-card>
-    <ion-card-header>
-    <ion-item>
-   <ion-input type="" [(ngModel)]="AfterIngestion"></ion-input>
+
+  <ion-card  id="css" padding >
+
+
+  <ion-item no-lines>
+    <ion-label color="dark">ผู้ป่วยต้องงดยาต้านไทรอยด์หรือไม่</ion-label>
+    <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก" interface="popover">
+      <ion-option value="ต้อง">ต้อง</ion-option>
+      <ion-option value="ไม่ต้อง">ไม่ต้อง</ion-option>
+    </ion-select>
   </ion-item>
-  </ion-card-header>
+
+  <div padding></div>
+
+  <div color="dark">ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์ ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่</div>
+  <ion-item>
+    <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
+  </ion-item>
+
+
+  <ion-label color="dark">และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</ion-label>
+  <ion-item >
+    <ion-label color="dark"></ion-label>
+  </ion-item>
+
 </ion-card>
-  <button ion-button >Save</button>
+  <button ion-button color="1">บันทึก</button>
 </ion-content>

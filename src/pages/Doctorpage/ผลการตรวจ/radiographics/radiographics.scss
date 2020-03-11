@@ -1,0 +1,49 @@
+page-radiographics {
+    div {
+        font-size: 15px;
+        
+    }
+    
+    .button{
+        font-size: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #subtitle {
+        background-color: rgb(255, 255, 255);
+        margin: 15px;
+        padding: 5px;
+        border: 0.5px solid black;
+       height: 200px;
+      }
+   
+    
+    @media only screen and (min-width: 1224px) {
+        div {
+            font-size: 20px;
+           
+        } 
+        .button{
+            font-size: 20px;
+              display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #subtitle {
+        background-color: rgb(255, 255, 255);
+        margin:15px ;
+        
+        padding: 5px;
+        border: 0.5px solid black;
+       height: 500px;
+      }
+      #css{
+        width: 40%;
+        position: relative;
+        left: 30%;
+      
+    }
+    
+      }
+}

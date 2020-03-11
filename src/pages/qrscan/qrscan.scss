@@ -1,0 +1,39 @@
+page-qrscan {
+div{
+    text-align: center;
+    font-size: 15px;
+}
+.button{
+    font-size: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+    
+
+    div{
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .button{
+        font-size: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+     #css{
+    width: 40%;
+    position: relative;
+    left: 30%;
+     }
+     #card{
+        width: 40%;
+        position: relative;
+        left: 30%;
+         }
+}
+}

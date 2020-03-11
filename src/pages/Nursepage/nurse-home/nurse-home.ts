@@ -1,13 +1,19 @@
-import { DoctorHomePage } from '../../Doctorpage/doctor-home/doctor-home';
-import { LabtestresultPage } from '../labtestresult/labtestresult';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
-import { HomePage} from '../../Homepage/home/home'
-import { HealthdatahomePage } from '../ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome';
-import { PreparehomePage } from '../ขั้นตอนการเตรียมตัว/preparehome/preparehome';
-import { TestresultPage } from '../ผลการตรวจ/testresult/testresult';
+import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
+import { LabtestresultPage } from "../../Nursepage/ผลการตรวจทางห้องแลป/labtestresult/labtestresult";
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams, Events,ViewController,MenuController } from "ionic-angular";
+import { RegisterPage } from "../register/register";
+import { HomePage } from "../../Homepage/home/home";
+import { HealthdatahomePage } from "../ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome";
+import { PreparehomePage } from "../ขั้นตอนการเตรียมตัว/preparehome/preparehome";
+import { TestresultPage } from "../../Doctorpage/ผลการตรวจ/testresult/testresult";
+import { GlobalProvider } from "../../../providers/global/global";
+import { QrcodePage } from "../../qrscan/qrscan";
+import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
 
+
+
+import { ChangepassPage } from "../../changepass/changepass";
 /**
  * Generated class for the NurseHomePage page.
  *
@@ -17,41 +23,71 @@ import { TestresultPage } from '../ผลการตรวจ/testresult/testre
 
 @IonicPage()
 @Component({
-  selector: 'page-nurse-home',
-  templateUrl: 'nurse-home.html',
+  selector: "page-nurse-home",
+  templateUrl: "nurse-home.html"
 })
 export class NurseHomePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public events: Events,
+    public viewCtrl: ViewController,
+    public menu: MenuController,
+    public global: GlobalProvider
+  ) {}
+  roles;
+  name;
+  status: string;
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NurseHomePage');
-    // this.events.publish('user:nurse');
+    console.log("ionViewDidLoad NurseHomePage");
+    this.roles = this.global.getrole();
+    this.name = this.global.getname();
   }
-  onClickRegister(){
+  ionViewWillEnter() {}
+
+  selectRole() {
+    if (this.status === "patient") {
+      this.events.publish("user:patient");
+      this.menu.enable(false);
+      this.navCtrl.setRoot(PatientHomePage);
+    }
+    if (this.status === "doctor") {
+      this.events.publish("user:doctor");
+      this.menu.enable(false);
+      this.navCtrl.setRoot(DoctorHomePage);
+    }
+  }
+
+  onClickRegister() {
     this.navCtrl.push(RegisterPage);
   }
-  onClickLogoutButton(){
-    this.events.publish('user:guest');
+  onClickLogoutButton() {
+    this.events.publish("user:guest");
     this.navCtrl.setRoot(HomePage);
   }
 
-  navigateToLabTest(){
-    this.navCtrl.push(LabtestresultPage);
+  navigateToLabTest() {
+    this.navCtrl.push(QrcodePage,{page: "LabtestresultPage"});
   }
 
-  goDoctorPage(){
+  goDoctorPage() {
     this.navCtrl.push(DoctorHomePage);
   }
 
-  onClickHealthdatahome(){
-    this.navCtrl.push(HealthdatahomePage);
+  ChangePass() {
+    this.navCtrl.push(ChangepassPage);
   }
-  onClickPreparehome(){
-    this.navCtrl.push(PreparehomePage);
+
+
+  onClickHealthdatahome() {
+    this.navCtrl.push(QrcodePage,{page: "HealthdatahomePage"});
   }
-  onClicktestresult(){
-    this.navCtrl.push(TestresultPage);
+  onClickPreparehome() {
+    this.navCtrl.push(QrcodePage,{page: "PreparehomePage"});
+  }
+
+  onChange($event) {
+    console.log($event);
   }
 }

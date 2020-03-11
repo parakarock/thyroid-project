@@ -4,18 +4,29 @@ import {
   NavController,
   NavParams,
   AlertController,
-  Events
+  Events,
+  Form
 } from "ionic-angular";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
-import { Http, Response, Headers, ResponseOptions } from "@angular/http";
+import {
+  Http,
+  Response,
+  Headers,
+  ResponseOptions,
+  RequestOptions
+} from "@angular/http";
 import "rxjs/add/operator/map";
+import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
+import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
+import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
+import { GlobalProvider } from "../../../providers/global/global";
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  AbstractControl
+} from "@angular/forms";
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -23,61 +34,99 @@ import "rxjs/add/operator/map";
   templateUrl: "login.html"
 })
 export class LoginPage {
+  formgroup: FormGroup;
+  username: AbstractControl;
+  password: AbstractControl;
   usernameInput: string;
   role: any;
+  nurse;
+  doctor;
+  patient;
+  name;
+  data;
   @ViewChild("passwordInput") mPassword;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public events: Events,
-    private http: Http
-  ) {}
+    private http: Http,
+    public global: GlobalProvider,
+    public formBuilder: FormBuilder
+  ) {
+    this.formgroup = formBuilder.group({
+
+      username: ["", Validators.required],
+      password: ["", Validators.required]
+    });
+
+
+
+   this.username = this.formgroup.controls['username'];
+   this.password = this.formgroup.controls['password'];
+
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad LoginPage");
   }
 
-  onClickLoginButton() {
-    console.log('input : '+this.usernameInput);
+  async onClickLoginButton() {
     let headers = new Headers({ "Content-type": "application/json" });
-    let options = new ResponseOptions({ headers: headers });
-    let body = { idcard: this.usernameInput };
-    this.http
-      .post("http://localhost:8000/getuser.php", body, options)
+    let options = new RequestOptions({ headers: headers });
+    let body = { username: this.usernameInput, password: this.usernameInput };
+    console.log("body : " + body);
+    await this.http
+      .post(
+        "http://10.80.34.218:8000/login.php?method=login&role=guest",
+        body,
+        options
+      )
       .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        this.role = data.role_name;
-        console.log('output : '+this.role);
-      },error=>{
-        console.log(error);
-      });
-    // if(this.mUsername.value == "example"&&this.mPassword.value == "1234"){
-    //   this.navCtrl.push(TabsPage);
-    // }else{
-    //   const alert = this.alertCtrl.create({
-    //   title: 'Fail to Login',
-    //   subTitle: 'Your username or password is incorrect',
-    //   buttons: ['OK']
-    // });
-    // alert.present();
-    // }
-    // if (this.role.role_name == "nurse") {
-    //   this.events.publish("user:nurse");
-    //   this.navCtrl.setRoot(NurseHomePage);
-    // } else {
-    //   const alert = this.alertCtrl.create({
-    //     title: "Fail to Login",
-    //     subTitle: "Your username or password is incorrect",
-    //     buttons: ["OK"]
-    //   });
-    //   alert.present();
-    // }
+      .subscribe(
+        data => {
+          this.data = JSON.stringify(data);
+          this.global.name =
+            data[0].title + data[0].firstname + " " + data[0].lastname;
+          this.global.role = data[1];
+          console.log(this.global.name);
 
-    // this.navCtrl.popToRoot();
-    // this.navCtrl.push(NurseTabsPage,{text:true});
-    this.events.publish("user:nurse");
-    this.navCtrl.setRoot(NurseHomePage);
+          if (
+            data[1].findIndex(role_name => role_name.role_name === "doctor") >=
+            0
+          ) {
+            this.events.publish("user:doctor");
+            this.navCtrl.setRoot(DoctorHomePage);
+          } else if (
+            data[1].findIndex(role_name => role_name.role_name === "nurse") >= 0
+          ) {
+            this.events.publish("user:nurse");
+            this.navCtrl.setRoot(NurseHomePage);
+          } else if (
+            data[1].findIndex(role_name => role_name.role_name === "patient") >=
+            0
+          ) {
+            this.events.publish("user:patient");
+            this.navCtrl.setRoot(PatientHomePage);
+          }
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
+
+  goDoctorPage() {
+    this.navCtrl.setRoot(DoctorHomePage);
+  }
+  go() {
+    this.navCtrl.setRoot(PatientHomePage);
+  }
+  admin() {
+    this.navCtrl.setRoot(AdminhomePage);
+  }
+  doSignup(){
+    console.log(this.formgroup.value);
+    console.log(this.formgroup.valid);
+}
 }

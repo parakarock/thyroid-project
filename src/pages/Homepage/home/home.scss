@@ -8,22 +8,25 @@ page-home {
   }
   #title {
     text-align: left;
+    color: rgb(0, 0, 0);
   }
   #subtitle {
-    text-align: center;
-    background-color: rgb(105, 163, 182);
+    text-align: left;
+    background-color: #32D1AC;
     margin: 15px;
     padding: 5px;
-    border: 1.5px solid black;
+    border: 0.5px solid black;
   }
 
   ion-slides {
-    height: 50%;
+    height: 40%;
   }
-  
+
   #clip {
     text-align: center;
   }
+
+
   //   }
   //   @media only screen and (max-width: 320px) {
   //     ion-slides {
@@ -41,12 +44,12 @@ page-home {
       background-color: white;
     }
     #subtitle {
-      text-align: center;
-      background-color: rgb(105, 163, 182);
+      text-align: left;
+      background-color: #32D1AC;
       margin: 15px;
       padding: 5px;
-      border: 1.5px solid black;
-      font-size: 50px;
+      border: 0.5px solid black;
+      font-size: 20px;
     }
   }
   //   @media only screen and (min-width: 1824px) {

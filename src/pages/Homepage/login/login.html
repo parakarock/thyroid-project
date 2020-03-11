@@ -11,34 +11,72 @@
 </ion-header>
 
 <ion-content padding >
- <div style="text-align: center;">
-  <img
-  id="logo"
-  src="../../../assets/imgs/buu.jpg"
-  class="img-responsive"
-  width="128" height="128"
-  
-/>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-1>
+      </ion-col>
+      <ion-col col-5>
+        <div  style=" text-align: center">
+          <img
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/Hos_Img.png"
+          class="img-responsive"
+          >
+         </div >
+      </ion-col>
+      <ion-col col-5>
+        <div style=" text-align: center">
+          <img
+          id="logo"
+          src="../../../assets/icon/Pic_Icon/Med_Img.png"
+          class="img-responsive"
+         >
+         </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
- </div>
-  
+
+  <form [formGroup]="formgroup" (ngSubmit)="doSignup()">
  <div style="text-align: center;">
+
+
   <ion-list>
+<ion-card style="height:100%">
+    <ion-item no-lines>
+      <ion-label floating color="dark">รหัสบัตรประชาชน</ion-label>
+      <ion-input formControlName="username" [(ngModel)]="usernameInput"  type="text"></ion-input>
+    </ion-item>
+  <ion-item no-lines *ngIf="username.hasError('required') && username.touched">
+  <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
+</ion-item>
+    <div style="margin: 10px;"></div>
+</ion-card>
 
-    <ion-item>
-      <ion-label floating>รหัสบัตรประชาชน</ion-label>
-      <ion-input [(ngModel)]="usernameInput" type="text"></ion-input>
+
+  <ion-card style="height:100%">
+    <ion-item no-lines>
+      <ion-label floating color="dark">รหัสผ่าน</ion-label>
+      <ion-input formControlName="password"  type="password"></ion-input>
     </ion-item>
-  
-    <ion-item>
-      <ion-label floating>รหัสผ่าน</ion-label>
-      <ion-input #passwordInput type="password"></ion-input>
+    <ion-item no-lines *ngIf="password.hasError('required') && password.touched">
+      <p>*กรุณาตรวจสอบPassWord ให้ถูกต้อง</p>
     </ion-item>
-    
-  </ion-list>
-  <button ion-button full (click)="onClickLoginButton()">เข้าสู่ระบบ</button>
+    <div style="margin: 10px;"></div>
+</ion-card>
+
+   </ion-list>
+
+   <div padding></div>
+  <button type="submit" [disabled]="!formgroup.valid"  ion-button small (click)="onClickLoginButton()" color="1" >เข้าสู่ระบบ</button>
+
+  <!-- ทดลอง -->
+  <button ion-button small (click)="goDoctorPage()" color="1" >เข้าสู่ระบบหมอ</button>
+  <button ion-button small (click)="go()" color="1" >เข้าสู่ระบบผู้ป่วย</button>
+  <button ion-button small (click)="admin()" color="1" >เข้าสู่ระบบadmin</button>
   <a href="" ><p style="text-align:right">ลืมพาสเวิร์ด</p></a>
 
  </div>
-  
+</form>
+
 </ion-content>

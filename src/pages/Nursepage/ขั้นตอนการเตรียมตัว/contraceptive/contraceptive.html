@@ -6,83 +6,12 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6>
-        <div>ผู้ป่วยคุมกำเนิด</div>
-      </ion-col>
-      <ion-col col-6>
-        <div>วิธีการคุมกำเนิดที่เลือก</div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-4>
-        <div>คุมกำเนิด</div>
-      </ion-col>
-      <ion-col col-3>
-        <div>xx</div>
-      </ion-col>
-      <ion-col col-3>
-        <div>เดือน</div>
-      </ion-col>
-      <ion-col col-2>
-      </ion-col>
-    </ion-row>
+  <ion-card id="css" padding>
 
-    <ion-row>
-      <ion-col col-6>
-        <div>ประจำเดือนครั้งสุดท้ายของท่าน</div>
-      </ion-col>
-      <ion-col col-6>
-        <div >DD/MM/YYYY</div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-4>
-        <div>จำนวน</div>
-      </ion-col>
-      <ion-col col-3>
-        <div>xx</div>
-      </ion-col>
-      <ion-col col-3>
-        <div>วัน</div>
-      </ion-col>
-      <ion-col col-2>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <div>กรณีที่ผู้ป่วยมีเพศสัมพันธ์แต่ไม่ได้คุมกำเนิดหรือประจำเดือนมาไม่สม่ำเสมอ ผู้ป่วยจะต้องเก็บปัสสาวะเพื่อตรวจการตั้งครรภ์</div>
-<h2>ผลตรวจ UPT</h2>
-
-<ion-card >
-  <ion-card-header>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-2>
-          <div>UPT </div>
-        </ion-col>
-        <ion-col col-4>
-          <div>วันที่ </div>
-        </ion-col>
-        <ion-col col-6>
-          <div>DD/MM/YYYY</div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-2>
-          <div>ผลการตรวจ</div>
-        </ion-col>
-        <ion-col col-4>
-    
-        </ion-col>
-        <ion-col col-6>
-          <div>negative</div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-   
-  </ion-card-header>
+  <ion-item no-lines>
+    <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
+  </ion-item>
 </ion-card>
-<button ion-button (click)="editcontraceptive()">Edit</button>
+
+<button ion-button color="1" (click)="editcontraceptive()">แก้ไข</button>
 </ion-content>
