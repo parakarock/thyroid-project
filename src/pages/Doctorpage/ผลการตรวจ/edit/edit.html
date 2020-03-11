@@ -23,7 +23,7 @@
 </ion-grid>
 </ion-card>
 
-<button ion-button full >Edit</button>
+<button ion-button  >แก้ไข</button>
 
 <ion-card>
   <ion-grid>
@@ -32,7 +32,7 @@
   <ion-col  col-12>
   <ion-item>
     <ion-label>  <h4>ลำดับก้อน</h4></ion-label>
-    <ion-select [(ngModel)]="order">
+    <ion-select [(ngModel)]="order" interface="popover">
       <ion-option value="1">1</ion-option>
       <ion-option value="2">2</ion-option>
       <ion-option value="3">3</ion-option>
@@ -63,7 +63,7 @@
   <ion-col  col-12>
     <ion-item>
       <ion-label>    <h4>ลักษณะของก้อน</h4></ion-label>
-      <ion-select [(ngModel)]="natures">
+      <ion-select [(ngModel)]="natures" interface="popover">
         <ion-option value="1">high susp</ion-option>
         <ion-option value="2">intermediate susp</ion-option>
         <ion-option value="3">low susp</ion-option>
@@ -79,7 +79,7 @@
     <ion-col  col-12>
       <ion-item>
         <ion-label><h4>คำแนะนำ</h4></ion-label>
-        <ion-select [(ngModel)]="recommend">
+        <ion-select [(ngModel)]="recommend" interface="popover">
           <ion-option value="ควรตรวจติดตามผล thyroid ultrasound">ควรตรวจติดตามผล thyroid ultrasound</ion-option>
           <ion-option value="ส่ง fine needle aspiration">ส่ง fine needle aspiration</ion-option>
           <ion-option value="ส่งผ่าตัด">ส่งผ่าตัด</ion-option>
@@ -107,7 +107,7 @@
     <ion-col  col-12>
       <ion-item>
         <ion-label> <h4>ส่งผ่าตัด ชนิด</h4></ion-label>
-        <ion-select [(ngModel)]="type">
+        <ion-select [(ngModel)]="type" interface="popover">
           <ion-option value="lobectomy">lobectomy</ion-option>
           <ion-option value="isthmectomy">isthmectomy</ion-option>
           <ion-option value="TTD">TTD</ion-option>

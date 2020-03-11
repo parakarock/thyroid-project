@@ -11,6 +11,9 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card id="css" padding>
+  
+ 
   <div>ผู้ใช้ที่มีสถานะเป็นนางพยาบาล</div>
   <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
 
@@ -31,4 +34,5 @@
     <button ion-button float-right (click)="do()" color="1">แก้ไข</button>
     <div style="margin: 10px;"></div>
   </ion-card>
+</ion-card>
 </ion-content>

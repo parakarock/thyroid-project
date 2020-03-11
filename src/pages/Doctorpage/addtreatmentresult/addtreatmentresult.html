@@ -41,7 +41,7 @@
     <ion-card-header>การรักษา</ion-card-header>
     <ion-item>
       <ion-label>ยาต้านอาการไทรอยด์</ion-label>
-      <ion-select [(ngModel)]="ThyroidMed" placeholder="เลือก">
+      <ion-select [(ngModel)]="ThyroidMed" placeholder="เลือก" interface="popover">
         <ion-option value='Propylthiouracil (PTU)'>Propylthiouracil (PTU)</ion-option>
         <ion-option value='Methimazole (MMI)'>Methimazole (MMI)</ion-option>
         <ion-option value='Tapazole'>Tapazole</ion-option>
@@ -56,13 +56,13 @@
       <ion-label color="primary" fixed>จำนวนยา</ion-label>
       <ion-input type="number" min="0" placeholder="จำนวนยา" [(ngModel)]="ThyroidMedVol"></ion-input>
 
-      <ion-label color="primary" fixed>จำนวนครั้งต่อวัน</ion-label>
+      <ion-label color="primary" fixed>ครั้งต่อวัน</ion-label>
       <ion-input type="number" min="0" placeholder="จำนวนครั้ง" [(ngModel)]="ThyroidMedRoundPerDay"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>ยากลุ่ม Beta-Blocker</ion-label>
-      <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก">
+      <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก"  interface="popover">
         <ion-option value='Propranolol (10)'>Propranolol (10)</ion-option>
         <ion-option value='Propranolol (40)'>Propranolol (40)</ion-option>
         <ion-option value='Betalol (10)'>Betalol (10)</ion-option>
@@ -77,7 +77,7 @@
       <ion-label color="primary" fixed>จำนวนยา</ion-label>
       <ion-input type="number" min="0" placeholder="จำนวนยา" [(ngModel)]="BetaBlockVol"></ion-input>
 
-      <ion-label color="primary" fixed>จำนวนครั้งต่อวัน</ion-label>
+      <ion-label color="primary" fixed>ครั้งต่อวัน</ion-label>
       <ion-input type="number" min="0" placeholder="จำนวนครั้ง" [(ngModel)]="BetaBlockRoundPerDay"></ion-input>
     </ion-item>
   </ion-card>

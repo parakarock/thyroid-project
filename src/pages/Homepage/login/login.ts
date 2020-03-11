@@ -26,12 +26,7 @@ import {
   Validators,
   AbstractControl
 } from "@angular/forms";
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -60,9 +55,16 @@ export class LoginPage {
     public formBuilder: FormBuilder
   ) {
     this.formgroup = formBuilder.group({
-      username: ["", Validators.required]
+
+      username: ["", Validators.required],
+      password: ["", Validators.required]
     });
-    this.username = this.formgroup.controls["username"];
+   
+  
+  
+   this.username = this.formgroup.controls['username'];
+   this.password = this.formgroup.controls['password'];
+
   }
 
   ionViewDidLoad() {
@@ -123,4 +125,8 @@ export class LoginPage {
   admin() {
     this.navCtrl.setRoot(AdminhomePage);
   }
+  doSignup(){
+    console.log(this.formgroup.value);
+    console.log(this.formgroup.valid);   
+}
 }

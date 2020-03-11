@@ -1,4 +1,7 @@
 page-antidepressant {
+    div {
+        font-size: 15px;
+    } 
     ion-label {
         font-size: 15px;
         
@@ -6,6 +9,9 @@ page-antidepressant {
     
     .button{
         font-size: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     @media only screen and (min-width: 1224px) {
@@ -14,8 +20,19 @@ page-antidepressant {
         } 
         .button{
             font-size: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
            
         }
-    
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
+        }
+        div {
+            font-size: 20px;
+        } 
       }
 }

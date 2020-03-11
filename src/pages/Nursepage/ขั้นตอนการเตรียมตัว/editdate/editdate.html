@@ -27,10 +27,10 @@
 
 </ion-col>
 </ion-row> -->
-
+<ion-card id="css" padding>
 <ion-item >
   <ion-label color="dark">วิธีการเลือก</ion-label>
-  <ion-select [(ngModel)]="howto" placeholder="เลือก">
+  <ion-select [(ngModel)]="howto" placeholder="เลือก" interface="popover">
     <ion-option value="วิธีการประมาณ">วิธีการประมาณ</ion-option>
     <ion-option value="วิธีคำนวณ">วิธีคำนวณ </ion-option>
   </ion-select>
@@ -48,7 +48,7 @@
   <ion-label color="dark">ถึงวันที่</ion-label>
   <ion-datetime [(ngModel)]="toDate" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
 </ion-item>
-
+</ion-card>
 
 
 <button ion-button small color="1" (click)="datadate()">บันทึก</button>

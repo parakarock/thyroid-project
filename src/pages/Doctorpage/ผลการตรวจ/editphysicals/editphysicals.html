@@ -6,7 +6,7 @@
 
 <ion-content padding>
 
-
+  <ion-card id="css" padding>
 <ion-item >
   <ion-label  color="dark">ขนาดของต่อมไทรอยด์</ion-label>
   <ion-input [(ngModel)]="doc" type="text" placeholder=""></ion-input>
@@ -17,7 +17,7 @@
 </ion-item>
 <ion-item no-lines >
   <ion-label class="radio-inline">
-    <input type="radio" name="checked" >
+    <input type="radio" name="checked" checked >
     ไม่พบ
   </ion-label>
   <ion-label class="radio-inline">
@@ -35,7 +35,7 @@
   </ion-item>
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="heart" >
+      <input type="radio" name="heart" checked >
       ปกติ
     </ion-label>
     <ion-label class="radio-inline">
@@ -52,12 +52,12 @@
     <div>มือสั่น</div>
   </ion-item>
   <ion-item no-lines >
-    <ion-label class="radio-inline">
-      <input type="radio" name="checked" >
+    <ion-label class="radio-inline" >
+      <input type="radio" name="hand" checked>
       ไม่พบ
     </ion-label>
     <ion-label class="radio-inline">
-      <input type="radio" name="checked">
+      <input type="radio" name="hand">
       พบ
     </ion-label>
   </ion-item>
@@ -76,12 +76,12 @@
  
 
   
-
-
+<ion-item >
   <div>ความแรงของกล้ามเนื้อต้นแขนและต้นขาทั้งสองข้าง</div>
+</ion-item >
   <ion-item >
     <ion-label color="dark">แขนซ้าย</ion-label>
-    <ion-select [(ngModel)]="LeftArm" placeholder=เลือก>
+    <ion-select [(ngModel)]="LeftArm" placeholder=เลือก interface="popover">
       <ion-option value="1">1</ion-option>
       <ion-option value="2">2</ion-option>
       <ion-option value="3">3</ion-option>
@@ -92,7 +92,7 @@
 
   <ion-item >
     <ion-label color="dark">แขนขวา</ion-label>
-    <ion-select [(ngModel)]="RightArm" placeholder=เลือก>
+    <ion-select [(ngModel)]="RightArm" placeholder=เลือก interface="popover">
       <ion-option value="1">1</ion-option>
       <ion-option value="2">2</ion-option>
       <ion-option value="3">3</ion-option>
@@ -104,7 +104,7 @@
 
   <ion-item >
     <ion-label color="dark">ขาซ้าย</ion-label>
-    <ion-select [(ngModel)]="LeftLeg" placeholder=เลือก>
+    <ion-select [(ngModel)]="LeftLeg" placeholder=เลือก interface="popover">
       <ion-option value="1">1</ion-option>
       <ion-option value="2">2</ion-option>
       <ion-option value="3">3</ion-option>
@@ -115,7 +115,7 @@
 
   <ion-item >
     <ion-label color="dark">ขาขวา</ion-label>
-    <ion-select [(ngModel)]="RightLeg" placeholder=เลือก>
+    <ion-select [(ngModel)]="RightLeg" placeholder=เลือก interface="popover">
       <ion-option value="1">1</ion-option>
       <ion-option value="2">2</ion-option>
       <ion-option value="3">3</ion-option>
@@ -129,7 +129,7 @@
   </ion-item>
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="shin" >
+      <input type="radio" name="shin" checked >
       ไม่พบ
     </ion-label>
     <ion-label class="radio-inline">
@@ -143,7 +143,7 @@
   </ion-item>
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="NailsAreFragile" >
+      <input type="radio" name="NailsAreFragile" checked >
       ไม่พบ
     </ion-label>
     <ion-label class="radio-inline">
@@ -156,7 +156,7 @@
     <ion-label  color="dark">อื่นๆ</ion-label>
     <ion-input [(ngModel)]="other" type="text" placeholder=""></ion-input>
   </ion-item>
-
+</ion-card>
 
   <button ion-button  color="1">Save</button>
 </ion-content>

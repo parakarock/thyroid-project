@@ -11,12 +11,15 @@
 </ion-header>
 
 <ion-content padding>
+<ion-card id="css" padding>
+  
+
 
   <ion-row>
     <ion-col  col-12>
       <ion-item>
         <ion-label>    <h4>ผลการวินิจฉัย</h4></ion-label>
-        <ion-select [(ngModel)]="natures">
+        <ion-select [(ngModel)]="natures" interface="popover">
           <ion-option value="GD">GD</ion-option>
           <ion-option value="GD with nodule(s)">GD with nodule(s)</ion-option>
           <ion-option value="TA">TA</ion-option>
@@ -26,5 +29,6 @@
       </ion-item>
     </ion-col>
   </ion-row>
+</ion-card>
   <button ion-button >Save</button>
 </ion-content>

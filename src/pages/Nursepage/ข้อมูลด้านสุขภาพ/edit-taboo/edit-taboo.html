@@ -11,12 +11,14 @@
 </ion-header>
 
 <ion-content padding>
+<ion-card id="css" padding>
+  
 
 <div>1.ท่านเคยผ่าตัดที่ลำคอหรือมีแผลเป็นที่ลำคอด้านหน้าหรือไม่</div>
 <ion-list >
 <ion-item no-lines >
   <ion-label class="radio-inline">
-    <input type="radio" name="NeckSurgery" >
+    <input type="radio" name="NeckSurgery" checked>
     ไม่เคย
   </ion-label>
   <ion-label class="radio-inline">
@@ -30,7 +32,7 @@
 <ion-list >
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="Irradiate" >
+      <input type="radio" name="Irradiate" checked >
       ไม่เคย
     </ion-label>
     <ion-label class="radio-inline">
@@ -45,7 +47,7 @@
 <ion-list >
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="Correction" >
+      <input type="radio" name="Correction" checked>
       ไม่ใช่
     </ion-label>
     <ion-label class="radio-inline">
@@ -59,7 +61,7 @@
 <ion-list >
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="child" >
+      <input type="radio" name="child" checked >
       ไม่ใช่
     </ion-label>
     <ion-label class="radio-inline">
@@ -73,7 +75,7 @@
 <ion-list >
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="Amblyopia" >
+      <input type="radio" name="Amblyopia" checked>
       ไม่มี
     </ion-label>
     <ion-label class="radio-inline">
@@ -87,7 +89,7 @@
 <ion-list >
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="difficult" >
+      <input type="radio" name="difficult" checked>
       ไม่มี
     </ion-label>
     <ion-label class="radio-inline">
@@ -101,7 +103,7 @@
 <ion-list >
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="recommend" >
+      <input type="radio" name="recommend" checked >
       ไม่ได้
     </ion-label>
     <ion-label class="radio-inline">
@@ -116,7 +118,7 @@
 <ion-list >
   <ion-item no-lines >
     <ion-label class="radio-inline">
-      <input type="radio" name="Injection" >
+      <input type="radio" name="Injection" checked>
       ไม่เคย
     </ion-label>
     <ion-label class="radio-inline">
@@ -125,6 +127,6 @@
     </ion-label>
   </ion-item>
   </ion-list>
-
+</ion-card>
 <button ion-button  color="1" >บันทึก</button>
 </ion-content>

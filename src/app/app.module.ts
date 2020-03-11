@@ -84,6 +84,7 @@ import { DdPage } from '../pages/AdminPage/dd/dd';
 import { DpPage } from '../pages/AdminPage/dp/dp';
 import { DnPage } from '../pages/AdminPage/dn/dn';
 import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
+import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
 
 import {  QrcodePage } from '../pages/qrscan/qrscan';
 import {  GenPage } from '../pages/gen/gen';
@@ -161,7 +162,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     EatfoodPage,
     NofoodPage,
     AppointmentPage,
-    GenPage
+    GenPage,
+    AddhosPage
 
 
   ],
@@ -245,7 +247,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     EatfoodPage,
     NofoodPage,
     AppointmentPage,
-    GenPage
+    GenPage,
+    AddhosPage
+  
   ],
   providers: [
     StatusBar,

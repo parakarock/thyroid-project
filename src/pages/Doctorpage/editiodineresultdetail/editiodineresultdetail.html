@@ -11,15 +11,15 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <ion-item >
+  <ion-card id="css" padding>
+    <ion-item>
       <ion-label  color="dark">ขนาดต่อมไทรอยด์</ion-label>
       <ion-input [(ngModel)]="ThyroidSize" type="text" value="" text-right></ion-input>
     </ion-item>
   </ion-card>
 
 
-  <ion-card>
+  <ion-card id="css" >
     <ion-item >
       <ion-label color="dark">ผลการตรวจทางห้องปฏิบัติการ</ion-label>
     </ion-item>
@@ -39,13 +39,13 @@
     </ion-item>
   </ion-card>
 
-  <ion-card>
+  <ion-card id="css">
     <ion-item >
       <ion-label color="dark">การรักษา</ion-label>
     </ion-item>
     <ion-item>
       <ion-label color="dark">ยาต้านอาการไทรอยด์</ion-label>
-      <ion-select [(ngModel)]="ThyroidMed" placeholder="เลือก">
+      <ion-select [(ngModel)]="ThyroidMed" placeholder="เลือก"  interface="popover">
         <ion-option value='Propylthiouracil (PTU)'>Propylthiouracil (PTU)</ion-option>
         <ion-option value='Methimazole (MMI)'>Methimazole (MMI)</ion-option>
         <ion-option value='Tapazole'>Tapazole</ion-option>
@@ -71,7 +71,7 @@
 
     <ion-item>
       <ion-label color="dark">ยากลุ่ม Beta-Blocker</ion-label>
-      <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก">
+      <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก"  interface="popover">
         <ion-option value='Propranolol (10)'>Propranolol (10)</ion-option>
         <ion-option value='Propranolol (40)'>Propranolol (40)</ion-option>
         <ion-option value='Betalol (10)'>Betalol (10)</ion-option>

@@ -11,26 +11,36 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+  <!-- <form [formGroup]="formgroup" (ngSubmit)="doRegister()"> -->
+    <ion-card id="css" padding>
   <ion-list>
     <ion-item>
       <ion-label color="dark">คำนำหน้าชื่อ</ion-label>
-      <ion-select [(ngModel)]="title" placeholder="เลือก">
+      <ion-select [(ngModel)]="title" placeholder="เลือก" interface="popover">
         <ion-option value='นาย'>นาย</ion-option>
         <ion-option value='นาง'>นาง</ion-option>
         <ion-option value='นางสาว'>นางสาว</ion-option>
       </ion-select>
     </ion-item>
+    <!-- <ion-item no-lines *ngIf="titles.hasError('required') && titles.touched"> 
+      <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
+    </ion-item>  -->
 
     <ion-item>
       <ion-label fixed color="dark">ชื่อ</ion-label>
       <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
     </ion-item>
+    <!-- <ion-item no-lines *ngIf="fname.hasError('required') && fname.touched"> 
+      <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
+    </ion-item>  -->
 
     <ion-item>
       <ion-label fixed color="dark">นามสกุล</ion-label>
       <ion-input  #ltName type="text" placeholder="ภาษาไทย"></ion-input>
     </ion-item>
+    <!-- <ion-item no-lines *ngIf="lname.hasError('required') && lname.touched"> 
+      <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
+    </ion-item> -->
     
     <ion-item>
       <ion-label color="dark">วันเกิด</ion-label>
@@ -52,12 +62,12 @@
 
     <ion-item>
       <ion-label fixed color="dark">สัญชาติ</ion-label>
-      <ion-input  type="text" placeholder="ภาษาไทย" #National></ion-input>
+      <ion-input  type="text" placeholder="" value='ไทย' #National>ไทย</ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="dark">สถานะ</ion-label>
-      <ion-select [(ngModel)]="status" placeholder="เลือก">
+      <ion-select [(ngModel)]="status" placeholder="เลือก" interface="popover">
         <ion-option value='โสด'>โสด</ion-option>
         <ion-option value='คู่'>คู่</ion-option>
         <ion-option value='หย่า'>หย่า</ion-option>
@@ -82,5 +92,7 @@
   
   </ion-list>
 </ion-card>
+
   <button ion-button  (click)="onClickToRegister()" color="1">ยืนยันการสมัคร</button>
+<!-- </form> -->
 </ion-content>

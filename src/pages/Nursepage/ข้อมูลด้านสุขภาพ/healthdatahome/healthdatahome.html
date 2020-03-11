@@ -29,21 +29,21 @@
 <ion-nav #mycontent [root]="rootPage" ></ion-nav>
 
 <ion-content padding>
-<ion-card >
+<ion-card id="css">
   <button ion-item (click)="general()">
     ประวัติทั่วไป
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
   </button>
 </ion-card>
 
-<ion-card >
+<ion-card id="css">
   <button ion-item (click)="initially()">
     อาการเริ่มแรก
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
   </button>
 </ion-card>
 
-<ion-card >
+<ion-card id="css">
   <button ion-item (click)="risky()">
     ปัจจัยเสี่ยง
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
@@ -51,29 +51,30 @@
 </ion-card>
 
 
-<ion-card >
+<ion-card id="css">
   <button ion-item (click)="taboo()">
     ข้อห้ามของการกลืนแร่
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
   </button>
 </ion-card>
 
-<ion-card >
+<ion-card id="css">
   <button ion-item (click)="history()">
     ประวัติการกลืนแร่
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
   </button>
 </ion-card>
 
-<ion-card *ngIf="show1">
-  <button ion-item (click)="toxin()"  >
+
+<ion-card id="css" *ngIf="show1">
+  <button ion-item (click)="toxin()">
     ภาวะแทรกซ้อนของต่อมไทรอยด์เป็นพิษ
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
   </button>
 </ion-card>
 
 
-<ion-card *ngIf="show2">
+<ion-card id="css" *ngIf="show2">
   <button ion-item (click)="agree()">
     ใบยินยอมการรับเข้ารักษา
     <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>

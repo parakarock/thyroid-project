@@ -12,7 +12,7 @@
 
 <ion-content padding>
 
-  <ion-card >
+  <ion-card id="css">
     <button ion-item (click)="onClickIodineDetail()">
       ก่อนกลืนแร่
       <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
@@ -20,7 +20,7 @@
   </ion-card>
 
 
-  <ion-card >
+  <ion-card id="css">
     <ion-item >
       <ion-label color="dark">กลืนแร่ครั้งที่ 1 วิธีการ </ion-label>
       <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
@@ -33,7 +33,7 @@
     </ion-card >
 
 
-      <ion-card >
+      <ion-card id="css">
         <button ion-item (click)="onClickIodineDetail()">
           หลังกลืนแร่ 1-2 เดือน
           <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
@@ -41,7 +41,7 @@
       </ion-card>
   
 
-        <ion-card >
+        <ion-card id="css">
           <button ion-item (click)="onClickIodineDetail()">
             หลังกลืนแร่ 3-4 เดือน
             <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
@@ -49,7 +49,7 @@
         </ion-card>
     
 
-          <ion-card >
+          <ion-card id="css">
             <button ion-item (click)="onClickIodineDetail()">
               หลังกลืนแร่ 5-6 เดือน
               <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
@@ -74,12 +74,12 @@
     </ion-list>
   </ion-card> -->
 
-  <ion-card>
+  <ion-card id="css">
     <ion-row style="height: 100"></ion-row>
 
     <ion-item>
       <ion-label color="dark">ผลการรักษา</ion-label>
-      <ion-select [(ngModel)]="title" placeholder="เลือก">
+      <ion-select [(ngModel)]="title" placeholder="เลือก"  interface="popover">
         <ion-option value='Propylthiouracil (PTU)'>สำเร็จแบบการทำงานของไทรอยด์ปกติ</ion-option>
         <ion-option value='Methimazole (MMI)'>สำเร็จแบบต่อมไทรอยด์ทำงานน้อย</ion-option>
         <ion-option value='Tapazole'>ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ</ion-option>

@@ -37,7 +37,7 @@
   </ion-grid>
 
 
-  <form [formGroup]="formgroup">
+  <form [formGroup]="formgroup" (ngSubmit)="doSignup()">
  <div style="text-align: center;">
 
   
@@ -48,24 +48,27 @@
       <ion-input formControlName="username" [(ngModel)]="usernameInput"  type="text"></ion-input>
     </ion-item>
   <ion-item no-lines *ngIf="username.hasError('required') && username.touched"> 
-  <p>*username is required</p>
+  <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
 </ion-item> 
     <div style="margin: 10px;"></div>
 </ion-card>
- 
-<!-- <ion-card style="height:100%">
+
+
+  <ion-card style="height:100%">
     <ion-item no-lines>
       <ion-label floating color="dark">รหัสผ่าน</ion-label>
       <ion-input formControlName="password"  type="password"></ion-input>
     </ion-item>
+    <ion-item no-lines *ngIf="password.hasError('required') && password.touched"> 
+      <p>*กรุณาตรวจสอบPassWord ให้ถูกต้อง</p>
+    </ion-item> 
     <div style="margin: 10px;"></div>
-</ion-card> -->
-
+</ion-card>  
 
    </ion-list>
  
    <div padding></div>
-  <button ion-button small (click)="onClickLoginButton()" color="1" >เข้าสู่ระบบ</button>
+  <button type="submit" [disabled]="!formgroup.valid"  ion-button small (click)="onClickLoginButton()" color="1" >เข้าสู่ระบบ</button>
 
   <!-- ทดลอง -->
   <button ion-button small (click)="goDoctorPage()" color="1" >เข้าสู่ระบบหมอ</button>

@@ -5,14 +5,15 @@
 </ion-header>
 
 <ion-content padding>
- 
+
+ <ion-card padding id="css">
  <ion-item no-lines>
   <ion-label  color="dark">สำหรับผู้ป่วยที่ใช้วิธีการประมาณ </ion-label>
 </ion-item>
 
+<div>1.ผู้ป่วยควรรับประทานอาหารหรือของทานเล่น ก่อนเวลา</div>
 <ion-item no-lines>
   <ion-row item-content>
-  <div>1.ผู้ป่วยควรรับประทานอาหารหรือของทานเล่น ก่อนเวลา</div>
       <ion-col  col-5>
         <ion-input [(ngModel)]="eat"  type="number" min="0" placeholder=""></ion-input>
       </ion-col >
@@ -20,9 +21,9 @@
     </ion-row>
 </ion-item>
 
+<div>2.ผู้ป่วยควรติดต่อที่ห้องกลืนแร่ งานรังสีฯ รพ.มหาวิทยาลัยบูรพา เวลา</div>
   <ion-item no-lines>
     <ion-row item-content>
-    <div>2.ผู้ป่วยควรติดต่อที่ห้องกลืนแร่ งานรังสีฯ รพ.มหาวิทยาลัยบูรพา เวลา</div>
         <ion-col  col-5>
           <ion-input [(ngModel)]="hos"  type="number" min="0" placeholder=""></ion-input>
         </ion-col >
@@ -30,14 +31,14 @@
       </ion-row>
   </ion-item>
 
-  <ion-item no-lines>
+ 
     <div>3.ระหว่างรอกลืนแร่ ผู้ป่วยควรงดอาหารและของทานเล่นอย่างน้อย6 ชั่วโมงก่อนการกลืนแร่ แต่สามารถดื่มน้ำเปล่าและน้ำหวานที่ห้องกลืนแร่เตรียมไว้ให้ </div>
-  </ion-item> 
-    <ion-item no-lines>
+    <div padding></div>
     <div>4.ผู้ป่วยควรรออย่างน้อย 30 นาทีหลังจากกลืนแคปซูลบรรจุแร่ก่อนเริ่มรับประทานอาหารหรือของทานเล่น </div>
-    </ion-item>
-
+    
+  </ion-card>
 
   
   <button ion-button color="1">บันทึก</button>
+
 </ion-content>

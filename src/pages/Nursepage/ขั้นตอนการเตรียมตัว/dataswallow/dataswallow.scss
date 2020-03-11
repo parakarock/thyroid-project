@@ -6,7 +6,9 @@ page-dataswallow {
     
     .button{
         font-size: 15px;
-        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     @media only screen and (min-width: 1224px) {
@@ -15,7 +17,15 @@ page-dataswallow {
         } 
         .button{
             font-size: 20px;
-            text-align: center;
+            display: block;
+        margin-left: auto;
+        margin-right: auto;
+        }
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
         }
     
       }
