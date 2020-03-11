@@ -48,7 +48,7 @@ export class HealthdatahomePage {
   ionViewDidLoad() {
    
     console.log("global round :"+this.global.getround());
-    console.log("rounds :"+this.rounds);
+    console.log("id :"+this.global.patientID);
     console.log("ionViewDidLoad HealthdatahomePage");
   }
   general() {

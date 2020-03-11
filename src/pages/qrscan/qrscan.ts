@@ -55,7 +55,8 @@ export class QrcodePage {
         data => {
           this.data = JSON.stringify(data);
           this.global.round = data;
-          console.log(this.global.round);
+          this.global.patientID = data[0].person_id;
+          console.log(data[0]);
 
           if (this.to === "HealthdatahomePage") {
             // this.menu.enable(false);
