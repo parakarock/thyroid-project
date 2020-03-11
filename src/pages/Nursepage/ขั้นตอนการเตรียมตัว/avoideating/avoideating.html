@@ -1,0 +1,48 @@
+<!--
+  Generated template for the AvoideatingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>การหลีกเลี่ยงรับประทานอาหารที่มีไอโอดีนสูง</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>ผู้ป่วยควรการหลีกเลี่ยงการรับประทานอาหารที่มีไอโอดีนสูง</div>
+  <div>ก่อนการกลืนแร่เป็นเวลา 7 วัน</div>
+  <br>
+  <div>(วันที่ …… / ……… / ………)</div>
+  <br>
+  <div>และสามารถกินอาหารตามปกติหลังการกลืนแร่ในวันที่ 4</div>
+  <br>
+  <div>(วันที่ …… / ……… / ………)</div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+        <button ion-button small >ชนิดอาหารที่ควรหลีกเลี่ยง</button>
+      </ion-col>
+      <ion-col >
+      </ion-col>
+      <ion-col >
+        <button ion-button small>เมนูอาหารที่สามารถรับประทานได้</button>
+      </ion-col>
+   
+    </ion-row>
+    <ion-row>
+      <ion-col col-2>
+        <div>ผลการตรวจ</div>
+      </ion-col>
+      <ion-col col-4>
+  
+      </ion-col>
+      <ion-col col-6>
+        <div>negative</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-button (click)="editavoideating()">Edit</button>
+</ion-content>

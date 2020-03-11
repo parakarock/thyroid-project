@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title> Thyroid ultrasound</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col  col-2>
+
+  </ion-col>
+  <ion-col  col-8>
+  <img src="../../assets/imgs/capture.png" >
+  </ion-col>
+    <ion-col  col-2>
+
+  </ion-col>
+  </ion-row>
+
+
+</ion-grid>
+</ion-card>
+
+<button ion-button full >Edit</button>
+
+<ion-card>
+  <ion-grid>
+    <ion-row>
+
+  <ion-col  col-12>
+  <ion-item>
+    <ion-label>  <h4>ลำดับก้อน</h4></ion-label>
+    <ion-select [(ngModel)]="order">
+      <ion-option value="1">1</ion-option>
+      <ion-option value="2">2</ion-option>
+      <ion-option value="3">3</ion-option>
+      <ion-option value="4">4</ion-option>
+      <ion-option value="5">5</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col  col-3>
+<p>ขนาด</p>
+</ion-col>
+<ion-col  col-7>
+
+<ion-item no-lines>
+  <ion-input type="text" [(ngModel)]="size"></ion-input>
+</ion-item>
+
+</ion-col>
+<ion-col col-2>
+  <p>Cm</p>
+</ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col  col-12>
+    <ion-item>
+      <ion-label>    <h4>ลักษณะของก้อน</h4></ion-label>
+      <ion-select [(ngModel)]="natures">
+        <ion-option value="1">high susp</ion-option>
+        <ion-option value="2">intermediate susp</ion-option>
+        <ion-option value="3">low susp</ion-option>
+        <ion-option value="4">very low susp</ion-option>
+        <ion-option value="5">benign</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+
+  <ion-row>
+    <ion-col  col-12>
+      <ion-item>
+        <ion-label><h4>คำแนะนำ</h4></ion-label>
+        <ion-select [(ngModel)]="recommend">
+          <ion-option value="ควรตรวจติดตามผล thyroid ultrasound">ควรตรวจติดตามผล thyroid ultrasound</ion-option>
+          <ion-option value="ส่ง fine needle aspiration">ส่ง fine needle aspiration</ion-option>
+          <ion-option value="ส่งผ่าตัด">ส่งผ่าตัด</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col  col-5>
+      <h4>Thyroid ultrasound</h4>
+  </ion-col>
+  <ion-col  col-5>
+  <ion-item no-lines>
+    <ion-input type="text" [(ngModel)]="ThyroidUltrasound"></ion-input>
+  </ion-item>
+  </ion-col>
+  <ion-col col-2>
+    <h4>เดือน/ปี</h4>
+  </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col  col-12>
+      <ion-item>
+        <ion-label> <h4>ส่งผ่าตัด ชนิด</h4></ion-label>
+        <ion-select [(ngModel)]="type">
+          <ion-option value="lobectomy">lobectomy</ion-option>
+          <ion-option value="isthmectomy">isthmectomy</ion-option>
+          <ion-option value="TTD">TTD</ion-option>
+
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col  col-5>
+      <h4>ขนาดต่อมไทรอยด์</h4>
+  </ion-col>
+  <ion-col  col-5>
+  <ion-item no-lines>
+    <ion-input type="text" [(ngModel)]="GlandSize"></ion-input>
+  </ion-item>
+  </ion-col>
+  <ion-col col-2>
+    <h4>กรัม</h4>
+  </ion-col>
+  </ion-row>
+
+
+  <p>ก้อนเนื้องอกในต่อมไทรอยด์</p>
+
+
+
+
+
+</ion-grid>
+</ion-card>
+
+<!--<button ion-button full (click)="Click()">Save</button>-->
+
+</ion-content>

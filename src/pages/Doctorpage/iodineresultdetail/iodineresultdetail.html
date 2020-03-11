@@ -1,0 +1,54 @@
+<!--
+  Generated template for the IodineresultdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>รายละเอียดผลการกลืนแร่</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let item of obj">
+    <ion-item text-wrap>
+      <ion-label fixed color="dark">ขนาดต่อมไทรอยด์</ion-label>
+      <ion-input type="text" value="" text-right>{{item.thysize}}</ion-input>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card *ngFor="let item of obj">
+    <ion-card-header>ผลการตรวจทางห้องปฏิบัติการ</ion-card-header>
+    <ion-item text-wrap>
+      <ion-label fixed color="dark">TT3/fT3</ion-label>
+      <ion-input type="text" value="" text-right>{{item.TT3orfT3}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed color="dark">fT4</ion-label>
+        <ion-input type="text" value="" text-right>{{item.fT4}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed color="dark">TSH</ion-label>
+      <ion-input type="text" value="" text-right>{{item.TSH}}</ion-input>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card *ngFor="let item of obj">
+    <ion-card-header>การรักษา</ion-card-header>
+    <ion-item text-wrap>
+      <ion-label color="dark">ยาต้านอาการไทรอยด์</ion-label>
+        <ion-input type="text" value="" text-right>{{item.thyMed}}</ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">ยากลุ่ม Beta-Blocker</ion-label>
+        <ion-input type="text" value="" text-right>{{item.betaBlock}}</ion-input>
+    </ion-item>
+  </ion-card>
+
+  <button ion-button full (click)="EditResultDetail()">แก้ไขข้อมูล</button>
+</ion-content>
