@@ -11,7 +11,7 @@
   <ion-list >
   <ion-item >
     <ion-label color="dark">คำนำหน้า</ion-label>
-    <ion-select [(ngModel)]="nametitle" placeholder=เลือก interface="popover">
+    <ion-select [(ngModel)]="title" placeholder=เลือก interface="popover">
       <ion-option value='นาย'>นาย </ion-option>
       <ion-option value='นาง'>นาง </ion-option>
       <ion-option value='นางสาว'>นางสาว</ion-option>
@@ -26,7 +26,6 @@
   <ion-item >
     <ion-label  color="dark">ชื่อ</ion-label>
     <ion-input [(ngModel)]="fname" type="text" placeholder=""></ion-input>
-
   </ion-item>
 
   <ion-item >
@@ -126,6 +125,6 @@
       </ion-col>
   </ion-row> -->
 
-<button ion-button color="1" >บันทึก</button>
+<button ion-button color="1" (click)="save()" >บันทึก</button>
 
 </ion-content>
