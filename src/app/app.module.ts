@@ -14,9 +14,10 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 import { AppointmentPage } from "../pages/Nursepage/appointment/appointment";
-
-// import { File } from '@ionic-native/file';
-// import { IonicStorageModule } from '@ionic/storage'
+import { File } from '@ionic-native/file';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { IonicStorageModule } from '@ionic/Storage';
 
 import { AboutPage } from "../pages/Homepage/about/about";
 import { ContactPage } from "../pages/Homepage/contact/contact";
@@ -249,7 +250,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     AppointmentPage,
     GenPage,
     AddhosPage
-  
+
   ],
   providers: [
     StatusBar,
@@ -257,11 +258,13 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     RegisterProvider,
     GlobalProvider,
-    BarcodeScanner
-    
-    // FileTransfer,
-    // File
-    // Camera
+    BarcodeScanner,
+    FileTransfer,
+    File,
+    Camera,
+    IonicStorageModule,
+
   ]
 })
 export class AppModule {}
+

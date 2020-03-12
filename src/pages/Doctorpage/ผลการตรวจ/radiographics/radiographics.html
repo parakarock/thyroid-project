@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar color="1">
     <ion-title>Scan</ion-title>
   </ion-navbar>
@@ -6,11 +6,37 @@
 
 <ion-content padding>
   <ion-card id="css" padding>
- 
+
 
 <div>ภาพ Thyroid Scan</div>
   <div id="subtitle" ></div>
   <div>ผลการรักษา</div>
   <button ion-button  color="1">แก้ไข</button>
 </ion-card>
+</ion-content> -->
+
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>Scan</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content paddin id="css">
+  <ion-card>
+  <ion-card-header>ภาพ Thyroid Scan</ion-card-header>
+  <button ion-button full (click)="takePhoto(0)">เลือกรูปภาพ</button>
+  <button ion-button full (click)="takePhoto(1)">เปิดกล้องถ่ายรูป</button>
+
+  <ion-item>
+    <h4>Image Preview</h4>
+    <p><img align="center" src="{{ myPhoto }}"/></p>
+  </ion-item>
+
+  <ion-item>
+    <button ion-button full (click)="uploadFile()">อัพโหลดรูปภาพ</button>
+  </ion-item>
+</ion-card>
+
+  <!-- <div>ผลการรักษา</div>
+  <button ion-button full (click)="uploadFile()">Edit</button> -->
 </ion-content>
