@@ -8,7 +8,7 @@ import {HealthdatahomePage } from '../../Nursepage/ข้อมูลด้า�
 import {ChangepassPage } from '../../changepass/changepass';
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
-
+import { GlobalProvider } from "../../../providers/global/global";
 /**
  * Generated class for the DoctorHomePage page.
  *
@@ -25,7 +25,8 @@ export class DoctorHomePage {
   roles;
   name;
   status: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public menu: MenuController,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public menu: MenuController,public global: GlobalProvider) {
+    
   }
   selectRole() {
     if (this.status === "nurse") {
@@ -41,6 +42,8 @@ export class DoctorHomePage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad DoctorHomePage');
+    this.roles = this.global.getrole();
+    this.name = this.global.getname();
   }
   healthdatahome(){
     this.navCtrl.push(HealthdatahomePage);

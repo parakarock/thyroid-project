@@ -16,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'labtestresult.html',
 })
 export class LabtestresultPage {
-  round;
+  
   public obj:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.obj = [
@@ -37,7 +37,6 @@ export class LabtestresultPage {
         Medicine: "Methimazole (MMI)",
       }
     ]
-   this.round = this.obj.length;
   }
 
   ionViewDidLoad() {

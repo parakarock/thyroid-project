@@ -42,6 +42,7 @@ export class EditriskyPage {
     console.log('ionViewDidLoad EditriskyPage');
   }
   do(){
+    
     let body = JSON.stringify({
 
       strain: this.strain,

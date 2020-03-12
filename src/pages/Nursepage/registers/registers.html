@@ -11,28 +11,26 @@
   <ion-list >
     <ion-item>
       <ion-label color="dark">ส่งตัวมาจากโรงพยาบาล</ion-label>
-      <ion-select [(ngModel)]="item" placeholder="เลือก" interface="popover">
-        <ion-option value='1'>1</ion-option>
-        <ion-option value='2'>2</ion-option>
-        <ion-option value='3'>3</ion-option>
+      <ion-select [(ngModel)]="from_name1" placeholder="เลือก" interface="popover">
+        <ion-option *ngFor="let hos of hospitals" [value]="hos.hos_name">{{hos.hos_name}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label fixed color="dark">กรุณาระบุ</ion-label>
-      <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
+      <ion-input  [(ngModel)]="from_name2" type="text" placeholder="ภาษาไทย"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed color="dark">HN</ion-label>
-      <ion-input  #ltName type="text" placeholder=""></ion-input>
+      <ion-input   [(ngModel)]="from_id" type="text" placeholder=""></ion-input>
     </ion-item>
 
 
  
       <ion-item>
         <ion-label undefined color="dark">โรงพยาบาลบูรพา HN</ion-label>
-        <ion-input  type="text" placeholder="" value=""></ion-input>
+        <ion-input  [(ngModel)]="Hos_base_h_id" type="text" placeholder="" ></ion-input>
       </ion-item>
       <!-- <ion-item no-lines *ngIf="hn.hasError('required') && hn.touched"> 
         <p>*กรุณาตรวจสอบให้ถูกต้อง</p>
@@ -42,27 +40,25 @@
 
       <ion-item>
         <ion-label color="dark">โรงพยาบาลที่ส่งตัวกลับ</ion-label>
-        <ion-select [(ngModel)]="item2" placeholder="เลือก" interface="popover">
-          <ion-option value='1'>1</ion-option>
-          <ion-option value='2'>2</ion-option>
-          <ion-option value='3'>3</ion-option>
+        <ion-select [(ngModel)]="to_name1" placeholder="เลือก" interface="popover">
+          <ion-option *ngFor="let hos of hospitals" [value]="hos.hos_name">{{hos.hos_name}}</ion-option>
         </ion-select>
       </ion-item>
     
       <ion-item>
         <ion-label fixed color="dark">กรุณาระบุ</ion-label>
-        <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
+        <ion-input  [(ngModel)]="to_name2" type="text" placeholder="ภาษาไทย"></ion-input>
       </ion-item>
 
       <ion-item  >
         <ion-label fixed color="dark">HN</ion-label>
-        <ion-input   type="text" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="to_id"  type="text" placeholder=""></ion-input>
       </ion-item>
       
   </ion-list>
 <!-- </form> -->
 
 </ion-card>
-  <button  ion-button  color="1">ยืนยันการสมัคร</button>
+  <button  ion-button  color="1" (click)="insertdata()">ยืนยันการสมัคร</button>
 
 </ion-content>

@@ -16,9 +16,9 @@
   
 
 
-    <ion-card *ngFor="let item of obj">
+    <ion-card *ngFor="let item of obj; let i = index">
       <ion-item>
-        <ion-card-title>ครั้งที่: {{round}}</ion-card-title>
+        <ion-card-title>ครั้งที่: {{i+1}}</ion-card-title>
       </ion-item>
 
       <ion-item>

@@ -118,7 +118,7 @@ export class RadiographicsPage {
       headers: {}
     }
 
-    fileTransfer.upload(this.myPhoto, 'http://10.80.82.229:8000/upload.php', options)
+    fileTransfer.upload(this.myPhoto, 'http://10.80.34.218:8000/upload.php', options)
       .then((data) => {
       alert("การอัพโหลดรูปเสร็จสมบูรณ์");
       // console.log(data + " Uploaded Successfully");
