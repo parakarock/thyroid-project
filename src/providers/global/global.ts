@@ -17,6 +17,7 @@ export class GlobalProvider {
   public selectRound;
   constructor() {
     console.log("Hello GlobalProvider Provider");
+    this.selectRound = 1;
   }
   getname() {
     return this.name;
