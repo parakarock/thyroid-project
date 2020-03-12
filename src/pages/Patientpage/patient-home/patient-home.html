@@ -8,17 +8,17 @@
 </ion-header>
 
 <ion-menu persistent="true" menuId="first" side="right" [content]="mycontent" >
-  
+
   <ion-content>
-  
+
 
 
     <ion-list>
       <br>
       <img class="profile" src="../../../assets/icon/Pic_Icon/fracture.png" />
-      
+
         <h3>{{ name }}</h3>
-        
+
         <ion-item>
           <ion-label>รักษาครั้งที่</ion-label>
           <ion-select [(ngModel)]="number" interface="popover">
@@ -26,7 +26,7 @@
             <ion-option value="2">2</ion-option>
           </ion-select>
         </ion-item>
-     
+
       <ion-item>
         <ion-label>Status</ion-label>
         <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
@@ -58,7 +58,7 @@
 
   <ion-grid>
     <ion-row>
-      <a class="col col-33 text-center" >
+      <a class="col col-33 text-center" (click)="genqrcode()">
         <img
           class="img-auto"
           id="logo"
@@ -110,13 +110,13 @@
         <h5>ติดตามผลการรักษา</h5>
       </a>
       </ion-row>
-  
+
   </ion-grid>
 
 
 
 
- 
+
   <!-- <a class="col col-50 text-center"  (click)="onClicktestresult()">
     <img
       class="img-auto"

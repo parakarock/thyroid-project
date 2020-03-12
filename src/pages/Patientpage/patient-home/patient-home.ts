@@ -1,3 +1,4 @@
+import { GenPage } from '../../gen/gen';
 import { Component, ViewChild } from "@angular/core";
 import { IonicPage, NavController, NavParams, Slides,MenuController } from "ionic-angular";
 import { Events } from "ionic-angular";
@@ -11,7 +12,6 @@ import { ChangepassPage } from "../../changepass/changepass";
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import { GlobalProvider } from "../../../providers/global/global";
-
 
 /**
  * Generated class for the PatientHomePage page.
@@ -87,5 +87,9 @@ export class PatientHomePage {
   }
   ChangePass() {
     this.navCtrl.push(ChangepassPage);
+  }
+
+  genqrcode(){
+    this.navCtrl.push(GenPage);
   }
 }
