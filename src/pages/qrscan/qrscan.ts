@@ -46,7 +46,7 @@ export class QrcodePage {
     let body = { code: this.code };
     await this.http
       .post(
-        "http://10.80.34.218:8000/qrcode.php?method=get_user&role=guest",
+        "http://192.168.43.140:8000/qrcode.php?method=get_user&role=guest",
         body,
         options
       )
@@ -61,6 +61,7 @@ export class QrcodePage {
           if (this.to === "HealthdatahomePage") {
             // this.menu.enable(false);
             // this.navCtrl.setRoot(HealthdatahomePage);
+            this.global.startTimer();
             this.navCtrl.push(HealthdatahomePage);
           }
           if (this.to === "PreparehomePage") {
@@ -76,6 +77,7 @@ export class QrcodePage {
         },
         error => {
           console.log(error);
+          alert(error);
         }
       );
    

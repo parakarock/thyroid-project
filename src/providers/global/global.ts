@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/observable/interval"
 /*
   Generated class for the GlobalProvider provider.
 
@@ -15,6 +16,10 @@ export class GlobalProvider {
   public patientID: string;
   public round: any;
   public selectRound;
+
+  timeVar;
+  timeVal;
+  public using:boolean = false;
   constructor() {
     console.log("Hello GlobalProvider Provider");
     this.selectRound=1;
@@ -31,5 +36,18 @@ export class GlobalProvider {
   }
   getround() {
     return this.round;
+  }
+
+  startTimer(){
+    this.using = true;
+    this.timeVar = Observable.interval(1000).subscribe( x => {
+      if(x == 20){
+        this.timeVar.unsubscribe();
+        this.using = false;
+      }
+    })
+  }
+  checkCanUse(){
+    return this.using;
   }
 }

@@ -81,7 +81,11 @@ export class NurseHomePage {
 
 
   onClickHealthdatahome() {
-    this.navCtrl.push(QrcodePage,{page: "HealthdatahomePage"});
+    if(this.global.checkCanUse()){
+      this.navCtrl.push(HealthdatahomePage);
+    }else{
+       this.navCtrl.push(QrcodePage,{page: "HealthdatahomePage"});
+    }
   }
   onClickPreparehome() {
     this.navCtrl.push(QrcodePage,{page: "PreparehomePage"});

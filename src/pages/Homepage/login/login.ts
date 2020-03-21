@@ -5,7 +5,8 @@ import {
   NavParams,
   AlertController,
   Events,
-  Form
+  Form,
+  ToastController
 } from "ionic-angular";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import {
@@ -27,7 +28,6 @@ import {
   AbstractControl
 } from "@angular/forms";
 
-
 @IonicPage()
 @Component({
   selector: "page-login",
@@ -35,8 +35,8 @@ import {
 })
 export class LoginPage {
   formgroup: FormGroup;
-  username: AbstractControl;
-  password: AbstractControl;
+  username;
+  password;
   usernameInput: string;
   role: any;
   nurse;
@@ -52,19 +52,16 @@ export class LoginPage {
     public events: Events,
     private http: Http,
     public global: GlobalProvider,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    public toastController: ToastController
   ) {
     this.formgroup = formBuilder.group({
-
       username: ["", Validators.required],
       password: ["", Validators.required]
     });
-   
-  
-  
-   this.username = this.formgroup.controls['username'];
-   this.password = this.formgroup.controls['password'];
 
+    this.username = this.formgroup.controls["username"];
+    this.password = this.formgroup.controls["password"];
   }
 
   ionViewDidLoad() {
@@ -78,40 +75,46 @@ export class LoginPage {
     console.log("body : " + body);
     await this.http
       .post(
-        "http://10.80.34.218:8000/login.php?method=login&role=guest",
+        "http://192.168.43.140:8000/login.php?method=login&role=guest",
         body,
         options
       )
       .map(res => res.json())
       .subscribe(
         data => {
-          this.data = JSON.stringify(data);
-          this.global.name =
-            data[0].title + data[0].firstname + " " + data[0].lastname;
-          this.global.role = data[1];
-          console.log(this.global.name);
+          if (data.result) {
+            this.showToastWithCloseButton(data.result);
+          } else {
+            this.global.name =
+              data[0].title + data[0].firstname + " " + data[0].lastname;
+            this.global.role = data[1];
 
-          if (
-            data[1].findIndex(role_name => role_name.role_name === "doctor") >=
-            0
-          ) {
-            this.events.publish("user:doctor");
-            this.navCtrl.setRoot(DoctorHomePage);
-          } else if (
-            data[1].findIndex(role_name => role_name.role_name === "nurse") >= 0
-          ) {
-            this.events.publish("user:nurse");
-            this.navCtrl.setRoot(NurseHomePage);
-          } else if (
-            data[1].findIndex(role_name => role_name.role_name === "patient") >=
-            0
-          ) {
-            this.events.publish("user:patient");
-            this.navCtrl.setRoot(PatientHomePage);
+            if (
+              data[1].findIndex(
+                role_name => role_name.role_name === "doctor"
+              ) >= 0
+            ) {
+              this.events.publish("user:doctor");
+              this.navCtrl.setRoot(DoctorHomePage);
+            } else if (
+              data[1].findIndex(role_name => role_name.role_name === "nurse") >=
+              0
+            ) {
+              this.events.publish("user:nurse");
+              this.navCtrl.setRoot(NurseHomePage);
+            } else if (
+              data[1].findIndex(
+                role_name => role_name.role_name === "patient"
+              ) >= 0
+            ) {
+              this.events.publish("user:patient");
+              this.navCtrl.setRoot(PatientHomePage);
+            }
           }
         },
         error => {
           console.log(error);
+          alert(error);
         }
       );
   }
@@ -125,8 +128,16 @@ export class LoginPage {
   admin() {
     this.navCtrl.setRoot(AdminhomePage);
   }
-  doSignup(){
+  doSignup() {
     console.log(this.formgroup.value);
-    console.log(this.formgroup.valid);   
-}
+    console.log(this.formgroup.valid);
+  }
+  async showToastWithCloseButton(txt: string) {
+    const toast = await this.toastController.create({
+      message: txt,
+      showCloseButton: true,
+      closeButtonText: "Ok"
+    });
+    toast.present();
+  }
 }
