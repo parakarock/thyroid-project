@@ -9,7 +9,25 @@
 
   <ion-card id="css" padding>
   <ion-list >
-  <ion-item >
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+            <label for="title" >คำนำหน้าชื่อ      </label>
+          </ion-col>
+            <ion-col col-6>
+            <select >
+              <option value="นาย">นาย</option>
+              <option value="นาง">นาง</option>
+              <option value="นางสาว">นางสาว</option>
+              <option value="เด็กหญิง">เด็กหญิง</option>
+              <option value="เด็กชาย">เด็กชาย</option>
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <!-- <ion-item >
     <ion-label color="dark">คำนำหน้า</ion-label>
     <ion-select [(ngModel)]="title" placeholder=เลือก interface="popover">
       <ion-option value='นาย'>นาย </ion-option>
@@ -17,32 +35,93 @@
       <ion-option value='นางสาว'>นางสาว</ion-option>
       <ion-option value='เด็กหญิง'>เด็กหญิง</ion-option>
       <ion-option value='เด็กชาย'>เด็กชาย</ion-option>
-    </ion-select>
+    </ion-select> -->
+
+   
     <!-- <ion-item no-lines *ngIf="nametitle.hasError('required') && nametitle.touched"> 
       <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
     </ion-item>  -->
-  </ion-item>
+  <!-- </ion-item> -->
 
-  <ion-item >
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <label for="fname" >ชื่อ    </label>
+      </ion-col>
+      <ion-col col-6>
+        <input type="text" id="fname" name="fname" size="20">  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-item >
     <ion-label  color="dark">ชื่อ</ion-label>
     <ion-input [(ngModel)]="fname" type="text" placeholder=""></ion-input>
-  </ion-item>
+  </ion-item> -->
 
-  <ion-item >
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+  <label for="lname">นามสกุล</label>
+</ion-col>
+<ion-col col-6>
+  <input type="text" id="lname" name="lname" size="20">
+</ion-col>
+</ion-row>
+</ion-grid>
+
+  <!-- <ion-item >
     <ion-label  color="dark">นามสกุล</ion-label>
     <ion-input [(ngModel)]="lname" type="text" placeholder=""></ion-input>
-  </ion-item>
+  </ion-item> -->
 
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+      <label for="birthday">วันเกิด</label>
+    </ion-col>
+    <ion-col col-6>
+    <input type="date" id="birthday" name="birthday" size="20">
+  </ion-col>
+</ion-row>
+</ion-grid>
+<!-- 
     <ion-item >
       <ion-label color="dark">วัน/เดือน/ปีเกิด</ion-label>
       <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
-    </ion-item>
+    </ion-item> -->
 
-    <ion-item >
+    
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+    <label for="fname">เลขบัตรประชาชน/ เลขพาสปอร์ต</label>
+  </ion-col>
+  <ion-col col-12>
+    <input type="text" id="idCard" name="idCard" size="50">
+  </ion-col>
+  </ion-row>
+</ion-grid>
+
+    <!-- <ion-item >
       <ion-label  color="dark">เลขบัตรประชาชน</ion-label>
       <ion-input [(ngModel)]="idcard" type="text" placeholder=""></ion-input>
-    </ion-item>
+    </ion-item> -->
 
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+      <label for="sex">เพศ</label>
+    </ion-col>
+    <ion-col col-6>
+      <select >
+        <option value="หญิง">หญิง </option>
+        <option value="ชาย">ชาย </option>
+      </select>
+  </ion-col>
+</ion-row>
+</ion-grid>
+<!-- 
     <ion-item >
       <ion-label color="dark">เพศ</ion-label>
       <ion-select [(ngModel)]="gender" placeholder=เลือก interface="popover">
@@ -50,13 +129,40 @@
         <ion-option value='หญิง'>หญิง </ion-option>
         <ion-option value='ไม่ระบุ'>ไม่ระบุ</ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
 
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+      <label for="National">สัญชาติ</label>
+    </ion-col>
+    <ion-col col-6>
+      <input type="text" id="National" name="National" value="ไทย" size="20">
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+
+<!--   
     <ion-item >
       <ion-label  color="dark">สัญชาติ</ion-label>
       <ion-input [(ngModel)]="national" type="text" value='ไทย' placeholder="">ไทย</ion-input>
-    </ion-item>
-
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+      <label for="status">สถานะ</label>
+    </ion-col>
+    <ion-col col-6>
+      <select >
+        <option value="โสด">โสด </option>
+        <option value="คู่">คู่ </option>
+        <option value="หย่า">หย่า </option>
+        <option value="คู่สมรสเสียชีวิต">คู่สมรสเสียชีวิต </option>
+      </select>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+<!--   
     <ion-item >
       <ion-label  color="dark">สถานะ</ion-label >
       <ion-select [(ngModel)]="status" placeholder=เลือก interface="popover">
@@ -65,43 +171,119 @@
         <ion-option value='หย่า'>หย่า</ion-option>
         <ion-option value='คู่สมรสเสียชีวิต'>คู่สมรสเสียชีวิต</ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
 
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+            <label for="hospitalinput" >ส่งตัวมาจากโรงพยาบาล     </label>
+          </ion-col>
+            <ion-col col-6>
+            <select >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+<!--     
     <ion-item >
       <ion-label color="dark">ส่งตัวมาจากโรงพยาบาล</ion-label>
       <ion-select [(ngModel)]="hospitalinput" placeholder=เลือก interface="popover">
         <ion-option value='item1'>item1 </ion-option>
         <ion-option value='item2'>item2 </ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
 
-    <ion-item >
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <label for="hninput" >HN    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" id="hninput" name="hninput" size="20">  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- <ion-item >
       <ion-label  color="dark">HN</ion-label>
       <ion-input [(ngModel)]="hninput" type="text" placeholder=""></ion-input>
-    </ion-item>
+    </ion-item> -->
 
-    <ion-item >
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <label for="buuhn" >โรงพยาบาลบูรพา HN    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" id="buuhn" name="buuhn" size="20">  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- <ion-item >
       <ion-label  color="dark" style="margin-right: auto ;">โรงพยาบาลบูรพา HN</ion-label>
       <ion-input [(ngModel)]="hnbuu" type="text" placeholder=""></ion-input>
-    </ion-item>
+    </ion-item> -->
 
-    <ion-item >
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+            <label for="hospitaloutput" >โรงพยาบาลที่ส่งตัวกลับ     </label>
+          </ion-col>
+            <ion-col col-6>
+            <select >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- <ion-item >
       <ion-label color="dark">โรงพยาบาลส่งตัวกลับ</ion-label>
       <ion-select [(ngModel)]="hospitaloutput" placeholder=เลือก interface="popover">
         <ion-option value='item1'>item1 </ion-option>
         <ion-option value='item2'>item2 </ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
 
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <label for="hnoutput" >HN    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" id="hnoutput" name="hnoutput" size="20">  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+<!--     
     <ion-item >
       <ion-label color="dark">HN</ion-label>
       <ion-input [(ngModel)]="hnoutput" type="text" placeholder=""></ion-input>
-    </ion-item>
+    </ion-item> -->
 
-    <ion-item >
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+    <label for="Tel">เบอร์โทรศัพท์ที่ติดต่อได้ </label>
+  </ion-col>
+  <ion-col col-6>
+    <input type="text" id="Tel" name="Tel" size="20">
+  </ion-col>
+</ion-row>
+</ion-grid>
+
+    <!-- <ion-item >
       <ion-label  color="dark">เบอร์โทรศัพท์ที่ติดต่อได้</ion-label>
       <ion-input [(ngModel)]="tel" type="text" placeholder=""></ion-input>
-    </ion-item>
+    </ion-item> -->
 
   </ion-list>
 </ion-card>

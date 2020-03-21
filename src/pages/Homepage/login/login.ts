@@ -115,7 +115,9 @@ export class LoginPage {
         }
       );
   }
-
+  gonPage() {
+    this.navCtrl.setRoot(NurseHomePage);
+  }
   goDoctorPage() {
     this.navCtrl.setRoot(DoctorHomePage);
   }

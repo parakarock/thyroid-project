@@ -9,16 +9,51 @@
 
   <!-- <form [formGroup]="formgroup"  > -->
   <ion-list >
-    <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+            <label for="hospitalinput" >ส่งตัวมาจากโรงพยาบาล     </label>
+          </ion-col>
+            <ion-col col-6>
+            <select >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- <ion-item>
       <ion-label color="dark">ส่งตัวมาจากโรงพยาบาล</ion-label>
       <ion-select [(ngModel)]="item" placeholder="เลือก" interface="popover">
         <ion-option value='1'>1</ion-option>
         <ion-option value='2'>2</ion-option>
         <ion-option value='3'>3</ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <label for="other" >กรุณาระบุ    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" id="other" name="other" size="20">  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-    <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <label for="hninput" >HN    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" id="hninput" name="hninput" size="20">  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- <ion-item>
       <ion-label fixed color="dark">กรุณาระบุ</ion-label>
       <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
     </ion-item>
@@ -26,38 +61,86 @@
     <ion-item>
       <ion-label fixed color="dark">HN</ion-label>
       <ion-input  #ltName type="text" placeholder=""></ion-input>
-    </ion-item>
+    </ion-item> -->
 
-
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <label for="buuhn" >โรงพยาบาลบูรพา HN    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" id="buuhn" name="buuhn" size="20">  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
  
-      <ion-item>
+      <!-- <ion-item>
         <ion-label undefined color="dark">โรงพยาบาลบูรพา HN</ion-label>
         <ion-input  type="text" placeholder="" value=""></ion-input>
-      </ion-item>
+      </ion-item> -->
+
       <!-- <ion-item no-lines *ngIf="hn.hasError('required') && hn.touched"> 
         <p>*กรุณาตรวจสอบให้ถูกต้อง</p>
       </ion-item>  -->
    
-  
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+              <label for="hospitaloutput" >โรงพยาบาลที่ส่งตัวกลับ     </label>
+            </ion-col>
+              <ion-col col-6>
+              <select >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
-      <ion-item>
+     
+      <!-- <ion-item>
         <ion-label color="dark">โรงพยาบาลที่ส่งตัวกลับ</ion-label>
         <ion-select [(ngModel)]="item2" placeholder="เลือก" interface="popover">
           <ion-option value='1'>1</ion-option>
           <ion-option value='2'>2</ion-option>
           <ion-option value='3'>3</ion-option>
         </ion-select>
-      </ion-item>
+      </ion-item> -->
     
-      <ion-item>
+     
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label for="other2" >กรุณาระบุ    </label>
+          </ion-col>
+          <ion-col col-6>
+            <input type="text" id="other2" name="other2" size="20">  
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- <ion-item>
         <ion-label fixed color="dark">กรุณาระบุ</ion-label>
         <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
-      </ion-item>
+      </ion-item> -->
 
-      <ion-item  >
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label for="hnoutput" >HN    </label>
+          </ion-col>
+          <ion-col col-6>
+            <input type="text" id="hnoutput" name="hnoutput" size="20">  
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- <ion-item  >
         <ion-label fixed color="dark">HN</ion-label>
         <ion-input   type="text" placeholder=""></ion-input>
-      </ion-item>
+      </ion-item> -->
       
   </ion-list>
 <!-- </form> -->

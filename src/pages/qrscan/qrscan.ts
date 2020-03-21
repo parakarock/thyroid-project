@@ -37,47 +37,47 @@ export class QrcodePage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad QrcodePage");
-  }
+  //   console.log("ionViewDidLoad QrcodePage");
+  // }
 
-  async nextpage() {
-    let headers = new Headers({ "Content-type": "application/json" });
-    let options = new RequestOptions({ headers: headers });
-    let body = { code: this.code };
-    await this.http
-      .post(
-        "http://10.80.34.218:8000/qrcode.php?method=get_user&role=guest",
-        body,
-        options
-      )
-      .map(res => res.json())
-      .subscribe(
-        data => {
-          this.data = JSON.stringify(data);
-          this.global.round = data;
-          this.global.patientID = data[0].person_id;
-          console.log(data[0]);
+  // async nextpage() {
+  //   let headers = new Headers({ "Content-type": "application/json" });
+  //   let options = new RequestOptions({ headers: headers });
+  //   let body = { code: this.code };
+  //   await this.http
+  //     .post(
+  //       "http://10.80.34.218:8000/qrcode.php?method=get_user&role=guest",
+  //       body,
+  //       options
+  //     )
+  //     .map(res => res.json())
+  //     .subscribe(
+  //       data => {
+  //         this.data = JSON.stringify(data);
+  //         this.global.round = data;
+  //         this.global.patientID = data[0].person_id;
+  //         console.log(data[0]);
 
-          if (this.to === "HealthdatahomePage") {
-            // this.menu.enable(false);
-            // this.navCtrl.setRoot(HealthdatahomePage);
-            this.navCtrl.push(HealthdatahomePage);
-          }
-          if (this.to === "PreparehomePage") {
-            // this.menu.enable(false);
-            // this.navCtrl.setRoot(PreparehomePage);
-            this.navCtrl.push(PreparehomePage);
-          }
-          if (this.to === "LabtestresultPage") {
-            // this.menu.enable(false);
-            // this.navCtrl.setRoot(LabtestresultPage);
-            this.navCtrl.push(LabtestresultPage);
-          }
-        },
-        error => {
-          console.log(error);
-        }
-      );
+  //         if (this.to === "HealthdatahomePage") {
+  //           // this.menu.enable(false);
+  //           // this.navCtrl.setRoot(HealthdatahomePage);
+  //           this.navCtrl.push(HealthdatahomePage);
+  //         }
+  //         if (this.to === "PreparehomePage") {
+  //           // this.menu.enable(false);
+  //           // this.navCtrl.setRoot(PreparehomePage);
+  //           this.navCtrl.push(PreparehomePage);
+  //         }
+  //         if (this.to === "LabtestresultPage") {
+  //           // this.menu.enable(false);
+  //           // this.navCtrl.setRoot(LabtestresultPage);
+  //           this.navCtrl.push(LabtestresultPage);
+      //     }
+      //   },
+      //   error => {
+      //     console.log(error);
+      //   }
+      // );
    
   }
 }

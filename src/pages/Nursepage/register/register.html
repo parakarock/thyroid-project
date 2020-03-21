@@ -14,57 +14,155 @@
   <!-- <form [formGroup]="formgroup" (ngSubmit)="doRegister()"> -->
     <ion-card id="css" padding>
   <ion-list>
-    <ion-item>
+    <!-- <ion-item>
       <ion-label color="dark">คำนำหน้าชื่อ</ion-label>
       <ion-select [(ngModel)]="title" placeholder="เลือก" interface="popover">
-        <ion-option value='นาย'>นาย</ion-option>
-        <ion-option value='นาง'>นาง</ion-option>
-        <ion-option value='นางสาว'>นางสาว</ion-option>
+        <option value="volvo">นาย</option>
+        <option value="saab">นาง</option>
+        <option value="mercedes">นางสาว</option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+            <label for="title" >คำนำหน้าชื่อ      </label>
+          </ion-col>
+            <ion-col col-6>
+            <select >
+              <option value="นาย">นาย</option>
+              <option value="นาง">นาง</option>
+              <option value="นางสาว">นางสาว</option>
+              <option value="เด็กหญิง">เด็กหญิง</option>
+              <option value="เด็กชาย">เด็กชาย</option>
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    
     <!-- <ion-item no-lines *ngIf="titles.hasError('required') && titles.touched"> 
       <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
     </ion-item>  -->
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label fixed color="dark">ชื่อ</ion-label>
       <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
-    </ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <label for="fname" >ชื่อ    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" id="fname" name="fname" size="20">  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
     <!-- <ion-item no-lines *ngIf="fname.hasError('required') && fname.touched"> 
       <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
     </ion-item>  -->
-
+<!-- 
     <ion-item>
       <ion-label fixed color="dark">นามสกุล</ion-label>
       <ion-input  #ltName type="text" placeholder="ภาษาไทย"></ion-input>
-    </ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+    <label for="lname">นามสกุล</label>
+  </ion-col>
+  <ion-col col-6>
+    <input type="text" id="lname" name="lname" size="20">
+</ion-col>
+</ion-row>
+</ion-grid>
     <!-- <ion-item no-lines *ngIf="lname.hasError('required') && lname.touched"> 
       <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
     </ion-item> -->
     
-    <ion-item>
+    <!-- <ion-item>
       <ion-label color="dark">วันเกิด</ion-label>
       <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="DateOfBirth" placeholder="เลือกวันเกิด"></ion-datetime>
-    </ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+        <label for="birthday">วันเกิด</label>
+      </ion-col>
+      <ion-col col-6>
+      <input type="date" id="birthday" name="birthday" size="20">
+    </ion-col>
+  </ion-row>
+  </ion-grid>
 
-    <ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+    <label for="fname">เลขบัตรประชาชน/ เลขพาสปอร์ต</label>
+  </ion-col>
+  <ion-col col-12>
+    <input type="text" id="idCard" name="idCard" size="50">
+  </ion-col>
+  </ion-row>
+</ion-grid>
+    <!-- <ion-item>
       <ion-label color="dark">เลขบัตรประชาชน</ion-label>
       <ion-input  #idCard type="text" placeholder="กรุณาใส่ 13 หลัก"></ion-input>
-    </ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+      <label for="sex">เพศ</label>
+    </ion-col>
+    <ion-col col-6>
+      <select >
+        <option value="หญิง">หญิง </option>
+        <option value="ชาย">ชาย </option>
+      </select>
+  </ion-col>
+</ion-row>
+</ion-grid>
+
     
-    <ion-item>
+    <!-- <ion-item>
       <ion-label color="dark">เพศ</ion-label>
       <ion-select [(ngModel)]="sex" placeholder="เลือก" interface="popover">
         <ion-option value='หญิง'>หญิง</ion-option>
         <ion-option value='ชาย'>ชาย</ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+      <label for="National">สัญชาติ</label>
+    </ion-col>
+    <ion-col col-6>
+      <input type="text" id="National" name="National" value="ไทย" size="20">
+    </ion-col>
+  </ion-row>
+  </ion-grid>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label fixed color="dark">สัญชาติ</ion-label>
       <ion-input  type="text" placeholder="" value='ไทย' #National>ไทย</ion-input>
-    </ion-item>
-
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+      <label for="status">สถานะ</label>
+    </ion-col>
+    <ion-col col-6>
+      <select >
+        <option value="โสด">โสด </option>
+        <option value="คู่">คู่ </option>
+        <option value="หย่า">หย่า </option>
+        <option value="คู่สมรสเสียชีวิต">คู่สมรสเสียชีวิต </option>
+      </select>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+<!-- 
     <ion-item>
       <ion-label color="dark">สถานะ</ion-label>
       <ion-select [(ngModel)]="status" placeholder="เลือก" interface="popover">
@@ -73,23 +171,32 @@
         <ion-option value='หย่า'>หย่า</ion-option>
         <ion-option value='คู่สมรสเสียชีวิต'>คู่สมรสเสียชีวิต</ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+    <label for="Tel">เบอร์โทรศัพท์ที่ติดต่อได้ </label>
+  </ion-col>
+  <ion-col col-6>
+    <input type="text" id="Tel" name="Tel" size="20">
+  </ion-col>
+</ion-row>
+</ion-grid>
 
- 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label color="dark" style="margin-right: auto ;">เบอร์โทรศัพท์ที่ติดต่อได้</ion-label>
       <ion-input type="tel" placeholder="เบอร์โทรศัพท์" #Tel ></ion-input>
-    </ion-item>
+    </ion-item> -->
     <!-- <ion-item>
       <ion-label fixed>รหัสผ่าน</ion-label>
       <ion-input  #password type="text"></ion-input>
     </ion-item>
-  
+
     <ion-item>
       <ion-label fixed>ยืนยันรหัสผ่าน</ion-label>
       <ion-input  #passwordConfirm type="password"></ion-input>
     </ion-item> -->
-  
+
   </ion-list>
 </ion-card>
 
