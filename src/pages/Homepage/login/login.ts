@@ -60,9 +60,9 @@ export class LoginPage {
       username: ["", Validators.required],
       password: ["", Validators.required]
     });
-   
-  
-  
+
+
+
    this.username = this.formgroup.controls['username'];
    this.password = this.formgroup.controls['password'];
 
@@ -131,6 +131,6 @@ export class LoginPage {
   }
   doSignup(){
     console.log(this.formgroup.value);
-    console.log(this.formgroup.valid);   
+    console.log(this.formgroup.valid);
 }
 }

@@ -17,13 +17,13 @@
       </ion-col>
       <ion-col col-5>
         <div  style=" text-align: center">
-          <img 
+          <img
           id="logo"
           src="../../../assets/icon/Pic_Icon/Hos_Img.png"
           class="img-responsive"
           >
          </div >
-      </ion-col>  
+      </ion-col>
       <ion-col col-5>
         <div style=" text-align: center">
           <img
@@ -40,16 +40,16 @@
   <form [formGroup]="formgroup" (ngSubmit)="doSignup()">
  <div style="text-align: center;">
 
-  
+
   <ion-list>
 <ion-card style="height:100%">
     <ion-item no-lines>
       <ion-label floating color="dark">รหัสบัตรประชาชน</ion-label>
       <ion-input formControlName="username" [(ngModel)]="usernameInput"  type="text"></ion-input>
     </ion-item>
-  <ion-item no-lines *ngIf="username.hasError('required') && username.touched"> 
+  <ion-item no-lines *ngIf="username.hasError('required') && username.touched">
   <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
-</ion-item> 
+</ion-item>
     <div style="margin: 10px;"></div>
 </ion-card>
 
@@ -59,14 +59,14 @@
       <ion-label floating color="dark">รหัสผ่าน</ion-label>
       <ion-input formControlName="password"  type="password"></ion-input>
     </ion-item>
-    <ion-item no-lines *ngIf="password.hasError('required') && password.touched"> 
+    <ion-item no-lines *ngIf="password.hasError('required') && password.touched">
       <p>*กรุณาตรวจสอบPassWord ให้ถูกต้อง</p>
-    </ion-item> 
+    </ion-item>
     <div style="margin: 10px;"></div>
-</ion-card>  
+</ion-card>
 
    </ion-list>
- 
+
    <div padding></div>
   <!-- <button type="submit" [disabled]="!formgroup.valid"  ion-button small (click)="onClickLoginButton()" color="1" >เข้าสู่ระบบ</button> -->
 
@@ -79,5 +79,5 @@
 
  </div>
 </form>
-  
+
 </ion-content>

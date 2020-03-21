@@ -18,9 +18,9 @@
   <ion-list>
     <br>
     <img class="profile" src="../../../assets/icon/Pic_Icon/doctor.png" />
-    
+
       <h3>{{ name }}</h3>
-      
+
       <ion-item>
         <ion-label>รักษาครั้งที่</ion-label>
         <ion-select [(ngModel)]="number" interface="popover">
@@ -28,7 +28,7 @@
           <ion-option value="2">2</ion-option>
         </ion-select>
       </ion-item>
-   
+
     <ion-item>
       <ion-label>Status</ion-label>
       <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
@@ -65,7 +65,7 @@
         />
         <h5>ผลการตรวจ</h5>
       </a>
-    </ion-row> 
+    </ion-row>
 
     <ion-row>
       <a class="col col-50 text-center" (click)="navigateIodineResult()">

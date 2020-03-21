@@ -25,7 +25,6 @@ export class AvoideatingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AvoideatingPage');
-  
   }
 
   editavoideating(){

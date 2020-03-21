@@ -12,9 +12,9 @@
     <ion-list>
       <br>
       <img class="profile" src="../../../assets/icon/Pic_Icon/nurse.png" />
-      
+
         <h3>{{ name }}</h3>
-        
+
         <ion-item>
           <ion-label>รักษาครั้งที่</ion-label>
           <ion-select [(ngModel)]="number" interface="popover">
@@ -22,7 +22,7 @@
             <ion-option value="2">2</ion-option>
           </ion-select>
         </ion-item>
-     
+
       <ion-item>
         <ion-label>Status</ion-label>
         <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">

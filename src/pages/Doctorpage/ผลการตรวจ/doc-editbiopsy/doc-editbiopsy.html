@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>ผลการเจาะตรวจชิ้นเนื้อ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>ลำดับก้อน</div>
+  <ion-card>
+    <ion-card-header>
+    <ion-item>
+   <ion-input type="text" [(ngModel)]="order"></ion-input>
+  </ion-item>
+  </ion-card-header>
+</ion-card>
+  <div>วันที่ตรวจ</div>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+    </ion-card-header>
+    </ion-card>
+
+<div>ผลทางเซลล์วิทยา</div>
+<ion-card>
+  <ion-card-header>
+    <ion-item>
+      <ion-select [(ngModel)]="result">
+        <ion-option value="I">I</ion-option>
+        <ion-option value="II">II</ion-option>
+        <ion-option value="III">III</ion-option>
+        <ion-option value="IV">IV</ion-option>
+        <ion-option value="V">V</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card-header>
+</ion-card>
+
+<button ion-button  >Save</button>
+</ion-content>

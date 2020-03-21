@@ -4,9 +4,9 @@ page-editcontraceptive {
        }
     ion-label{
         font-size: 15px;
-        
+
     }
-    
+
     .button{
         font-size: 15px;
         display: block;
@@ -15,18 +15,18 @@ page-editcontraceptive {
     }
     .div{
         font-size: 15px;
-       
+
     }
- 
-    
+
+
     @media only screen and (min-width: 1224px) {
         ion-icon{
             font-size: 64px;
            }
         ion-label{
             font-size: 20px;
-            
-        } 
+
+        }
         .button{
             font-size: 20px;
             display: block;
@@ -35,13 +35,13 @@ page-editcontraceptive {
         }
         .div{
             font-size: 20px;
-           
+
         }
         #css{
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
       }
 }

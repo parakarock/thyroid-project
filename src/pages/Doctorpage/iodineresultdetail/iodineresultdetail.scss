@@ -2,9 +2,9 @@ page-iodineresultdetail {
 
     ion-label{
         font-size: 15px;
-        
+
     }
-    
+
     .button{
         font-size: 15px;
         display: block;
@@ -13,15 +13,15 @@ page-iodineresultdetail {
     }
     ion-card{
         font-size: 15px;
-        
+
     }
- 
-    
+
+
     @media only screen and (min-width: 1224px) {
-      
+
         ion-label{
             font-size: 20px;
-            
+
         }
         .button{
             font-size: 20px;
@@ -29,16 +29,16 @@ page-iodineresultdetail {
             margin-left: auto;
             margin-right: auto;
         }
-    
+
         ion-card{
             font-size: 20px;
-            
+
         }
         #css{
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
       }
 }

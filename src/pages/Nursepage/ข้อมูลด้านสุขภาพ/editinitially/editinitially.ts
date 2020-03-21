@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EditinitiallyPage {
 
-  
+
   edgy:String;
   hot:String;
   shakinHands:String;
@@ -38,7 +38,7 @@ export class EditinitiallyPage {
 
   do(){
     let body = JSON.stringify({
-     
+
       edgy: this.edgy,
       hot: this.hot,
       shakinHands: this.shakinHands,
@@ -51,8 +51,8 @@ export class EditinitiallyPage {
       period: this.period,
       disease: this.disease,
       assignl: this.assign
-     
-     
+
+
     });
   }
 }

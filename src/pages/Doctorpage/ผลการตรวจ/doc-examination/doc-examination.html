@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar color="1" >
+    <ion-title>
+      Thyroid ultrasound
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding no-bounce>
+  <div #fixedContainer ion-fixed>
+
+     <ion-item no-lines>
+      <h1>เพิ่มก้อนไทรอยด์</h1>
+     </ion-item>
+
+
+     <ion-card color="1">
+      <ion-grid>
+        <ion-row>
+          <ion-col  col-8>
+            <p>เลือกลำดับก้อน (สี)</p>
+      </ion-col>
+        <ion-col *ngIf="selectNum <= 4" col-4>
+          <p >ลำดับก้อน = {{selectNum}}</p>
+      </ion-col>
+      <ion-col *ngIf="selectNum >= 5" col-4>
+        <p >ลำดับก้อน = {{5}}</p>
+      </ion-col>
+      </ion-row>
+    </ion-grid>
+       <ion-card-header>
+        <ion-row>
+          <!--
+          <ion-col *ngFor="let color of colors; let i = index;" [style.background]="color" class="color-block" tappable (click)="selectColor(color,i+1)">
+            {{i+1}}
+          </ion-col>
+          -->
+          <ion-col [style.background]="colors[0]" class="color-block" tappable (click)="selectColor(colors[0],1)">
+            {{1}}
+          </ion-col>
+          <ion-col [style.background]="colors[1]" class="color-block" tappable (click)="selectColor(colors[1],2)">
+            {{2}}
+          </ion-col>
+          <ion-col [style.background]="colors[2]" class="color-block" tappable (click)="selectColor(colors[2],3)">
+            {{3}}
+          </ion-col>
+          <ion-col [style.background]="colors[3]" class="color-block" tappable (click)="selectColor(colors[3],4)">
+            {{4}}
+          </ion-col>
+          <ion-col [style.background]="colors[4]" class="color-block" tappable (click)="selectColor(colors[4],5)">
+            {{5}}
+          </ion-col>
+        </ion-row>
+
+            <!-- <ion-row radio-group [(ngModel)]="selectedColor" >
+      <ion-col *ngFor="let color of colors"   text-center>
+        <ion-radio [value]="color" ></ion-radio>
+      </ion-col>
+    </ion-row>-->
+  </ion-card-header>
+     </ion-card>
+
+
+
+     <ion-card color="2">
+    <ion-grid>
+      <ion-row>
+        <ion-col  col-8>
+      <p>เลือกขนาด</p>
+    </ion-col>
+      <ion-col  col-3>
+        <p>Size = {{lineSize/2}}</p>
+    </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col  col-10>
+        <ion-range  min="1" max="6"  step="n" color="primary" snaps="true" [(ngModel)]="lineSize" >
+          <ion-label range-left>0.5</ion-label>
+          <ion-label range-right>3</ion-label>
+        </ion-range>
+      </ion-col>
+      <ion-col   col-2 >
+        <ion-buttons >
+          <button  ion-button icon-only (click)="clearCanvas()" color="danger"><ion-icon name="trash">
+
+          </ion-icon></button>
+      </ion-buttons>
+      </ion-col>
+</ion-row>
+</ion-grid>
+</ion-card>
+
+
+    <canvas #imageCanvas (click)="startDrawing($event)">
+
+       </canvas>
+
+    <button ion-button full (click)=uploadImage()>Save Image</button>
+  </div>
+
+
+
+</ion-content>

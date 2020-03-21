@@ -46,7 +46,7 @@ export class RegisterPage {
   //     titles: ['', Validators.required],
   //     fname: ['', Validators.required],
   //     lname: ['', Validators.required],
-     
+
   //   });
   //  this.titles = this.formgroup.controls['titles'];
   //  this.fname = this.formgroup.controls['fname'];
@@ -57,6 +57,7 @@ export class RegisterPage {
     console.log("ionViewDidLoad RegisterPage");
   }
   onClickToRegister() {
+<<<<<<< HEAD
    
     // let headers = new Headers({ "Content-type": "application/json" });
     // let options = new RequestOptions({ headers: headers });
@@ -80,9 +81,34 @@ export class RegisterPage {
     //   },error=>{
     //     console.log(error);
     //   });
+=======
+
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify({
+       idcard: this.IdCard.value,
+       title: this.title,
+       firstname: this.FlName.value,
+       lastname: this.LtName.value,
+       dof: this.DateOfBirth,
+       gender: this.sex,
+       national: this.national.value,
+       status: this.status,
+       phone: this.tel.value
+     });
+
+     this.http
+      .post("http://localhost:8000/insert.php", body, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+      },error=>{
+        console.log(error);
+      });
+>>>>>>> a817515c9f3e295d2615e64761b810fcab1e12e2
 
       this.navCtrl.push(RegistersPage)
-     
+
   //   this.http
   //     .get("http://localhost:3000/", data)
   //     .map(res => res.json())
@@ -90,11 +116,11 @@ export class RegisterPage {
   //       console.log(data);
   //     });
 
-  
+
   }
 //   doRegister(){
 //     console.log(this.formgroup.value);
-//     console.log(this.formgroup.valid);   
+//     console.log(this.formgroup.valid);
 // }
   // getDayNames(): Array<string> {
 	//   return [

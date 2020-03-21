@@ -1,9 +1,9 @@
 page-edittreatmentresult {
     ion-label{
         font-size: 15px;
-        
+
     }
-    
+
     .button{
         font-size: 15px;
         display: block;
@@ -13,16 +13,16 @@ page-edittreatmentresult {
     ion-icon{
         font-size: 40px;
        }
- 
-    
+
+
     @media only screen and (min-width: 1224px) {
         ion-icon{
             font-size: 64px;
            }
-      
+
         ion-label{
             font-size: 20px;
-            
+
         }
         .button{
             font-size: 20px;
@@ -34,9 +34,9 @@ page-edittreatmentresult {
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
- 
-    
+
+
       }
 }
