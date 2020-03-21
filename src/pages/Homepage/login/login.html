@@ -68,9 +68,10 @@
    </ion-list>
  
    <div padding></div>
-  <button type="submit" [disabled]="!formgroup.valid"  ion-button small (click)="onClickLoginButton()" color="1" >เข้าสู่ระบบ</button>
+  <!-- <button type="submit" [disabled]="!formgroup.valid"  ion-button small (click)="onClickLoginButton()" color="1" >เข้าสู่ระบบ</button> -->
 
   <!-- ทดลอง -->
+  <button ion-button small (click)="gonPage()" color="1" >เข้าสู่ระบบ</button>
   <button ion-button small (click)="goDoctorPage()" color="1" >เข้าสู่ระบบหมอ</button>
   <button ion-button small (click)="go()" color="1" >เข้าสู่ระบบผู้ป่วย</button>
   <button ion-button small (click)="admin()" color="1" >เข้าสู่ระบบadmin</button>

@@ -58,28 +58,28 @@ export class RegisterPage {
   }
   onClickToRegister() {
    
-    let headers = new Headers({ "Content-type": "application/json" });
-    let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify({
-       idcard: this.IdCard.value,
-       title: this.title,
-       firstname: this.FlName.value,
-       lastname: this.LtName.value,
-       dof: this.DateOfBirth,
-       gender: this.sex,
-       national: this.national.value,
-       status: this.status,
-       phone: this.tel.value
-     });
+    // let headers = new Headers({ "Content-type": "application/json" });
+    // let options = new RequestOptions({ headers: headers });
+    // let body = JSON.stringify({
+    //    idcard: this.IdCard.value,
+    //    title: this.title,
+    //    firstname: this.FlName.value,
+    //    lastname: this.LtName.value,
+    //    dof: this.DateOfBirth,
+    //    gender: this.sex,
+    //    national: this.national.value,
+    //    status: this.status,
+    //    phone: this.tel.value
+    //  });
      
-     this.http
-      .post("http://localhost:8000/insert.php", body, options)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-      },error=>{
-        console.log(error);
-      });
+    //  this.http
+    //   .post("http://localhost:8000/insert.php", body, options)
+    //   .map(res => res.json())
+    //   .subscribe(data => {
+    //     console.log(data);
+    //   },error=>{
+    //     console.log(error);
+    //   });
 
       this.navCtrl.push(RegistersPage)
      

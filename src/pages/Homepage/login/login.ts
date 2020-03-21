@@ -15,6 +15,7 @@ import {
   ResponseOptions,
   RequestOptions
 } from "@angular/http";
+
 import "rxjs/add/operator/map";
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
@@ -116,6 +117,9 @@ export class LoginPage {
       );
   }
 
+  gonPage() {
+    this.navCtrl.setRoot(NurseHomePage);
+  }
   goDoctorPage() {
     this.navCtrl.setRoot(DoctorHomePage);
   }

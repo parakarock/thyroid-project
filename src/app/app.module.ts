@@ -66,7 +66,7 @@ import { PhysicalPage} from '../pages/Doctorpage/ผลการตรวจ/phy
 import { PhysicalsPage} from '../pages/Doctorpage/ผลการตรวจ/physicals/physicals';
 import { LabPage} from '../pages/Doctorpage/ผลการตรวจ/lab/lab';
 import { RadiographicPage} from '../pages/Doctorpage/ผลการตรวจ/radiographic/radiographic';
-import { RadiographicsPage} from '../pages/Doctorpage/ผลการตรวจ/radiographics/radiographics';
+// import { RadiographicsPage} from '../pages/Doctorpage/ผลการตรวจ/radiographics/radiographics';
 import { ExaminationPage} from '../pages/Doctorpage/ผลการตรวจ/examination/examination';
 import { BiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/biopsy/biopsy';
 import { EditphysicalPage} from '../pages/Doctorpage/ผลการตรวจ/editphysical/editphysical';
@@ -141,7 +141,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     PhysicalsPage,
     LabPage,
     RadiographicPage,
-    RadiographicsPage,
+    // RadiographicsPage,
     ExaminationPage,
     BiopsyPage,
     EditphysicalPage,
@@ -226,7 +226,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     PhysicalsPage,
     LabPage,
     RadiographicPage,
-    RadiographicsPage,
+    // RadiographicsPage,
     ExaminationPage,
     BiopsyPage,
     EditphysicalPage,
@@ -259,9 +259,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     RegisterProvider,
     GlobalProvider,
     BarcodeScanner,
-    FileTransfer,
-    File,
-    Camera,
+    // FileTransfer,
+    // File,
+    // Camera,
     IonicStorageModule,
 
   ]
