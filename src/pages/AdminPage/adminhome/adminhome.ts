@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
 import {DatauserPage } from '../../AdminPage/datauser/datauser';
 import {DatahosPage } from '../../AdminPage/datahos/datahos';
+import { HomePage } from "../../Homepage/home/home";
 /**
  * Generated class for the AdminhomePage page.
  *
@@ -16,7 +17,7 @@ import {DatahosPage } from '../../AdminPage/datahos/datahos';
 })
 export class AdminhomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,) {
   }
 
   ionViewDidLoad() {
@@ -28,5 +29,9 @@ export class AdminhomePage {
   }
   hos(){
     this.navCtrl.push(DatahosPage);
+  }
+  onClickLogoutButton(){
+    this.events.publish("user:guest");
+    this.navCtrl.setRoot(HomePage);
   }
 }

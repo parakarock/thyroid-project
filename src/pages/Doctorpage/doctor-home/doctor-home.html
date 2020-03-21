@@ -32,7 +32,7 @@
     <ion-item>
       <ion-label>Status</ion-label>
       <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
-        <ion-option *ngFor="let role of roles" [value]="role.role_name" [selected]="role.role_name === 'patient'">{{role.role_name}}</ion-option>
+        <ion-option *ngFor="let role of roles" [value]="role.role_name" [selected]="role.role_name === 'doctor'">{{role.role_name}}</ion-option>
       </ion-select>
     </ion-item>
 
