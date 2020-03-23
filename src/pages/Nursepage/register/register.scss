@@ -10,14 +10,18 @@ ion-label{
     margin-right: auto;
 }
 
-
-
+label{
+    font-size:  15px;
+ }
 
 
 @media only screen and (min-width: 1224px) {
     ion-label{
         font-size: 20px;
     } 
+    label{
+        font-size:  20px;
+     }
     .button{
         font-size: 20px;
         display: block;
@@ -32,4 +36,5 @@ ion-label{
       
     }
   }
+ 
 }

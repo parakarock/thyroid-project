@@ -10,29 +10,35 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card id="css" padding>
-<ion-item >
-<div>ชื่อ - นามสกุล : {{ name }}</div>
-<div>วัน/เดือน/ปีเกิด : {{ date }}</div>
-<div>อายุ : {{ age }}</div>
-<div>เลขบัตรประชาชน : {{idcard}}</div>
-<div>เพศ : {{ gender }}</div> 
-<div>สัญชาติ : {{ nationality }} </div>
-<div>สถานะ : {{ status }}</div>
-</ion-item>
+<ion-content padding >
+  <ion-card id="css" padding *ngIf="showData">
+    <ion-item>
+      <div>ชื่อ - นามสกุล : {{ name }}</div>
+      <div>วัน/เดือน/ปีเกิด : {{ date }}</div>
+      <div>อายุ : {{ age }}</div>
+      <div>เลขบัตรประชาชน : {{idcard}}</div>
+      <div>เพศ : {{ gender }}</div>
+      <div>สัญชาติ : {{ nationality }}</div>
+      <div>สถานะ : {{ status }}</div>
+    </ion-item>
 
-<ion-item >
-<div>ส่งตัวมาจากโรงพยาบาล  {{ input }}</div>
-<div>HN {{ hninput }}</div>
-<div>โรงพยาบาลบูรพา HN  {{ hnbuu }}</div> 
-<div>โรงพยาบาลที่ส่งตัวกลับ  {{ output }}</div> 
-<div>HN  {{ hnoutput }}</div>
-</ion-item>
+    <ion-item>
+      <div>ส่งตัวมาจากโรงพยาบาล {{ input }}</div>
+      <div>HN {{ hninput }}</div>
+      <div>โรงพยาบาลบูรพา HN {{ hnbuu }}</div>
+      <div>โรงพยาบาลที่ส่งตัวกลับ {{ output }}</div>
+      <div>HN {{ hnoutput }}</div>
+    </ion-item>
 
-<ion-item no-lines>
-<div>เบอร์โทรที่ติดต่อได้ : {{ tel }}</div>
-</ion-item>
-</ion-card>
-<button ion-button  (click)="editgeneral()" color="1">แก้ไข</button>
+    <ion-item no-lines>
+      <div>เบอร์โทรที่ติดต่อได้ : {{ tel }}</div>
+    </ion-item>
+  </ion-card>
+
+  <ion-card id="css" *ngIf="!showData">
+    <ion-item no-lines>
+      <ion-label color="dark">ไม่พบข้อมูล</ion-label>
+    </ion-item>
+  </ion-card>
+  <button ion-button (click)="editgeneral()" color="1">แก้ไข</button>
 </ion-content>

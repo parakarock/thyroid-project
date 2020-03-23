@@ -1,15 +1,10 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-
-import { Http, Headers, RequestOptions, ResponseOptions } from "@angular/http";
 import "rxjs/add/operator/map";
 import { RegistersPage } from "../registers/registers";
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  AbstractControl
-} from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import moment from "moment";
+import "moment/locale/TH";
 
 // import "rxjs/add/operator/catch";
 
@@ -19,72 +14,73 @@ import {
   templateUrl: "register.html"
 })
 export class RegisterPage {
-  // @ViewChild("ttName") TtName;
-  @ViewChild("flName") FlName;
-  @ViewChild("ltName") LtName;
-  // @ViewChild("DOB") dob;
-  @ViewChild("idCard") IdCard;
-  // @ViewChild("Sex") sex;
-  @ViewChild("National") national;
-  // @ViewChild("Status") status;
-  @ViewChild("Tel") tel;
-  title: string;
-  DateOfBirth: string;
-  sex: string;
-  status: string;
-  url: string;
-  data: string;
-  // formgroup: FormGroup;
-  // titles:AbstractControl;
-  // fname:AbstractControl;
-  // lname:AbstractControl;
-
+  formgroup: FormGroup;
+  age=0;
   constructor(
-    public http: Http,
     public navCtrl: NavController,
-    // public translate: TranslateService,
     public navParams: NavParams,
     public formBuilder: FormBuilder
   ) {
-    //   this.formgroup = formBuilder.group({
-    //     titles: ['', Validators.required],
-    //     fname: ['', Validators.required],
-    //     lname: ['', Validators.required],
-    //   });
-    //  this.titles = this.formgroup.controls['titles'];
-    //  this.fname = this.formgroup.controls['fname'];
-    //  this.lname = this.formgroup.controls['lname'];
+    this.formgroup = formBuilder.group({
+      title: ["", Validators.required],
+      fname: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[ก-๏s]+$")
+        ])
+      ],
+      lname: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[ก-๏s]+$")
+        ])
+      ],
+      birthday: ["", Validators.required],
+      idCard: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(13),
+          Validators.maxLength(13),
+          Validators.pattern("[0-9]+")
+        ])
+      ],
+      sex: ["", Validators.required],
+      National: [
+        "ไทย",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[ก-๏s]+$")
+        ])
+      ],
+      status: ["", Validators.required],
+      tel: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(10),
+          Validators.pattern("[0-9]+")
+        ])
+      ]
+    });
   }
-
+  updateAge() {
+    this.age = moment().diff(
+      moment(this.formgroup.controls.birthday.value, "YYYY-MM-DD"),
+      "years"
+    );
+  }
   ionViewDidLoad() {
     console.log("ionViewDidLoad RegisterPage");
   }
   onClickToRegister() {
-    this.navCtrl.push(RegistersPage, {
-      idcard: this.IdCard.value,
-      title: this.title,
-      firstname: this.FlName.value,
-      lastname: this.LtName.value,
-      dof: this.DateOfBirth,
-      gender: this.sex,
-      national: this.national.value,
-      status: this.status,
-      phone: this.tel.value
-    });
+    this.navCtrl.push(RegistersPage, this.formgroup.value);
   }
-  //   doRegister(){
-  //     console.log(this.formgroup.value);
-  //     console.log(this.formgroup.valid);
-  // }
-  // getDayNames(): Array<string> {
-  //   return [
-  //           this.translate.instant('date:day:1:long'),
-  //           this.translate.instant('date:day:2:long'),
-  //           this.translate.instant('date:day:3:long'),
-  //           this.translate.instant('date:day:4:long'),
-  //           this.translate.instant('date:day:5:long'),
-  //           this.translate.instant('date:day:6:long'),
-  //           this.translate.instant('date:day:7:long')
-  //   ];
-  // }
+  doRegister() {
+    console.log(this.formgroup.value);
+    console.log(this.formgroup.valid);
+  }
 }

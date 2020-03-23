@@ -37,10 +37,9 @@ export class QrcodePage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad QrcodePage");
-  }
-
-  async nextpage() {
+  //   console.log("ionViewDidLoad QrcodePage");
+   }
+   async nextpage() {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = { code: this.code };
@@ -80,6 +79,6 @@ export class QrcodePage {
           alert(error);
         }
       );
-   
   }
+  
 }

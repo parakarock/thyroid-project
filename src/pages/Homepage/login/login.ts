@@ -35,16 +35,10 @@ import {
 })
 export class LoginPage {
   formgroup: FormGroup;
-  username;
-  password;
-  usernameInput: string;
-  role: any;
-  nurse;
-  doctor;
-  patient;
-  name;
-  data;
+  
+  @ViewChild("usernameInput") mUsername;
   @ViewChild("passwordInput") mPassword;
+  
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -60,8 +54,8 @@ export class LoginPage {
       password: ["", Validators.required]
     });
 
-    this.username = this.formgroup.controls["username"];
-    this.password = this.formgroup.controls["password"];
+    // this.mUsername = this.formgroup.controls["username"];
+    // this.mPassword = this.formgroup.controls["password"];
   }
 
   ionViewDidLoad() {
@@ -71,7 +65,7 @@ export class LoginPage {
   async onClickLoginButton() {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = { username: this.usernameInput, password: this.usernameInput };
+    let body = { username: this.mUsername.value, password: this.mUsername.value };
     console.log("body : " + body);
     await this.http
       .post(
@@ -83,7 +77,8 @@ export class LoginPage {
       .subscribe(
         data => {
           if (data.result) {
-            this.showToastWithCloseButton(data.result);
+            // this.showToastWithCloseButton(data.result);
+            this.presentAlert(data.result);
           } else {
             this.global.name =
               data[0].title + data[0].firstname + " " + data[0].lastname;
@@ -118,7 +113,9 @@ export class LoginPage {
         }
       );
   }
-
+  gonPage() {
+    this.navCtrl.setRoot(NurseHomePage);
+  }
   goDoctorPage() {
     this.navCtrl.setRoot(DoctorHomePage);
   }
@@ -140,4 +137,13 @@ export class LoginPage {
     });
     toast.present();
   }
+  async presentAlert(txt: string) {
+    let alert = await this.alertCtrl.create({
+      title: 'เกิดข้อผิดพลาด',
+      subTitle: txt,
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+  
 }
