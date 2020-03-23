@@ -10,6 +10,9 @@ page-addlabtest {
             margin-left: auto;
             margin-right: auto;
         }
+        label{
+            font-size:  15px;
+         }
         
         @media only screen and (min-width: 1224px) {
             ion-label {
@@ -29,6 +32,9 @@ page-addlabtest {
                 left: 30%;
               
             }
+            label{
+                font-size:  20px;
+             }
           }
     
     

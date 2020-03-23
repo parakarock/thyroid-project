@@ -14,18 +14,44 @@
 <div id="div">ผลการตรวจ UPT</div>
 
 <ion-card id="css" padding>
-<ion-item >
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+      <label for="date">UPT วันที่</label>
+    </ion-col>
+    <ion-col col-6>
+    <input type="date" id="date" name="date" size="20">
+  </ion-col>
+</ion-row>
+</ion-grid>
+
+<!-- <ion-item >
   <ion-label color="dark">UPT วันที่</ion-label>
   <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
-</ion-item>
+</ion-item> -->
 
-<ion-item >
+<ion-grid>
+  <ion-row>
+    <ion-col col-6>
+        <label for="examination" >ผลการตรวจ      </label>
+      </ion-col>
+        <ion-col col-6>
+        <select >
+          <option value="negative">negative</option>
+          <option value="positive">positive</option>
+        </select>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- <ion-item >
   <ion-label color="dark">ผลการตรวจ</ion-label>
   <ion-select [(ngModel)]="examination" interface="popover">
     <ion-option value="negative">negative</ion-option>
     <ion-option value="positive">positive</ion-option>
   </ion-select>
-</ion-item>
+</ion-item> -->
 
 <button ion-button  float-right color="1" >เพิ่ม</button>
 </ion-card>

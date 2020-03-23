@@ -13,28 +13,61 @@
 <ion-content padding>
   
   <ion-card  id="css" padding >
-   
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+            <label for="BetaBlock" >ผู้ป่วยต้องงดยาต้านไทรอยด์หรือไม่ </label>
+          </ion-col>
+            <ion-col col-6>
+            <select >
+              <option value="ต้อง">ต้อง</option>
+              <option value="ไม่ต้อง">ไม่ต้อง</option>
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
  
-  <ion-item no-lines>
+  <!-- <ion-item no-lines>
     <ion-label color="dark">ผู้ป่วยต้องงดยาต้านไทรอยด์หรือไม่</ion-label>
     <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก" interface="popover">
       <ion-option value="ต้อง">ต้อง</ion-option>
       <ion-option value="ไม่ต้อง">ไม่ต้อง</ion-option>
     </ion-select>
-  </ion-item>
+  </ion-item> -->
 
   <div padding></div>
 
-  <div color="dark">ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์ ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่</div>
-  <ion-item>
-    <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
-  </ion-item>
-  
+ 
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <div color="dark">ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์ ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่</div>
+    </ion-col>
+    <ion-col col-12>
+    <input type="date" id="date" name="date" size="20">
+  </ion-col>
+</ion-row>
+</ion-grid>
 
-  <ion-label color="dark">และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</ion-label>
+  <!-- <ion-item>
+    <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
+  </ion-item> -->
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <div color="dark">และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่</div>
+    </ion-col>
+    <ion-col col-12>
+      <input type="date" id="toDate" name="toDate" size="20" >
+  </ion-col>
+</ion-row>
+</ion-grid>
+
+  <!-- <ion-label color="dark">และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</ion-label>
   <ion-item >
     <ion-label color="dark"></ion-label>
-  </ion-item>
+  </ion-item> -->
   
 </ion-card>
   <button ion-button color="1">บันทึก</button>
