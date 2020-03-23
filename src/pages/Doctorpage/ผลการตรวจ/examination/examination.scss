@@ -7,7 +7,18 @@ page-examination {
     .button{
         font-size: 15px;
     }
-    
+    canvas {
+        border: 1px solid rgb(230, 207, 207);
+        height: auto;
+        width: 100%;
+       
+        background-image: url('../../../../assets/icon/Pic_Icon/Capture.png');
+        background-repeat: no-repeat;
+        background-size: 100% 90%;
+     
+    }
+
+
     @media only screen and (min-width: 1224px) {
         ion-label {
             font-size: 16px;
@@ -17,6 +28,7 @@ page-examination {
             font-size: 20px;
            
         }
-   
+
+
       }
 }

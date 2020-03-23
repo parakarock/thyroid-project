@@ -32,27 +32,27 @@ export class LabtestresultPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider, private http: Http) {
     
-    let headers = new Headers({ "Content-type": "application/json" });
-    let options = new RequestOptions({ headers: headers });
-    let body = { idcard: this.global.patientID, round: this.global.round };
-    console.log("body : " + body);
-    this.http
-      .post(
-        "http://10.80.34.218:8000/labtest.php?method=get_labtest&role=doctor",
-        body,
-        options
-      )
-      .map(res => res.json())
-      .subscribe(
-        data => {
-          this.data = JSON.stringify(data);
-          this.lab = this.data  
-          console.log("lab : " + this.lab);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    // let headers = new Headers({ "Content-type": "application/json" });
+    // let options = new RequestOptions({ headers: headers });
+    // let body = { idcard: this.global.patientID, round: this.global.round };
+    // console.log("body : " + body);
+    // this.http
+    //   .post(
+    //     "http://10.80.34.218:8000/labtest.php?method=get_labtest&role=doctor",
+    //     body,
+    //     options
+    //   )
+      // .map(res => res.json())
+      // .subscribe(
+      //   data => {
+      //     this.data = JSON.stringify(data);
+      //     this.lab = this.data  
+      //     console.log("lab : " + this.lab);
+      //   },
+      //   error => {
+      //     console.log(error);
+        //  }
+      // );
     
      
        
