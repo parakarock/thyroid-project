@@ -29,20 +29,39 @@
   <ion-checkbox checked="isChecked" [(ngModel)]="nighttimework"></ion-checkbox>
       <ion-label  color="dark">งานแบบเข้ากะกลางคืนช่วงเข้ากะรอบละ</ion-label>
     </ion-item>
-      <ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <input type="text" id="Around" name="Around" size="20">  
+       
+          <label for="Around" >ชั่วโมง    </label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      <!-- <ion-item>
         <ion-label  color="dark">(ระบุกี่ชั่วโมง)</ion-label>
        <ion-input type="text" [(ngModel)]="Around" ></ion-input>
-      </ion-item>
+      </ion-item> -->
   
       <ion-item no-lines>
         <ion-label>งานล่วงเวลา รอบละ</ion-label>
         <ion-checkbox checked="isChecked"[(ngModel)]="overtime" ></ion-checkbox>
       </ion-item>
     
-          <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <input type="text" id="rounds" name="round" size="20">  
+         
+            <label for="rounds" >ชั่วโมง    </label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+          <!-- <ion-item>
             <ion-label  color="dark">(ระบุกี่ชั่วโมง)</ion-label>
            <ion-input type="text" [(ngModel)]="round" ></ion-input>
-          </ion-item>
+          </ion-item> -->
 
   
   <ion-item no-lines>
@@ -67,31 +86,79 @@
     <ion-checkbox checked="isChecked" [(ngModel)]="cigarettes"></ion-checkbox>
   </ion-item>
   
-  <ion-item >
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <label for="specify" >ระบุ    </label>
+      </ion-col>
+     
+        <input type="text" id="perday" name="perday" size="10">  
+        <label for="null" >&ensp;    </label>
+        <select >
+          <option value="ม้วนต่อวัน">ม้วนต่อวัน </option>
+          <option value="ซองต่อวัน">ซองต่อวัน </option>
+        </select>  
+     
+    </ion-row>
+  </ion-grid>
+
+
+
+  <!-- <ion-item >
     <ion-label color="dark">ระบุกี่ซอง หรือม้วนต่อวัน</ion-label>
     <ion-input [(ngModel)]="specify" type="text" placeholder=""></ion-input>
     <ion-select [(ngModel)]="perday" placeholder=เลือก interface="popover">
       <ion-option value='ม้วนต่อวัน'>ม้วนต่อวัน </ion-option>
       <ion-option value='ซองต่อวัน'>ซองต่อวัน </ion-option>
     </ion-select>
-  </ion-item>
+  </ion-item> -->
 
-  <ion-item >
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <label for="specify" >ระยะเวลาที่สูบ    </label>
+      </ion-col>
+   
+        <input type="text" id="duration" name="perday" size="10">  
+        <label for="null" >&ensp;    </label>
+        <select >
+          <option value="ปี">ปี </option>
+          <option value="เดือน">เดือน </option>
+        </select>  
+    
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- <ion-item >
     <ion-label color="dark">ระยะเวลาที่สูบ</ion-label>
     <ion-input [(ngModel)]="duration" type="text" placeholder=""></ion-input>
     <ion-select [(ngModel)]="yearmonth" placeholder=เลือก interface="popover">
       <ion-option value='ปี'>ปี </ion-option>
       <ion-option value='เดือน'>เดือน </ion-option>
     </ion-select>
-  </ion-item>
+  </ion-item> -->
 
-  <ion-item >
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <label for="stopsmoking" >หยุดสูบบุหรี่แล้ว    </label>
+      </ion-col>
+        <input type="text" id="stopsmoking" name="stopsmoking" size="10">  
+        <label for="m" >&ensp;เดือน   </label>
+      
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-item >
     <ion-label color="dark">หยุดสูบบุหรี่แล้ว</ion-label>
     <ion-input [(ngModel)]="stopsmoking" type="text" placeholder=""></ion-input>
     <ion-item >
     <ion-label color="dark">เดือน</ion-label>
   </ion-item>
-  </ion-item>
+  </ion-item> -->
 
   <!-- <ion-grid>
     <ion-row>

@@ -3,8 +3,11 @@ page-editphysical {
         font-size: 15px;
         
     }
-    
-    button{
+    label {
+        font-size: 15px;
+        
+    }
+    #button{
         font-size: 15px;
         display: block;
         margin-left: auto;
@@ -16,7 +19,7 @@ page-editphysical {
             font-size: 20px;
            
         } 
-        button{
+        #button{
             font-size: 20px;
             display: block;
             margin-left: auto;
@@ -27,6 +30,10 @@ page-editphysical {
             position: relative;
             left: 30%;
           
+        }
+        label {
+            font-size: 20px;
+            
         }
       }
 }
