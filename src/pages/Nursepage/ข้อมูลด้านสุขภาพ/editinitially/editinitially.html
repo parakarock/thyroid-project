@@ -16,46 +16,49 @@
   <div >กรุณาเลือกข้อที่ท่านมีอาการดังต่อไปนี้ (เลือกได้มากกว่า1คำตอบ)</div>
 <br>
 
-  <!-- <ion-list >
-  <ion-item no-lines >
-    <ion-label class="radio-inline">
-      <input type="radio" name="NeckSurgery" >
-      ไม่เคย
-    </ion-label>
-    <ion-label class="radio-inline">
-      <input type="radio" name="NeckSurgery">
-      เคย
-    </ion-label>
-  </ion-item>
-  </ion-list> -->
   <ion-item no-lines >
   <input type="checkbox" id="vehicle1" name="vehicle1" value="edgy">
-  <label for="vehicle1"> หงุดหงิด กระสับกระส่าย วิตกกังวล นอนหลับยาก กินจุ</label><br>
-</ion-item>
-
-  <ion-item no-lines >
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="hot">
-  <label for="vehicle2"> ขี้ร้อน เหงื่อแตก ผิวชุ่มเหงื่อ แม้อากาศจะไม่ร้อน</label><br>
-</ion-item>
-
-  <ion-item no-lines >
-  <input type="checkbox" id="vehicle3" name="vehicle3" value="shakinHands">
-  <label for="vehicle3"> มือสั่น</label><br>
-</ion-item>
-
-  <ion-item no-lines >
-  <input type="checkbox" id="vehicle4" name="vehicle4" value="neck">
-  <label for="vehicle4"> คอโต</label><br>
+  <label for="vehicle1"> หงุดหงิด กระสับกระส่าย วิตกกังวล </label><br>
 </ion-item>
 
 <ion-item no-lines >
-  <input type="checkbox" id="vehicle5" name="vehicle5" value="gland">
-  <label for="vehicle5"> คลำก้อนได้ในต่อมไทรอยด์</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="sleep">
+  <label for="vehicle2"> นอนหลับยาก </label><br>
+</ion-item>
+
+<ion-item no-lines >
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="eat">
+  <label for="vehicle3">  กินจุ</label><br>
 </ion-item>
 
   <ion-item no-lines >
-  <input type="checkbox" id="vehicle6" name="vehicle6" value="bigeyes">
-  <label for="vehicle6"> ตาโต หรือตาโปนมากกว่าปกติ</label><br>
+  <input type="checkbox" id="vehicle4" name="vehicle4" value="hot">
+  <label for="vehicle4"> ขี้ร้อน เหงื่อแตก ผิวชุ่มเหงื่อ แม้อากาศจะไม่ร้อน</label><br>
+</ion-item>
+
+<ion-item no-lines >
+  <input type="checkbox" id="vehicle5" name="vehicle5" value="fast">
+  <label for="vehicle5"> ชีพจรเต้นเร็ว ใจสั่น เหนื่อยง่าย</label><br>
+</ion-item>
+
+  <ion-item no-lines >
+  <input type="checkbox" id="vehicle6" name="vehicle6" value="shakinHands">
+  <label for="vehicle6"> มือสั่น</label><br>
+</ion-item>
+
+  <ion-item no-lines >
+  <input type="checkbox" id="vehicle7" name="vehicle7" value="neck">
+  <label for="vehicle7"> คอโต</label><br>
+</ion-item>
+
+<ion-item no-lines >
+  <input type="checkbox" id="vehicle8" name="vehicle8" value="gland">
+  <label for="vehicle8"> คลำก้อนได้ในต่อมไทรอยด์</label><br>
+</ion-item>
+
+  <ion-item no-lines >
+  <input type="checkbox" id="vehicle9" name="vehicle9" value="bigeyes">
+  <label for="vehicle9"> ตาโต หรือตาโปนมากกว่าปกติ</label><br>
 </ion-item>
 
 
@@ -91,8 +94,8 @@
 
 
   <ion-item no-lines >
-  <input type="checkbox" id="vehicle7" name="vehicle7" value="shit">
-  <label for="vehicle7"> ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน</label><br>
+  <input type="checkbox" id="vehicle10" name="vehicle10" value="shit">
+  <label for="vehicle10"> ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน</label><br>
 </ion-item>
 
       <!-- <ion-item no-lines >
@@ -102,16 +105,7 @@
       </ion-item> -->
 
 
-      <ion-grid>
-        <ion-row>
-          <ion-col col-3>
-            <label for="specify" >โปรดระบุ    </label>
-          </ion-col>
-            <input type="text" id="fname" name="fname" size="10">  
-            <label for="g/3m" >&ensp;กิโลกรัม/3เดือน    </label>
-          
-        </ion-row>
-      </ion-grid>
+
 
         <!-- <ion-grid>
           <ion-row>
@@ -127,16 +121,21 @@
       </ion-row>
     </ion-grid> -->
     <ion-item no-lines >
-    <input type="checkbox" id="vehicle8" name="vehicle8" value="weight">
-    <label for="vehicle8"> น้ำหนักลดแม้จะรับประทานอาหารได้</label><br>
+    <input type="checkbox" id="vehicle11" name="vehicle11" value="weight">
+    <label for="vehicle11"> น้ำหนักลดแม้จะรับประทานอาหารได้</label><br>
   </ion-item>
   <!-- <ion-item no-lines>
     <ion-label>น้ำหนักลดแม้จะรับประทานอาหารได้</ion-label>
     <ion-checkbox checked="isChecked" [(ngModel)]="weight"></ion-checkbox>
   </ion-item> -->
   <ion-item no-lines >
-  <input type="checkbox" id="vehicle9" name="vehicle9" value="shit">
-  <label for="vehicle9"> (สำหรับผู้หญิง)ประจำเดือนมาน้อยครั้งและปริมาณลดลง</label><br>
+    <input type="checkbox" id="vehicle12" name="vehicle12" value="leg">
+    <label for="vehicle12"> ต้นแขนและต้นขาทั้งสองข้างอ่อนแรง</label><br>
+  </ion-item>
+
+  <ion-item no-lines >
+  <input type="checkbox" id="vehicle13" name="vehicle13" value="shit">
+  <label for="vehicle13"> (สำหรับผู้หญิง)ประจำเดือนมาน้อยครั้งและปริมาณลดลง</label><br>
 </ion-item>
   <!-- <ion-item no-lines>
     <ion-label>(สำหรับผู้หญิง)ประจำเดือนมาน้อยครั้งแะปริมาณลดลง</ion-label>
@@ -153,7 +152,7 @@
 
       <ion-grid>
         <ion-row>
-          <ion-col col-4>
+          <ion-col col-12>
               <label for="disease" >ท่านมีโรคประจำตัวอื่นๆหรือไม่    </label>
             </ion-col>
               <ion-col col-6>
