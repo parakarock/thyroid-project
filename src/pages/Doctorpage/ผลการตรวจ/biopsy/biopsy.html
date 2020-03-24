@@ -18,19 +18,6 @@
       ควรติตตามผล Thyroid Ultrasound
     </ion-label>
 
- 
-    <ion-label class="radio-inline">
-      <input type="radio" name="ThiHair">
-      ส่ง fine needle aspiration
-    </ion-label>
-  
-    <ion-label class="radio-inline">
-    <input type="radio" name="ThiHair">
-    ส่งผ่าตัด
-    </ion-label>
-  
-    <ion-label color="dark">ตามผลThyroid Ultrasound</ion-label>
-
     <ion-grid>
       <ion-row>
         <ion-col col-4>
@@ -45,6 +32,47 @@
       </ion-row>
     </ion-grid>
 
+ 
+    <ion-label class="radio-inline">
+      <input type="radio" name="ThiHair">
+      ส่ง fine needle aspiration
+    </ion-label>
+
+    <ion-item no-lines>
+      <ion-icon name="add-circle" float-right  round color="1" (click)="editbiopsy()"></ion-icon>
+      <ion-card>
+        <ion-card-header>
+          <div>ลำดับก้อน</div>
+          <div>วันที่ตรวจ</div>
+      <div>ผลทางเซลล์วิทยา</div>
+      <button ion-button (click)="editbiopsy()" color="1">แก้ไข</button>
+        </ion-card-header>
+      </ion-card>
+      </ion-item>
+
+      
+  
+    <ion-label class="radio-inline">
+    <input type="radio" name="ThiHair">
+    ส่งผ่าตัด
+    </ion-label>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+    <label for="sec">ระบุการผ่าตัด</label>
+    </ion-col>
+    <ion-col col-6>
+    <input type="text" id="sec" name="sec" size="20">
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+    
+  
+    <!-- <ion-label color="dark">ตามผลThyroid Ultrasound</ion-label> -->
+
+   
+
     <!-- <ion-item >
       <ion-input [(ngModel)]="Thyroid" type="text" placeholder=""></ion-input>
         
@@ -54,26 +82,25 @@
                 <ion-option value="ปี">ปี</ion-option>
               </ion-select>
             </ion-item> -->
-     
-    
+     <br>
+     <br>
+            <ion-grid>
+              <ion-row>
+            <label for="sec">ผลการวินิจฉัย</label>
+            
+              <label for="sec"></label>
+              <button ion-button  float-right  round color="1" (click)="DiagnosticResultsPage()">แก้ไข</button>
+            </ion-row>
+            </ion-grid>
       
     
     
-<ion-item no-lines>
-<ion-icon name="add-circle" float-right  round color="1" (click)="editbiopsy()"></ion-icon>
-<ion-card>
-  <ion-card-header>
-    <div>ลำดับก้อน</div>
-    <div>วันที่ตรวจ</div>
-<div>ผลทางเซลล์วิทยา</div>
-<button ion-button (click)="editbiopsy()" color="1">แก้ไข</button>
-  </ion-card-header>
-</ion-card>
-</ion-item>
-<ion-item >
+
+
+<!-- <ion-item >
         <ion-label  color="dark">ระบุการผ่าตัด</ion-label>
         <ion-input [(ngModel)]="sec" type="text" placeholder=""></ion-input>
-      </ion-item>
+      </ion-item> -->
 
 </ion-card>
 

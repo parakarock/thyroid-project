@@ -90,7 +90,7 @@
         <ion-col col-4>
             <label for="ThyroidMed" >ยาต้านอาการไทรอยด์      </label>
           </ion-col>
-            <ion-col col-6>
+            <ion-col col-4>
             <select >
               <option value="Propylthiouracil (PTU)">Propylthiouracil (PTU)</option>
               <option value="Methimazole (MMI)">Methimazole (MMI)</option>
@@ -103,33 +103,25 @@
         <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">  
       </ion-row>
     </ion-grid>
-    <!-- <ion-item>
-      <ion-label>ยาต้านอาการไทรอยด์</ion-label>
-      <ion-select [(ngModel)]="ThyroidMed" placeholder="เลือก" interface="popover">
-        <ion-option value='Propylthiouracil (PTU)'>Propylthiouracil (PTU)</ion-option>
-        <ion-option value='Methimazole (MMI)'>Methimazole (MMI)</ion-option>
-        <ion-option value='Tapazole'>Tapazole</ion-option>
-        <ion-option value='Lithium'>Lithium</ion-option>
-        <ion-option value='ไม่ต้องรับประทาน'>ไม่ต้องรับประทาน</ion-option>
-        <ion-option value='อื่นๆ'>อื่นๆ</ion-option>
-      </ion-select>
-      <ion-input type="text" placeholder="" [(ngModel)]="ThyroidMedEtc"></ion-input>
-    </ion-item> -->
+    
 
-    <ion-item>
-      <ion-label color="primary" fixed>จำนวนยา</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนยา" [(ngModel)]="ThyroidMedVol"></ion-input>
 
-      <ion-label color="primary" fixed>ครั้งต่อวัน</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนครั้ง" [(ngModel)]="ThyroidMedRoundPerDay"></ion-input>
-    </ion-item>
-
+    <ion-grid>
+      <ion-row>
+           
+        <input type="number" id="ThyroidMedVol" name="ThyroidMedVol" size="20">  
+        <label for="ThyroidMedVol" >&ensp;    </label>
+      <input type="number" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="20">  
+      <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
+      </ion-row>
+    </ion-grid>
+   
     <ion-grid>
       <ion-row>
         <ion-col col-4>
             <label for="ThyroidMed" >ยากลุ่ม Beta-Blocker    </label>
           </ion-col>
-            <ion-col col-6>
+            <ion-col col-4>
             <select >
               <option value="Propranolol (10)">Propranolol (10)</option>
               <option value="Propranolol (40)">Propranolol (40)</option>
@@ -142,6 +134,26 @@
       </ion-row>
     </ion-grid>
 
+
+    <ion-grid>
+      <ion-row>
+            
+        <input type="number" id="BetaBlockVol" name="BetaBlockVol" size="20">  
+        <label for="BetaBlockVol" > &ensp;เม็ด &ensp;    </label>
+         
+      <input type="number" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="20">  
+      <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
+      </ion-row>
+    </ion-grid>
+    <!-- <ion-item>
+      <ion-label color="primary" fixed>จำนวนยา</ion-label>
+      <ion-input type="number" min="0" placeholder="จำนวนยา" [(ngModel)]="ThyroidMedVol"></ion-input>
+
+      <ion-label color="primary" fixed>ครั้งต่อวัน</ion-label>
+      <ion-input type="number" min="0" placeholder="จำนวนครั้ง" [(ngModel)]="ThyroidMedRoundPerDay"></ion-input>
+    </ion-item> -->
+
+    
     <!-- <ion-item>
       <ion-label>ยากลุ่ม Beta-Blocker</ion-label>
       <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก"  interface="popover">
@@ -154,14 +166,14 @@
       <ion-input [(ngModel)]="BetaBlockEtc" type="text" placeholder=""></ion-input>
     </ion-item> -->
 
-
+<!-- 
     <ion-item>
       <ion-label color="primary" fixed>จำนวนยา</ion-label>
       <ion-input type="number" min="0" placeholder="จำนวนยา" [(ngModel)]="BetaBlockVol"></ion-input>
 
       <ion-label color="primary" fixed>ครั้งต่อวัน</ion-label>
       <ion-input type="number" min="0" placeholder="จำนวนครั้ง" [(ngModel)]="BetaBlockRoundPerDay"></ion-input>
-    </ion-item>
+    </ion-item> -->
   </ion-card>
 
   <button ion-button full (click)="do()">บันทึก</button>
