@@ -2,6 +2,9 @@ import { EdittreatmentresultPage } from '../edittreatmentresult/edittreatmentres
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GlobalProvider } from "../../../providers/global/global";
+import moment from 'moment';
+import 'moment/locale/TH';
 
 /**
  * Generated class for the FollowuptreatmentresultPage page.
@@ -18,7 +21,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class FollowuptreatmentresultPage {
 
   public obj:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,global: GlobalProvider) {
     this.obj = [
       {
         date : "12 ธันวาคม 2563",

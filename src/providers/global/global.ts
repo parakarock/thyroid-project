@@ -32,4 +32,7 @@ export class GlobalProvider {
   getround() {
     return this.round;
   }
+  getdate() {
+    return this.mydate;
+  }
 }
