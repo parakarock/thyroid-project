@@ -15,14 +15,15 @@ export class GlobalProvider {
 
   public patientID: string;
   public round: any;
-  public selectRound;
+  public selectRound = 1;
+  public sex:string;
+  public selectRole;
 
   timeVar;
   timeVal;
   public using:boolean = false;
   constructor() {
     console.log("Hello GlobalProvider Provider");
-    this.selectRound=1;
   }
   
   getname() {
@@ -36,6 +37,24 @@ export class GlobalProvider {
   }
   getround() {
     return this.round;
+  }
+  setSex(sex){
+    this.sex = sex;
+  }
+  getSex(){
+    return this.sex;
+  }
+  setSelectRole(role){
+    this.selectRole = role;
+  }
+  getSelectRole(){
+    return this.selectRole;
+  }
+  setSelectRound(Round){
+    this.selectRound = Round;
+  }
+  getSelectRound(){
+    return this.selectRound;
   }
 
   startTimer(){

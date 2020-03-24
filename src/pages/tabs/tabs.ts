@@ -7,6 +7,7 @@ import { ContactPage } from "../Homepage/contact/contact";
 import { NurseHomePage } from "../Nursepage/nurse-home/nurse-home";
 import { AppointmentPage } from "../Nursepage/appointment/appointment";
 import { DoctorHomePage } from "../Doctorpage/doctor-home/doctor-home"
+import { GlobalProvider } from "../../providers/global/global";
 import { Events,NavController } from 'ionic-angular';
 
 @Component({
@@ -19,27 +20,32 @@ export class TabsPage {
   tab4Root: any;
   public show:boolean = false;
  
-  constructor(public events: Events,public navCtrl: NavController) {
+  constructor(public events: Events,public navCtrl: NavController,public global: GlobalProvider,) {
     events.subscribe('user:patient', () => {
+      this.global.selectRole = "patient"
       this.tab1Root = NurseHomePage;
-      this.tab2Root = AppointmentPage;
-      this.tab3Root = ContactPage;   
+      this.tab2Root = "";
+      this.tab3Root = ContactPage; 
+      this.show = false;  
     });
     events.subscribe('user:nurse', () => {
+      this.global.selectRole = "nurse"
       this.tab1Root = NurseHomePage;
       this.tab2Root = AppointmentPage;
       this.tab3Root = ContactPage;
       this.show = true;
     });
     events.subscribe('user:doctor', () => {
+      this.global.selectRole = "doctor"
       this.tab1Root = DoctorHomePage;
       this.tab2Root = AppointmentPage;
       this.tab3Root = ContactPage;
       this.show = true;
     });
     events.subscribe('user:guest', () => {
+      this.global.selectRole = "guest"
       this.tab1Root = HomePage;
-      this.tab2Root = AppointmentPage;
+      this.tab2Root = "";
       this.tab3Root = ContactPage;
       this.show = false;
     });

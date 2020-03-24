@@ -25,7 +25,6 @@ import {
 export class QrcodePage {
   code: string;
   to: string;
-  data:any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -52,9 +51,9 @@ export class QrcodePage {
       .map(res => res.json())
       .subscribe(
         data => {
-          this.data = JSON.stringify(data);
           this.global.round = data;
           this.global.patientID = data[0].person_id;
+          this.global.setSex(data.gender);
           console.log(data[0]);
 
           if (this.to === "HealthdatahomePage") {

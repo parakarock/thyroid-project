@@ -125,7 +125,7 @@ export class RegistersPage {
           console.log(data);
           if(data.username&&data.password){
             this.presentAlertUser("Username : "+data.username+"<br>"+"Password : "+data.password);
-            this.navCtrl.setRoot(NurseHomePage);
+            this.navCtrl.remove(this.navCtrl.getActive().index - 1, 2);
           }else{
             this.presentAlert(data.result);
           }

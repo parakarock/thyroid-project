@@ -15,7 +15,7 @@ import { EditinitiallyPage } from '../editinitially/editinitially';
   templateUrl: 'initially.html',
 })
 export class InitiallyPage {
-
+  showData: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

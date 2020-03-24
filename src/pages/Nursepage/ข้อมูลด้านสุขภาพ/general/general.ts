@@ -43,12 +43,14 @@ export class GeneralPage {
   tel;
 
   showData: boolean = true;
+  showButtonedit: boolean;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public global: GlobalProvider,
     private http: Http
   ) {
+    this.showButtonedit = this.checkRole(this.global.getSelectRole());
   }
 
  async getdata(){
@@ -102,6 +104,9 @@ export class GeneralPage {
     console.log("ionViewDidLoad GeneralPage");
     this.getdata();
   }
+  ionViewWillEnter(){
+    this.getdata();
+  }
 
   editgeneral() {
     this.navCtrl.push(EditgeneralPage, {
@@ -121,5 +126,13 @@ export class GeneralPage {
       hnoutput: this.hnoutput,
       tel: this.tel
     });
+  }
+
+  checkRole(role){
+    if(role === "nurse"){
+      return true;
+    }else{
+      return false;
+    }
   }
 }

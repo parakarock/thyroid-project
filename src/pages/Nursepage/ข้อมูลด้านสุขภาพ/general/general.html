@@ -23,11 +23,11 @@
     </ion-item>
 
     <ion-item>
-      <div>ส่งตัวมาจากโรงพยาบาล {{ input }}</div>
-      <div>HN {{ hninput }}</div>
-      <div>โรงพยาบาลบูรพา HN {{ hnbuu }}</div>
-      <div>โรงพยาบาลที่ส่งตัวกลับ {{ output }}</div>
-      <div>HN {{ hnoutput }}</div>
+      <div>ส่งตัวมาจากโรงพยาบาล {{ input||"ไม่พบข้อมูล" }}</div>
+      <div>HN {{ hninput||"ไม่พบข้อมูล" }}</div>
+      <div>โรงพยาบาลบูรพา HN {{ hnbuu||"ไม่พบข้อมูล" }}</div>
+      <div>โรงพยาบาลที่ส่งตัวกลับ {{ output||"ไม่พบข้อมูล" }}</div>
+      <div>HN {{ hnoutput||"ไม่พบข้อมูล" }}</div>
     </ion-item>
 
     <ion-item no-lines>
@@ -40,5 +40,5 @@
       <ion-label color="dark">ไม่พบข้อมูล</ion-label>
     </ion-item>
   </ion-card>
-  <button ion-button (click)="editgeneral()" color="1">แก้ไข</button>
+  <button ion-button *ngIf="showButtonedit" (click)="editgeneral()" color="1">แก้ไข</button>
 </ion-content>

@@ -162,7 +162,7 @@ export class EditgeneralPage {
           text: "ยืนยัน",
           handler: () => {
             this.updateData();
-            this.navCtrl.remove(this.navCtrl.getActive().index - 1, 2);
+            this.navCtrl.pop();
           }
         }
       ]
