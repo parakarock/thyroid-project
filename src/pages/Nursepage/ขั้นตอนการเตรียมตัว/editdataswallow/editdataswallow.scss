@@ -14,7 +14,10 @@ page-editdataswallow {
         margin-right: auto;
     }
 
- 
+    label {
+        font-size: 15px;
+        
+    }
     
     @media only screen and (min-width: 1224px) {
         ion-label{
@@ -36,6 +39,10 @@ page-editdataswallow {
             position: relative;
             left: 30%;
           
+        }
+        label {
+            font-size: 20px;
+            
         }
       }
 }
