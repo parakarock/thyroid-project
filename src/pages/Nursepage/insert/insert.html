@@ -1,0 +1,158 @@
+<!--
+  Generated template for the InsertPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>ภาวะแทรกซ้อน</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card id="css" padding>
+
+  <label for="title" >ผู้ป่วยได้รับการวินิจฉัยเป็นต่อมไทรอยด์เป็นพิษเมื่อ </label>
+  <ion-grid>
+    <ion-row>
+      <label for="m" >เดือน &ensp;</label>
+        <select >
+          <option value="นาย">มกราคม</option>
+          <option value="กุมภาพันธ์"> กุมภาพันธ์</option>
+          <option value="มีนาคม"> มีนาคม</option>
+          <option value="เมษายน">เมษายน</option>
+          <option value="พฤษภาคม">พฤษภาคม</option>
+          <option value="มิถุนายน">มิถุนายน</option>
+          <option value="กรกฎาคม">กรกฎาคม</option>
+          <option value="กันยายน">กันยายน</option>
+          <option value="ตุลาคม">ตุลาคม</option>
+          <option value="พฤษจิกายน">พฤษจิกายน</option>
+          <option value="ธันวาคม">ธันวาคม</option>
+        </select>
+            <label for="ปี">&ensp;ปี&ensp;</label>
+          <input type="select" id="birthday" name="birthday" size="20">
+    </ion-row>
+  </ion-grid>
+
+  
+  <label for="title" >ภาวะแทรกซ้อนของต่อมไทรอยด์เป็นพิษ</label>
+  <ion-grid>
+    <ion-row>
+        <select >
+          <option value="ไม่มี">ไม่มี</option>
+          <option value="thyroid crisis"> thyroid crisis	</option>
+          <option value="thyrotoxic myopathy">  thyrotoxic myopathy	</option>
+          <option value="heart arrhythmia"> heart arrhythmia</option>
+          <option value="heart failure"> heart failure </option>
+        </select>
+            <label for="ระบุ">&ensp;ระบุ&ensp;</label>
+            <input type="text" id="sp" name="sp" size="20">
+    </ion-row>
+  </ion-grid>
+
+  <br><br>
+
+  <label for="ยาต้านไทรอยด์ที่ได้รับในปัจจุบัน" >ยาต้านไทรอยด์ที่ได้รับในปัจจุบัน </label>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <label for="ThyroidMed" >ยาต้านอาการไทรอยด์      </label>
+          </ion-col>
+            <ion-col col-4>
+            <select >
+              <option value="Propylthiouracil (PTU)">Propylthiouracil (PTU)</option>
+              <option value="Methimazole (MMI)">Methimazole (MMI)</option>
+              <option value="Tapazole">Tapazole</option>
+              <option value="Lithium">Lithium</option>
+              <option value="ไม่ต้องรับประทาน">ไม่ต้องรับประทาน</option>
+              <option value="อื่นๆ">อื่นๆ</option>
+            </select>
+        </ion-col>
+        <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">  
+      </ion-row>
+    </ion-grid>
+    
+
+
+    <ion-grid>
+      <ion-row>
+          
+        <input type="number" id="ThyroidMedVol" name="ThyroidMedVol" size="20">  
+        <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
+          
+      <input type="number" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="20">  
+      <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
+      </ion-row>
+    </ion-grid>
+   
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <label for="ThyroidMed" >ยากลุ่ม Beta-Blocker    </label>
+          </ion-col>
+            <ion-col col-4>
+            <select >
+              <option value="Propranolol (10)">Propranolol (10)</option>
+              <option value="Propranolol (40)">Propranolol (40)</option>
+              <option value="Betalol (10)">Betalol (10)</option>
+              <option value="Atenolol (50)">Atenolol (50)</option>
+              <option value="อื่นๆ">อื่นๆ</option>
+            </select>
+        </ion-col>
+        <input type="text" id="BetaBlockEtc" name="BetaBlockEtc" size="20">  
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-grid>
+      <ion-row>
+          
+        <input type="number" id="BetaBlockVol" name="BetaBlockVol" size="20">  
+        <label for="BetaBlockVol" >&ensp;เม็ด &ensp;    </label>
+        
+      <input type="number" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="20">  
+      <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
+      </ion-row>
+    </ion-grid>
+<br><br>
+
+
+
+
+
+
+
+
+    <label for="ข้อบ่งชี้ของการกลืนแร่ไอโอดีน" >ข้อบ่งชี้ของการกลืนแร่ไอโอดีน </label>
+    <ion-grid>
+      <ion-row>
+     
+            <select >
+              <option value="medical failure">medical failure</option>
+              <option value="มีภาวะแทรกซ้อนของโรค"> มีภาวะแทรกซ้อนของโรค  </option>
+              <option value="Major adverse reactions to"> Major adverse reactions to</option>
+              <option value="ระบุอาการแพ้ยา">ระบุอาการแพ้ยา</option>
+            </select>
+            <label for="null">&ensp;&ensp;</label>
+            <select >
+              <option value="medical failure">drug allergy</option>
+              <option value="jaundice">   jaundice  </option>
+              <option value="agranulocytosis"> agranulocytosis</option>
+              <option value=" อื่นๆ"> อื่นๆ</option>
+            </select>
+         
+         
+  
+      </ion-row>
+      
+    </ion-grid>
+    <label for="ระบุ">&ensp;ระบุ&ensp;</label>
+    <input type="text" id="sp1" name="sp1" size="20">  
+  
+
+
+</ion-card>
+<button ion-button   color="1">บันทึก</button>
+
+</ion-content>
