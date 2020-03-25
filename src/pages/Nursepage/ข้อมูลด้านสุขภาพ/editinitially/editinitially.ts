@@ -74,12 +74,21 @@ export class EditinitiallyPage {
     console.log("ionViewDidLoad EditinitiallyPage");
   }
 
-  beforeSend(x){
-      if(x){
-        return this.diseaseName
-      }else{
-        return null
-      }
+  beforeSend(x) {
+    if (x&&this.diseaseName) {
+      return this.diseaseName;
+    } else {
+      return null;
+    }
+  }
+  editData(data) {
+    if (data) {
+      return 1;
+    } else if (!data) {
+      return 0;
+    }else{
+      return data;
+    }
   }
   updateData() {
     let headers = new Headers({ "Content-type": "application/json" });
@@ -87,21 +96,22 @@ export class EditinitiallyPage {
     let body = JSON.stringify({
       idcard: this.global.patientID,
       round: this.global.getSelectRound(),
-      frustration: this.edgy,
-      hard_sleep: this.sleep,
-      eat_a_lot: this.eat,
-      feel_hot: this.hot,
-      fast_heartbeat: this.fast,
-      shaking_hand: this.shakinHands,
-      goiter: this.neck,
-      thyroid_lump: this.gland,
-      bulging_eye: this.bigeyes,
-      digest_3: this.shit,
-      lose_weight: this.weight,
-      weak_arm: this.leg,
-      few_period: this.fshit,
+      frustration: this.editData(this.edgy),
+      hard_sleep: this.editData(this.sleep),
+      eat_a_lot: this.editData(this.eat),
+      feel_hot: this.editData(this.hot),
+      fast_heartbeat: this.editData(this.fast),
+      shaking_hand: this.editData(this.shakinHands),
+      goiter: this.editData(this.neck),
+      thyroid_lump: this.editData(this.gland),
+      bulging_eye: this.editData(this.bigeyes),
+      digest_3: this.editData(this.shit),
+      lose_weight: this.editData(this.weight),
+      weak_arm: this.editData(this.leg),
+      few_period: this.editData(this.fshit),
       disease_name: this.beforeSend(this.disease)
     });
+    console.log(body);
     this.http
       .post(
         "http://192.168.43.140:8000/healthdata.php?method=update_init-phase&role=nurse",
@@ -112,7 +122,7 @@ export class EditinitiallyPage {
       .subscribe(
         data => {
           if(data.result){
-            this.presentAlert(data.result); 
+            this.presentAlert(data.result);
           }
         },
         error => {
@@ -136,6 +146,7 @@ export class EditinitiallyPage {
           text: "ยืนยัน",
           handler: () => {
             this.updateData();
+            // this.navCtrl.remove(this.navCtrl.getPrevious().index);
             this.navCtrl.pop();
           }
         }
@@ -145,9 +156,9 @@ export class EditinitiallyPage {
   }
   async presentAlert(txt: string) {
     let alert = await this.alertCtrl.create({
-      title: 'แจ้งเตือน',
+      title: "แจ้งเตือน",
       subTitle: txt,
-      buttons: ['Ok']
+      buttons: ["Ok"]
     });
     alert.present();
   }
@@ -158,39 +169,51 @@ export class EditinitiallyPage {
   }
   changesleep() {
     this.sleep = !this.sleep;
+    console.log(this.sleep);
   }
   changeeat() {
     this.eat = !this.eat;
+    console.log(this.eat);
   }
   changehot() {
     this.hot = !this.hot;
+    console.log(this.hot);
   }
   changefast() {
     this.fast = !this.fast;
+    console.log(this.fast);
   }
   changeshakinHands() {
     this.shakinHands = !this.shakinHands;
+    console.log(this.shakinHands);
   }
   changeneck() {
     this.neck = !this.neck;
+    console.log(this.neck);
   }
   changegland() {
     this.gland = !this.gland;
+    console.log(this.gland);
   }
   changebigeyes() {
     this.bigeyes = !this.bigeyes;
+    console.log(this.bigeyes);
   }
   changeshit() {
     this.shit = !this.shit;
+    console.log(this.shit);
   }
   changeweight() {
     this.weight = !this.weight;
+    console.log(this.weight);
   }
   changeleg() {
     this.leg = !this.leg;
+    console.log(this.leg);
   }
   changefshit() {
     this.fshit = !this.fshit;
+    console.log(this.fshit);
   }
   changeOther() {
     this.disease = !this.disease;

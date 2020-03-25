@@ -191,7 +191,7 @@
       </ion-list>
     </ion-card>
 
-    <button ion-button (click)="onClickToRegister()"  color="1">
+    <button ion-button [disabled]="!formgroup.valid" (click)="onClickToRegister()"  color="1">
       ถัดไป
     </button>
   </form>

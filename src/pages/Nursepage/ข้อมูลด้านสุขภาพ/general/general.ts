@@ -56,7 +56,7 @@ export class GeneralPage {
  async getdata(){
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = { idcard: this.global.patientID, round: this.global.round };
+    let body = JSON.stringify({ idcard: this.global.patientID, round: this.global.getSelectRound() });
     console.log("body : " + body);
    await this.http
       .post(
@@ -90,7 +90,7 @@ export class GeneralPage {
             this.hnoutput = data[1].to_hn;
             this.tel = data[0].phone;
           } else {
-            this.showData = !this.showData;
+            this.showData = false;
             console.log("data : " + this.showData);
           }
         },
@@ -100,12 +100,14 @@ export class GeneralPage {
       );
   }
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad GeneralPage");
-    this.getdata();
+  async ionViewWillEnter() {
+    console.log("ionViewWillEnter InitiallyPage");
+    await this.navCtrl.getActive().component
+    this.showData = false;
   }
-  ionViewWillEnter(){
-    this.getdata();
+ async ionViewDidEnter(){
+    console.log("ionViewDidEnter InitiallyPage");
+    await this.getdata()
   }
 
   editgeneral() {

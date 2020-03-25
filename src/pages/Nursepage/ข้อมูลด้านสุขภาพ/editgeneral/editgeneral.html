@@ -117,7 +117,7 @@
             <label>เลขบัตรประชาชน/ เลขพาสปอร์ต</label>
           </ion-col>
           <ion-col col-12>
-            <input type="text" formControlName="idCard" size="50" />
+            <input type="text" formControlName="idCard" disabled="disabled" size="50" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('idCard').valid
@@ -305,6 +305,6 @@
     </ion-list>
   </ion-card>
 
-  <button ion-button color="1" (click)="presentConfirm()">บันทึก</button>
+  <button ion-button color="1" [disabled]="!formgroup.valid" (click)="presentConfirm()">บันทึก</button>
 </form>
 </ion-content>

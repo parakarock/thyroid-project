@@ -12,312 +12,112 @@
 
 <ion-content padding>
   <ion-card id="css">
+    <div padding>
+      ขณะท่านมีอาการไทรอยด์เป็นพิษ
+      กรุณาใส่เครื่องหมายถูกในช่องสี่เหลี่ยมหากท่านมีปัจจัยที่ก่อให้เกิดโรคดังต่อไปนี้
+    </div>
 
-  <div padding>ขณะท่านมีอาการไทรอยด์เป็นพิษ กรุณาใส่เครื่องหมายถูกในช่องสี่เหลี่ยมหากท่านมีปัจจัยที่ก่อให้เกิดโรคดังต่อไปนี้</div>
+    <ion-item no-lines>
+      <input type="checkbox" name="strain" />
+      <label for="strain"> มีความเครียด</label><br />
+    </ion-item>
 
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="strain">
-    <label for="vehicle1"> มีความเครียด</label><br>
-  </ion-item>
+    <ion-item no-lines>
+      <input type="checkbox" name="HardWork" />
+      <label for="HardWork"> ทำงานหนักเกิน 12 ชั่วโมงต่อวัน</label><br />
+    </ion-item>
 
-  <!-- <ion-item no-lines>
-    <ion-label>มีความเครียด</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="strain"></ion-checkbox>
-  </ion-item> -->
-  
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="HardWork">
-    <label for="vehicle2"> ทำงานหนักเกิน 12 ชั่วโมงต่อวัน</label><br>
-  </ion-item>
+    <ion-item no-lines>
+      <input type="checkbox" name="nighttimework" />
+      <label for="nighttimework"> งานแบบเข้ากะกลางคืนช่วงเข้ากะรอบละ</label>
+      <input type="text" id="timework" name="timework" size="20" />
+      <label for="timework">ชั่วโมง </label>
+    </ion-item>
 
-  <!-- <ion-item no-lines>
-    <ion-label>ทำงานหนักเกิน 12 ชั่วโมงต่อวัน</ion-label>
-    <ion-checkbox checked="isChecked"[(ngModel)]="HardWork" ></ion-checkbox>
-  </ion-item> -->
+    <ion-item no-lines>
+      <input type="checkbox" name="overtime" />
+      <label for="overtime"> งานล่วงเวลา รอบละ</label>
+      <input type="text" name="rounds" size="20" />
+      <label for="rounds">ชั่วโมง </label>
+    </ion-item>
 
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle3" name="vehicle3" value="nighttimework">
-    <label for="vehicle3"> งานแบบเข้ากะกลางคืนช่วงเข้ากะรอบละ</label>
-    <input type="text" id="Around" name="Around" size="20">  
-          <label for="Around" >ชั่วโมง    </label>
-  </ion-item>
+    <ion-item no-lines>
+      <input type="checkbox" name="sleepLess" />
+      <label for="sleepLess">นอนน้อยกว่า 4 ชั่วโมงต่อวัน</label><br />
+    </ion-item>
 
-  <!-- <ion-item no-lines>
-  <ion-checkbox checked="isChecked" [(ngModel)]="nighttimework"></ion-checkbox>
-      <ion-label  color="dark">งานแบบเข้ากะกลางคืนช่วงเข้ากะรอบละ</ion-label>
-    </ion-item> -->
+    <ion-item no-lines>
+      <input type="checkbox" name="Pregnant" />
+      <label for="Pregnant">เป็นหญิงกำลังตั้งครรภ์</label><br />
+    </ion-item>
 
-    <!-- <ion-grid>
+    <ion-item no-lines>
+      <input type="checkbox" name="toxin" />
+      <label for="toxin">มีครรภ์เป็นพิษ</label><br />
+    </ion-item>
+
+    <ion-item no-lines>
+      <input type="checkbox" name="cigarettes" />
+      <label for="cigarettes">สูบบุหรี่</label><br />
+    </ion-item>
+
+    <ion-grid>
       <ion-row>
-        <ion-col col-12>
-          
+        <ion-col col-4>
+          <label for="specify">ระบุ </label>
         </ion-col>
-      </ion-row>
-    </ion-grid> -->
-      <!-- <ion-item>
-        <ion-label  color="dark">(ระบุกี่ชั่วโมง)</ion-label>
-       <ion-input type="text" [(ngModel)]="Around" ></ion-input>
-      </ion-item> -->
-  
-      <ion-item no-lines >
-        <input type="checkbox" id="vehicle4" name="vehicle4" value="overtime">
-        <label for="vehicle4"> งานล่วงเวลา รอบละ</label>
-        <input type="text" id="rounds" name="round" size="20">  
-        <label for="rounds" >ชั่วโมง    </label>
-      </ion-item>
 
-      <!-- <ion-item no-lines>
-        <ion-label>งานล่วงเวลา รอบละ</ion-label>
-        <ion-checkbox checked="isChecked"[(ngModel)]="overtime" ></ion-checkbox>
-      </ion-item> -->
-    
-      <!-- <ion-grid>
-        <ion-row>
-          <ion-col col-12>
-          
-          </ion-col>
-        </ion-row>
-      </ion-grid> -->
-          <!-- <ion-item>
-            <ion-label  color="dark">(ระบุกี่ชั่วโมง)</ion-label>
-           <ion-input type="text" [(ngModel)]="round" ></ion-input>
-          </ion-item> -->
-
-          <ion-item no-lines >
-            <input type="checkbox" id="vehicle5" name="vehicle5" value="SleepLess">
-            <label for="vehicle5">นอนน้อยกว่า 4 ชั่วโมงต่อวัน</label><br>
-          </ion-item>
-
-  <!-- <ion-item no-lines>
-    <ion-label>นอนน้อยกว่า 4 ชั่วโมงต่อวัน</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="SleepLess"></ion-checkbox>
-  </ion-item> -->
-  
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle6" name="vehicle6" value="Pregnant">
-    <label for="vehicle6">เป็นหญิงกำลังตั้งครรภ์</label><br>
-  </ion-item>
-
-  <!-- <ion-item no-lines>
-    <ion-label>เป็นหญิงกำลังตั้งครรภ์</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="Pregnant"></ion-checkbox>
-  </ion-item> -->
-  
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle7" name="vehicle7" value="toxin">
-    <label for="vehicle7">มีครรภ์เป็นพิษ</label><br>
-  </ion-item>
-<!-- 
-  <ion-item no-lines>
-    <ion-label input>มีครรภ์เป็นพิษ 
-    </ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="toxin"></ion-checkbox>
-  </ion-item> -->
-
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle8" name="vehicle8" value="cigarettes">
-    <label for="vehicle8">สูบบุหรี่</label><br>
-  </ion-item>
-
-  <!-- <ion-item no-lines>
-    <ion-label input>สูบบุหรี่ 
-    </ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="cigarettes"></ion-checkbox>
-  </ion-item> -->
-  
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-        <label for="specify" >ระบุ    </label>
-      </ion-col>
-     
-        <input type="text" id="perday" name="perday" size="10">  
-        <label for="null" >&ensp;    </label>
-        <select >
+        <input type="text" id="perday" name="perday" size="10" />
+        <label for="null">&ensp; </label>
+        <select>
           <option value="ม้วนต่อวัน">ม้วนต่อวัน </option>
           <option value="ซองต่อวัน">ซองต่อวัน </option>
-        </select>  
-     
-    </ion-row>
-  </ion-grid>
+        </select>
+      </ion-row>
+    </ion-grid>
 
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <label for="specify">ระยะเวลาที่สูบ </label>
+        </ion-col>
 
-
-  <!-- <ion-item >
-    <ion-label color="dark">ระบุกี่ซอง หรือม้วนต่อวัน</ion-label>
-    <ion-input [(ngModel)]="specify" type="text" placeholder=""></ion-input>
-    <ion-select [(ngModel)]="perday" placeholder=เลือก interface="popover">
-      <ion-option value='ม้วนต่อวัน'>ม้วนต่อวัน </ion-option>
-      <ion-option value='ซองต่อวัน'>ซองต่อวัน </ion-option>
-    </ion-select>
-  </ion-item> -->
-
-
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-        <label for="specify" >ระยะเวลาที่สูบ    </label>
-      </ion-col>
-   
-        <input type="text" id="duration" name="perday" size="10">  
-        <label for="null" >&ensp;    </label>
-        <select >
+        <input type="text" id="duration" name="perday" size="10" />
+        <label for="null">&ensp; </label>
+        <select>
           <option value="ปี">ปี </option>
           <option value="เดือน">เดือน </option>
-        </select>  
-    
-    </ion-row>
-  </ion-grid>
+        </select>
+      </ion-row>
+    </ion-grid>
 
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <label for="stopsmoking">หยุดสูบบุหรี่แล้ว </label>
+        </ion-col>
+        <input type="text" id="stopsmoking" name="stopsmoking" size="10" />
+        <label for="m">&ensp;เดือน </label>
+      </ion-row>
+    </ion-grid>
 
-  <!-- <ion-item >
-    <ion-label color="dark">ระยะเวลาที่สูบ</ion-label>
-    <ion-input [(ngModel)]="duration" type="text" placeholder=""></ion-input>
-    <ion-select [(ngModel)]="yearmonth" placeholder=เลือก interface="popover">
-      <ion-option value='ปี'>ปี </ion-option>
-      <ion-option value='เดือน'>เดือน </ion-option>
-    </ion-select>
-  </ion-item> -->
+    <ion-item no-lines>
+      <input type="checkbox" name="NoFactor" />
+      <label for="NoFactor">ไม่มีปัจจัยเสี่ยงดังกล่าว</label><br />
+    </ion-item>
 
-  
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-        <label for="stopsmoking" >หยุดสูบบุหรี่แล้ว    </label>
-      </ion-col>
-        <input type="text" id="stopsmoking" name="stopsmoking" size="10">  
-        <label for="m" >&ensp;เดือน   </label>
-      
-    </ion-row>
-  </ion-grid>
+    <ion-item no-lines>
+      <input type="checkbox" name="PoisonousRelative" />
+      <label for="PoisonousRelative">ญาติตรงของผู้ป่วยต่อมไทรอยด์เป็นพิษ</label
+      ><br />
+    </ion-item>
 
-  <!-- <ion-item >
-    <ion-label color="dark">หยุดสูบบุหรี่แล้ว</ion-label>
-    <ion-input [(ngModel)]="stopsmoking" type="text" placeholder=""></ion-input>
-    <ion-item >
-    <ion-label color="dark">เดือน</ion-label>
-  </ion-item>
-  </ion-item> -->
-
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col col-2>
-        <div>ระบุ</div>
-      </ion-col>
-   
-      <ion-col col-5>       
-      <ion-card>
-        <ion-card-header>
-        <ion-item>
-       <ion-input type="text" [(ngModel)]="specify"></ion-input>
-      </ion-item>
-      </ion-card-header>
-    </ion-card>
-      </ion-col>
-
-      <ion-col col-5>
-        <ion-card>
-          <ion-card-header>
-            <ion-item>
-              <ion-label>   <p>ระบุ</p></ion-label>
-              <ion-select [(ngModel)]="perday">
-                <ion-option value="ม้วนต่อวัน">ม้วนต่อวัน</ion-option>
-                <ion-option value="ซองต่อวัน">ซองต่อวัน</ion-option>
-              </ion-select>
-            </ion-item>
-          </ion-card-header>
-        </ion-card>
-    
-      </ion-col>
-    </ion-row>
-    
-    <ion-row>
-      <ion-col col-2>
-        <div>ระยะเวลาที่สูบ</div>
-      </ion-col>
-   
-      <ion-col col-5>       
-      <ion-card>
-        <ion-card-header>
-        <ion-item>
-       <ion-input type="text"  [(ngModel)]="duration"></ion-input>
-      </ion-item>
-      </ion-card-header>
-    </ion-card>
-      </ion-col>
-
-      <ion-col col-5>
-        <ion-card>
-          <ion-card-header>
-            <ion-item>
-              <ion-label>   <p>ระบุ</p></ion-label>
-              <ion-select [(ngModel)]="yearmonth">
-                <ion-option value="ปี">ปี</ion-option>
-                <ion-option value="เดือน">เดือน</ion-option>
-              </ion-select>
-            </ion-item>
-          </ion-card-header>
-        </ion-card>
-      
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-2>
-        <div>หยุดสูบบุหรี่แล้ว</div>
-      </ion-col>
-   
-      <ion-col col-5>       
-      <ion-card>
-        <ion-card-header>
-        <ion-item>
-       <ion-input type="text" [(ngModel)]="stopsmoking"></ion-input>
-      </ion-item>
-      </ion-card-header>
-    </ion-card>
-      </ion-col>
-
-      <ion-col col-5>
-        <div>เดือน</div>
-      
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-
-
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle9" name="vehicle9" value="NoFactor">
-    <label for="vehicle9">ไม่มีปัจจัยเสี่ยงดังกล่าว</label><br>
-  </ion-item>
-
-  <!-- <ion-item no-lines>
-    <ion-label>ไม่มีปัจจัยเสี่ยงดังกล่าว</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="NoFactor"></ion-checkbox> 
-  </ion-item> -->
-  
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle10" name="vehicle10" value="PoisonousRelative">
-    <label for="vehicle10">ญาติตรงของผู้ป่วยต่อมไทรอยด์เป็นพิษ</label><br>
-  </ion-item>
-
-  <!-- <ion-item no-lines>
-    <ion-label input>ญาติตรงของผู้ป่วยต่อมไทรอยด์เป็นพิษ
-    </ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="PoisonousRelative"></ion-checkbox>
-  </ion-item> -->
-
-  <ion-item no-lines >
-    <input type="checkbox" id="vehicle11" name="vehicle11" value="Workingrelatives">
-    <label for="vehicle11">ญาติตรงของผู้ป่วยต่อมไทรอยด์ทำงานน้อย</label><br>
-  </ion-item>
-
-  <!-- <ion-item no-lines>
-    <ion-label input>ญาติตรงของผู้ป่วยต่อมไทรอยด์ทำงานน้อย
-    </ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="Workingrelatives"></ion-checkbox>
-  </ion-item> -->
-</ion-card>
+    <ion-item no-lines>
+      <input type="checkbox" name="Workingrelatives" />
+      <label for="Workingrelatives">ญาติตรงของผู้ป่วยต่อมไทรอยด์ทำงานน้อย</label
+      ><br />
+    </ion-item>
+  </ion-card>
 
   <button ion-button small color="1">บันทึก</button>
 </ion-content>
-	

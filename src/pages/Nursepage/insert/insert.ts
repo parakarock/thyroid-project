@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { InsertPage } from '../../insert/insert';
 
 /**
- * Generated class for the ToxinthyPage page.
+ * Generated class for the InsertPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,20 +10,16 @@ import { InsertPage } from '../../insert/insert';
 
 @IonicPage()
 @Component({
-  selector: 'page-toxinthy',
-  templateUrl: 'toxinthy.html',
+  selector: 'page-insert',
+  templateUrl: 'insert.html',
 })
-export class ToxinthyPage {
+export class InsertPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ToxinthyPage');
-  }
-
-  insert(){
-    this.navCtrl.push(InsertPage)
+    console.log('ionViewDidLoad InsertPage');
   }
 
 }

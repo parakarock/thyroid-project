@@ -164,7 +164,7 @@ export class EditTabooPage {
           text: "ยืนยัน",
           handler: () => {
             this.updateTaboo();
-            
+            this.navCtrl.pop();
           }
         }
       ]

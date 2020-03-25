@@ -1,5 +1,11 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams,MenuController } from "ionic-angular";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  MenuController,
+  AlertController
+} from "ionic-angular";
 import { HealthdatahomePage } from "../Nursepage/ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome";
 import { PreparehomePage } from "../Nursepage/ขั้นตอนการเตรียมตัว/preparehome/preparehome";
 import { TestresultPage } from "../Doctorpage/ผลการตรวจ/testresult/testresult";
@@ -29,16 +35,14 @@ export class QrcodePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public menu: MenuController,
+    public alertCtrl: AlertController,
     public global: GlobalProvider,
     private http: Http
   ) {
     this.to = navParams.get("page");
   }
 
-  ionViewDidLoad() {
-  //   console.log("ionViewDidLoad QrcodePage");
-   }
-   async nextpage() {
+  async nextpage() {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = { code: this.code };
@@ -51,33 +55,38 @@ export class QrcodePage {
       .map(res => res.json())
       .subscribe(
         data => {
-          this.global.round = data;
-          this.global.patientID = data[0].person_id;
-          this.global.setSex(data.gender);
-          console.log(data[0]);
+          if (data.result) {
+            this.presentAlert(data.result);
+          } else {
+            this.global.round = data;
+            this.global.patientID = data[0].person_id;
+            this.global.setSex(data.gender);
+            console.log(data[0]);
 
-          if (this.to === "HealthdatahomePage") {
-            // this.menu.enable(false);
-            // this.navCtrl.setRoot(HealthdatahomePage);
-            this.global.startTimer();
-            this.navCtrl.push(HealthdatahomePage);
-          }
-          if (this.to === "PreparehomePage") {
-            // this.menu.enable(false);
-            // this.navCtrl.setRoot(PreparehomePage);
-            this.navCtrl.push(PreparehomePage);
-          }
-          if (this.to === "LabtestresultPage") {
-            // this.menu.enable(false);
-            // this.navCtrl.setRoot(LabtestresultPage);
-            this.navCtrl.push(LabtestresultPage);
+            if (this.to === "HealthdatahomePage") {
+              this.global.startTimer();
+              this.navCtrl.push(HealthdatahomePage);
+            }
+            if (this.to === "PreparehomePage") {
+              this.navCtrl.push(PreparehomePage);
+            }
+            if (this.to === "LabtestresultPage") {
+              this.navCtrl.push(LabtestresultPage);
+            }
           }
         },
         error => {
           console.log(error);
-          alert(error);
         }
       );
   }
-  
+
+  async presentAlert(txt: string) {
+    let alert = await this.alertCtrl.create({
+      title: "แจ้งเตือน",
+      subTitle: txt,
+      buttons: ["Ok"]
+    });
+    alert.present();
+  }
 }

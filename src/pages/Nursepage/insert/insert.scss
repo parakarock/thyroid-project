@@ -1,7 +1,6 @@
-page-toxinthy {
-    div {
+page-insert {
+    ion-label{
         font-size: 15px;
-       
     }
     
     .button{
@@ -11,17 +10,19 @@ page-toxinthy {
         margin-right: auto;
     }
     
+    label{
+        font-size:  15px;
+     }
+    
+    
+    
     @media only screen and (min-width: 1224px) {
-        div {
+        ion-label{
             font-size: 20px;
-            
         } 
-        #css{
-            width: 40%;
-            position: relative;
-            left: 30%;
-          
-        }
+        label{
+            font-size:  20px;
+         }
         .button{
             font-size: 20px;
             display: block;
@@ -29,5 +30,11 @@ page-toxinthy {
             margin-right: auto;
         }
     
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
+        }
       }
 }

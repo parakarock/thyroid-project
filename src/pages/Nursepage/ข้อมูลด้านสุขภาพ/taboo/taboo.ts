@@ -39,12 +39,14 @@ export class TabooPage {
     this.showButtonedit = this.checkRole(this.global.getSelectRole());
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabooPage');
-    this.getdata();
+  async ionViewWillEnter() {
+    console.log("ionViewWillEnter InitiallyPage");
+    await this.navCtrl.getActive().component
+    this.showData = false;
   }
-  ionViewWillEnter(){
-    this.getdata();
+ async ionViewDidEnter(){
+    console.log("ionViewDidEnter InitiallyPage");
+    await this.getdata()
   }
 
   async getdata(){
@@ -61,7 +63,7 @@ export class TabooPage {
       .map(res => res.json())
       .subscribe(
         data => {
-          if ( data.therapy_1 !== null||undefined) {
+          if ( data.therapy_1) {
             this.showData = true;
             console.log("therapy_1 : "+  data.therapy_1);
             console.log("therapy_2 : "+  data.therapy_2);
@@ -78,7 +80,7 @@ export class TabooPage {
             this.showrecommend = data.therapy_7;
             this.showInjection = data.therapy_8;
           } else {
-            this.showData = !this.showData;
+            this.showData = false;
             console.log("data : " + this.showData);
           }
         },

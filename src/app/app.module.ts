@@ -60,6 +60,7 @@ import { AddcontraceptivePage} from '../pages/Nursepage/ขั้นตอนก
 import { EditdatePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/editdate/editdate';
 import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/eatfood/eatfood';
 import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
+import {InsertPage} from '../pages/Nursepage/insert/insert';
 
 import { TestresultPage} from '../pages/Doctorpage/ผลการตรวจ/testresult/testresult';
 import { PhysicalPage} from '../pages/Doctorpage/ผลการตรวจ/physical/physical';
@@ -164,7 +165,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     NofoodPage,
     AppointmentPage,
     GenPage,
-    AddhosPage
+    AddhosPage,
+    InsertPage
 
 
   ],
@@ -249,7 +251,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     NofoodPage,
     AppointmentPage,
     GenPage,
-    AddhosPage
+    AddhosPage,
+    InsertPage
 
   ],
   providers: [

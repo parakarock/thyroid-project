@@ -83,7 +83,8 @@ export class LoginPage {
             this.global.name =
               data[0].title + data[0].firstname + " " + data[0].lastname;
             this.global.role = data[1];
-
+            this.global.setpatientID(data[0].person_id);
+            // alert(data[0].person_id)
             if (
               data[1].findIndex(
                 role_name => role_name.role_name === "doctor"
@@ -99,9 +100,10 @@ export class LoginPage {
               this.navCtrl.setRoot(NurseHomePage);
             } else if (
               data[1].findIndex(
-                role_name => role_name.role_name === "patient"
+                role_name => role_name.role_name === "ผู้ป่วย"
               ) >= 0
             ) {
+              
               this.events.publish("user:patient");
               this.navCtrl.setRoot(PatientHomePage);
             }

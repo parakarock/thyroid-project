@@ -19,80 +19,80 @@
     <ion-item no-lines (change)="changeedgy()">
       <input type="checkbox" name="edgy" *ngIf="edgy" checked/>
       <input type="checkbox" name="edgy" *ngIf="!edgy" />
-      <label for="edgy"> หงุดหงิด กระสับกระส่าย วิตกกังวล </label><br />
+      <label for="edgy" (click)="changeedgy()"> หงุดหงิด กระสับกระส่าย วิตกกังวล </label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changesleep()">
       <input type="checkbox" name="sleep" *ngIf="sleep" checked/>
       <input type="checkbox" name="sleep" *ngIf="!sleep" />
-      <label for="sleep"> นอนหลับยาก </label><br />
+      <label for="sleep" (click)="changesleep()"> นอนหลับยาก </label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changeeat()">
       <input type="checkbox" name="eat" *ngIf="eat" checked/>
       <input type="checkbox" name="eat" *ngIf="!eat" />
-      <label for="eat"> กินจุ</label><br />
+      <label for="eat" (click)="changeeat()"> กินจุ</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changehot()">
       <input type="checkbox" name="hot" *ngIf="hot" checked/>
       <input type="checkbox" name="hot" *ngIf="!hot" />
-      <label for="hot"> ขี้ร้อน เหงื่อแตก ผิวชุ่มเหงื่อ แม้อากาศจะไม่ร้อน</label
+      <label for="hot" (click)="changehot()"> ขี้ร้อน เหงื่อแตก ผิวชุ่มเหงื่อ แม้อากาศจะไม่ร้อน</label
       ><br />
     </ion-item>
 
     <ion-item no-lines (change)="changefast()">
       <input type="checkbox" name="fast" *ngIf="fast" checked/>
       <input type="checkbox" name="fast" *ngIf="!fast"/>
-      <label for="fast"> ชีพจรเต้นเร็ว ใจสั่น เหนื่อยง่าย</label><br />
+      <label for="fast" (click)="changefast()"> ชีพจรเต้นเร็ว ใจสั่น เหนื่อยง่าย</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changeshakinHands()">
       <input type="checkbox" name="shakinHands" *ngIf="shakinHands" checked/>
       <input type="checkbox" name="shakinHands" *ngIf="!shakinHands" />
-      <label for="shakinHands"> มือสั่น</label><br />
+      <label for="shakinHands" (click)="changeshakinHands()"> มือสั่น</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changeneck()">
       <input type="checkbox" name="neck" *ngIf="neck" checked/>
       <input type="checkbox" name="neck" *ngIf="!neck" />
-      <label for="neck"> คอโต</label><br />
+      <label for="neck" (click)="changeneck()"> คอโต</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changegland()">
       <input type="checkbox" name="gland" *ngIf="gland" checked/>
       <input type="checkbox" name="gland" *ngIf="!gland" />
-      <label for="gland"> คลำก้อนได้ในต่อมไทรอยด์</label><br />
+      <label for="gland" (click)="changegland()"> คลำก้อนได้ในต่อมไทรอยด์</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changebigeyes()">
       <input type="checkbox" name="bigeyes" *ngIf="bigeyes" checked/>
       <input type="checkbox" name="bigeyes" *ngIf="!bigeyes" />
-      <label for="bigeyes"> ตาโต หรือตาโปนมากกว่าปกติ</label><br />
+      <label for="bigeyes" (click)="changebigeyes()"> ตาโต หรือตาโปนมากกว่าปกติ</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changeshit()">
       <input type="checkbox" name="shit" *ngIf="shit" checked/>
       <input type="checkbox" name="shit" *ngIf="!shit" />
-      <label for="shit"> ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน</label><br />
+      <label for="shit" (click)="changeshit()"> ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changeweight()">
       <input type="checkbox" name="weight" *ngIf="weight" checked/>
       <input type="checkbox" name="weight" *ngIf="!weight" />
-      <label for="weight"> น้ำหนักลดแม้จะรับประทานอาหารได้</label><br />
+      <label for="weight" (click)="changeweight()"> น้ำหนักลดแม้จะรับประทานอาหารได้</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changeleg()">
       <input type="checkbox" name="leg" *ngIf="leg" checked/>
       <input type="checkbox" name="leg" *ngIf="!leg" />
-      <label for="leg"> ต้นแขนและต้นขาทั้งสองข้างอ่อนแรง</label><br />
+      <label for="leg" (click)="changeleg()"> ต้นแขนและต้นขาทั้งสองข้างอ่อนแรง</label><br />
     </ion-item>
 
     <ion-item no-lines *ngIf="showFormSex" (change)="changefshit()">
       <input type="checkbox" name="fshit" *ngIf="fshit" checked/>
       <input type="checkbox" name="fshit" *ngIf="!fshit" />
-      <label for="fshit">
+      <label for="fshit" (click)="changefshit()">
         (สำหรับผู้หญิง)ประจำเดือนมาน้อยครั้งและปริมาณลดลง</label
       ><br />
     </ion-item>

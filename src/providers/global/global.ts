@@ -32,6 +32,9 @@ export class GlobalProvider {
   getrole() {
     return this.role;
   }
+  setpatientID(idcard) {
+    this.patientID = idcard;
+  }
   getpatientID() {
     return this.patientID;
   }
