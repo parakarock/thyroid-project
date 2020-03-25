@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { EditlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/editlabtest/editlabtest';
 import { EdittreatmentresultPage } from '../pages/Doctorpage/edittreatmentresult/edittreatmentresult';
 import { AddtreatmentresultPage } from '../pages/Doctorpage/addtreatmentresult/addtreatmentresult';
@@ -90,6 +91,11 @@ import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
 import {  QrcodePage } from '../pages/qrscan/qrscan';
 import {  GenPage } from '../pages/gen/gen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
+import { FilePath } from '@ionic-native/file-path';
+import { FileOpener } from '@ionic-native/file-opener';
+import { FileChooser } from '@ionic-native/file-chooser';
+
 
 @NgModule({
   declarations: [
@@ -263,6 +269,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     File,
     Camera,
     IonicStorageModule,
+    FilePath,
+    FileChooser,
+    FileOpener
 
   ]
 })

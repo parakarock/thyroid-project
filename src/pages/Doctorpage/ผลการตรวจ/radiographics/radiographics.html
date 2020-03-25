@@ -17,18 +17,18 @@
 
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>Scan</ion-title>
+    <ion-title>อัพโหลดภาพไทรอยด์สแกน</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content paddin id="css">
+<ion-content padding id="css">
   <ion-card>
   <ion-card-header>ภาพ Thyroid Scan</ion-card-header>
   <button ion-button full (click)="takePhoto(0)">เลือกรูปภาพ</button>
   <button ion-button full (click)="takePhoto(1)">เปิดกล้องถ่ายรูป</button>
 
   <ion-item>
-    <h4>Image Preview</h4>
+    <!-- <h4>Image Preview</h4> -->
     <p><img align="center" src="{{ myPhoto }}"/></p>
   </ion-item>
 

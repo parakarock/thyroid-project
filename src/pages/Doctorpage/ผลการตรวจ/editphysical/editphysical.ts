@@ -1,3 +1,6 @@
+import { FileChooser } from '@ionic-native/file-chooser';
+import { FileOpener } from '@ionic-native/file-opener';
+import { FilePath } from '@ionic-native/file-path';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -14,12 +17,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'editphysical.html',
 })
 export class EditphysicalPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  urls = [];
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private filePath: FilePath,
+              private fileOpener: FileOpener,
+              private fileChooser: FileChooser
+              ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditphysicalPage');
+  }
+
+  onSelectFile(event){
+    // if (event.target.files && event.target.files[0]) {
+    //   var reader = new FileReader();
+
+    //   reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+    //   reader.onload = (event) => { // called once readAsDataURL is completed
+    //     this.urls = event.target.result;
+    //   }
+    // }
   }
 
 }

@@ -32,45 +32,45 @@
 
   <ion-item no-lines >
     <ion-label>หงุดหงิด กระสับกระส่าย วิตกกังวล นอนหลับยาก กินจุ</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="edgy"></ion-checkbox>
+    <ion-checkbox checked="isChecked" [(ngModel)]="frustration"></ion-checkbox>
   </ion-item>
-  
+
   <ion-item no-lines>
     <ion-label>ขี้ร้อน เหงื่อแตก ผิวชุ่มเหงื่อ แม้อากาศจะไม่ร้อน</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="hot"></ion-checkbox>
+    <ion-checkbox checked="isChecked" [(ngModel)]="feel_hot"></ion-checkbox>
   </ion-item>
-  
+
   <ion-item no-lines>
     <ion-label>มือสั่น</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="shakinHands"></ion-checkbox>
+    <ion-checkbox checked="isChecked" [(ngModel)]="shaking_hand"></ion-checkbox>
   </ion-item>
-  
+
   <ion-item no-lines>
     <ion-label>คอโต</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="neck"></ion-checkbox>
+    <ion-checkbox checked="isChecked" [(ngModel)]="goiter"></ion-checkbox>
   </ion-item>
-  
+
   <ion-item no-lines>
     <ion-label>คลำก้อนได้ในต่อมไทรอยด์</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="gland"></ion-checkbox>
+    <ion-checkbox checked="isChecked" [(ngModel)]="thyroid_lump"></ion-checkbox>
   </ion-item>
-  
+
   <ion-item no-lines>
     <ion-label>ตาโต หรือตาโปนมากกว่าปกติ</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="bigeyes"></ion-checkbox>
+    <ion-checkbox checked="isChecked" [(ngModel)]="bulging_eye"></ion-checkbox>
   </ion-item>
 
 
- 
-   
-  
+
+
+
 
       <ion-item no-lines >
-        <ion-label color="dark">ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน 
+        <ion-label color="dark">ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน
         </ion-label>
-        <ion-checkbox checked="isChecked" [(ngModel)]="shit"></ion-checkbox>
+        <ion-checkbox checked="isChecked" [(ngModel)]="digest_3"></ion-checkbox>
       </ion-item>
-          
+
         <ion-grid>
           <ion-row>
             <ion-col >
@@ -87,17 +87,17 @@
 
   <ion-item no-lines>
     <ion-label>น้ำหนักลดแม้จะรับประทานอาหารได้</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="weight"></ion-checkbox>
+    <ion-checkbox checked="isChecked" [(ngModel)]="lose_weight"></ion-checkbox>
   </ion-item>
-  
+
   <ion-item no-lines>
-    <ion-label>(สำหรับผู้หญิง)ประจำเดือนมาน้อยครั้งแะปริมาณลดลง</ion-label>
-    <ion-checkbox checked="isChecked" [(ngModel)]="period" ></ion-checkbox>
+    <ion-label>(สำหรับผู้หญิง)ประจำเดือนมาน้อยครั้งและปริมาณลดลง</ion-label>
+    <ion-checkbox checked="isChecked" [(ngModel)]="few_period" ></ion-checkbox>
   </ion-item>
-  
+
       <ion-item >
         <ion-label color="dark">ท่านมีโรคประจำตัวอื่นๆหรือไม่</ion-label>
-        <ion-select [(ngModel)]="disease" placeholder=เลือก interface="popover">
+        <ion-select [(ngModel)]="disease_name" placeholder=เลือก interface="popover">
           <ion-option value='มี'>มี </ion-option>
           <ion-option value='ไม่มี'>ไม่มี </ion-option>
         </ion-select>

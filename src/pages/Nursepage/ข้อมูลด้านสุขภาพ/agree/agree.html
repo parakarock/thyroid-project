@@ -6,12 +6,27 @@
 -->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>agree</ion-title>
+    <ion-title>อัพโหลดใบยินยอมเข้ารับการักษา</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <div id="subtitle" ></div>
+  <!-- <div id="subtitle" ></div> -->
+  <ion-content padding id="css">
+    <ion-card id="css">
+    <ion-card-header>ภาพใบรับรองการรักษา</ion-card-header>
+    <button ion-button full (click)="takePhoto(0)">เลือกรูปภาพ</button>
+    <button ion-button full (click)="takePhoto(1)">เปิดกล้องถ่ายรูป</button>
+
+    <ion-item>
+      <!-- <h4>Image Preview</h4> -->
+      <p><img align="center" src="{{ myContract }}"/></p>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (click)="uploadFile()">อัพโหลดรูปภาพ</button>
+    </ion-item>
+  </ion-card>
 
 </ion-content>

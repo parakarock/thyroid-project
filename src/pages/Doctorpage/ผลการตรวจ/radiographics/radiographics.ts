@@ -87,7 +87,7 @@ export class RadiographicsPage {
     this.camera.getPicture(options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
-      this.myPhoto = 'data:image/jpeg;base64,' + imageData;
+    this.myPhoto = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
       alert("กรุณาอัพโหลดรูปผ่านแอพลิเคชั่นบนมือถือ");
     });
@@ -118,7 +118,7 @@ export class RadiographicsPage {
       headers: {}
     }
 
-    fileTransfer.upload(this.myPhoto, 'http://10.80.82.229:8000/upload.php', options)
+    fileTransfer.upload(this.myPhoto, 'http://192.168.31.190:8000/upload.php', options)
       .then((data) => {
       alert("การอัพโหลดรูปเสร็จสมบูรณ์");
       // console.log(data + " Uploaded Successfully");
