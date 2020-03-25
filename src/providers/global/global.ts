@@ -72,4 +72,8 @@ export class GlobalProvider {
   checkCanUse(){
     return this.using;
   }
+  getdate() {
+    return this.mydate;
+  }
+ 
 }

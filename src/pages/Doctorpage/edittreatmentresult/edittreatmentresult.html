@@ -18,7 +18,7 @@
           <label for="date" >วันที่ </label>
         </ion-col>
         <ion-col col-6>
-          <input type="text" id="date" name="date" size="20">  
+          <input type="date" id="date" name="date" size="20">  
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -47,7 +47,7 @@
 
   <ion-card id="css" padding>
     <ion-label  color="dark">ผลการตรวจทางห้องปฏิบัติการ</ion-label>
-
+<!-- 
     <ion-grid>
       <ion-row>
         <ion-col col-4>
@@ -57,7 +57,7 @@
           <input type="text" id="TT3/fT3" name="TT3/fT3" size="20">  
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
 
     <!-- <ion-item>
        <ion-label  color="dark">TT3/fT3</ion-label>
@@ -100,11 +100,12 @@
   <ion-card id="css" padding>
 
     <label for="การรักษา" >การรักษา </label>
+    <label for="ThyroidMed" >ยาต้านอาการไทรอยด์      </label>
     <ion-grid>
       <ion-row>
-        <ion-col col-4>
-            <label for="ThyroidMed" >ยาต้านอาการไทรอยด์      </label>
-          </ion-col>
+        
+            
+         
             <ion-col col-4>
             <select >
               <option value="Propylthiouracil (PTU)">Propylthiouracil (PTU)</option>
@@ -124,19 +125,21 @@
     <ion-grid>
       <ion-row>
           
-        <input type="number" id="ThyroidMedVol" name="ThyroidMedVol" size="20">  
+        <input type="number" id="ThyroidMedVol" name="ThyroidMedVol" size="5">  
         <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
           
-      <input type="number" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="20">  
+      <input type="number" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">  
       <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
       </ion-row>
     </ion-grid>
    
+
+    <label for="ThyroidMed" >ยากลุ่ม Beta-Blocker    </label>
     <ion-grid>
       <ion-row>
-        <ion-col col-4>
-            <label for="ThyroidMed" >ยากลุ่ม Beta-Blocker    </label>
-          </ion-col>
+     
+       
+       
             <ion-col col-4>
             <select >
               <option value="Propranolol (10)">Propranolol (10)</option>
@@ -154,10 +157,10 @@
     <ion-grid>
       <ion-row>
           
-        <input type="number" id="BetaBlockVol" name="BetaBlockVol" size="20">  
+        <input type="number" id="BetaBlockVol" name="BetaBlockVol" size="5">  
         <label for="BetaBlockVol" >&ensp;เม็ด &ensp;    </label>
         
-      <input type="number" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="20">  
+      <input type="number" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">  
       <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
       </ion-row>
     </ion-grid>

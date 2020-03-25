@@ -168,24 +168,22 @@
         </select>
     </ion-col>
     <ion-col col-3>
-      <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" size="5">
+      <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">
     </ion-col>
   </ion-row>
 </ion-grid>
 
 
-<ion-item >
-  <ion-row item-content>
-  <ion-label color="dark" >ระบุปริมาณ</ion-label>
-      <ion-col  col-2>
-        <ion-input [(ngModel)]="ThyroidMedVol"  type="number" min="0" placeholder=""></ion-input>
-      </ion-col >
-      <ion-label color="dark" >ครั้งต่อวัน</ion-label>
-      <ion-col col-2>
-        <ion-input [(ngModel)]="ThyroidMedRoundPerDay" type="number" min="0" placeholder=""></ion-input>
-      </ion-col>
-    </ion-row>
-</ion-item>
+<ion-grid>
+  <ion-row>
+      
+    <input type="number" id="ThyroidMedVol" name="ThyroidMedVol" size="5">  
+    <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
+     
+  <input type="number" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">  
+  <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;  </label>
+  </ion-row>
+</ion-grid>
 
   <ion-grid>
     <ion-row>
@@ -202,23 +200,22 @@
           </select>
       </ion-col>
       <ion-col col-3>
-        <input type="text" id="BetaBlockEtc" name="BetaBlockEtc" size="5">
+        <input type="text" id="BetaBlockEtc" name="BetaBlockEtc" size="20">
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-item >
-    <ion-row item-content>
-    <ion-label color="dark" >ระบุปริมาณ</ion-label>
-        <ion-col  col-2>
-          <ion-input [(ngModel)]="BetaBlockVol"  type="number" min="0" placeholder=""></ion-input>
-        </ion-col >
-        <ion-label color="dark" >ครั้งต่อวัน</ion-label>
-        <ion-col col-2>
-          <ion-input [(ngModel)]="BetaBlockRoundPerDay" type="number" min="0" placeholder=""></ion-input>
-        </ion-col>
-      </ion-row>
-  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+        
+      <input type="number" id="BetaBlockVol" name="BetaBlockVol" size="5">  
+      <label for="BetaBlockVol" >&ensp; เม็ด &ensp;    </label>
+       
+    <input type="number" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">  
+    <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
+    </ion-row>
+  </ion-grid>
 </ion-card>
 
 
