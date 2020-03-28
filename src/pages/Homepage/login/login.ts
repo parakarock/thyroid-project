@@ -15,6 +15,7 @@ import {
   ResponseOptions,
   RequestOptions
 } from "@angular/http";
+
 import "rxjs/add/operator/map";
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
@@ -59,9 +60,9 @@ export class LoginPage {
       username: ["", Validators.required],
       password: ["", Validators.required]
     });
-   
-  
-  
+
+
+
    this.username = this.formgroup.controls['username'];
    this.password = this.formgroup.controls['password'];
 
@@ -116,6 +117,9 @@ export class LoginPage {
       );
   }
 
+  gonPage() {
+    this.navCtrl.setRoot(NurseHomePage);
+  }
   goDoctorPage() {
     this.navCtrl.setRoot(DoctorHomePage);
   }
@@ -127,6 +131,6 @@ export class LoginPage {
   }
   doSignup(){
     console.log(this.formgroup.value);
-    console.log(this.formgroup.valid);   
+    console.log(this.formgroup.valid);
 }
 }

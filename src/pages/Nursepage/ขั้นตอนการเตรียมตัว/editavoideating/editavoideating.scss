@@ -1,13 +1,13 @@
 page-editavoideating {
     div{
         font-size: 15px;
-        
-    } 
+
+    }
     ion-label{
         font-size: 15px;
-        
+
     }
-    
+
     .button{
         font-size: 15px;
         display: block;
@@ -15,17 +15,17 @@ page-editavoideating {
         margin-right: auto;
     }
 
- 
-    
+
+
     @media only screen and (min-width: 1224px) {
         div{
             font-size: 20px;
-            
-        } 
+
+        }
         ion-label{
             font-size: 20px;
-            
-        } 
+
+        }
         .button{
             font-size: 20px;
             display: block;
@@ -36,7 +36,7 @@ page-editavoideating {
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
       }
 }

@@ -2,6 +2,14 @@ import { EditlabtestPage } from '../editlabtest/editlabtest';
 import { AddlabtestPage } from '../addlabtest/addlabtest';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GlobalProvider } from "../../../../providers/global/global";
+import {
+  Http,
+  Response,
+  Headers,
+  ResponseOptions,
+  RequestOptions
+} from "@angular/http";
 
 /**
  * Generated class for the LabtestresultPage page.
@@ -18,26 +26,39 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class LabtestresultPage {
   round;
   public obj:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.obj = [
-      {
-        date : "12 ธันวาคม 2563",
-        freeT3: 25.5,
-        freeT4: 50,
-        TSH: 20.5,
-        TRAb: 40,
-        Medicine: "Propylthiouracil (PTU)",
-      },
-      {
-        date : "11 พฤศจิกายน 2563",
-        freeT3: 34.5,
-        freeT4: 80,
-        TSH: 27.5,
-        TRAb: 58,
-        Medicine: "Methimazole (MMI)",
-      }
-    ]
-   this.round = this.obj.length;
+  data:any;
+  lab:any;
+  
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider, private http: Http) {
+    
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = { idcard: this.global.patientID, round: this.global.round };
+    console.log("body : " + body);
+    this.http
+      .post(
+        "http://10.80.34.218:8000/labtest.php?method=get_labtest&role=doctor",
+        body,
+        options
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.data = JSON.stringify(data);
+          this.lab = this.data  
+          console.log("lab : " + this.lab);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    
+     
+       
+   
+      
+
   }
 
   ionViewDidLoad() {

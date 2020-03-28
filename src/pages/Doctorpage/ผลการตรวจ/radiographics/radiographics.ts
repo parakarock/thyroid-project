@@ -133,18 +133,18 @@ export class RadiographicsPage {
     });
   }
 
-  presentToast(msg) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 3000,
-      position: 'bottom'
-    });
+  // presentToast(msg) {
+  //   let toast = this.toastCtrl.create({
+  //     message: msg,
+  //     duration: 3000,
+  //     position: 'bottom'
+  //   });
 
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
+  //   toast.onDidDismiss(() => {
+  //     console.log('Dismissed toast');
+  //   });
 
-    toast.present();
-  }
+  //   toast.present();
+  // }
 
 }

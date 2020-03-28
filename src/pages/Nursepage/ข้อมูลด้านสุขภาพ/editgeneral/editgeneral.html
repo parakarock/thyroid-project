@@ -11,14 +11,14 @@
   <ion-list >
   <ion-item >
     <ion-label color="dark">คำนำหน้า</ion-label>
-    <ion-select [(ngModel)]="nametitle" placeholder=เลือก interface="popover">
+    <ion-select [(ngModel)]="title" placeholder=เลือก interface="popover">
       <ion-option value='นาย'>นาย </ion-option>
       <ion-option value='นาง'>นาง </ion-option>
       <ion-option value='นางสาว'>นางสาว</ion-option>
       <ion-option value='เด็กหญิง'>เด็กหญิง</ion-option>
       <ion-option value='เด็กชาย'>เด็กชาย</ion-option>
     </ion-select>
-    <!-- <ion-item no-lines *ngIf="nametitle.hasError('required') && nametitle.touched"> 
+    <!-- <ion-item no-lines *ngIf="nametitle.hasError('required') && nametitle.touched">
       <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
     </ion-item>  -->
   </ion-item>
@@ -26,7 +26,6 @@
   <ion-item >
     <ion-label  color="dark">ชื่อ</ion-label>
     <ion-input [(ngModel)]="fname" type="text" placeholder=""></ion-input>
-
   </ion-item>
 
   <ion-item >
@@ -116,7 +115,7 @@
           <ion-item>
             <ion-label>ส่งตัวมาจากโรงพยาบาล</ion-label>
             <ion-select [(ngModel)]="input">
-              <ion-option value={{obj.hos}}>{{obj.hos}}</ion-option> 
+              <ion-option value={{obj.hos}}>{{obj.hos}}</ion-option>
             </ion-select>
           </ion-item>
         </ion-card-header>
@@ -126,6 +125,6 @@
       </ion-col>
   </ion-row> -->
 
-<button ion-button color="1" >บันทึก</button>
+<button ion-button color="1" (click)="save()" >บันทึก</button>
 
 </ion-content>

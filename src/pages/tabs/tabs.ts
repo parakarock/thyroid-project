@@ -18,12 +18,12 @@ export class TabsPage {
   tab3Root: any;
   tab4Root: any;
   public show:boolean = false;
- 
+
   constructor(public events: Events,public navCtrl: NavController) {
     events.subscribe('user:patient', () => {
       this.tab1Root = NurseHomePage;
       this.tab2Root = AppointmentPage;
-      this.tab3Root = ContactPage;   
+      this.tab3Root = ContactPage;
     });
     events.subscribe('user:nurse', () => {
       this.tab1Root = NurseHomePage;
@@ -47,6 +47,6 @@ export class TabsPage {
       this.tab2Root = "";
       this.tab3Root = ContactPage;
   }
-  
+
 }
 

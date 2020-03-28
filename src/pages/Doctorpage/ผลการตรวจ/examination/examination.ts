@@ -51,7 +51,6 @@ export class ExaminationPage {
   }
 
   ionViewDidEnter() {
-
     let itemHeight = this.fixedContainer.nativeElement.offsetHeight;
     let scroll = this.content.getScrollElement();
 
@@ -213,23 +212,21 @@ export class ExaminationPage {
 //   }, (err) => {
 //     // console.log(err);
 //     // this.presentToast(JSON.stringify(err));
-//     alert(err);
+//     alert("เกิดข้อผิดพลาดในการอัพโหลด กรุณาทำรายการใหม่อีกครั้ง"+ JSON.stringify(err));
 //     loader.dismiss();
 //   });
 // }
 
-  // presentToast(msg) {
-  // let toast = this.toastCtrl.create({
-  //   message: msg,
-  //   duration: 3000,
-  //   position: 'bottom'
-  // });
+// presentToast(msg) {
+//   let toast = this.toastCtrl.create({
+//     message: msg,
+//     duration: 3000,
+//     position: 'bottom'
+//   });
 
-  // toast.onDidDismiss(() => {
-  //   console.log('Dismissed toast');
-  // });
+//   toast.onDidDismiss(() => {
+//     console.log('Dismissed toast');
+//   });
 
-  // toast.present();
-}
-
-// }
+//   toast.present();
+ }

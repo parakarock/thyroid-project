@@ -24,6 +24,9 @@ import {
 })
 export class GeneralPage {
   name;
+  title;
+  firstname; 
+  lastname;
   date;
   age;
   idcard;
@@ -54,7 +57,11 @@ export class GeneralPage {
           this.data = JSON.stringify(data);
           this.name =
             data[0].title + data[0].firstname + " " + data[0].lastname;
-          this.date = data[0].birthdate
+          
+          this.firstname=data[0].firstname
+          this.lastname=data[0].lastname
+          this.title=data[0].title
+          this.date=data[0].birthdate;
           this.age = 18;
           this.idcard = data[0].person_id
           this.gender = data[0].gender
@@ -84,7 +91,23 @@ export class GeneralPage {
   }
 
   editgeneral(){
-    this.navCtrl.push(EditgeneralPage)
+    this.navCtrl.push(EditgeneralPage,{name:this.name,
+      date:this.date,
+      title:this.title,
+
+      firstname:this.firstname,
+      lastname:this.lastname,
+      age:this.age,
+      idcard:this.idcard,
+      gender:this.gender,
+      nationality:this.nationality,
+      status:this.status,
+      input:this.input,
+      hninput:this.hninput,
+      hnbuu:this.hnbuu,
+      output:this.output,
+      hnoutput:this.hnoutput,
+      tel:this.tel});
   }
 
 

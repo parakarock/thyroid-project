@@ -22,32 +22,20 @@ import { GlobalProvider } from '../../../../providers/global/global';
 export class EditinitiallyPage {
 
 
-  frustration:boolean;
-  // hot:boolean;
-  shaking_hand:boolean;
-  // neck:boolean;
-  // gland:boolean;
-  // bigeyes:boolean;
-  // shit:boolean;
-  specify:boolean;
-  // weight:boolean;
-  // period:boolean;
-  // disease:boolean;
-  // assign:boolean;
-  eat_a_lot: boolean;
-  fast_heartbeat: boolean;
-  feel_hot: boolean;
-  goiter: boolean;
-  thyroid_lump: boolean;
-  bulging_eye: boolean;
-  digest_3: boolean;
-  lose_weight: boolean;
-  weak_arm: boolean;
-  few_period: boolean;
-  disease_name: any;
+  edgy:String;
+  hot:String;
+  shakinHands:String;
+  neck:String;
+  gland:String;
+  bigeyes:String;
+  shit:String;
+  specify:String;
+  weight:String;
+  period:String;
+  disease:String;
+  assign:String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-              public global: GlobalProvider, private http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -56,19 +44,21 @@ export class EditinitiallyPage {
 
   do(){
     let body = JSON.stringify({
-      frustration: this.frustration,
-      eat_a_lot: this.eat_a_lot,
-      feel_hot: this.feel_hot,
-      fast_heartbeat: this.fast_heartbeat,
-      shaking_hand: this.shaking_hand,
-      goiter: this.goiter,
-      thyroid_lump: this.thyroid_lump,
-      bulging_eye: this.bulging_eye,
-      digest_3: this.digest_3,
-      lose_weight: this.lose_weight,
-      weak_arm: this.weak_arm,
-      few_period: this.few_period,
-      disease_name: this.disease_name
+
+      edgy: this.edgy,
+      hot: this.hot,
+      shakinHands: this.shakinHands,
+      neck: this.neck,
+      gland: this.gland,
+      bigryes: this.bigeyes,
+      shit: this.shit,
+      specify: this.specify,
+      weight: this.weight,
+      period: this.period,
+      disease: this.disease,
+      assignl: this.assign
+
+
     });
   }
 }

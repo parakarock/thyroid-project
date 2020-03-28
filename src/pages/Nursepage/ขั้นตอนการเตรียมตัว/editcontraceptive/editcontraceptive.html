@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
- 
+
   <ion-card id="css" padding>
         <ion-card  padding>
             <ion-item >
@@ -19,7 +19,7 @@
                 <ion-option value="หมดประจำเดือน">หมดประจำเดือน</ion-option>
               </ion-select>
             </ion-item>
-    
+
             <ion-item >
               <ion-label color="dark">คุมกำเนิด</ion-label>
               <ion-input type="text" [(ngModel)]="contraceptive"></ion-input>
@@ -28,7 +28,7 @@
                 <ion-option value="ปี">ปี</ion-option>
               </ion-select>
             </ion-item>
-            
+
             <ion-item>
               <ion-label color="dark">ประจำเดือนครั้งสุดท้ายของท่าน</ion-label>
               <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
@@ -45,16 +45,16 @@
             </ion-item>
           </ion-card>
             <div padding></div>
-            <ion-item no-lines > 
+            <ion-item no-lines >
               <div >กรณีที่ผู้ป่วยมีเพศสัมพันธ์แต่ไม่ได้คุมกำเนิดหรือประจำเดือนมาไม่สม่ำเสมอ ผู้ป่วยจะต้องเก็บปัสสาวะเพื่อตรวจการตั้งครรภ์</div>
-            </ion-item > 
+            </ion-item >
 
-            <ion-item no-lines> 
+            <ion-item no-lines>
             <div>ผลตรวจ UPT</div>
             <ion-icon name="add-circle" float-right round (click)="addcontraceptive()" color="1"></ion-icon>
             </ion-item>
-         
-  
+
+
 
 <ion-card padding>
    <ion-item >
