@@ -23,8 +23,7 @@ import { GlobalProvider } from "../../../../providers/global/global";
   templateUrl: "healthdatahome.html"
 })
 export class HealthdatahomePage {
-  public show1: boolean = true;
-  public show2: boolean = true;
+  
   roles;
   name;
   status: string;
@@ -37,14 +36,7 @@ export class HealthdatahomePage {
     public global: GlobalProvider,
     public events: Events
   ) {
-    // events.subscribe("user:nurse", () => {
-    //   this.show1 = false;
-    //   this.show2 = false;
-    // });
-    // events.subscribe("user:doctor", () => {
-    //   this.show1 = true;
-    //   this.show2 = false;
-    // });
+   
     if(this.global.getSelectRole() === "nurse"){
       this.showMenu = true;
     }else{
@@ -53,8 +45,8 @@ export class HealthdatahomePage {
   }
   ionViewDidLoad() {
    
-    console.log("global round :"+this.global.getround());
-    console.log("id :"+this.global.patientID);
+    console.log("global round :"+this.global.getRound());
+    console.log("id :"+this.global.getpatientID());
     console.log("ionViewDidLoad HealthdatahomePage");
   }
   

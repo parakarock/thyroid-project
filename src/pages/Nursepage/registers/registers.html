@@ -12,7 +12,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-            <label  >ส่งตัวมาจากโรงพยาบาล     </label>
+            <label  >ส่งตัวมาจาก     </label>
           </ion-col>
             <ion-col col-6>
             <select formControlName="from_name1" (change)="showHosIn($event.target.value)">
@@ -35,7 +35,7 @@
                 *ngIf="!formgroup.get('from_name2').valid
       && formgroup.get('from_name2').touched"
               >
-                กรุณากรอกชื่อโรงพยาบาล ภาษาไทย
+                กรุณากรอกชื่อโรงพยาบาล ภาษาไทย  หรือ ภาษาอังกฤษ เท่านั้น
               </p>  
         </ion-col>
       </ion-row>
@@ -44,7 +44,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <label >HN    </label>
+          <label >HN รพ.    </label>
         </ion-col>
         <ion-col col-6>
           <input type="text" formControlName="from_id" size="20">
@@ -64,10 +64,10 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <label  >โรงพยาบาลบูรพา HN    </label>
+          <label  >รพ.มหาวิทยาลัยบูรพา HN    </label>
         </ion-col>
         <ion-col col-6>
-          <input type="text" formControlName="Hos_base_id" size="20">
+          <input type="text" formControlName="Hos_base_id" size="20" placeholder="xxxxxx">
           <p
                 class="help-inline"
                 *ngIf="!formgroup.get('Hos_base_id').valid
@@ -84,7 +84,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-              <label >โรงพยาบาลที่ส่งตัวกลับ     </label>
+              <label >รพ.ที่ส่งตัวกลับ     </label>
             </ion-col>
               <ion-col col-6>
                 <select formControlName="to_name1" (change)="showHosOut($event.target.value)">
@@ -110,7 +110,7 @@
                 *ngIf="!formgroup.get('to_name2').valid
       && formgroup.get('to_name2').touched"
               >
-              กรุณากรอกชื่อโรงพยาบาล ภาษาไทย
+              กรุณากรอกชื่อโรงพยาบาล ภาษาไทย หรือ ภาษาอังกฤษ เท่านั้น
               </p>   
           </ion-col>
         </ion-row>
@@ -121,7 +121,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <label  >HN    </label>
+            <label  >HN รพ.    </label>
           </ion-col>
           <ion-col col-6>
             <input type="text" formControlName="to_id" size="20">

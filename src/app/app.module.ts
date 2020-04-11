@@ -92,6 +92,7 @@ import {  QrcodePage } from '../pages/qrscan/qrscan';
 import {  GenPage } from '../pages/gen/gen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
+import { YoutubePipe } from '../pipes/youtube/youtube'
 @NgModule({
   declarations: [
     MyApp,
@@ -166,7 +167,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     AppointmentPage,
     GenPage,
     AddhosPage,
-    InsertPage
+    InsertPage,
+    YoutubePipe
 
 
   ],

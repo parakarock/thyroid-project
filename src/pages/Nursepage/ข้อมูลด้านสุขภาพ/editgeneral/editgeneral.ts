@@ -127,7 +127,7 @@ export class EditgeneralPage {
     console.log("body : " + body);
     this.http
       .post(
-        "http://192.168.43.140:8000/healthdata.php?method=update_profile&role=nurse",
+        "http://192.168.42.83:8000/healthdata.php?method=update_profile&role=nurse",
         body,
         options
       )

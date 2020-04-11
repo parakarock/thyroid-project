@@ -22,28 +22,28 @@ export class TabsPage {
  
   constructor(public events: Events,public navCtrl: NavController,public global: GlobalProvider,) {
     events.subscribe('user:patient', () => {
-      this.global.selectRole = "patient"
+      this.global.setSelectRole("patient")
       this.tab1Root = NurseHomePage;
       this.tab2Root = "";
       this.tab3Root = ContactPage; 
       this.show = false;  
     });
     events.subscribe('user:nurse', () => {
-      this.global.selectRole = "nurse"
+      this.global.setSelectRole("nurse")
       this.tab1Root = NurseHomePage;
       this.tab2Root = AppointmentPage;
       this.tab3Root = ContactPage;
       this.show = true;
     });
     events.subscribe('user:doctor', () => {
-      this.global.selectRole = "doctor"
+      this.global.setSelectRole("doctor")
       this.tab1Root = DoctorHomePage;
       this.tab2Root = AppointmentPage;
       this.tab3Root = ContactPage;
       this.show = true;
     });
     events.subscribe('user:guest', () => {
-      this.global.selectRole = "guest"
+      this.global.setSelectRole("guest")
       this.tab1Root = HomePage;
       this.tab2Root = "";
       this.tab3Root = ContactPage;

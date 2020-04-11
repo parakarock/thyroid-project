@@ -56,11 +56,11 @@ export class GeneralPage {
  async getdata(){
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify({ idcard: this.global.patientID, round: this.global.getSelectRound() });
+    let body = JSON.stringify({ idcard: this.global.getpatientID(), round: this.global.getSelectRound() });
     console.log("body : " + body);
    await this.http
       .post(
-        "http://192.168.43.140:8000/healthdata.php?method=get_profile&role=nurse",
+        "http://192.168.42.83:8000/healthdata.php?method=get_profile&role=nurse",
         body,
         options
       )

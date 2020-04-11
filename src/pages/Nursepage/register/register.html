@@ -21,7 +21,7 @@
             </ion-col>
             <ion-col col-6>
               <select formControlName="title">
-                <option value="นาย">นาย</option>
+                <option value="นาย" selected>นาย</option>
                 <option value="นาง">นาง</option>
                 <option value="นางสาว">นางสาว</option>
                 <option value="เด็กหญิง">เด็กหญิง</option>
@@ -56,7 +56,7 @@
                 *ngIf="!formgroup.get('fname').valid
       && formgroup.get('fname').touched"
               >
-                กรุณากรอกชื่อ นามสกุล ภาษาไทย
+                กรุณากรอกชื่อ ภาษาไทย หรือ ภาษาอังกฤษ เท่านั้น
               </p>
             </ion-col>
           </ion-row>
@@ -77,18 +77,19 @@
               />
               <p class="help-inline"
               *ngIf="!formgroup.get('lname').valid
-              && formgroup.get('lname').touched">กรุณากรอกนามสกุล ภาษาไทย</p>
+              && formgroup.get('lname').touched">กรุณากรอกนามสกุล ภาษาไทย หรือ ภาษาอังกฤษ เท่านั้น</p>
             </ion-col>
           </ion-row>
         </ion-grid>
-
         <ion-grid>
           <ion-row>
             <ion-col col-6>
               <label>วันเกิด</label>
             </ion-col>
             <ion-col col-6>
-              <input type="date" (input)="updateAge()" formControlName="birthday" size="20" />
+              <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MMMM YYYY" min={{startMin}} max={{startMax}} formControlName="birthday" (ionChange)="updateAge()"  
+    monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, "></ion-datetime>
+              
               <p class="help-inline"
               *ngIf="!formgroup.get('birthday').valid
               && formgroup.get('birthday').touched">กรุณาเลือกวันเกิด</p>
@@ -116,7 +117,7 @@
               <input type="text" formControlName="idCard" size="50" />
               <p class="help-inline"
               *ngIf="!formgroup.get('idCard').valid
-              && formgroup.get('idCard').touched">กรุณากรอกตัวเลข 13 หลัก</p>
+              && formgroup.get('idCard').touched">กรุณากรอกตัวเลข หรือ ภาษาอังกฤษ อย่างน้อย 6 หลัก และ ไม่เกิน 13 หลัก</p>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -151,7 +152,7 @@
               />
               <p class="help-inline"
               *ngIf="!formgroup.get('National').valid
-              && formgroup.get('National').touched">กรุณากรอกสัญชาติ ภาษาไทย</p>
+              && formgroup.get('National').touched">กรุณากรอกสัญชาติ ภาษาไทย และ ภาษาอังกฤษ เท่านั้น</p>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -159,11 +160,11 @@
         <ion-grid>
           <ion-row>
             <ion-col col-6>
-              <label>สถานะ</label>
+              <label>สถานะการสมรส</label>
             </ion-col>
             <ion-col col-6>
               <select formControlName="status">
-                <option value="โสด">โสด </option>
+                <option value="โสด" selected>โสด </option>
                 <option value="คู่">คู่ </option>
                 <option value="หย่า">หย่า </option>
                 <option value="คู่สมรสเสียชีวิต">คู่สมรสเสียชีวิต </option>
@@ -182,15 +183,15 @@
             </ion-col>
             <ion-col col-6>
               <input type="phone" formControlName="tel" size="20" />
-              <p class="help-inline"
+              <p class="help-inline" 
               *ngIf="!formgroup.get('tel').valid
-              && formgroup.get('tel').touched">กรุณากรอกตัวเลข ไม่เกิน 10 หลัก</p>
+              && formgroup.get('tel').touched">กรุณากรอกตัวเลข อย่างน้อย 6 หลัก และ ไม่เกิน 15 หลัก</p>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-list>
     </ion-card>
-
+{{language}}
     <button ion-button [disabled]="!formgroup.valid" (click)="onClickToRegister()"  color="1">
       ถัดไป
     </button>

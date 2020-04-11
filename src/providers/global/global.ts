@@ -10,18 +10,23 @@ import "rxjs/add/observable/interval"
 @Injectable()
 export class GlobalProvider {
   public mydate: string = "2020-03-02";
-  public role: any;
-  public name: string;
+  public role: any; //สถานะ[] คน login
+  public name: string; //ชื่อคน login
+  public selectRole; //role คน login ที่เลือก
 
-  public patientID: string;
-  public round: any;
-  public selectRound = 1;
-  public sex:string;
-  public selectRole;
+  private patientID: string; //ปปช. ผู้ป่วย
+  private patientName: string; //ชื่อ ผู้ป่วย
+  public round: any; //รอบ[] ผู้ป่วย
+  public selectRound = 1; //เลือก รอบ
+  public sex:string; //เพศผู้ป่วย
+
+  private showMenuMain:boolean =false;
+  
 
   timeVar;
   timeVal;
   public using:boolean = false;
+  private ip = "192.168.43.140:8000" //ip API
   constructor() {
     console.log("Hello GlobalProvider Provider");
   }
@@ -38,7 +43,16 @@ export class GlobalProvider {
   getpatientID() {
     return this.patientID;
   }
-  getround() {
+  setpatientName(fullname) {
+    this.patientName = fullname;
+  }
+  getpatientName() {
+    return this.patientName;
+  }
+  setRound(rou) {
+    this.round = rou;
+  }
+  getRound() {
     return this.round;
   }
   setSex(sex){
@@ -59,6 +73,13 @@ export class GlobalProvider {
   getSelectRound(){
     return this.selectRound;
   }
+  setShowMenuMain(show:boolean){
+    this.showMenuMain = show;
+  }
+  getShowMenuMain(){
+    return this.showMenuMain;
+  }
+
 
   startTimer(){
     this.using = true;
@@ -69,6 +90,11 @@ export class GlobalProvider {
       }
     })
   }
+
+  getIP(){
+    return this.ip;
+  }
+
   checkCanUse(){
     return this.using;
   }
