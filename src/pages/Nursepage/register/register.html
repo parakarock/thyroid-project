@@ -1,233 +1,197 @@
 <!--
   Generated template for the RegisterPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title >ลงทะเบียนผู้ป่วยใหม่</ion-title>
+    <ion-title>ลงทะเบียนผู้ป่วยใหม่</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <!-- <form [formGroup]="formgroup" (ngSubmit)="doRegister()"> -->
+  <form [formGroup]="formgroup" (ngSubmit)="doRegister()">
     <ion-card id="css" padding>
-  <ion-list>
-    <!-- <ion-item>
-      <ion-label color="dark">คำนำหน้าชื่อ</ion-label>
-      <ion-select [(ngModel)]="title" placeholder="เลือก" interface="popover">
-        <option value="volvo">นาย</option>
-        <option value="saab">นาง</option>
-        <option value="mercedes">นางสาว</option>
-      </ion-select>
-<<<<<<< HEAD
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-            <label for="title" >คำนำหน้าชื่อ      </label>
-          </ion-col>
+      <ion-list>
+        <ion-grid>
+          <ion-row>
             <ion-col col-6>
-            <select >
-              <option value="นาย">นาย</option>
-              <option value="นาง">นาง</option>
-              <option value="นางสาว">นางสาว</option>
-            </select>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    
-    
-    <!-- <ion-item no-lines *ngIf="titles.hasError('required') && titles.touched"> 
-=======
-    </ion-item>
-    <!-- <ion-item no-lines *ngIf="titles.hasError('required') && titles.touched">
->>>>>>> a817515c9f3e295d2615e64761b810fcab1e12e2
-      <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
-    </ion-item>  -->
+              <label>คำนำหน้าชื่อ </label>
+            </ion-col>
+            <ion-col col-6>
+              <select formControlName="title">
+                <option value="นาย">นาย</option>
+                <option value="นาง">นาง</option>
+                <option value="นางสาว">นางสาว</option>
+                <option value="เด็กหญิง">เด็กหญิง</option>
+                <option value="เด็กชาย">เด็กชาย</option>
+              </select>
+              <p
+                class="help-inline"
+                *ngIf="!formgroup.get('title').valid
+      && formgroup.get('title').touched"
+              >
+                กรุณากรอกเลือกคำนำหน้าชื่อ
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <!-- <ion-item>
-      <ion-label fixed color="dark">ชื่อ</ion-label>
-      <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
-<<<<<<< HEAD
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-          <label for="fname" >ชื่อ    </label>
-        </ion-col>
-        <ion-col col-6>
-          <input type="text" id="fname" name="fname" size="20">  
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <label>ชื่อ </label>
+            </ion-col>
+            <ion-col col-6>
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                formControlName="fname"
+                size="20"
+              />
+              <p
+                class="help-inline"
+                *ngIf="!formgroup.get('fname').valid
+      && formgroup.get('fname').touched"
+              >
+                กรุณากรอกชื่อ นามสกุล ภาษาไทย
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <!-- <ion-item no-lines *ngIf="fname.hasError('required') && fname.touched"> 
-=======
-    </ion-item>
-    <!-- <ion-item no-lines *ngIf="fname.hasError('required') && fname.touched">
->>>>>>> a817515c9f3e295d2615e64761b810fcab1e12e2
-      <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
-    </ion-item>  -->
-<!-- 
-    <ion-item>
-      <ion-label fixed color="dark">นามสกุล</ion-label>
-      <ion-input  #ltName type="text" placeholder="ภาษาไทย"></ion-input>
-<<<<<<< HEAD
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-    <label for="lname">นามสกุล</label>
-  </ion-col>
-  <ion-col col-6>
-    <input type="text" id="fname" name="lname" size="20">
-</ion-col>
-</ion-row>
-</ion-grid>
-    <!-- <ion-item no-lines *ngIf="lname.hasError('required') && lname.touched"> 
-      <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
-    </ion-item> -->
-    
-    <!-- <ion-item>
-=======
-    </ion-item>
-    <!-- <ion-item no-lines *ngIf="lname.hasError('required') && lname.touched">
-      <p>*กรุณาตรวจสอบข้อมูลให้ถูกต้อง</p>
-    </ion-item> -->
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <label>นามสกุล</label>
+            </ion-col>
+            <ion-col col-6>
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                formControlName="lname"
+                size="20"
+              />
+              <p class="help-inline"
+              *ngIf="!formgroup.get('lname').valid
+              && formgroup.get('lname').touched">กรุณากรอกนามสกุล ภาษาไทย</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <ion-item>
->>>>>>> a817515c9f3e295d2615e64761b810fcab1e12e2
-      <ion-label color="dark">วันเกิด</ion-label>
-      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="DateOfBirth" placeholder="เลือกวันเกิด"></ion-datetime>
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-        <label for="birthday">วันเกิด</label>
-      </ion-col>
-      <ion-col col-6>
-      <input type="date" id="birthday" name="birthday" size="20">
-    </ion-col>
-  </ion-row>
-  </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <label>วันเกิด</label>
+            </ion-col>
+            <ion-col col-6>
+              <input type="date" (input)="updateAge()" formControlName="birthday" size="20" />
+              <p class="help-inline"
+              *ngIf="!formgroup.get('birthday').valid
+              && formgroup.get('birthday').touched">กรุณาเลือกวันเกิด</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-12>
-    <label for="fname">เลขบัตรประชาชน/ เลขพาสปอร์ต</label>
-  </ion-col>
-  <ion-col col-12>
-    <input type="text" id="idCard" name="idCard" size="50">
-  </ion-col>
-  </ion-row>
-</ion-grid>
-    <!-- <ion-item>
-      <ion-label color="dark">เลขบัตรประชาชน</ion-label>
-      <ion-input  #idCard type="text" placeholder="กรุณาใส่ 13 หลัก"></ion-input>
-<<<<<<< HEAD
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-      <label for="sex">เพศ</label>
-    </ion-col>
-    <ion-col col-6>
-      <select >
-        <option value="หญิง">หญิง </option>
-        <option value="ชาย">ชาย </option>
-      </select>
-  </ion-col>
-</ion-row>
-</ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <label>อายุ</label>
+            </ion-col>
+            <ion-col col-6>
+              <span> {{ age }} ปี</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-    
-    <!-- <ion-item>
-=======
-    </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+              <label>เลขบัตรประชาชน/ เลขพาสปอร์ต</label>
+            </ion-col>
+            <ion-col col-12>
+              <input type="text" formControlName="idCard" size="50" />
+              <p class="help-inline"
+              *ngIf="!formgroup.get('idCard').valid
+              && formgroup.get('idCard').touched">กรุณากรอกตัวเลข 13 หลัก</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <ion-item>
->>>>>>> a817515c9f3e295d2615e64761b810fcab1e12e2
-      <ion-label color="dark">เพศ</ion-label>
-      <ion-select [(ngModel)]="sex" placeholder="เลือก" interface="popover">
-        <ion-option value='หญิง'>หญิง</ion-option>
-        <ion-option value='ชาย'>ชาย</ion-option>
-      </ion-select>
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-      <label for="National">สัญชาติ</label>
-    </ion-col>
-    <ion-col col-6>
-      <input type="text" id="National" name="National" value="ไทย" size="20">
-    </ion-col>
-  </ion-row>
-  </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <label>เพศ</label>
+            </ion-col>
+            <ion-col col-6>
+              <select formControlName="sex">
+                <option value="หญิง">หญิง </option>
+                <option value="ชาย">ชาย </option>
+              </select>
+              <p class="help-inline"
+              *ngIf="!formgroup.get('sex').valid
+              && formgroup.get('sex').touched">กรุณาเลือกเพศ</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <!-- <ion-item>
-      <ion-label fixed color="dark">สัญชาติ</ion-label>
-      <ion-input  type="text" placeholder="" value='ไทย' #National>ไทย</ion-input>
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-      <label for="status">สถานะ</label>
-    </ion-col>
-    <ion-col col-6>
-      <select >
-        <option value="โสด">โสด </option>
-        <option value="คู่">คู่ </option>
-        <option value="หย่า">หย่า </option>
-        <option value="คู่สมรสเสียชีวิต">คู่สมรสเสียชีวิต </option>
-      </select>
-    </ion-col>
-  </ion-row>
-  </ion-grid>
-<!-- 
-    <ion-item>
-      <ion-label color="dark">สถานะ</ion-label>
-      <ion-select [(ngModel)]="status" placeholder="เลือก" interface="popover">
-        <ion-option value='โสด'>โสด</ion-option>
-        <ion-option value='คู่'>คู่</ion-option>
-        <ion-option value='หย่า'>หย่า</ion-option>
-        <ion-option value='คู่สมรสเสียชีวิต'>คู่สมรสเสียชีวิต</ion-option>
-      </ion-select>
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-    <label for="Tel">เบอร์โทรศัพท์ที่ติดต่อได้ </label>
-  </ion-col>
-  <ion-col col-6>
-    <input type="text" id="Tel" name="Tel" size="20">
-  </ion-col>
-</ion-row>
-</ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <label>สัญชาติ</label>
+            </ion-col>
+            <ion-col col-6>
+              <input
+                type="text"
+                formControlName="National"
+                size="20"
+              />
+              <p class="help-inline"
+              *ngIf="!formgroup.get('National').valid
+              && formgroup.get('National').touched">กรุณากรอกสัญชาติ ภาษาไทย</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-<<<<<<< HEAD
-    <!-- <ion-item>
-=======
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <label>สถานะ</label>
+            </ion-col>
+            <ion-col col-6>
+              <select formControlName="status">
+                <option value="โสด">โสด </option>
+                <option value="คู่">คู่ </option>
+                <option value="หย่า">หย่า </option>
+                <option value="คู่สมรสเสียชีวิต">คู่สมรสเสียชีวิต </option>
+              </select>
+              <p class="help-inline"
+              *ngIf="!formgroup.get('status').valid
+              && formgroup.get('status').touched">กรุณาเลือกสถานะ</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <ion-item>
->>>>>>> a817515c9f3e295d2615e64761b810fcab1e12e2
-      <ion-label color="dark" style="margin-right: auto ;">เบอร์โทรศัพท์ที่ติดต่อได้</ion-label>
-      <ion-input type="tel" placeholder="เบอร์โทรศัพท์" #Tel ></ion-input>
-    </ion-item> -->
-    <!-- <ion-item>
-      <ion-label fixed>รหัสผ่าน</ion-label>
-      <ion-input  #password type="text"></ion-input>
-    </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <label>เบอร์โทรศัพท์ที่ติดต่อได้ </label>
+            </ion-col>
+            <ion-col col-6>
+              <input type="phone" formControlName="tel" size="20" />
+              <p class="help-inline"
+              *ngIf="!formgroup.get('tel').valid
+              && formgroup.get('tel').touched">กรุณากรอกตัวเลข ไม่เกิน 10 หลัก</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </ion-card>
 
-    <ion-item>
-      <ion-label fixed>ยืนยันรหัสผ่าน</ion-label>
-      <ion-input  #passwordConfirm type="password"></ion-input>
-    </ion-item> -->
-
-  </ion-list>
-</ion-card>
-
-  <button ion-button  (click)="onClickToRegister()" color="1">ยืนยันการสมัคร</button>
-<!-- </form> -->
+    <button ion-button [disabled]="!formgroup.valid" (click)="onClickToRegister()"  color="1">
+      ถัดไป
+    </button>
+  </form>
 </ion-content>

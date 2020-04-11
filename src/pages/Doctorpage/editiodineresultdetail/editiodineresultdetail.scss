@@ -15,6 +15,9 @@ page-editiodineresultdetail {
         font-size: 15px;
 
     }
+    label{
+        font-size:  15px;
+     }
 
 
     @media only screen and (min-width: 1224px) {
@@ -40,6 +43,9 @@ page-editiodineresultdetail {
             left: 30%;
 
         }
+        label{
+            font-size:  20px;
+         }
 
       }
 }

@@ -1,14 +1,12 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-
-import { Http, Headers, RequestOptions, ResponseOptions } from "@angular/http";
 import "rxjs/add/operator/map";
 import { RegistersPage } from "../registers/registers";
-import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import moment from "moment";
+import "moment/locale/TH";
 
 // import "rxjs/add/operator/catch";
-
-
 
 @IonicPage()
 @Component({
@@ -16,49 +14,70 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/fo
   templateUrl: "register.html"
 })
 export class RegisterPage {
-  // @ViewChild("ttName") TtName;
-  @ViewChild("flName") FlName;
-  @ViewChild("ltName") LtName;
-  // @ViewChild("DOB") dob;
-  @ViewChild("idCard") IdCard;
-  // @ViewChild("Sex") sex;
-  @ViewChild("National") national;
-  // @ViewChild("Status") status;
-  @ViewChild("Tel") tel;
-  title:string;
-  DateOfBirth:string;
-  sex:string;
-  status:string;
-  url: string;
-  data: string;
-  // formgroup: FormGroup;
-  // titles:AbstractControl;
-  // fname:AbstractControl;
-  // lname:AbstractControl;
-
+  formgroup: FormGroup;
+  age=0;
   constructor(
-    public http: Http,
     public navCtrl: NavController,
-    // public translate: TranslateService,
-    public navParams: NavParams, public formBuilder:FormBuilder
+    public navParams: NavParams,
+    public formBuilder: FormBuilder
   ) {
-  //   this.formgroup = formBuilder.group({
-  //     titles: ['', Validators.required],
-  //     fname: ['', Validators.required],
-  //     lname: ['', Validators.required],
-
-  //   });
-  //  this.titles = this.formgroup.controls['titles'];
-  //  this.fname = this.formgroup.controls['fname'];
-  //  this.lname = this.formgroup.controls['lname'];
+    this.formgroup = formBuilder.group({
+      title: ["", Validators.required],
+      fname: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[ก-๏s]+$")
+        ])
+      ],
+      lname: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[ก-๏s]+$")
+        ])
+      ],
+      birthday: ["", Validators.required],
+      idCard: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(13),
+          Validators.maxLength(13),
+          Validators.pattern("[0-9]+")
+        ])
+      ],
+      sex: ["", Validators.required],
+      National: [
+        "ไทย",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[ก-๏s]+$")
+        ])
+      ],
+      status: ["", Validators.required],
+      tel: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(10),
+          Validators.pattern("[0-9]+")
+        ])
+      ]
+    });
   }
-
+  updateAge() {
+    this.age = moment().diff(
+      moment(this.formgroup.controls.birthday.value, "YYYY-MM-DD"),
+      "years"
+    );
+  }
   ionViewDidLoad() {
     console.log("ionViewDidLoad RegisterPage");
   }
   onClickToRegister() {
-<<<<<<< HEAD
-   
+    this.navCtrl.push(RegistersPage, this.formgroup.value);
     // let headers = new Headers({ "Content-type": "application/json" });
     // let options = new RequestOptions({ headers: headers });
     // let body = JSON.stringify({
@@ -72,7 +91,7 @@ export class RegisterPage {
     //    status: this.status,
     //    phone: this.tel.value
     //  });
-     
+
     //  this.http
     //   .post("http://localhost:8000/insert.php", body, options)
     //   .map(res => res.json())
@@ -81,33 +100,32 @@ export class RegisterPage {
     //   },error=>{
     //     console.log(error);
     //   });
-=======
 
-    let headers = new Headers({ "Content-type": "application/json" });
-    let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify({
-       idcard: this.IdCard.value,
-       title: this.title,
-       firstname: this.FlName.value,
-       lastname: this.LtName.value,
-       dof: this.DateOfBirth,
-       gender: this.sex,
-       national: this.national.value,
-       status: this.status,
-       phone: this.tel.value
-     });
+    // let headers = new Headers({ "Content-type": "application/json" });
+    // let options = new RequestOptions({ headers: headers });
+    // let body = JSON.stringify({
+    //    idcard: this.IdCard.value,
+    //    title: this.title,
+    //    firstname: this.FlName.value,
+    //    lastname: this.LtName.value,
+    //    dof: this.DateOfBirth,
+    //    gender: this.sex,
+    //    national: this.national.value,
+    //    status: this.status,
+    //    phone: this.tel.value
+    //  });
 
-     this.http
-      .post("http://localhost:8000/insert.php", body, options)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-      },error=>{
-        console.log(error);
-      });
->>>>>>> a817515c9f3e295d2615e64761b810fcab1e12e2
+    //  this.http
+    //   .post("http://localhost:8000/insert.php", body, options)
+    //   .map(res => res.json())
+    //   .subscribe(data => {
+    //     console.log(data);
+    //   },error=>{
+    //     console.log(error);
+    //   });
 
-      this.navCtrl.push(RegistersPage)
+
+    //   this.navCtrl.push(RegistersPage)
 
   //   this.http
   //     .get("http://localhost:3000/", data)
@@ -133,4 +151,12 @@ export class RegisterPage {
 	//           this.translate.instant('date:day:7:long')
 	//   ];
   // }
+
+    
+  // }
+  doRegister() {
+    console.log(this.formgroup.value);
+    console.log(this.formgroup.valid);
+  }
+
 }

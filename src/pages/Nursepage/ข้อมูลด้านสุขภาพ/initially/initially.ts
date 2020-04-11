@@ -1,11 +1,15 @@
-import { GlobalProvider } from './../../../../providers/global/global';
-import { ResponseOptions } from '@angular/http';
-import { RequestOptions, Response } from '@angular/http';
-import { Headers } from '@angular/http';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { EditinitiallyPage } from '../editinitially/editinitially';
-import { Http } from '@angular/http';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { EditinitiallyPage } from "../editinitially/editinitially";
+import {
+  Http,
+  Response,
+  Headers,
+  ResponseOptions,
+  RequestOptions
+} from "@angular/http";
+import { GlobalProvider } from "../../../../providers/global/global";
+
 /**
  * Generated class for the InitiallyPage page.
  *
@@ -15,71 +19,166 @@ import { Http } from '@angular/http';
 
 @IonicPage()
 @Component({
-  selector: 'page-initially',
-  templateUrl: 'initially.html',
+  selector: "page-initially",
+  templateUrl: "initially.html"
 })
 export class InitiallyPage {
-  data:any;
   edgy: boolean;
+  sleep: boolean;
+  eat: boolean;
   hot: boolean;
+  fast: boolean;
   shakinHands: boolean;
   neck: boolean;
   gland: boolean;
   bigeyes: boolean;
   shit: boolean;
-  specify: boolean;
   weight: boolean;
-  period: boolean;
+  leg: boolean;
+  fshit: boolean;
   disease: boolean;
-  assign: boolean;
-  eat_a_lot: boolean;
-  fast_heartrate: boolean;
-  goitor: boolean;
-  thyroid_lump: boolean;
-  bulging_eye: boolean;
+  diseaseName: string;
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public global: GlobalProvider,
-              private http: Http) {
+  showFormSex: boolean;
+  showButtonedit: boolean;
+  showData: boolean;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public global: GlobalProvider,
+    private http: Http
+  ) {
+    this.showFormSex = this.checkSex(this.global.getSex());
+    this.showButtonedit = this.checkRole(this.global.getSelectRole());
+  }
 
+  // ionViewDidLoad() {
+  //   console.log("ionViewDidLoad InitiallyPage");
+  //   this.getdata();
+  // }
+
+  async ionViewWillEnter() {
+    console.log("ionViewWillEnter InitiallyPage");
+    await this.navCtrl.getActive().component
+    this.showData = false;
+  }
+ async ionViewDidEnter(){
+    console.log("ionViewDidEnter InitiallyPage");
+    await this.getdata()
+  }
+
+
+  setInit(data) {
+    if (
+      data.frustration === 1 ||
+      data.hard_sleep === 1 ||
+      data.eat_a_lot === 1 ||
+      data.feel_hot === 1 ||
+      data.fast_heartbeat === 1 ||
+      data.shaking_hand === 1 ||
+      data.goiter === 1 ||
+      data.thyroid_lump === 1 ||
+      data.bulging_eye === 1 ||
+      data.digest_3 === 1 ||
+      data.lose_weight === 1 ||
+      data.weak_arm === 1 ||
+      data.few_period === 1 ||
+      this.checkString(data.disease_name) === true
+    ) {
+      this.showData = true;
+
+      this.edgy = data.frustration;
+      this.sleep = data.hard_sleep;
+      this.eat = data.eat_a_lot;
+      this.hot = data.feel_hot;
+      this.fast = data.fast_heartbeat;
+      this.shakinHands = data.shaking_hand;
+      this.neck = data.goiter;
+      this.gland = data.thyroid_lump;
+      this.bigeyes = data.bulging_eye;
+      this.shit = data.digest_3;
+      this.weight = data.lose_weight;
+      this.leg = data.weak_arm;
+      this.fshit = data.few_period;
+      this.disease = this.checkString(data.disease_name);
+    } else {
+      this.showData = false;
+      console.log("dataelse : " + this.showData);
+    }
+  }
+
+  async getdata() {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = { idcard: this.global.patientID, round: this.global.round };
-    console.log("body : " + body);
-    this.http.post(
-      "http://10.80.34.218:8000/healthdata.php?method=get_init-phase&role=nurse",
-      body,
-      options
-    )
-    .map(res => res.json())
-    .subscribe(
-      data => {
-        this.data = JSON.stringify(data);
-        this.edgy = data.frustration;
-        this.eat_a_lot = data.eat_a_lot;
-        this.hot = data.feel_hot;
-        this.fast_heartrate = data.fast_heartbeat;
-        this.shakinHands = data.shaking_hand;
-        this.goitor = data.goitor;
-        this.thyroid_lump = data.thyroid_lump;
-        this.bulging_eye = data.bulging_eye;
-        this.shit = data.digest_3;
-        this.weight = data.lose_weight;
-        this.period = data.few_period;
-        this.disease = data.disease_name;
-      },
-      err => {
-        console.log(err);
-      }
-    )
+    let body = JSON.stringify({
+      idcard: this.global.patientID,
+      round: this.global.getSelectRound()
+    });
+
+    await this.http
+      .post(
+        "http://192.168.31.98:8000/healthdata.php?method=get_init-phase&role=nurse",
+        body,
+        options
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          console.log(
+            this.checkString(data.disease_name) +
+              " ddddddddddddddd" +
+              data.disease_name
+          );
+          this.setInit(data);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+  checkString(txt) {
+    if (typeof txt === "string" && txt !== null && txt !== "") {
+      this.diseaseName = txt;
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InitiallyPage');
+  editinitially() {
+    this.navCtrl.push(EditinitiallyPage, {
+      edgy: this.edgy,
+      sleep: this.sleep,
+      eat: this.eat,
+      hot: this.hot,
+      fast: this.fast,
+      shakinHands: this.shakinHands,
+      neck: this.neck,
+      gland: this.gland,
+      bigeyes: this.bigeyes,
+      shit: this.shit,
+      weight: this.weight,
+      leg: this.leg,
+      fshit: this.fshit,
+      disease: this.disease,
+      diseaseName: this.diseaseName,
+
+      showFormSex: this.showFormSex
+    });
   }
 
-  editinitially(){
-    this.navCtrl.push(EditinitiallyPage)
+  checkSex(sex) {
+    if (sex === "หญิง") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  checkRole(role) {
+    if (role === "nurse") {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

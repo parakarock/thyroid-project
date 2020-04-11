@@ -10,6 +10,9 @@ page-editbiopsy {
         margin-left: auto;
         margin-right: auto;
     }
+    label{
+        font-size:  15px;
+     }
     
     @media only screen and (min-width: 1224px) {
         ion-label {
@@ -28,5 +31,8 @@ page-editbiopsy {
             left: 30%;
           
         }
+        label{
+            font-size:  20px;
+         }
       }
 }

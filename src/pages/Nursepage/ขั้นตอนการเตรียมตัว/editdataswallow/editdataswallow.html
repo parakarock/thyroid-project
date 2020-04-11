@@ -12,24 +12,38 @@
 </ion-item>
 
 <div>1.ผู้ป่วยควรรับประทานอาหารหรือของทานเล่น ก่อนเวลา</div>
-<ion-item no-lines>
+<ion-grid>
+  <ion-row>
+      <input type="text" id="eat" name="eat" size="20">
+<label for="eat">นาฬิกา</label>
+</ion-row>
+</ion-grid>
+
+<!-- <ion-item no-lines>
   <ion-row item-content>
       <ion-col  col-5>
         <ion-input [(ngModel)]="eat"  type="number" min="0" placeholder=""></ion-input>
       </ion-col >
       <ion-label color="dark">นาฬิกา</ion-label>
     </ion-row>
-</ion-item>
+</ion-item> -->
 
 <div>2.ผู้ป่วยควรติดต่อที่ห้องกลืนแร่ งานรังสีฯ รพ.มหาวิทยาลัยบูรพา เวลา</div>
-  <ion-item no-lines>
+<ion-grid>
+  <ion-row>
+    <input type="text" id="hos" name="hos" size="20">
+<label for="hos">นาฬิกา</label>
+</ion-row>
+</ion-grid>
+
+  <!-- <ion-item no-lines>
     <ion-row item-content>
         <ion-col  col-5>
           <ion-input [(ngModel)]="hos"  type="number" min="0" placeholder=""></ion-input>
         </ion-col >
         <ion-label color="dark" >นาฬิกา</ion-label>
       </ion-row>
-  </ion-item>
+  </ion-item> -->
 
 
     <div>3.ระหว่างรอกลืนแร่ ผู้ป่วยควรงดอาหารและของทานเล่นอย่างน้อย6 ชั่วโมงก่อนการกลืนแร่ แต่สามารถดื่มน้ำเปล่าและน้ำหวานที่ห้องกลืนแร่เตรียมไว้ให้ </div>

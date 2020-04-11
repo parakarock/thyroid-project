@@ -5,16 +5,108 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card id="css" >
+  <ion-card id="css" padding *ngIf="showData">
+    <div>อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
+    <br />
 
+    <ion-item no-lines *ngIf="edgy">
+      <input type="checkbox" name="edgy" disabled="disabled" checked />
+      <label for="edgy"> หงุดหงิด กระสับกระส่าย วิตกกังวล </label><br />
+    </ion-item>
 
-  <ion-item no-lines>
-  <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
-</ion-item>
+    <ion-item no-lines *ngIf="sleep">
+      <input type="checkbox" name="sleep" disabled="disabled" checked />
+      <label for="sleep"> นอนหลับยาก </label><br />
+    </ion-item>
 
+    <ion-item no-lines *ngIf="eat">
+      <input type="checkbox" name="eat" disabled="disabled" checked />
+      <label for="eat"> กินจุ</label><br />
+    </ion-item>
 
-</ion-card>
+    <ion-item no-lines *ngIf="hot">
+      <input type="checkbox" name="hot" disabled="disabled" checked />
+      <label for="hot"> ขี้ร้อน เหงื่อแตก ผิวชุ่มเหงื่อ แม้อากาศจะไม่ร้อน</label
+      ><br />
+    </ion-item>
 
+    <ion-item no-lines *ngIf="fast">
+      <input type="checkbox" name="fast" disabled="disabled" checked />
+      <label for="fast"> ชีพจรเต้นเร็ว ใจสั่น เหนื่อยง่าย</label><br />
+    </ion-item>
 
-<button ion-button  (click)="editinitially()" color="1">แก้ไข</button>
+    <ion-item no-lines *ngIf="shakinHands">
+      <input type="checkbox" name="shakinHands" disabled="disabled" checked />
+      <label for="shakinHands"> มือสั่น</label><br />
+    </ion-item>
+
+    <ion-item no-lines *ngIf="neck">
+      <input type="checkbox" name="neck" disabled="disabled" checked />
+      <label for="neck"> คอโต</label><br />
+    </ion-item>
+
+    <ion-item no-lines *ngIf="gland">
+      <input type="checkbox" name="gland" disabled="disabled" checked />
+      <label for="gland"> คลำก้อนได้ในต่อมไทรอยด์</label><br />
+    </ion-item>
+
+    <ion-item no-lines *ngIf="bigeyes">
+      <input type="checkbox" name="bigeyes" disabled="disabled" checked />
+      <label for="bigeyes"> ตาโต หรือตาโปนมากกว่าปกติ</label><br />
+    </ion-item>
+
+    <ion-item no-lines *ngIf="shit">
+      <input type="checkbox" name="shit" disabled="disabled" checked />
+      <label for="shit"> ถ่ายอุจจาระบ่อยเกิน 3 ครั้งต่อวัน</label><br />
+    </ion-item>
+
+    <ion-item no-lines *ngIf="weight">
+      <input type="checkbox" name="weight" disabled="disabled" checked />
+      <label for="weight"> น้ำหนักลดแม้จะรับประทานอาหารได้</label><br />
+    </ion-item>
+
+    <ion-item no-lines *ngIf="leg">
+      <input type="checkbox" name="leg" disabled="disabled" checked />
+      <label for="leg"> ต้นแขนและต้นขาทั้งสองข้างอ่อนแรง</label><br />
+    </ion-item>
+
+    <ion-item no-lines *ngIf="fshit&&showFormSex">
+      <input type="checkbox" name="fshit" disabled="disabled" checked />
+      <label for="fshit">
+        (สำหรับผู้หญิง)ประจำเดือนมาน้อยครั้งและปริมาณลดลง</label
+      ><br />
+    </ion-item>
+
+    <div *ngIf="disease">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-10>
+            <label for="disease">ท่านมีโรคประจำตัวอื่นๆหรือไม่ </label>
+            <select>
+              <option value="มี" disabled="disabled" selected>มี</option>
+            </select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="other" color="danger">*ถ้ามี(โปรดระบุโรค) </label>
+          </ion-col>
+          <ion-col col-6>
+            <input type="textbox" id="other" name="other" size="20" value="{{diseaseName}}" disabled="disabled"/>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+
+  <ion-card id="css" *ngIf="!showData">
+    <ion-item no-lines>
+      <ion-label color="dark">ไม่พบข้อมูล</ion-label>
+    </ion-item>
+  </ion-card>
+
+  <button ion-button *ngIf="showButtonedit" (click)="editinitially()" color="1">แก้ไข</button>
 </ion-content>

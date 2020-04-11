@@ -21,14 +21,36 @@
 
 
   <ion-card id="css">
-    <ion-item >
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+        <label for="date">กลืนแร่ครั้งที่ 1 วิธีการ</label>
+      </ion-col>
+      <ion-col col-6>
+      <input type="date" id="date" name="date" size="20">
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+
+    <!-- <ion-item >
       <ion-label color="dark">กลืนแร่ครั้งที่ 1 วิธีการ </ion-label>
       <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
-    </ion-item>
-      <ion-item>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+    <label for="g">ปริมาณ</label>
+  </ion-col>
+  <ion-col col-6>
+    <input type="text" id="g" name="g" size="20">
+</ion-col>
+</ion-row>
+</ion-grid>
+
+      <!-- <ion-item>
         <ion-label color="dark">ปริมาณ</ion-label>
         <ion-input type="text" value="" text-right></ion-input>
-      </ion-item>
+      </ion-item> -->
       <button ion-button float-right color="1">บันทึกผล</button>
     </ion-card >
 
@@ -76,15 +98,31 @@
 
   <ion-card id="css">
     <ion-row style="height: 100"></ion-row>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <label for="help" >ผลการรักษา      </label>
+          </ion-col>
+            <ion-col col-6>
+            <select >
+              <option value="สำเร็จแบบการทำงานของไทรอยด์ปกติ">สำเร็จแบบการทำงานของไทรอยด์ปกติ</option>
+              <option value="สำเร็จแบบต่อมไทรอยด์ทำงานน้อย">สำเร็จแบบต่อมไทรอยด์ทำงานน้อย</option>
+              <option value="ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ">ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ</option>
+    
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label color="dark">ผลการรักษา</ion-label>
       <ion-select [(ngModel)]="title" placeholder="เลือก"  interface="popover">
         <ion-option value='Propylthiouracil (PTU)'>สำเร็จแบบการทำงานของไทรอยด์ปกติ</ion-option>
         <ion-option value='Methimazole (MMI)'>สำเร็จแบบต่อมไทรอยด์ทำงานน้อย</ion-option>
         <ion-option value='Tapazole'>ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ</ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
 
     <button ion-button float-right color="1">บันทึกผล</button>
   </ion-card>

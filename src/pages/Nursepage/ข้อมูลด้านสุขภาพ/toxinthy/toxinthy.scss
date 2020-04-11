@@ -4,7 +4,12 @@ page-toxinthy {
        
     }
     
-   
+    .button{
+        font-size: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
     
     @media only screen and (min-width: 1224px) {
         div {
@@ -16,6 +21,12 @@ page-toxinthy {
             position: relative;
             left: 30%;
           
+        }
+        .button{
+            font-size: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     
       }

@@ -30,6 +30,7 @@ export class HealthdatahomePage {
   status: string;
   number;
   rounds;
+  showMenu:boolean;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -44,6 +45,11 @@ export class HealthdatahomePage {
     //   this.show1 = true;
     //   this.show2 = false;
     // });
+    if(this.global.getSelectRole() === "nurse"){
+      this.showMenu = true;
+    }else{
+      this.showMenu = false;
+    }
   }
   ionViewDidLoad() {
 
@@ -51,6 +57,7 @@ export class HealthdatahomePage {
     console.log("id :"+this.global.patientID);
     console.log("ionViewDidLoad HealthdatahomePage");
   }
+  
   general() {
     this.navCtrl.push(GeneralPage);
   }

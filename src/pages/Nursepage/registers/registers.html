@@ -7,62 +7,140 @@
 <ion-content padding>
 <ion-card id="css" padding>
 
-  <!-- <form [formGroup]="formgroup"  > -->
+  <form [formGroup]="formgroup"  >
   <ion-list >
-    <ion-item>
-      <ion-label color="dark">ส่งตัวมาจากโรงพยาบาล</ion-label>
-      <ion-select [(ngModel)]="item" placeholder="เลือก" interface="popover">
-        <ion-option value='1'>1</ion-option>
-        <ion-option value='2'>2</ion-option>
-        <ion-option value='3'>3</ion-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-item>
-      <ion-label fixed color="dark">กรุณาระบุ</ion-label>
-      <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label fixed color="dark">HN</ion-label>
-      <ion-input  #ltName type="text" placeholder=""></ion-input>
-    </ion-item>
-
-
- 
-      <ion-item>
-        <ion-label undefined color="dark">โรงพยาบาลบูรพา HN</ion-label>
-        <ion-input  type="text" placeholder="" value=""></ion-input>
-      </ion-item>
-      <!-- <ion-item no-lines *ngIf="hn.hasError('required') && hn.touched"> 
-        <p>*กรุณาตรวจสอบให้ถูกต้อง</p>
-      </ion-item>  -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <label  >ส่งตัวมาจากโรงพยาบาล     </label>
+          </ion-col>
+            <ion-col col-6>
+            <select formControlName="from_name1" (change)="showHosIn($event.target.value)">
+              <option *ngFor="let hos of hospitals" value="{{hos.hos_name}}">{{hos.hos_name}}</option>
+            </select>
+            
+        </ion-col>
+      </ion-row>
+    </ion-grid>
    
-  
+    <ion-grid *ngIf="showNameHosIn">
+      <ion-row>
+        <ion-col col-4>
+          <label  >กรุณาระบุ    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" formControlName="from_name2" size="20">
+          <p
+                class="help-inline"
+                *ngIf="!formgroup.get('from_name2').valid
+      && formgroup.get('from_name2').touched"
+              >
+                กรุณากรอกชื่อโรงพยาบาล ภาษาไทย
+              </p>  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-      <ion-item>
-        <ion-label color="dark">โรงพยาบาลที่ส่งตัวกลับ</ion-label>
-        <ion-select [(ngModel)]="item2" placeholder="เลือก" interface="popover">
-          <ion-option value='1'>1</ion-option>
-          <ion-option value='2'>2</ion-option>
-          <ion-option value='3'>3</ion-option>
-        </ion-select>
-      </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <label >HN    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" formControlName="from_id" size="20">
+          <p
+                class="help-inline"
+                *ngIf="!formgroup.get('from_id').valid
+      && formgroup.get('from_id').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p>    
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+   
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <label  >โรงพยาบาลบูรพา HN    </label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="text" formControlName="Hos_base_id" size="20">
+          <p
+                class="help-inline"
+                *ngIf="!formgroup.get('Hos_base_id').valid
+      && formgroup.get('Hos_base_id').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p>    
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ 
+     
+   
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+              <label >โรงพยาบาลที่ส่งตัวกลับ     </label>
+            </ion-col>
+              <ion-col col-6>
+                <select formControlName="to_name1" (change)="showHosOut($event.target.value)">
+                  <option *ngFor="let hos of hospitals" value="{{hos.hos_name}}">{{hos.hos_name}}</option>
+              </select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+     
+      
+     
+
+      <ion-grid *ngIf="showNameHosOut">
+        <ion-row>
+          <ion-col col-4>
+            <label  >กรุณาระบุ    </label>
+          </ion-col>
+          <ion-col col-6>
+            <input type="text" formControlName="to_name2" size="20"> 
+            <p
+                class="help-inline"
+                *ngIf="!formgroup.get('to_name2').valid
+      && formgroup.get('to_name2').touched"
+              >
+              กรุณากรอกชื่อโรงพยาบาล ภาษาไทย
+              </p>   
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
     
-      <ion-item>
-        <ion-label fixed color="dark">กรุณาระบุ</ion-label>
-        <ion-input  #flName type="text" placeholder="ภาษาไทย"></ion-input>
-      </ion-item>
 
-      <ion-item  >
-        <ion-label fixed color="dark">HN</ion-label>
-        <ion-input   type="text" placeholder=""></ion-input>
-      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label  >HN    </label>
+          </ion-col>
+          <ion-col col-6>
+            <input type="text" formControlName="to_id" size="20">
+            <p
+            class="help-inline"
+            *ngIf="!formgroup.get('to_id').valid
+  && formgroup.get('to_id').touched"
+          >
+            กรุณากรอกตัวเลข
+          </p>    
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
       
   </ion-list>
-<!-- </form> -->
+</form>
 
 </ion-card>
-  <button  ion-button  color="1">ยืนยันการสมัคร</button>
+  <button  ion-button  color="1" [disabled]="!formgroup.valid" (click)="presentConfirm()">ยืนยันการสมัคร</button>
 
 </ion-content>

@@ -6,18 +6,57 @@
 
 <ion-content padding>
   <ion-card id="css" padding>
-  <ion-item >
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+    <label for="order">ลำดับก้อน</label>
+  </ion-col>
+  <ion-col col-6>
+    <input type="text" id="order" name="order" size="20">
+</ion-col>
+</ion-row>
+</ion-grid>
+
+  <!-- <ion-item >
     <ion-label  color="dark">ลำดับก้อน</ion-label>
     <ion-input [(ngModel)]="order" type="text" placeholder=""></ion-input>
   </ion-item>
-  
-  <ion-item >
+   -->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+      <label for="date">วันที่ตรวจ</label>
+    </ion-col>
+    <ion-col col-6>
+    <input type="date" id="date" name="date" size="20">
+  </ion-col>
+</ion-row>
+</ion-grid>
+
+  <!-- <ion-item >
     <ion-label color="dark">วันที่ตรวจ</ion-label>
     <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
-  </ion-item>
+  </ion-item> -->
 
 
-  <ion-item >
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+          <label for="result" >ผลทางเซลล์วิทยา      </label>
+        </ion-col>
+          <ion-col col-6>
+          <select >
+            <option value="I">I</option>
+            <option value="II">II</option>
+            <option value="III">III</option>
+            <option value="IV">IV</option>
+            <option value="V">V</option>
+          </select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <!-- <ion-item >
     <ion-label color="dark">ผลทางเซลล์วิทยา</ion-label>
     <ion-select [(ngModel)]="result" placeholder=เลือก interface="popover">
       <ion-option value="I">I</ion-option>
@@ -26,7 +65,7 @@
       <ion-option value="IV">IV</ion-option>
       <ion-option value="V">V</ion-option>
     </ion-select>
-  </ion-item>
+  </ion-item> -->
 </ion-card>
 <button ion-button  color="1">Save</button>
 </ion-content>

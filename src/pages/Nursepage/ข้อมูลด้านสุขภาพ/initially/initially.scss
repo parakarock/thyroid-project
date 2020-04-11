@@ -1,8 +1,4 @@
 page-initially {
-    ion-label {
-        font-size: 15px;
-        text-align: center;
-    }
 
     .button{
         font-size: 15px;
@@ -12,10 +8,6 @@ page-initially {
     }
 
     @media only screen and (min-width: 1224px) {
-        ion-label {
-            font-size: 20px;
-            text-align: center;
-        }
         .button{
             font-size: 20px;
             display: block;

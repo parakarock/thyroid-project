@@ -13,7 +13,9 @@ page-biopsy {
     ion-icon{
         font-size: 40px;
        }
- 
+       label{
+        font-size: 15px;
+    }  
     
     @media only screen and (min-width: 1224px) {
         ion-icon{
@@ -36,7 +38,9 @@ page-biopsy {
             left: 30%;
           
         }
- 
+        label{
+            font-size: 20px;
+        }  
     
       }
 }

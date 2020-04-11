@@ -11,18 +11,19 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card id="css" padding>
-
+<ion-card id="css" padding *ngIf="showFormSex">
 
 <div>1.ท่านเคยผ่าตัดที่ลำคอหรือมีแผลเป็นที่ลำคอด้านหน้าหรือไม่</div>
 <ion-list >
-<ion-item no-lines >
+<ion-item no-lines  (change)="changeNeckSurgery()">
   <ion-label class="radio-inline">
-    <input type="radio" name="NeckSurgery" checked>
+    <input type="radio" *ngIf="NeckSurgery" >
+    <input type="radio"  *ngIf="!NeckSurgery" checked>
     ไม่เคย
   </ion-label>
-  <ion-label class="radio-inline">
-    <input type="radio" name="NeckSurgery">
+  <ion-label class="radio-inline" >
+    <input type="radio" *ngIf="!NeckSurgery" >
+    <input type="radio" *ngIf="NeckSurgery" checked>
     เคย
   </ion-label>
 </ion-item>
@@ -30,13 +31,15 @@
 
 <div>2.ท่านเคยฉายรังสีที่ลำคอมาก่อนหรือไม่</div>
 <ion-list >
-  <ion-item no-lines >
+  <ion-item no-lines (change)="changeIrradiate()">
     <ion-label class="radio-inline">
-      <input type="radio" name="Irradiate" checked >
+    <input type="radio" *ngIf="Irradiate" >
+    <input type="radio"  *ngIf="!Irradiate" checked>
       ไม่เคย
     </ion-label>
     <ion-label class="radio-inline">
-      <input type="radio" name="Irradiate">
+      <input type="radio" *ngIf="!Irradiate" >
+      <input type="radio" *ngIf="Irradiate" checked>
       เคย
     </ion-label>
   </ion-item>
@@ -45,13 +48,15 @@
 
 <div>3.(สำหรับสตรี)ท่านกำลังตั้งครรภ์หรือให้นมบุตร</div>
 <ion-list >
-  <ion-item no-lines >
+  <ion-item no-lines (change)="changeCorrection()">
     <ion-label class="radio-inline">
-      <input type="radio" name="Correction" checked>
+    <input type="radio" *ngIf="Correction" >
+    <input type="radio"  *ngIf="!Correction" checked>
       ไม่ใช่
     </ion-label>
     <ion-label class="radio-inline">
-      <input type="radio" name="Correction">
+      <input type="radio" *ngIf="!Correction" >
+      <input type="radio" *ngIf="Correction" checked>
       ใช่
     </ion-label>
   </ion-item>
@@ -59,13 +64,15 @@
 
 <div>4.(สำหรับสตรี)ท่านวางแผนจะมีบุตรภายใน4-6เดือนนี้</div>
 <ion-list >
-  <ion-item no-lines >
+  <ion-item no-lines (change)="changechild()">
     <ion-label class="radio-inline">
-      <input type="radio" name="child" checked >
+    <input type="radio" *ngIf="child" >
+    <input type="radio"  *ngIf="!child" checked>
       ไม่ใช่
     </ion-label>
     <ion-label class="radio-inline">
-      <input type="radio" name="child">
+      <input type="radio" *ngIf="!child" >
+      <input type="radio" *ngIf="child" checked>
       ใช่
     </ion-label>
   </ion-item>
@@ -73,13 +80,15 @@
 
 <div>5.ท่านมีอาการตาแดง ระคายเคืองตา ตามัว หรือมองเห็นภาพซ้อน</div>
 <ion-list >
-  <ion-item no-lines >
+  <ion-item no-lines (change)="changeAmblyopia()">
     <ion-label class="radio-inline">
-      <input type="radio" name="Amblyopia" checked>
+      <input type="radio" *ngIf="Amblyopia" >
+    <input type="radio"  *ngIf="!Amblyopia" checked>
       ไม่มี
     </ion-label>
     <ion-label class="radio-inline">
-      <input type="radio" name="Amblyopia">
+      <input type="radio" *ngIf="!Amblyopia" >
+      <input type="radio" *ngIf="Amblyopia" checked>
       มี
     </ion-label>
   </ion-item>
@@ -87,13 +96,15 @@
 
 <div>6.ท่านมีอาการหายใจลำบากหรือเสียงแหบ</div>
 <ion-list >
-  <ion-item no-lines >
+  <ion-item no-lines (change)="changedifficult()">
     <ion-label class="radio-inline">
-      <input type="radio" name="difficult" checked>
+      <input type="radio" *ngIf="difficult" >
+    <input type="radio"  *ngIf="!difficult" checked>
       ไม่มี
     </ion-label>
     <ion-label class="radio-inline">
-      <input type="radio" name="difficult">
+      <input type="radio" *ngIf="!difficult" >
+      <input type="radio" *ngIf="difficult" checked>
       มี
     </ion-label>
   </ion-item>
@@ -101,13 +112,15 @@
 
 <div>7.ท่านสามารถทำตามคำแนะนำการป้องกันรังสีได้หรือไม่</div>
 <ion-list >
-  <ion-item no-lines >
+  <ion-item no-lines (change)="changerecommend()">
     <ion-label class="radio-inline">
-      <input type="radio" name="recommend" checked >
+      <input type="radio" *ngIf="recommend" >
+      <input type="radio"  *ngIf="!recommend" checked>
       ไม่ได้
     </ion-label>
     <ion-label class="radio-inline">
-      <input type="radio" name="recommend">
+      <input type="radio" *ngIf="!recommend" >
+      <input type="radio" *ngIf="recommend" checked>
       ได้
     </ion-label>
   </ion-item>
@@ -116,17 +129,121 @@
 
 <div>8.ภายใน1-2เดือนที่ผ่านมาท่านเคยได้รับการตรวจเอกซเรย์ หรือเอกซเรย์คอมพิวเตอร์ที่ต้องรับประทาน สวน หรือฉีดสารทึบรังสีร่วมด้วย</div>
 <ion-list >
-  <ion-item no-lines >
+  <ion-item no-lines (change)="changeInjection()">
     <ion-label class="radio-inline">
-      <input type="radio" name="Injection" checked>
+      <input type="radio" *ngIf="Injection" >
+      <input type="radio"  *ngIf="!Injection" checked>
       ไม่เคย
     </ion-label>
     <ion-label class="radio-inline">
-      <input type="radio" name="Injection">
+      <input type="radio" *ngIf="!Injection" >
+      <input type="radio" *ngIf="Injection" checked>
       เคย
     </ion-label>
   </ion-item>
   </ion-list>
 </ion-card>
-<button ion-button  color="1" >บันทึก</button>
+
+<ion-card id="css" padding *ngIf="!showFormSex">
+
+  <div>1.ท่านเคยผ่าตัดที่ลำคอหรือมีแผลเป็นที่ลำคอด้านหน้าหรือไม่</div>
+  <ion-list >
+  <ion-item no-lines  (change)="changeNeckSurgery()">
+    <ion-label class="radio-inline" >
+      <input type="radio" *ngIf="NeckSurgery" >
+      <input type="radio"  *ngIf="!NeckSurgery" checked>
+      ไม่เคย
+    </ion-label>
+    <ion-label class="radio-inline" >
+      <input type="radio" *ngIf="!NeckSurgery" >
+      <input type="radio" *ngIf="NeckSurgery" checked>
+      เคย
+    </ion-label>
+  </ion-item>
+  </ion-list>
+
+  <div>2.ท่านเคยฉายรังสีที่ลำคอมาก่อนหรือไม่</div>
+  <ion-list >
+    <ion-item no-lines (change)="changeIrradiate()">
+      <ion-label class="radio-inline">
+      <input type="radio" *ngIf="Irradiate" >
+      <input type="radio"  *ngIf="!Irradiate" checked>
+        ไม่เคย
+      </ion-label>
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="!Irradiate" >
+        <input type="radio" *ngIf="Irradiate" checked>
+        เคย
+      </ion-label>
+    </ion-item>
+    </ion-list>
+
+
+
+  <div>3.ท่านมีอาการตาแดง ระคายเคืองตา ตามัว หรือมองเห็นภาพซ้อน</div>
+  <ion-list >
+    <ion-item no-lines (change)="changeAmblyopia()">
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="Amblyopia" >
+      <input type="radio"  *ngIf="!Amblyopia" checked>
+        ไม่มี
+      </ion-label>
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="!Amblyopia" >
+        <input type="radio" *ngIf="Amblyopia" checked>
+        มี
+      </ion-label>
+    </ion-item>
+    </ion-list>
+
+  <div>4.ท่านมีอาการหายใจลำบากหรือเสียงแหบ</div>
+  <ion-list >
+    <ion-item no-lines (change)="changedifficult()">
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="difficult" >
+      <input type="radio"  *ngIf="!difficult" checked>
+        ไม่มี
+      </ion-label>
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="!difficult" >
+        <input type="radio" *ngIf="difficult" checked>
+        มี
+      </ion-label>
+    </ion-item>
+    </ion-list>
+
+  <div>5.ท่านสามารถทำตามคำแนะนำการป้องกันรังสีได้หรือไม่</div>
+  <ion-list >
+    <ion-item no-lines (change)="changerecommend()">
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="recommend" >
+        <input type="radio"  *ngIf="!recommend" checked>
+        ไม่ได้
+      </ion-label>
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="!recommend" >
+        <input type="radio" *ngIf="recommend" checked>
+        ได้
+      </ion-label>
+    </ion-item>
+    </ion-list>
+
+
+  <div>6.ภายใน1-2เดือนที่ผ่านมาท่านเคยได้รับการตรวจเอกซเรย์ หรือเอกซเรย์คอมพิวเตอร์ที่ต้องรับประทาน สวน หรือฉีดสารทึบรังสีร่วมด้วย</div>
+  <ion-list >
+    <ion-item no-lines (change)="changeInjection()">
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="Injection" >
+        <input type="radio"  *ngIf="!Injection" checked>
+        ไม่เคย
+      </ion-label>
+      <ion-label class="radio-inline">
+        <input type="radio" *ngIf="!Injection" >
+        <input type="radio" *ngIf="Injection" checked>
+        เคย
+      </ion-label>
+    </ion-item>
+    </ion-list>
+  </ion-card>
+<button ion-button  color="1" (click)="presentConfirm()" >บันทึก</button>
 </ion-content>

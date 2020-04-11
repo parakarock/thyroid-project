@@ -5,7 +5,8 @@ import {
   NavParams,
   AlertController,
   Events,
-  Form
+  Form,
+  ToastController
 } from "ionic-angular";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import {
@@ -28,7 +29,6 @@ import {
   AbstractControl
 } from "@angular/forms";
 
-
 @IonicPage()
 @Component({
   selector: "page-login",
@@ -36,16 +36,10 @@ import {
 })
 export class LoginPage {
   formgroup: FormGroup;
-  username: AbstractControl;
-  password: AbstractControl;
-  usernameInput: string;
-  role: any;
-  nurse;
-  doctor;
-  patient;
-  name;
-  data;
+
+  @ViewChild("usernameInput") mUsername;
   @ViewChild("passwordInput") mPassword;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -53,19 +47,16 @@ export class LoginPage {
     public events: Events,
     private http: Http,
     public global: GlobalProvider,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    public toastController: ToastController
   ) {
     this.formgroup = formBuilder.group({
-
       username: ["", Validators.required],
       password: ["", Validators.required]
     });
 
-
-
-   this.username = this.formgroup.controls['username'];
-   this.password = this.formgroup.controls['password'];
-
+    // this.mUsername = this.formgroup.controls["username"];
+    // this.mPassword = this.formgroup.controls["password"];
   }
 
   ionViewDidLoad() {
@@ -75,48 +66,56 @@ export class LoginPage {
   async onClickLoginButton() {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = { username: this.usernameInput, password: this.usernameInput };
+    let body = { username: this.mUsername.value, password: this.mUsername.value };
     console.log("body : " + body);
     await this.http
       .post(
-        "http://10.80.34.218:8000/login.php?method=login&role=guest",
+        "http://192.168.31.98:8000/login.php?method=login&role=guest",
         body,
         options
       )
       .map(res => res.json())
       .subscribe(
         data => {
-          this.data = JSON.stringify(data);
-          this.global.name =
-            data[0].title + data[0].firstname + " " + data[0].lastname;
-          this.global.role = data[1];
-          console.log(this.global.name);
+          if (data.result) {
+            // this.showToastWithCloseButton(data.result);
+            this.presentAlert(data.result);
+          } else {
+            this.global.name =
+              data[0].title + data[0].firstname + " " + data[0].lastname;
+            this.global.role = data[1];
+            this.global.setpatientID(data[0].person_id);
+            // alert(data[0].person_id)
+            if (
+              data[1].findIndex(
+                role_name => role_name.role_name === "doctor"
+              ) >= 0
+            ) {
+              this.events.publish("user:doctor");
+              this.navCtrl.setRoot(DoctorHomePage);
+            } else if (
+              data[1].findIndex(role_name => role_name.role_name === "nurse") >=
+              0
+            ) {
+              this.events.publish("user:nurse");
+              this.navCtrl.setRoot(NurseHomePage);
+            } else if (
+              data[1].findIndex(
+                role_name => role_name.role_name === "ผู้ป่วย"
+              ) >= 0
+            ) {
 
-          if (
-            data[1].findIndex(role_name => role_name.role_name === "doctor") >=
-            0
-          ) {
-            this.events.publish("user:doctor");
-            this.navCtrl.setRoot(DoctorHomePage);
-          } else if (
-            data[1].findIndex(role_name => role_name.role_name === "nurse") >= 0
-          ) {
-            this.events.publish("user:nurse");
-            this.navCtrl.setRoot(NurseHomePage);
-          } else if (
-            data[1].findIndex(role_name => role_name.role_name === "patient") >=
-            0
-          ) {
-            this.events.publish("user:patient");
-            this.navCtrl.setRoot(PatientHomePage);
+              this.events.publish("user:patient");
+              this.navCtrl.setRoot(PatientHomePage);
+            }
           }
         },
         error => {
           console.log(error);
+          alert(error);
         }
       );
   }
-
   gonPage() {
     this.navCtrl.setRoot(NurseHomePage);
   }
@@ -129,8 +128,25 @@ export class LoginPage {
   admin() {
     this.navCtrl.setRoot(AdminhomePage);
   }
-  doSignup(){
+  doSignup() {
     console.log(this.formgroup.value);
     console.log(this.formgroup.valid);
-}
+  }
+  async showToastWithCloseButton(txt: string) {
+    const toast = await this.toastController.create({
+      message: txt,
+      showCloseButton: true,
+      closeButtonText: "Ok"
+    });
+    toast.present();
+  }
+  async presentAlert(txt: string) {
+    let alert = await this.alertCtrl.create({
+      title: 'เกิดข้อผิดพลาด',
+      subTitle: txt,
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
 }

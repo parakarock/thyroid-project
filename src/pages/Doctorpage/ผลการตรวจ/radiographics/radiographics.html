@@ -32,11 +32,15 @@
     <p><img align="center" src="{{ myPhoto }}"/></p>
   </ion-item>
 
+  <ion-item *ngIf="myPhoto" >
+    <ion-textarea autosize placeholder="เขียนคำอธิบายรูปภาพ"[(ngModel)]="note"  name="note"></ion-textarea>
+  </ion-item>
+
   <ion-item>
     <button ion-button full (click)="uploadFile()">อัพโหลดรูปภาพ</button>
   </ion-item>
 </ion-card>
 
-   <div>ผลการรักษา</div>
+   <!-- <div>ผลการรักษา</div>
   <button ion-button full (click)="uploadFile()">Edit</button> -->
 </ion-content>

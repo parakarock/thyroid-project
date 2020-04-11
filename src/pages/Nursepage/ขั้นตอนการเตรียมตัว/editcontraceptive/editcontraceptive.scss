@@ -17,7 +17,10 @@ page-editcontraceptive {
         font-size: 15px;
 
     }
+    label {
+        font-size: 15px;
 
+    }
 
     @media only screen and (min-width: 1224px) {
         ion-icon{
@@ -41,6 +44,10 @@ page-editcontraceptive {
             width: 40%;
             position: relative;
             left: 30%;
+
+        }
+        label {
+            font-size: 20px;
 
         }
       }

@@ -107,8 +107,8 @@ export class RadiographicsPage {
     loader.present();
     const fileTransfer: FileTransferObject = this.transfer.create();
 
-    var random = Math.floor(Math.random() * 1000);
-
+    // var random = Math.floor(Math.random() * 10000000000);
+    var random = Math.floor(Math.random() * 100) + 2 + "" + new Date().getTime() +  Math.floor(Math.random() * 100) + 2 + (Math.random().toString(36).replace(/[^a-zA-Z]+/g, '').substr(0, 5));
     let options: FileUploadOptions = {
       fileKey: 'photo',
       fileName: "myImage_" + random + ".jpg",
@@ -118,11 +118,11 @@ export class RadiographicsPage {
       headers: {}
     }
 
-    fileTransfer.upload(this.myPhoto, 'http://192.168.31.190:8000/upload.php', options)
+    fileTransfer.upload(this.myPhoto, 'http://192.168.31.98:8000/upload.php', options)
       .then((data) => {
       alert("การอัพโหลดรูปเสร็จสมบูรณ์");
       // console.log(data + " Uploaded Successfully");
-      //this.myPhoto = "http://10.80.82.229:8000/Images/ionicfile.jpg"
+      // this.myPhoto = "http://10.80.82.229:8000/Images/ionicfile.jpg"
       loader.dismiss();
       //this.presentToast("Image uploaded successfully");
     }, (err) => {

@@ -1,19 +1,4 @@
 
-// import { DocTestresultPage } from '../pages/Doctorpage/ผลการตรวจ/doc-testresult/doc-testresult';
-// import { DocRadiographicsPage } from '../pages/Doctorpage/ผลการตรวจ/doc-radiographics/doc-radiographics';
-// import { DocRadiographicPage } from '../pages/Doctorpage/ผลการตรวจ/doc-radiographic/doc-radiographic';
-// import { DocPhysicalsPage } from '../pages/Doctorpage/ผลการตรวจ/doc-physicals/doc-physicals';
-// import { DocPhysicalPage } from '../pages/Doctorpage/ผลการตรวจ/doc-physical/doc-physical';
-// import { DocLabPage } from '../pages/Doctorpage/ผลการตรวจ/doc-lab/doc-lab';
-// import { DocExaminationPage } from '../pages/Doctorpage/ผลการตรวจ/doc-examination/doc-examination';
-// import { DocEditphysicalsPage } from '../pages/Doctorpage/ผลการตรวจ/doc-editphysicals/doc-editphysicals';
-// import { DocEditphysicalPage } from '../pages/Doctorpage/ผลการตรวจ/doc-editphysical/doc-editphysical';
-// import { DocEditlabPage } from '../pages/Doctorpage/ผลการตรวจ/doc-editlab/doc-editlab';
-// import { DocEditbiopsyPage } from '../pages/Doctorpage/ผลการตรวจ/doc-editbiopsy/doc-editbiopsy';
-// import { DocEditPage } from '../pages/Doctorpage/ผลการตรวจ/doc-edit/doc-edit';
-// import { DocDiagnosticResultPage } from '../pages/Doctorpage/ผลการตรวจ/doc-diagnostic-result/doc-diagnostic-result';
-// import { DocBiopsyPage } from '../pages/Doctorpage/ผลการตรวจ/doc-biopsy/doc-biopsy';
-
 // import { EditlabtestPage } from '../pages/Nursepage/editlabtest/editlabtest';
 import { EditlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/editlabtest/editlabtest';
 import { EdittreatmentresultPage } from '../pages/Doctorpage/edittreatmentresult/edittreatmentresult';
@@ -83,19 +68,19 @@ import { AddcontraceptivePage} from '../pages/Nursepage/ขั้นตอนก
 import { EditdatePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/editdate/editdate';
 
 // //Nurse Page//
-// import { TestresultPage} from '../pages/Nursepage/ผลการตรวจ/testresult/testresult';
-// import { PhysicalPage} from '../pages/Nursepage/ผลการตรวจ/physical/physical';
-// import { PhysicalsPage} from '../pages/Nursepage/ผลการตรวจ/physicals/physicals';
-// import { LabPage} from '../pages/Nursepage/ผลการตรวจ/lab/lab';
-// import { RadiographicPage} from '../pages/Nursepage/ผลการตรวจ/radiographic/radiographic';
-// import { RadiographicsPage} from '../pages/Nursepage/ผลการตรวจ/radiographics/radiographics';
-// import { ExaminationPage} from '../pages/Nursepage/ผลการตรวจ/examination/examination';
-// import { BiopsyPage} from '../pages/Nursepage/ผลการตรวจ/biopsy/biopsy';
-// import { EditphysicalPage} from '../pages/Nursepage/ผลการตรวจ/editphysical/editphysical';
-// import { EditphysicalsPage} from '../pages/Nursepage/ผลการตรวจ/editphysicals/editphysicals';
-// import { EditlabPage} from '../pages/Nursepage/ผลการตรวจ/editlab/editlab';
-// import { EditbiopsyPage} from '../pages/Nursepage/ผลการตรวจ/editbiopsy/editbiopsy';
-// import { DiagnosticResultsPage} from '../pages/Nursepage/ผลการตรวจ/diagnostic-results/diagnostic-results';
+import { TestresultPage} from '../pages/Doctorpage/ผลการตรวจ/testresult/testresult';
+import { PhysicalPage} from '../pages/Doctorpage/ผลการตรวจ/physical/physical';
+import { PhysicalsPage} from '../pages/Doctorpage/ผลการตรวจ/physicals/physicals';
+import { LabPage} from '../pages/Doctorpage/ผลการตรวจ/lab/lab';
+import { RadiographicPage} from '../pages/Doctorpage/ผลการตรวจ/radiographic/radiographic';
+import { RadiographicsPage} from '../pages/Doctorpage/ผลการตรวจ/radiographics/radiographics';
+import { ExaminationPage} from '../pages/Doctorpage/ผลการตรวจ/examination/examination';
+import { BiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/biopsy/biopsy';
+import { EditphysicalPage} from '../pages/Doctorpage/ผลการตรวจ/editphysical/editphysical';
+import { EditphysicalsPage} from '../pages/Doctorpage/ผลการตรวจ/editphysicals/editphysicals';
+import { EditlabPage} from '../pages/Doctorpage/ผลการตรวจ/editlab/editlab';
+import { EditbiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/editbiopsy/editbiopsy';
+import { DiagnosticResultsPage} from '../pages/Doctorpage/ผลการตรวจ/diagnostic-results/diagnostic-results';
 
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 // import { File } from '@ionic-native/file';
@@ -106,6 +91,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/eatfood/eatfood';
 import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
+import {InsertPage} from '../pages/Nursepage/insert/insert';
 
 import { PatientHomePage } from '../pages/Patientpage/patient-home/patient-home';
 
@@ -126,7 +112,7 @@ import { GlobalProvider } from '../providers/global/global';
 import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from '@ionic-native/file-opener';
 import { FileChooser } from '@ionic-native/file-chooser';
-
+import { AutosizeModule } from 'ngx-autosize';
 
 @NgModule({
   declarations: [
@@ -172,20 +158,20 @@ import { FileChooser } from '@ionic-native/file-chooser';
     EditavoideatingPage,
     EditdataswallowPage,
     AddcontraceptivePage,
-    // EditphysicalsPage,
-    // EditdatePage,
-    // TestresultPage,
-    // PhysicalPage,
-    // PhysicalsPage,
-    // LabPage,
-    // RadiographicPage,
-    // RadiographicsPage,
-    // ExaminationPage,
-    // BiopsyPage,
-    // EditphysicalPage,
-    // EditlabPage,
-    // DiagnosticResultsPage,
-    // EditbiopsyPage,
+    EditphysicalsPage,
+    EditdatePage,
+    TestresultPage,
+    PhysicalPage,
+    PhysicalsPage,
+    LabPage,
+    RadiographicPage,
+    RadiographicsPage,
+    ExaminationPage,
+    BiopsyPage,
+    EditphysicalPage,
+    EditlabPage,
+    DiagnosticResultsPage,
+    EditbiopsyPage,
     // DocBiopsyPage,
     // DocDiagnosticResultPage,
     // DocEditPage,
@@ -216,7 +202,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
     NofoodPage,
     AppointmentPage,
     GenPage,
-    AddhosPage
+    AddhosPage,
+    InsertPage
 
 
   ],
@@ -226,7 +213,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AutosizeModule
     // IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -273,20 +261,20 @@ import { FileChooser } from '@ionic-native/file-chooser';
     EditavoideatingPage,
     EditdataswallowPage,
     AddcontraceptivePage,
-    // EditphysicalsPage,
+    EditphysicalsPage,
     EditdatePage,
-    // TestresultPage,
-    // PhysicalPage,
-    // PhysicalsPage,
-    // LabPage,
-    // RadiographicPage,
-    // // RadiographicsPage,
-    // ExaminationPage,
-    // BiopsyPage,
-    // EditphysicalPage,
-    // EditlabPage,
-    // DiagnosticResultsPage,
-    // EditbiopsyPage,
+    TestresultPage,
+    PhysicalPage,
+    PhysicalsPage,
+    LabPage,
+    RadiographicPage,
+    RadiographicsPage,
+    ExaminationPage,
+    BiopsyPage,
+    EditphysicalPage,
+    EditlabPage,
+    DiagnosticResultsPage,
+    EditbiopsyPage,
     // DocBiopsyPage,
     // DocDiagnosticResultPage,
     // DocEditPage,
@@ -317,7 +305,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
     NofoodPage,
     AppointmentPage,
     GenPage,
-    AddhosPage
+    AddhosPage,
+    InsertPage
 
   ],
   providers: [

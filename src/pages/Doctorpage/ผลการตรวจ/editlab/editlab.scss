@@ -11,7 +11,9 @@ page-editlab {
     .button{
         font-size: 15px;
     }
-    
+    label{
+        font-size:  15px;
+     }
     @media only screen and (min-width: 1224px) {
         ion-label {
             font-size: 20px;
@@ -33,6 +35,8 @@ page-editlab {
             font-size: 15px;
             
         }
-        
+        label{
+            font-size:  20px;
+         }
       }
 }

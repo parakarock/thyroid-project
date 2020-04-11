@@ -7,8 +7,28 @@
 <ion-content padding>
 
   <ion-card id="css" padding>
-        <ion-card  padding>
-            <ion-item >
+
+
+
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                    <label for="patient" >ผู้ป่วยคุมกำเนิดหรือไม่ </label>
+                  </ion-col>
+                    <ion-col col-6>
+                    <select >
+                      <option value="ไม่ได้คุม">ไม่ได้คุม</option>
+                      <option value="รับประทานยาคุมกำเนิด">รับประทานยาคุมกำเนิด</option>
+                      <option value="ฉีดยาคุมกำเนิด">ฉีดยาคุมกำเนิด</option>
+                      <option value="ฝังยาคุมกำเนิด">ฝังยาคุมกำเนิด</option>
+                      <option value="ทำหมัน">ทำหมัน</option>
+                      <option value="หมดประจำเดือน">หมดประจำเดือน</option>
+                    </select>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+                 <!-- <ion-item >
               <ion-label color="dark">ผู้ป่วยคุมกำเนิดหรือไม่</ion-label>
               <ion-select [(ngModel)]="patient" placeholder=เลือก interface="popover">
                 <ion-option value="ไม่ได้คุม">ไม่ได้คุม</ion-option>
@@ -18,8 +38,25 @@
                 <ion-option value="ทำหมัน">ทำหมัน</ion-option>
                 <ion-option value="หมดประจำเดือน">หมดประจำเดือน</ion-option>
               </ion-select>
-            </ion-item>
+            </ion-item> -->
 
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                  <label for="contraceptive" >คุมกำเนิด    </label>
+                </ion-col>
+
+                  <input type="text" id="contraceptive" name="contraceptive" size="18">
+                  <label for="">&ensp;&ensp;</label>
+                  <select >
+                    <option value="เดือน">เดือน </option>
+                    <option value="ปี">ปี </option>
+                  </select>
+
+              </ion-row>
+            </ion-grid>
+
+<!--
             <ion-item >
               <ion-label color="dark">คุมกำเนิด</ion-label>
               <ion-input type="text" [(ngModel)]="contraceptive"></ion-input>
@@ -27,14 +64,44 @@
                 <ion-option value="เดือน">เดือน</ion-option>
                 <ion-option value="ปี">ปี</ion-option>
               </ion-select>
+<<<<<<< HEAD
             </ion-item>
 
             <ion-item>
+=======
+            </ion-item> -->
+
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                <label for="date">ประจำเดือนครั้งสุดท้ายของท่าน</label>
+              </ion-col>
+              <ion-col col-6>
+              <input type="date" id="date" name="date" size="18">
+            </ion-col>
+          </ion-row>
+          </ion-grid>
+
+            <!-- <ion-item>
+>>>>>>> c5cc4bd8b715c75b2c1d42d0e600e3824fb73329
               <ion-label color="dark">ประจำเดือนครั้งสุดท้ายของท่าน</ion-label>
               <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
-            </ion-item>
+            </ion-item> -->
 
-            <ion-item >
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                  <label for="number" >จำนวน    </label>
+                </ion-col>
+
+                  <input type="text" id="number" name="number" size="18">
+                  <label for="">&ensp;&ensp;</label>
+                  <label for="d" >วัน   </label>
+
+              </ion-row>
+            </ion-grid>
+
+            <!-- <ion-item >
               <ion-label color="dark">จำนวน</ion-label>
               <ion-row item-content>
             <ion-col>
@@ -42,8 +109,9 @@
             </ion-col>
               <div><ion-label color="dark">วัน</ion-label></div>
           </ion-row>
-            </ion-item>
-          </ion-card>
+            </ion-item> -->
+
+
             <div padding></div>
             <ion-item no-lines >
               <div >กรณีที่ผู้ป่วยมีเพศสัมพันธ์แต่ไม่ได้คุมกำเนิดหรือประจำเดือนมาไม่สม่ำเสมอ ผู้ป่วยจะต้องเก็บปัสสาวะเพื่อตรวจการตั้งครรภ์</div>
