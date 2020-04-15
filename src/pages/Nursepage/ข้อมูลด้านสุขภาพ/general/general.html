@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" padding *ngIf="showData">
+  <ion-card id="css" padding style=" box-shadow: none !important;" *ngIf="showData">
 <ion-item >
   <ion-grid>
     <ion-row>
@@ -157,7 +157,7 @@
   </ion-grid>
 </ion-item>
 </ion-card>
-<ion-card id="css" *ngIf="!showData">
+<ion-card id="css" padding style=" box-shadow: none !important;"*ngIf="!showData">
   <ion-item no-lines>
     <ion-label color="dark">ไม่พบข้อมูล</ion-label>
   </ion-item>

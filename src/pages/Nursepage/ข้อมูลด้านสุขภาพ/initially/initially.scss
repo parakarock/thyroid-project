@@ -1,5 +1,8 @@
 page-initially {
-    
+    ion-label {
+        font-size: 15px;
+        text-align: center;
+    }
     .button{
         font-size: 15px;
         display: block;
@@ -19,6 +22,10 @@ page-initially {
             position: relative;
             left: 30%;
           
+        }
+        ion-label {
+            font-size: 20px;
+            text-align: center;
         }
       }
 }

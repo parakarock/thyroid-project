@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card id="css" padding>
+<ion-card id="css" padding style=" box-shadow: none !important;">
 
   <label for="title" >ผู้ป่วยได้รับการวินิจฉัยเป็นต่อมไทรอยด์เป็นพิษเมื่อ </label>
   <ion-grid>
@@ -31,7 +31,7 @@
           <option value="ธันวาคม">ธันวาคม</option>
         </select>
             <label for="ปี">&ensp;ปี&ensp;</label>
-          <input type="select" id="birthday" name="birthday" size="20">
+          <input type="select" id="birthday" name="birthday" style="width:100%; max-width:200px;">
     </ion-row>
   </ion-grid>
 
@@ -47,20 +47,20 @@
           <option value="heart failure"> heart failure </option>
         </select>
             <label for="ระบุ">&ensp;ระบุ&ensp;</label>
-            <input type="text" id="sp" name="sp" size="20">
+            <input type="text" id="sp" name="sp" style="width:100%; max-width:200px;">
     </ion-row>
   </ion-grid>
 
   <br><br>
 
-  <label for="ยาต้านไทรอยด์ที่ได้รับในปัจจุบัน" >ยาต้านไทรอยด์ที่ได้รับในปัจจุบัน </label>
+  <label for="รอยด์ที่ได้รับในปัจจุบัน" >ยาต้านไทรอยด์ที่ได้รับในปัจจุบัน </label>
     <ion-grid>
       <ion-row>
         <ion-col col-4>
             <label for="ThyroidMed" >ยาต้านอาการไทรอยด์      </label>
           </ion-col>
             <ion-col col-4>
-            <select >
+            <select (change)="myFunction()" name="thairoid" id="thairoid" [(ngModel)]="thairoid">
               <option value="Propylthiouracil (PTU)">Propylthiouracil (PTU)</option>
               <option value="Methimazole (MMI)">Methimazole (MMI)</option>
               <option value="Tapazole">Tapazole</option>
@@ -69,7 +69,7 @@
               <option value="อื่นๆ">อื่นๆ</option>
             </select>
         </ion-col>
-        <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">  
+        <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" style="width:100%; max-width:200px;">  
       </ion-row>
     </ion-grid>
     
@@ -92,7 +92,7 @@
             <label for="ThyroidMed" >ยากลุ่ม Beta-Blocker    </label>
           </ion-col>
             <ion-col col-4>
-            <select >
+            <select (change)="myFunction2()" name="thairoid2" id="thairoid2" [(ngModel)]="thairoid2">
               <option value="Propranolol (10)">Propranolol (10)</option>
               <option value="Propranolol (40)">Propranolol (40)</option>
               <option value="Betalol (10)">Betalol (10)</option>
@@ -100,7 +100,7 @@
               <option value="อื่นๆ">อื่นๆ</option>
             </select>
         </ion-col>
-        <input type="text" id="BetaBlockEtc" name="BetaBlockEtc" size="20">  
+        <input type="text" id="BetaBlockEtc" name="BetaBlockEtc" style="width:100%; max-width:200px;">  
       </ion-row>
     </ion-grid>
 
@@ -148,7 +148,7 @@
       
     </ion-grid>
     <label for="ระบุ">&ensp;ระบุ&ensp;</label>
-    <input type="text" id="sp1" name="sp1" size="20">  
+    <input type="text" id="sp1" name="sp1" style="width:100%; max-width:200px;">  
   
 
 

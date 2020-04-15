@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" padding *ngIf="showData">
+  <ion-card id="css" padding style=" box-shadow: none !important;" *ngIf="showData">
     <div>อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
     <br />
 
@@ -95,14 +95,14 @@
             <label for="other" color="danger">*ถ้ามี(โปรดระบุโรค) </label>
           </ion-col>
           <ion-col col-6>
-            <input type="textbox" id="other" name="other" size="20" value="{{diseaseName}}" disabled="disabled"/>
+            <input type="textbox" id="other" name="other" style="width:100%; max-width:200px;" value="{{diseaseName}}" disabled="disabled"/>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
   </ion-card>
 
-  <ion-card id="css" *ngIf="!showData">
+  <ion-card id="css" padding style=" box-shadow: none !important;"*ngIf="!showData">
     <ion-item no-lines>
       <ion-label color="dark">ไม่พบข้อมูล</ion-label>
     </ion-item>

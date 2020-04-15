@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" padding>
+  <ion-card id="css" padding style=" box-shadow: none !important;">
     <div>อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
     <div>กรุณาเลือกข้อที่ท่านมีอาการดังต่อไปนี้ (เลือกได้มากกว่า1คำตอบ)</div>
     <br />
@@ -121,7 +121,7 @@
           <label  color="danger">*ถ้ามี(โปรดระบุโรค) </label>
         </ion-col>
         <ion-col col-6>
-          <input type="text" [(ngModel)]="diseaseName" size="20" value="{{diseaseName}}"/>
+          <input type="text" [(ngModel)]="diseaseName" style="width:100%; max-width:200px;" value="{{diseaseName}}"/>
         </ion-col>
       </ion-row>
     </ion-grid>

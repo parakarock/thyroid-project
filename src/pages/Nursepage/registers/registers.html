@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card id="css" padding>
+<ion-card id="css" padding style=" box-shadow: none !important;">
 
   <form [formGroup]="formgroup"  >
   <ion-list >
@@ -29,7 +29,7 @@
           <label  >กรุณาระบุ    </label>
         </ion-col>
         <ion-col col-6>
-          <input type="text" formControlName="from_name2" size="20">
+          <input type="text" formControlName="from_name2" style="width:100%; max-width:200px;">
           <p
                 class="help-inline"
                 *ngIf="!formgroup.get('from_name2').valid
@@ -47,7 +47,7 @@
           <label >HN รพ.    </label>
         </ion-col>
         <ion-col col-6>
-          <input type="text" formControlName="from_id" size="20">
+          <input type="text" formControlName="from_id" style="width:100%; max-width:200px;">
           <p
                 class="help-inline"
                 *ngIf="!formgroup.get('from_id').valid
@@ -67,7 +67,7 @@
           <label  >รพ.มหาวิทยาลัยบูรพา HN    </label>
         </ion-col>
         <ion-col col-6>
-          <input type="text" formControlName="Hos_base_id" size="20" placeholder="xxxxxx">
+          <input type="text" formControlName="Hos_base_id" style="width:100%; max-width:200px;" placeholder="xxxxxx">
           <p
                 class="help-inline"
                 *ngIf="!formgroup.get('Hos_base_id').valid
@@ -104,7 +104,7 @@
             <label  >กรุณาระบุ    </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" formControlName="to_name2" size="20"> 
+            <input type="text" formControlName="to_name2" style="width:100%; max-width:200px;"> 
             <p
                 class="help-inline"
                 *ngIf="!formgroup.get('to_name2').valid
@@ -124,7 +124,7 @@
             <label  >HN รพ.    </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" formControlName="to_id" size="20">
+            <input type="text" formControlName="to_id" style="width:100%; max-width:200px;">
             <p
             class="help-inline"
             *ngIf="!formgroup.get('to_id').valid

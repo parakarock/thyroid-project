@@ -12,7 +12,7 @@
 
 <ion-content padding>
   <form [formGroup]="formgroup" (ngSubmit)="doRegister()">
-    <ion-card id="css" padding>
+    <ion-card id="css" padding style=" box-shadow: none !important;">
       <ion-list>
         <ion-grid>
           <ion-row>
@@ -49,7 +49,7 @@
                 id="fname"
                 name="fname"
                 formControlName="fname"
-                size="20"
+                style="width:100%; max-width:200px;"
               />
               <p
                 class="help-inline"
@@ -73,7 +73,7 @@
                 id="lname"
                 name="lname"
                 formControlName="lname"
-                size="20"
+                style="width:100%; max-width:200px;"
               />
               <p class="help-inline"
               *ngIf="!formgroup.get('lname').valid
@@ -148,7 +148,7 @@
               <input
                 type="text"
                 formControlName="National"
-                size="20"
+                style="width:100%; max-width:200px;"
               />
               <p class="help-inline"
               *ngIf="!formgroup.get('National').valid
@@ -182,7 +182,7 @@
               <label>เบอร์โทรศัพท์ที่ติดต่อได้ </label>
             </ion-col>
             <ion-col col-6>
-              <input type="phone" formControlName="tel" size="20" />
+              <input type="phone" formControlName="tel" style="width:100%; max-width:200px;" />
               <p class="help-inline" 
               *ngIf="!formgroup.get('tel').valid
               && formgroup.get('tel').touched">กรุณากรอกตัวเลข อย่างน้อย 6 หลัก และ ไม่เกิน 15 หลัก</p>

@@ -6,7 +6,7 @@
 
 <ion-content padding>
  
-  <ion-card id="css" *ngIf="showData">
+  <ion-card id="css" padding style=" box-shadow: none !important;"*ngIf="showData">
     <div padding>
       ขณะท่านมีอาการไทรอยด์เป็นพิษ
       กรุณาใส่เครื่องหมายถูกในช่องสี่เหลี่ยมหากท่านมีปัจจัยที่ก่อให้เกิดโรคดังต่อไปนี้
@@ -25,14 +25,14 @@
     <ion-item no-lines>
       <input type="checkbox" name="nighttimework" />
       <label for="nighttimework"> งานแบบเข้ากะกลางคืนช่วงเข้ากะรอบละ</label>
-      <input type="text" id="timework" name="timework" size="20" />
+      <input type="text" id="timework" name="timework" style="width:100%; max-width:200px;" />
       <label for="timework">ชั่วโมง </label>
     </ion-item>
 
     <ion-item no-lines>
       <input type="checkbox" name="overtime" />
       <label for="overtime"> งานล่วงเวลา รอบละ</label>
-      <input type="text" name="rounds" size="20" />
+      <input type="text" name="rounds" style="width:100%; max-width:200px;" />
       <label for="rounds">ชั่วโมง </label>
     </ion-item>
 
@@ -65,7 +65,7 @@
         <input type="text" id="perday" name="perday" size="10" />
         <label for="null">&ensp; </label>
         <select>
-          <option value="ม้วนต่อวัน">ม้วนต่อวัน </option>
+          <option value="มวนต่อวัน">มวนต่อวัน </option>
           <option value="ซองต่อวัน">ซองต่อวัน </option>
         </select>
       </ion-row>
@@ -114,7 +114,7 @@
     </ion-item>
   </ion-card>
 
-  <ion-card id="css" *ngIf="!showData">
+  <ion-card id="css" padding style=" box-shadow: none !important;"*ngIf="!showData">
     <ion-item no-lines>
       <ion-label color="dark">ไม่พบข้อมูล</ion-label>
     </ion-item>

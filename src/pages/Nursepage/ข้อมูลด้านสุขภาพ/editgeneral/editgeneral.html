@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <form [formGroup]="formgroup" (ngSubmit)="doUpdate()">
-  <ion-card id="css" padding>
+  <ion-card id="css" padding style=" box-shadow: none !important;">
   <ion-list >
 
     <ion-grid>
@@ -44,7 +44,7 @@
               id="fname"
               name="fname"
               formControlName="fname"
-              size="20"
+              style="width:100%; max-width:200px;"
             />
             <p
               class="help-inline"
@@ -68,7 +68,7 @@
               id="lname"
               name="lname"
               formControlName="lname"
-              size="20"
+              style="width:100%; max-width:200px;"
             />
             <p
               class="help-inline"
@@ -87,7 +87,7 @@
             <label>วันเกิด</label>
           </ion-col>
           <ion-col col-6>
-            <input type="date" (input)="updateAge()"  formControlName="birthday" size="20" />
+            <input type="date" (input)="updateAge()"  formControlName="birthday" style="width:100%; max-width:200px;" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('birthday').valid
@@ -156,7 +156,7 @@
             <label>สัญชาติ</label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" formControlName="National" size="20" />
+            <input type="text" formControlName="National" style="width:100%; max-width:200px;" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('National').valid
@@ -197,7 +197,7 @@
             <label>เบอร์โทรศัพท์ที่ติดต่อได้ </label>
           </ion-col>
           <ion-col col-6>
-            <input type="phone" formControlName="tel" size="20" />
+            <input type="phone" formControlName="tel" style="width:100%; max-width:200px;" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('tel').valid
@@ -217,7 +217,7 @@
             <label>ส่งตัวมาจากโรงพยาบาล </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" formControlName="from_name2" size="20" />
+            <input type="text" formControlName="from_name2" style="width:100%; max-width:200px;" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('from_name2').valid
@@ -235,7 +235,7 @@
             <label>HN </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" formControlName="from_id" size="20" />
+            <input type="text" formControlName="from_id" style="width:100%; max-width:200px;" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('from_id').valid
@@ -253,7 +253,7 @@
             <label for="buuhn">โรงพยาบาลบูรพา HN </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" formControlName="Hos_base_id" size="20" />
+            <input type="text" formControlName="Hos_base_id" style="width:100%; max-width:200px;" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('Hos_base_id').valid
@@ -273,7 +273,7 @@
             <label>โรงพยาบาลที่ส่งตัวกลับ </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" formControlName="to_name2" size="20" />
+            <input type="text" formControlName="to_name2" style="width:100%; max-width:200px;" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('to_name2').valid
@@ -291,7 +291,7 @@
             <label>HN </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" formControlName="to_id" size="20" />
+            <input type="text" formControlName="to_id" style="width:100%; max-width:200px;" />
             <p
               class="help-inline"
               *ngIf="!formgroup.get('to_id').valid

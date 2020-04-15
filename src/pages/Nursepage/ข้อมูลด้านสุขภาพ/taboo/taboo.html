@@ -7,7 +7,7 @@
 
 <ion-content padding>
   
-  <ion-card id="css" padding *ngIf="showData && showFormSex">
+  <ion-card id="css" padding style=" box-shadow: none !important;" *ngIf="showData && showFormSex">
     <div>1.ท่านเคยผ่าตัดที่ลำคอหรือมีแผลเป็นที่ลำคอด้านหน้าหรือไม่</div>
     <ion-list >
     <ion-item no-lines >
@@ -123,7 +123,7 @@
       </ion-list>
   </ion-card>
 
-  <ion-card id="css" padding *ngIf="showData && !showFormSex">
+  <ion-card id="css" padding style=" box-shadow: none !important;" *ngIf="showData && !showFormSex">
     <div>1.ท่านเคยผ่าตัดที่ลำคอหรือมีแผลเป็นที่ลำคอด้านหน้าหรือไม่</div>
     <ion-list >
     <ion-item no-lines >
@@ -211,7 +211,7 @@
       </ion-list>
   </ion-card>
 
-  <ion-card id="css" *ngIf="!showData">
+  <ion-card id="css" padding style=" box-shadow: none !important;"*ngIf="!showData">
 
     <ion-item no-lines>
     <ion-label  color="dark">ไม่พบข้อมูล</ion-label>

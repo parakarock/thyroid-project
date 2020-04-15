@@ -27,11 +27,16 @@ export class EditiodineresultdetailPage {
   BetaBlockRoundPerDay:number;
   BetaBlockEtc:string;
 
+  thairoid:string;
+  thairoid2:string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditiodineresultdetailPage');
+    document.getElementById("ThyroidMedEtc").style.visibility = "hidden";
+    document.getElementById("BetaBlockEtc").style.visibility = "hidden";
   }
 
   body = JSON.stringify({
@@ -48,6 +53,27 @@ export class EditiodineresultdetailPage {
   });
 
   do(){
+    
+  }
+  myFunction(){
+    if(this.thairoid=="อื่นๆ"){
+      // this.ThyroidMedEtc.style.visibility = "hidden";
+      document.getElementById("ThyroidMedEtc").style.visibility = "visible"; 
+      
+    }else{
+      document.getElementById("ThyroidMedEtc").style.visibility = "hidden";
+    }
+    
+  }
+
+  myFunction2(){
+    if(this.thairoid2=="อื่นๆ"){
+      // this.ThyroidMedEtc.style.visibility = "hidden";
+      document.getElementById("BetaBlockEtc").style.visibility = "visible"; 
+      
+    }else{
+      document.getElementById("BetaBlockEtc").style.visibility = "hidden";
+    }
     
   }
 
