@@ -31,7 +31,9 @@ import 'moment/locale/TH';
 })
 export class EditgeneralPage {
   formgroup: FormGroup;
-  age;
+  startMin: any;
+  startMax: any;
+  age = moment().diff(moment(this.navParams.get("date"),"YYYY-MM-DD").subtract(543, 'y'), 'years');
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -40,20 +42,22 @@ export class EditgeneralPage {
     public alertCtrl: AlertController,
     private http: Http
   ) {
+    this.startMin = moment().add(443, 'y').format("YYYY");
+    this.startMax = moment().add(543, 'y').format("YYYY");
     this.formgroup = formBuilder.group({
       title: [navParams.get("title"), Validators.required],
       fname: [
         navParams.get("firstname"),
         Validators.compose([
           Validators.required,
-          Validators.pattern("^[ก-๏s]+$")
+          Validators.pattern("^[ก-๏sa-zA-Z]+$")
         ])
       ],
       lname: [
         navParams.get("lastname"),
         Validators.compose([
           Validators.required,
-          Validators.pattern("^[ก-๏s]+$")
+          Validators.pattern("^[ก-๏sa-zA-Z]+$")
         ])
       ],
       birthday: [navParams.get("date"), Validators.required],
@@ -61,9 +65,9 @@ export class EditgeneralPage {
         navParams.get("idcard"),
         Validators.compose([
           Validators.required,
-          Validators.minLength(13),
+          Validators.minLength(6),
           Validators.maxLength(13),
-          Validators.pattern("[0-9]+")
+          Validators.pattern("[0-9a-zA-Z]+")
         ])
       ],
       sex: [navParams.get("gender"), Validators.required],
@@ -71,7 +75,7 @@ export class EditgeneralPage {
         navParams.get("national"),
         Validators.compose([
           Validators.required,
-          Validators.pattern("^[ก-๏s]+$")
+          Validators.pattern("^[ก-๏sa-zA-Z]+$")
         ])
       ],
       status: [navParams.get("status"), Validators.required],
@@ -79,8 +83,8 @@ export class EditgeneralPage {
         navParams.get("tel"),
         Validators.compose([
           Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(10),
+          Validators.minLength(6),
+          Validators.maxLength(15),
           Validators.pattern("[0-9]+")
         ])
       ],
@@ -91,14 +95,14 @@ export class EditgeneralPage {
         navParams.get("hnbuu"),
         Validators.compose([Validators.required, Validators.pattern("[0-9]+")])
       ],
-      from_name2: [navParams.get("input"), Validators.pattern("^[ก-๏s]+$")],
-      to_name2: [navParams.get("output"), Validators.pattern("^[ก-๏s]+$")]
+      from_name2: [navParams.get("input"), Validators.pattern("^[ก-๏sa-zA-Z]+$")],
+      to_name2: [navParams.get("output"), Validators.pattern("^[ก-๏sa-zA-Z]+$")]
     });
-    this.updateAge();
+    
     
   }
   updateAge(){
-    this.age = moment().diff(moment(this.formgroup.controls.birthday.value,"YYYY-MM-DD"), 'years');
+    this.age = moment().diff(moment(this.formgroup.controls.birthday.value,"YYYY-MM-DD").subtract(543, 'y'), 'years');
   }
   doUpdate() {
     console.log(this.formgroup.value);
@@ -112,14 +116,14 @@ export class EditgeneralPage {
       title: this.formgroup.controls.title.value,
       firstname: this.formgroup.controls.fname.value,
       lastname: this.formgroup.controls.lname.value,
-      dof: this.formgroup.controls.birthday.value,
+      dof: moment(this.formgroup.controls.birthday.value).format("YYYY-MM-DD"),
       gender: this.formgroup.controls.sex.value,
       national: this.formgroup.controls.National.value,
       status: this.formgroup.controls.status.value,
       phone: this.formgroup.controls.tel.value,
       from_id: this.formgroup.controls.from_id.value,
       to_id: this.formgroup.controls.to_id.value,
-      Hos_base_h_id: this.formgroup.controls.Hos_base_id.value,
+      Hos_base_id: this.formgroup.controls.Hos_base_id.value,
       from_name: this.formgroup.controls.from_name2.value,
       to_name: this.formgroup.controls.to_name2.value
     };
@@ -127,7 +131,7 @@ export class EditgeneralPage {
     console.log("body : " + body);
     this.http
       .post(
-        "http://192.168.42.83:8000/healthdata.php?method=update_profile&role=nurse",
+        "http://"+this.global.getIP()+"/healthdata.php?method=update_profile&role="+this.global.getSelectRole(),
         body,
         options
       )
@@ -135,6 +139,7 @@ export class EditgeneralPage {
       .subscribe(
         data => {
           if(data.result){
+           this.global.setSex(this.formgroup.controls.sex.value);
             this.presentAlert(data.result); 
           }
         },
@@ -162,7 +167,10 @@ export class EditgeneralPage {
           text: "ยืนยัน",
           handler: () => {
             this.updateData();
+            this.navCtrl.getPrevious().data.formData = this.formgroup.value
             this.navCtrl.pop();
+           
+           
           }
         }
       ]
@@ -178,3 +186,4 @@ export class EditgeneralPage {
     alert.present();
   }
 }
+

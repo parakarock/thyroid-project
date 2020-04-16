@@ -17,6 +17,7 @@ import { PreparehomePage } from "../ขั้นตอนการเตรี�
 import { TestresultPage } from "../../Doctorpage/ผลการตรวจ/testresult/testresult";
 import { GlobalProvider } from "../../../providers/global/global";
 import { QrcodePage } from "../../qrscan/qrscan";
+import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
 import {
   Http,
@@ -49,15 +50,17 @@ export class NurseHomePage {
     public alertCtrl: AlertController,
     public menu: MenuController,
     public global: GlobalProvider,
-    private http: Http
+    private http: Http,
+    public scanner: BarcodeScanner
   ) {}
-  
+  options: BarcodeScannerOptions;
   roles;
   rounds;
   name;
   status: string;
   showMenu: boolean;
   code:string;
+  scannedData:any={};
   number;
   patientname;
 
@@ -72,14 +75,22 @@ export class NurseHomePage {
     this.rounds = this.global.getRound();
     this.patientname = this.global.getpatientName()
   }
-
+  scan(){
+    this.scanner.scan(this.options).then((data) => {
+      console.log(data);
+      this.code = data.text;
+      this.loginPatient()
+      },(err)=> {
+        console.log('Error :',err);
+      })
+    }
   selectRole() {
-    if (this.status === "patient") {
+    if (this.status === "ผู้ป่วย") {
       this.events.publish("user:patient");
       this.menu.enable(false);
       this.navCtrl.setRoot(PatientHomePage);
     }
-    if (this.status === "doctor") {
+    if (this.status === "หมอ") {
       this.events.publish("user:doctor");
       this.menu.enable(false);
       this.navCtrl.setRoot(DoctorHomePage);
@@ -94,6 +105,7 @@ export class NurseHomePage {
     this.navCtrl.push(RegisterPage);
   }
   onClickLogoutButton() {
+    this.global.setShowMenuMain(false)
     this.events.publish("user:guest");
     this.navCtrl.setRoot(HomePage);
   }
@@ -117,11 +129,9 @@ export class NurseHomePage {
     this.navCtrl.push(PreparehomePage);
   }
 
-  onChange($event) {
-    console.log($event);
-  }
   logoutPatient(){
-    this.showMenu = false;
+    this.global.setShowMenuMain(false)
+    this.showMenu = this.global.getShowMenuMain();
   }
 
   async loginPatient() {
@@ -131,7 +141,7 @@ export class NurseHomePage {
     console.log(body)
     await this.http
       .post(
-        "http://"+this.global.getIP()+"/qrcode.php?method=get_patient&role=guest",
+        "http://"+this.global.getIP()+"/qrcode.php?method=get_patient&role="+this.global.getSelectRole(),
         body,
         options
       )

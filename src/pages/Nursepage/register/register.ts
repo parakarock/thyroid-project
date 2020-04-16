@@ -18,7 +18,6 @@ import "moment/locale/TH";
 export class RegisterPage {
   formgroup: FormGroup;
   age=0;
-  language:any;
   startMin: any;
   startMax: any;
   
@@ -89,7 +88,7 @@ export class RegisterPage {
     
   }
   onClickToRegister() {
-    this.formgroup.controls.birthday.setValue(moment(this.formgroup.controls.birthday.value).format("YYYY-MM-DD"));
+  this.formgroup.controls.birthday.setValue(moment(this.formgroup.controls.birthday.value).format("YYYY-MM-DD"));
    this.navCtrl.push(RegistersPage, this.formgroup.value);
   }
   doRegister() {

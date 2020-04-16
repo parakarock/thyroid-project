@@ -5,13 +5,67 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" >
 
+  <ion-card id="css" padding *ngIf="showData">
+  
+
+    <div>ท่านเคยรักษาด้วยแร่ไอโอดีนหรือไม่</div>
+          <ion-list >
+            <ion-item no-lines >
+              <ion-label class="radio-inline" *ngIf="!specify">
+                <input type="radio"  disabled="disabled" checked="true">
+                ไม่เคย
+              </ion-label>
+              <ion-label class="radio-inline" *ngIf="specify">
+                <input type="radio"  disabled="disabled" checked="true">
+                เคย
+              </ion-label>
+            </ion-item>
+            </ion-list>
+    
+    <ion-grid *ngIf="specify">
+      <ion-row>
+        <ion-col col-4>
+          <label >โรงพยาบาลหรือสถาบัน    </label>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ hospital }}</div>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <ion-grid *ngIf="specify">
+      <ion-row>
+        <ion-col col-4>
+          <label for="้date" >วันที่กลืนแร่    </label>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ datemineral }}</div>               
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+      <ion-grid *ngIf="specify">
+        <ion-row>
+          <ion-col col-4>
+            <label for="amount" >ปริมาณ (mCi)    </label>
+          </ion-col>
+          <ion-col col-6>
+            <div>{{ amount }}</div>
+              
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+ 
+    </ion-card>
+
+
+  <ion-card id="css" *ngIf="!showData">
     <ion-item no-lines>
-    <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
-  </ion-item>
-  
+      <ion-label color="dark">ไม่พบข้อมูล</ion-label>
+    </ion-item>
   </ion-card>
-  
+
   <button ion-button small (click)="edithistory()" color="1">แก้ไข</button>
 </ion-content>

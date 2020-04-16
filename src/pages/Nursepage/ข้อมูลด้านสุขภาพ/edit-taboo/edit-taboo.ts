@@ -13,6 +13,7 @@ import {
   RequestOptions
 } from "@angular/http";
 import { GlobalProvider } from "../../../../providers/global/global";
+import { stringify } from "@angular/core/src/util";
 
 /**
  * Generated class for the EditTabooPage page.
@@ -44,7 +45,7 @@ export class EditTabooPage {
     private http: Http,
     public global: GlobalProvider
   ) {
-    this.showFormSex = this.checkNull(navParams.get("FormSex"));
+    this.showFormSex = this.checkSex(this.global.getSex());
     this.NeckSurgery = this.checkNull(navParams.get("NeckSurgery"));
     this.Irradiate = this.checkNull(navParams.get("Irradiate"));
     this.Correction = this.checkNull(navParams.get("Correction"));
@@ -58,7 +59,13 @@ export class EditTabooPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad EditTabooPage");
   }
-
+  checkSex(sex) {
+    if (sex === "หญิง") {
+      return true;
+    } else {
+      return false;
+    }
+  }
   changeNeckSurgery() {
     this.NeckSurgery = !this.NeckSurgery;
     console.log(this.NeckSurgery);
@@ -99,6 +106,8 @@ export class EditTabooPage {
       return false;
     } else if (data === 1) {
       return true;
+    } else if (data === undefined){
+      return false
     }
   }
 
@@ -109,12 +118,15 @@ export class EditTabooPage {
     if(data === false){
       return 0;
     }
+    if (data === null) {
+      return 1;
+    }
   }
 
   updateTaboo() {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify({
+    let body = {
       idcard: this.global.getpatientID(),
       round: this.global.getSelectRound(),
 
@@ -126,12 +138,12 @@ export class EditTabooPage {
       therapy_6: this.editData(this.difficult),
       therapy_7: this.editData(this.recommend),
       therapy_8: this.editData(this.Injection)
-    });
-
-    console.log("body : " + body);
+    };
+    
+    this.navCtrl.getPrevious().data.formData = body
       this.http
         .post(
-          "http://192.168.43.140:8000/healthdata.php?method=update_mineral_therapy&role=nurse",
+          "http://"+this.global.getIP()+"/healthdata.php?method=update_mineral_therapy&role="+this.global.getSelectRole(),
           body,
           options
         )

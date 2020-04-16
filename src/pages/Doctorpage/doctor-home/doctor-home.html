@@ -21,18 +21,22 @@
     
       <h3>{{ name }}</h3>
       
-      <ion-item>
-        <ion-label>รักษาครั้งที่</ion-label>
-        <ion-select [(ngModel)]="number" interface="popover">
-          <ion-option value="1">1</ion-option>
-          <ion-option value="2">2</ion-option>
+      <ion-item *ngIf="showMenu">
+        <ion-label >รักษาครั้งที่</ion-label>
+        <ion-select [(ngModel)]="number" interface="popover" (ionChange)="SelectRound()">
+          <ion-option
+            *ngFor="let round of rounds"
+            [value]="round.rou_id"
+            [selected]="round.rou_id === 1"
+            >{{round.rou_id}}</ion-option
+          >
         </ion-select>
       </ion-item>
    
     <ion-item>
       <ion-label>Status</ion-label>
       <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
-        <ion-option *ngFor="let role of roles" [value]="role.role_name" [selected]="role.role_name === 'doctor'">{{role.role_name}}</ion-option>
+        <ion-option *ngFor="let role of roles" [value]="role.role_name" [selected]="role.role_name === 'หมอ'">{{role.role_name}}</ion-option>
       </ion-select>
     </ion-item>
 
@@ -44,9 +48,23 @@
 <ion-nav #mycontent [root]="rootPage" ></ion-nav>
 
 <ion-content padding>
+  <ion-card *ngIf="showMenu">
+    <ion-card-header style="text-align: center;  font-size: 24px;">
+      ขณะนี้คุณกำลังตรวจ
+    </ion-card-header>
+    <ion-card-content style="text-align: center;">
+      <div >
+<label style=" font-size: 16px; text-align: center;" >{{patientname}} 
+        </label>
+         <button style="vertical-align: middle;" ion-button color="1" icon-end (click)="logoutPatient()">
+          เปลี่ยนผู้ป่วย <ion-icon name="swap"></ion-icon>
+        </button>
+      </div>
+   
+    </ion-card-content>
+  </ion-card>
 
-
-  <ion-grid>
+  <ion-grid *ngIf="showMenu">
      <ion-row>
       <a class="col col-50 text-center" (click)="healthdatahome()">
         <img
@@ -86,5 +104,25 @@
       </a></ion-row
     >
   </ion-grid>
+  <ion-card *ngIf="!showMenu">
+    <ion-card-header style="text-align: center;  font-size: 24px;">
+      สแกน QRcode ตรวจผู้ป่วย
+    </ion-card-header>
+    <ion-card-content style="text-align: center;">
+      <div >
+<label style=" font-size: 16px; text-align: center;" >รหัส QR : <input type="text" [(ngModel)]="code" style="text-align: center;" placeholder="xxxxxx">
+        </label>
+         <button style="vertical-align: middle;" ion-button color="1" icon-end (click)="loginPatient()">
+          ถัดไป<ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </div>
+      
+       
+ 
+        <button ion-button (click)="scan()" color="1">Scan</button>
+      
+  
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

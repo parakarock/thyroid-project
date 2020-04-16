@@ -16,53 +16,39 @@
 <ion-grid>
   <ion-row>
     <ion-col col-12>
-      <!-- <ion-item no-lines >
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Injection">
-        <label for="vehicle1"> ไม่เคย</label><br>
-      </ion-item>
-      <ion-item no-lines >
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Injection">
-        <label for="vehicle1"> ไม่เคย</label><br>
-      </ion-item> -->
+      
       <ion-list >
-        <ion-item no-lines >
+        <ion-item no-lines (change)="changespecify()">
           <ion-label class="radio-inline">
-            <input type="radio" name="Injection" checked >
+            <input type="radio" *ngIf="specify"  >
+            <input type="radio" *ngIf="!specify" checked >
             ไม่เคย
           </ion-label>
           <ion-label class="radio-inline">
-            <input type="radio" name="Injection">
+            <input type="radio" *ngIf="!specify">
+            <input type="radio" *ngIf="specify" checked>
             เคย
           </ion-label>
         </ion-item>
         </ion-list>
+
     </ion-col>
   </ion-row>
 </ion-grid>
-
+<form [formGroup]="formgroup" *ngIf="specify">
 <ion-grid>
   <ion-row>
     <ion-col col-4>
-      <label for="้hosname" >โรงพยาบาลหรือสถาบัน    </label>
+      <label >โรงพยาบาลหรือสถาบัน    </label>
     </ion-col>
     <ion-col col-6>
-      <input type="text" id="hosname" name="hosname" size="20">  
+      <input type="text" id="hospital" name="hospital" formControlName="hospital" size="20">
+      <p class="help-inline"
+      *ngIf="!formgroup.get('hospital').valid
+      && formgroup.get('hospital').touched">กรุณากรอกนามสกุล ภาษาไทย หรือ ภาษาอังกฤษ เท่านั้น</p>  
     </ion-col>
   </ion-row>
 </ion-grid>
-
-<!-- <ion-grid>
-  <ion-row>
-    <ion-col col-3>
-      <div>โรงพยาบาลหรือสถาบัน</div>
-    </ion-col>
-    <ion-col col-8>
-      <ion-item>
-        <ion-input  [(ngModel)]="specify" #idCard type="text" placeholder="ถ้าเคย(โปรดระบุ)"></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-</ion-grid> -->
 
 <ion-grid>
   <ion-row>
@@ -70,23 +56,15 @@
       <label for="้date" >วันที่กลืนแร่    </label>
     </ion-col>
     <ion-col col-6>
-      <input type="text" id="date" name="date" size="20">  
+      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MMMM YYYY" min={{startMin}} max={{startMax}} formControlName="datemineral" 
+    monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, "></ion-datetime>
+              
+              <p class="help-inline"
+              *ngIf="!formgroup.get('datemineral').valid
+              && formgroup.get('datemineral').touched">กรุณาเลือกวันเกิด</p>  
     </ion-col>
   </ion-row>
 </ion-grid>
-
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col col-3>
-        <div>วันที่กลืนแร่</div>
-      </ion-col>
-      <ion-col col-8>
-        <ion-item>
-          <ion-input  [(ngModel)]="datemineral" #idCard type="text" placeholder="ถ้าเคย(โปรดระบุ)"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
 
   <ion-grid>
     <ion-row>
@@ -94,23 +72,14 @@
         <label for="amount" >ปริมาณ (mCi)    </label>
       </ion-col>
       <ion-col col-6>
-        <input type="text" id="amount" name="amount" size="20">  
+        <input type="number" id="amount" name="amount" formControlName="amount"  size="20">
+        <p class="help-inline"
+              *ngIf="!formgroup.get('amount').valid
+              && formgroup.get('amount').touched">กรุณากรอกตัวเลข</p>  
       </ion-col>
     </ion-row>
   </ion-grid>
-
-    <!-- <ion-grid>
-      <ion-row>
-        <ion-col col-3>
-          <div>ปริมาณ (mCi)</div>
-        </ion-col>
-        <ion-col col-8>
-          <ion-item>
-            <ion-input  [(ngModel)]="amount" #idCard type="text" placeholder="ถ้าเคย(โปรดระบุ)"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-</ion-grid> -->
+</form>
 </ion-card>
-<button ion-button small color="1" >บันทึก</button>
+<button ion-button small color="1" [disabled]="!formgroup.valid" (click)="presentConfirm()" >บันทึก</button>
 </ion-content>

@@ -6,7 +6,7 @@ import {
   Response,
   Headers,
   ResponseOptions,
-  RequestOptions
+  RequestOptions,
 } from "@angular/http";
 import { GlobalProvider } from "../../../../providers/global/global";
 
@@ -20,7 +20,7 @@ import { GlobalProvider } from "../../../../providers/global/global";
 @IonicPage()
 @Component({
   selector: "page-initially",
-  templateUrl: "initially.html"
+  templateUrl: "initially.html",
 })
 export class InitiallyPage {
   edgy: boolean;
@@ -52,21 +52,70 @@ export class InitiallyPage {
     this.showButtonedit = this.checkRole(this.global.getSelectRole());
   }
 
-  // ionViewDidLoad() {
-  //   console.log("ionViewDidLoad InitiallyPage");
-  //   this.getdata();
-  // }
-
-  async ionViewWillEnter() {
-    console.log("ionViewWillEnter InitiallyPage");
-    await this.navCtrl.getActive().component
+  async ionViewDidLoad() {
     this.showData = false;
+    await this.getdata();
   }
- async ionViewDidEnter(){
-    console.log("ionViewDidEnter InitiallyPage");
-    await this.getdata()
+  ionViewWillEnter() {
+    if (this.navParams.get("formData")) {
+      return new Promise((resolve, reject) => {
+        if (
+          this.navParams.get("formData").frustration === 1 ||
+          this.navParams.get("formData").hard_sleep === 1 ||
+          this.navParams.get("formData").eat_a_lot === 1 ||
+          this.navParams.get("formData").feel_hot === 1 ||
+          this.navParams.get("formData").fast_heartbeat === 1 ||
+          this.navParams.get("formData").shaking_hand === 1 ||
+          this.navParams.get("formData").goiter === 1 ||
+          this.navParams.get("formData").thyroid_lump === 1 ||
+          this.navParams.get("formData").bulging_eye === 1 ||
+          this.navParams.get("formData").digest_3 === 1 ||
+          this.navParams.get("formData").lose_weight === 1 ||
+          this.navParams.get("formData").weak_arm === 1 ||
+          this.navParams.get("formData").few_period === 1 ||
+          this.checkString(this.navParams.get("formData").disease_name) === true
+        ) {
+          this.showData = true;
+          this.edgy = this.navParams.get("formData").frustration;
+          this.sleep = this.navParams.get("formData").hard_sleep;
+          this.eat = this.navParams.get("formData").eat_a_lot;
+          this.hot = this.navParams.get("formData").feel_hot;
+          this.fast = this.navParams.get("formData").fast_heartbeat;
+          this.shakinHands = this.navParams.get("formData").shaking_hand;
+          this.neck = this.navParams.get("formData").goiter;
+          this.gland = this.navParams.get("formData").thyroid_lump;
+          this.bigeyes = this.navParams.get("formData").bulging_eye;
+          this.shit = this.navParams.get("formData").digest_3;
+          this.weight = this.navParams.get("formData").lose_weight;
+          this.leg = this.navParams.get("formData").weak_arm;
+          this.fshit = this.navParams.get("formData").few_period;
+          this.disease = this.checkString(
+            this.navParams.get("formData").disease_name
+          );
+          this.diseaseName = this.navParams.get("formData").disease_name;
+        } else {
+          this.showData = false;
+          this.edgy = this.navParams.get("formData").frustration;
+          this.sleep = this.navParams.get("formData").hard_sleep;
+          this.eat = this.navParams.get("formData").eat_a_lot;
+          this.hot = this.navParams.get("formData").feel_hot;
+          this.fast = this.navParams.get("formData").fast_heartbeat;
+          this.shakinHands = this.navParams.get("formData").shaking_hand;
+          this.neck = this.navParams.get("formData").goiter;
+          this.gland = this.navParams.get("formData").thyroid_lump;
+          this.bigeyes = this.navParams.get("formData").bulging_eye;
+          this.shit = this.navParams.get("formData").digest_3;
+          this.weight = this.navParams.get("formData").lose_weight;
+          this.leg = this.navParams.get("formData").weak_arm;
+          this.fshit = this.navParams.get("formData").few_period;
+          this.disease = this.checkString(
+            this.navParams.get("formData").disease_name
+          );
+          this.diseaseName = this.navParams.get("formData").disease_name;
+        }
+      });
+    }
   }
-  
 
   setInit(data) {
     if (
@@ -103,7 +152,6 @@ export class InitiallyPage {
       this.disease = this.checkString(data.disease_name);
     } else {
       this.showData = false;
-      console.log("dataelse : " + this.showData);
     }
   }
 
@@ -112,26 +160,24 @@ export class InitiallyPage {
     let options = new RequestOptions({ headers: headers });
     let body = JSON.stringify({
       idcard: this.global.getpatientID(),
-      round: this.global.getSelectRound()
+      round: this.global.getSelectRound(),
     });
 
     await this.http
       .post(
-        "http://192.168.43.140:8000/healthdata.php?method=get_init-phase&role=nurse",
+        "http://" +
+          this.global.getIP() +
+          "/healthdata.php?method=get_init-phase&role=" +
+          this.global.getSelectRole(),
         body,
         options
       )
-      .map(res => res.json())
+      .map((res) => res.json())
       .subscribe(
-        data => {
-          console.log(
-            this.checkString(data.disease_name) +
-              " ddddddddddddddd" +
-              data.disease_name
-          );
+        (data) => {
           this.setInit(data);
         },
-        error => {
+        (error) => {
           console.log(error);
         }
       );
@@ -162,8 +208,6 @@ export class InitiallyPage {
       fshit: this.fshit,
       disease: this.disease,
       diseaseName: this.diseaseName,
-
-      showFormSex: this.showFormSex
     });
   }
 
@@ -175,7 +219,7 @@ export class InitiallyPage {
     }
   }
   checkRole(role) {
-    if (role === "nurse") {
+    if (role === "พยาบาล") {
       return true;
     } else {
       return false;
