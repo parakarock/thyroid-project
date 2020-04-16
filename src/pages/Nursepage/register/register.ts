@@ -6,6 +6,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import moment from "moment";
 import "moment/locale/TH";
 
+
+
 // import "rxjs/add/operator/catch";
 
 @IonicPage()
@@ -16,125 +18,79 @@ import "moment/locale/TH";
 export class RegisterPage {
   formgroup: FormGroup;
   age=0;
+  language:any;
+  startMin: any;
+  startMax: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder
   ) {
+    this.startMin = moment().add(443, 'y').format("YYYY");
+    this.startMax = moment().add(543, 'y').format("YYYY");
+
     this.formgroup = formBuilder.group({
-      title: ["", Validators.required],
+      title: ["นาย", Validators.required],
       fname: [
         "",
         Validators.compose([
           Validators.required,
-          Validators.pattern("^[ก-๏s]+$")
+          Validators.pattern("^[ก-๏sa-zA-Z]+$")
         ])
       ],
       lname: [
         "",
         Validators.compose([
           Validators.required,
-          Validators.pattern("^[ก-๏s]+$")
+          Validators.pattern("^[ก-๏sa-zA-Z]+$")
         ])
       ],
-      birthday: ["", Validators.required],
+      birthday: [moment().add(543, 'y').format(), Validators.required],
       idCard: [
         "",
         Validators.compose([
           Validators.required,
-          Validators.minLength(13),
+          Validators.minLength(6),
           Validators.maxLength(13),
-          Validators.pattern("[0-9]+")
+          Validators.pattern("[0-9a-zA-Z]+")
+
         ])
       ],
-      sex: ["", Validators.required],
+      sex: ["หญิง", Validators.required],
       National: [
         "ไทย",
         Validators.compose([
           Validators.required,
-          Validators.pattern("^[ก-๏s]+$")
+          Validators.pattern("^[ก-๏sa-zA-Z]+$")
         ])
       ],
-      status: ["", Validators.required],
+      status: ["โสด", Validators.required],
       tel: [
         "",
         Validators.compose([
           Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(10),
+          Validators.minLength(6),
+          Validators.maxLength(15),
           Validators.pattern("[0-9]+")
         ])
       ]
     });
   }
+
   updateAge() {
     this.age = moment().diff(
-      moment(this.formgroup.controls.birthday.value, "YYYY-MM-DD"),
+      moment(this.formgroup.controls.birthday.value).subtract(543, 'y'),
       "years"
-    );
+    )
   }
   ionViewDidLoad() {
     console.log("ionViewDidLoad RegisterPage");
+
   }
   onClickToRegister() {
-    this.navCtrl.push(RegistersPage, this.formgroup.value);
-    // let headers = new Headers({ "Content-type": "application/json" });
-    // let options = new RequestOptions({ headers: headers });
-    // let body = JSON.stringify({
-    //    idcard: this.IdCard.value,
-    //    title: this.title,
-    //    firstname: this.FlName.value,
-    //    lastname: this.LtName.value,
-    //    dof: this.DateOfBirth,
-    //    gender: this.sex,
-    //    national: this.national.value,
-    //    status: this.status,
-    //    phone: this.tel.value
-    //  });
-
-    //  this.http
-    //   .post("http://localhost:8000/insert.php", body, options)
-    //   .map(res => res.json())
-    //   .subscribe(data => {
-    //     console.log(data);
-    //   },error=>{
-    //     console.log(error);
-    //   });
-
-    // let headers = new Headers({ "Content-type": "application/json" });
-    // let options = new RequestOptions({ headers: headers });
-    // let body = JSON.stringify({
-    //    idcard: this.IdCard.value,
-    //    title: this.title,
-    //    firstname: this.FlName.value,
-    //    lastname: this.LtName.value,
-    //    dof: this.DateOfBirth,
-    //    gender: this.sex,
-    //    national: this.national.value,
-    //    status: this.status,
-    //    phone: this.tel.value
-    //  });
-
-    //  this.http
-    //   .post("http://localhost:8000/insert.php", body, options)
-    //   .map(res => res.json())
-    //   .subscribe(data => {
-    //     console.log(data);
-    //   },error=>{
-    //     console.log(error);
-    //   });
-
-
-    //   this.navCtrl.push(RegistersPage)
-
-  //   this.http
-  //     .get("http://localhost:3000/", data)
-  //     .map(res => res.json())
-  //     .subscribe(data => {
-  //       console.log(data);
-  //     });
-
-
+    this.formgroup.controls.birthday.setValue(moment(this.formgroup.controls.birthday.value).format("YYYY-MM-DD"));
+   this.navCtrl.push(RegistersPage, this.formgroup.value);
   }
 //   doRegister(){
 //     console.log(this.formgroup.value);
@@ -152,11 +108,11 @@ export class RegisterPage {
 	//   ];
   // }
 
-    
+
   // }
   doRegister() {
     console.log(this.formgroup.value);
     console.log(this.formgroup.valid);
   }
-
 }
+

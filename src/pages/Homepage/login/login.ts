@@ -70,7 +70,7 @@ export class LoginPage {
     console.log("body : " + body);
     await this.http
       .post(
-        "http://192.168.31.98:8000/login.php?method=login&role=guest",
+        "http://"+this.global.getIP()+"/login.php?method=login&role=guest",
         body,
         options
       )

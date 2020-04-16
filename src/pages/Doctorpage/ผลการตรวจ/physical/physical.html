@@ -5,26 +5,153 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card id="css" padding *ngIf="showData">
 
-  <ion-card id="css" padding >
-   
-    
-  
-<div>วันที่:</div>
-<div>เหงื่อแตก ผิวอุ่นและชื้น ผมเส้นเล็กและร่วงง่าย:</div>
-<div>BW:</div>
-<div>PR:</div>
-<div>BP:</div>
-<div>ตาโปนหรือตาโตกว่าปกติ:</div>
-<div>ส่งปรึกษาจักษุแพทย์:</div>
-<div>ชื่อจักษุแพทย์:</div>
-<div>วันที่:</div>
-<div>ไฟล์ผลการตรวจ:</div>
-<div>ผลการวินิจฉัย:</div>
-<div>การรักษา:</div>
- 
-</ion-card>
-<button ion-button id="button" (click)="editphysical()" color="1" id="editphysical">แก้ไข</button>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>วันที่ตรวจ: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ check_date || "ไม่มีข้อมูล" }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>เหงื่อแตก ผิวอุ่นและชื้น ผมเส้นเล็กและร่วงง่าย: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ sweat || "ไม่มีข้อมูล"}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>น้ำหนักตัว: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ body_weight }} กิโลกรัม </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>อัตราการเต้นของหัวใจ: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ heart_rate }} ครั้งต่อนาที </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ค่าความดันเลือด (บน): </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ blood_pressure_upper }}  </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ค่าความดันเลือด (ล่าง): </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ blood_pressure_lower }}  </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ตาโปนหรือตาโตกว่าปกติ: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ eye_detect }}  </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ส่งปรึกษาจักษุแพทย์: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ eye_result }}  </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ชื่อจักษุแพทย์: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ doctor_name }}  </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>วันที่: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ doctor_date }}  </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>รูปภาพผลการตรวจ: </div>
+        </ion-col>
+        <ion-col col-6>
+          <img src="{{ doctor_file }}"> <br><br>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ผลการวินิจฉัย: </div>
+        </ion-col>
+        <ion-col col-6>
+          <img src="{{ doctor_result }}"> <br><br>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>การรักษา: </div>
+        </ion-col>
+        <ion-col col-6>
+          <img src="{{ treatment }}"> <br><br>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+<button ion-button id="button" *ngIf="showMenu" (click)="editphysical()" color="1" id="editphysical">แก้ไขข้อมูล</button>
 <br>
 <button ion-button (click)="physicals()" color="1" id="physicals">ถัดไป</button>
 

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="1" >
+  <ion-navbar color="1">
     <ion-title>เมนู</ion-title>
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
@@ -7,48 +7,65 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu side="right" [content]="mycontent" >
+<ion-menu side="right" [content]="mycontent">
   <ion-content>
     <ion-list>
-      <br>
+      <br />
       <img class="profile" src="../../../assets/icon/Pic_Icon/nurse.png" />
 
-        <h3>{{ name }}</h3>
+      <h3>{{ name }}</h3>
 
-        <ion-item>
-          <ion-label>รักษาครั้งที่</ion-label>
-          <ion-select [(ngModel)]="number" interface="popover">
-            <ion-option value="1">1</ion-option>
-            <ion-option value="2">2</ion-option>
-          </ion-select>
-        </ion-item>
+      <ion-item *ngIf="showMenu">
+        <ion-label >รักษาครั้งที่</ion-label>
+        <ion-select [(ngModel)]="number" interface="popover" (ionChange)="SelectRound()">
+          <ion-option
+            *ngFor="let round of rounds"
+            [value]="round.rou_id"
+            [selected]="round.rou_id === 1"
+            >{{round.rou_id}}</ion-option
+          >
+        </ion-select>
+      </ion-item>
 
       <ion-item>
         <ion-label>Status</ion-label>
-        <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
-          <ion-option *ngFor="let role of roles" [value]="role.role_name" [selected]="role.role_name === 'nurse'">{{role.role_name}}</ion-option>
+        <ion-select
+          [(ngModel)]="status"
+          interface="popover"
+          (ionChange)="selectRole()"
+        >
+          <ion-option
+            *ngFor="let role of roles"
+            [value]="role.role_name"
+            [selected]="role.role_name === 'nurse'"
+            >{{role.role_name}}</ion-option
+          >
         </ion-select>
       </ion-item>
 
       <button ion-item (click)="ChangePass()" color="2">เปลี่ยนรหัสผ่าน</button>
-      <button ion-item (click)="onClickLogoutButton()" color="2">ออกจากระบบ</button>
+      <button ion-item (click)="onClickLogoutButton()" color="2">
+        ออกจากระบบ
+      </button>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-nav #mycontent [root]="rootPage" ></ion-nav>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
 
 <ion-content padding>
   <ion-grid>
-    <ion-row>
+    <ion-row *ngIf="!showMenu">
       <a class="col col-50 text-center" (click)="onClickRegister()">
         <img
           class="img-auto"
           id="logo"
           src="../../../assets/icon/Pic_Icon/N_Regis.png"
         />
-        <h5 >ลงทะเบียนผู้ป่วยใหม่</h5>
+        <h5>ลงทะเบียนผู้ป่วยใหม่</h5>
       </a>
-      <a class="col col-50 text-center" (click)=" onClickHealthdatahome()">
+    </ion-row>
+    <ion-row *ngIf="showMenu">
+      <a class="col col-50 text-center"  (click)=" onClickHealthdatahome()">
         <img
           class="img-auto"
           id="logo"
@@ -56,9 +73,6 @@
         />
         <h5>ข้อมูลด้านสุขภาพ</h5>
       </a>
-    </ion-row>
-
-    <ion-row>
       <a class="col col-50 text-center" (click)="navigateToLabTest()">
         <img
           class="img-auto"
@@ -67,6 +81,10 @@
         />
         <h5>ผลการตรวจทางห้องปฏิบัติการ</h5>
       </a>
+    </ion-row>
+
+    <ion-row *ngIf="showMenu">
+
       <a class="col col-50 text-center" (click)="onClickPreparehome()">
         <img
           class="img-auto"
@@ -77,6 +95,40 @@
       </a></ion-row
     >
   </ion-grid>
- 
+  <ion-card *ngIf="!showMenu">
+    <ion-card-header style="text-align: center;  font-size: 24px;">
+      สแกน QRcode ตรวจผู้ป่วย
+    </ion-card-header>
+    <ion-card-content style="text-align: center;">
+      <div >
+<label style=" font-size: 16px; text-align: center;" >รหัส QR : <input type="text" [(ngModel)]="code" style="text-align: center;" placeholder="xxxxxx">
+        </label>
+         <button style="vertical-align: middle;" ion-button color="1" icon-end (click)="loginPatient()">
+          ถัดไป<ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </div>
 
+
+
+        <button ion-button color="1">Scan</button>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="showMenu">
+    <ion-card-header style="text-align: center;  font-size: 24px;">
+      ขณะนี้คุณกำลังตรวจ
+    </ion-card-header>
+    <ion-card-content style="text-align: center;">
+      <div >
+<label style=" font-size: 16px; text-align: center;" >{{patientname}}
+        </label>
+         <button style="vertical-align: middle;" ion-button color="1" icon-end (click)="logoutPatient()">
+          เปลี่ยนผู้ป่วย <ion-icon name="swap"></ion-icon>
+        </button>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>

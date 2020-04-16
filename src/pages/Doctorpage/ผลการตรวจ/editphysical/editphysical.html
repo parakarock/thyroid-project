@@ -71,11 +71,6 @@
         </ion-col>
         <ion-label color="dark" >kg</ion-label>
       </ion-row>
-<<<<<<< HEAD
-  </ion-item>
-
-  <ion-item >
-=======
   </ion-item> -->
 
   <ion-grid>
@@ -92,7 +87,6 @@
 </ion-grid>
 
   <!-- <ion-item >
->>>>>>> c5cc4bd8b715c75b2c1d42d0e600e3824fb73329
     <ion-label color="dark" >PR </ion-label>
       <ion-row item-content>
         <ion-col>
@@ -100,11 +94,6 @@
         </ion-col>
         <ion-label color="dark" >bpm</ion-label>
       </ion-row>
-<<<<<<< HEAD
-  </ion-item>
-
-  <ion-item >
-=======
   </ion-item> -->
 
   <ion-grid>
@@ -122,7 +111,6 @@
 </ion-grid>
 
   <!-- <ion-item >
->>>>>>> c5cc4bd8b715c75b2c1d42d0e600e3824fb73329
     <ion-label color="dark" >BP</ion-label>
       <ion-row item-content>
         <ion-col>
@@ -134,13 +122,8 @@
         </ion-col>
         <ion-label color="dark" >kg</ion-label>
       </ion-row>
-<<<<<<< HEAD
-  </ion-item>
-
-=======
   </ion-item> -->
 
->>>>>>> c5cc4bd8b715c75b2c1d42d0e600e3824fb73329
 
   <ion-item no-lines>
   <div>ตาโปนหรือตาโตกว่าปกติ</div>
@@ -208,7 +191,7 @@
         <label for="date" >วันที่    </label>
       </ion-col>
       <ion-col col-6>
-        <input type="text" id="date" name="date" size="20">
+        <input type="date" id="date" name="date" size="20">
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -218,8 +201,8 @@
     <ion-label  color="dark">วันที่</ion-label>
     <ion-input [(ngModel)]="datetime" type="text" placeholder=""></ion-input>
   </ion-item> -->
-
-  <ion-item no-lines>
+  <!-- <ion-grid>
+    <ion-item no-lines>
     <ion-label  color="dark">ไฟล์ผลการตรวจ</ion-label>
   </ion-item>
   <div class="container">
@@ -227,7 +210,32 @@
       <input id="upload" type="file">
     </div>
   </div>
+  </ion-grid> -->
 
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <label>ไฟล์ผลการตรวจ</label>
+      </ion-col>
+      <ion-col col 6>
+        <button ion-button full >เลือกรูปภาพ</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-grid>
+    <ion-col col-4>
+      <label>ไฟล์ผลการตรวจ</label>
+    </ion-col>
+    <button ion-button (click)="AlertTakePhoto()">เลือกรูปภาพ</button>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-item>
+      <!-- <h4>Image Preview</h4> -->
+      <p><img align="center" src="{{ myPhoto }}"/></p>
+    </ion-item>
+  </ion-grid>
   <ion-grid>
     <ion-row>
       <ion-col col-4>

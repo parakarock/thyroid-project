@@ -1,4 +1,4 @@
-
+import moment from 'moment';
 // import { EditlabtestPage } from '../pages/Nursepage/editlabtest/editlabtest';
 import { EditlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/editlabtest/editlabtest';
 import { EdittreatmentresultPage } from '../pages/Doctorpage/edittreatmentresult/edittreatmentresult';
@@ -19,7 +19,7 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 
 // import { File } from '@ionic-native/file';
-
+import {Md5} from 'ts-md5/dist/md5';
 
 import { AppointmentPage } from "../pages/Nursepage/appointment/appointment";
 import { File } from '@ionic-native/file';
@@ -88,7 +88,7 @@ import { DiagnosticResultsPage} from '../pages/Doctorpage/ผลการตร�
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { HttpClientModule } from '@angular/common/http';
 
-
+moment
 import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/eatfood/eatfood';
 import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
 import {InsertPage} from '../pages/Nursepage/insert/insert';
@@ -114,6 +114,7 @@ import { FileOpener } from '@ionic-native/file-opener';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { AutosizeModule } from 'ngx-autosize';
 
+import { YoutubePipe } from '../pipes/youtube/youtube'
 @NgModule({
   declarations: [
     MyApp,
@@ -203,7 +204,8 @@ import { AutosizeModule } from 'ngx-autosize';
     AppointmentPage,
     GenPage,
     AddhosPage,
-    InsertPage
+    InsertPage,
+    YoutubePipe
 
 
   ],
@@ -214,7 +216,7 @@ import { AutosizeModule } from 'ngx-autosize';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AutosizeModule
+    AutosizeModule,
     // IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -329,9 +331,11 @@ import { AutosizeModule } from 'ngx-autosize';
     Camera,
     BarcodeScanner,
     IonicStorageModule,
-    GlobalProvider
-    // DomSanitizer
-    // BarcodeScannerOptions
+    GlobalProvider,
+    Md5,
+    FilePath,
+    FileOpener,
+    FileChooser
   ]
 })
 

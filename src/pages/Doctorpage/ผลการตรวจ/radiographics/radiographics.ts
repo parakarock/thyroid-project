@@ -1,11 +1,22 @@
-import { HttpClient } from '@angular/common/http';
+import { Http,
+  Response,
+  Headers,
+  ResponseOptions,
+  RequestOptions} from '@angular/http';
+import * as moment from "moment";
+
+import { GlobalProvider } from './../../../../providers/global/global';
+import { Md5 } from 'ts-md5/dist/md5';
+// import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController, ToastController, AlertController } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+
 /**
  * Generated class for the RadiographicsPage page.
  *
@@ -22,8 +33,20 @@ export class RadiographicsPage {
 
   // imageURI:any;
   // imageFileName:any;
-
+  formgroup: FormGroup;
   myPhoto: any;
+  HashID: any;
+  Date: string;
+  PersonID: string;
+  description : string = "";
+  round: any;
+  Time: any;
+  data:any;
+
+  imageFile: any;
+  imageLink:any;
+  desc: any;
+  showMenu: boolean;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -31,13 +54,23 @@ export class RadiographicsPage {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     private transfer: FileTransfer,
-    // public http: HttpClient,
-    private file: File
+    public http: Http,
+    private file: File,
+    private Md5: Md5,
+    public global: GlobalProvider,
+    public formBuilder: FormBuilder,
+    public alertCtrl: AlertController,
     ) {
+      if(this.global.getSelectRole() === "doctor"){
+        this.showMenu = true;
+      }else{
+        this.showMenu = false;
+      }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RadiographicsPage');
+    this.getData()
   }
 
   // openGallery(){
@@ -106,32 +139,84 @@ export class RadiographicsPage {
     });
     loader.present();
     const fileTransfer: FileTransferObject = this.transfer.create();
-
-    // var random = Math.floor(Math.random() * 10000000000);
-    var random = Math.floor(Math.random() * 100) + 2 + "" + new Date().getTime() +  Math.floor(Math.random() * 100) + 2 + (Math.random().toString(36).replace(/[^a-zA-Z]+/g, '').substr(0, 5));
+    this.round = this.global.selectRound;
+    this.Date = moment().format('DD_MM_YYYY');
+    this.Time = moment().format('h_mm_ss');
+    this.HashID = Md5.hashStr('this.global.getpatientID()');
     let options: FileUploadOptions = {
       fileKey: 'photo',
-      fileName: "myImage_" + random + ".jpg",
+      fileName:  this.HashID + "_r" + this.round + "_" + this.Date + "_" + this.Time + ".jpg",
       chunkedMode: false,
       httpMethod: 'post',
-      mimeType: "image/jpeg",
-      headers: {}
+      mimeType: "multipart/form-data",
+      headers: {},
+      params: {
+        description: this.description
+      }
     }
 
     fileTransfer.upload(this.myPhoto, 'http://192.168.31.98:8000/upload.php', options)
       .then((data) => {
       alert("การอัพโหลดรูปเสร็จสมบูรณ์");
+      // this.updateData();
+      loader.dismiss();
       // console.log(data + " Uploaded Successfully");
       // this.myPhoto = "http://10.80.82.229:8000/Images/ionicfile.jpg"
-      loader.dismiss();
       //this.presentToast("Image uploaded successfully");
     }, (err) => {
       // console.log(err);
       // this.presentToast(JSON.stringify(err));
-      alert("เกิดข้อผิดพลาดในการอัพโหลด กรุณาทำรายการใหม่อีกครั้ง");
+      // alert("เกิดข้อผิดพลาดในการอัพโหลด กรุณาทำรายการใหม่อีกครั้ง");
+      alert(JSON.stringify(err));
       loader.dismiss();
     });
   }
+
+  getData(){
+    this.http.get("http://192.168.31.98:8000/result.php?method=get_thyroidScan&role=patient")
+    .map(res=>res.json())
+    .subscribe(
+      data => {
+        this.imageFile = "http://" + this.global.getIP() + data.thy_scan_image;
+        this.desc = data.thy_scan_desc;
+        console.log(data);
+      }, error => {
+        console.log(error);
+      }
+    )
+  }
+
+  transformImageLink(){
+
+  }
+
+  // updateData(){
+  //   let headers = new Headers({ "Content-type": "application/json" });
+  //   let options = new RequestOptions({ headers: headers });
+  //   let body = {
+  //     idcard: this.PersonID,
+  //     round: this.round,
+  //     thy_scan_image: this.myPhoto,
+  //     thy_scan_desc: this.description
+  //   };
+
+  //   console.log("body : " + body);
+  //   this.http
+  //     .post(
+  //       "http://192.168.31.98:8000/result.php?method=update_thyroidScan&role=doctor",
+  //       body,
+  //       options
+  //     )
+  //     .map(res => res.json())
+  //     .subscribe(
+  //       data => {
+  //         console.log(data);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   // presentToast(msg) {
   //   let toast = this.toastCtrl.create({

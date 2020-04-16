@@ -6,19 +6,151 @@
 
 
 <ion-content padding>
-  <ion-card id="css" padding >
-<div>ขนาดของต่อมไทรอยด์:</div>
-<div>คลำได้ก้อนเนื้องอกในต่อมไทรอยด์:</div>
-<div>ระบบหัวใจและปอด:</div>
-<div>มือสั่น:</div>
-<div>ความแรงของกล้ามเนื้อต้นแขนและต้นขาทั้งสองข้าง:</div>
-<div>แขนซ้าย:</div>
-<div>แขนขวา:</div>
-<div>ขาซ้าย:</div>
-<div>ขาขวา:</div>
-<div>ผิวหนังบริเวณหน้าแข้งหนาและบวมแดง:</div>
-<div>เล็บเปราะแตกง่าย เล็บแยกจากฐานเล็บ:</div>
-<div>อื่นๆ</div>
+  <ion-card id="css" padding *ngIf="showData">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ขนาดของต่อมไทรอยด์: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>คลำได้ก้อนเนื้องอกในต่อมไทรอยด์: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ระบบหัวใจและปอด: </div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>มือสั่น:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>มือสั่น:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ความแรงของกล้ามเนื้อต้นแขนและต้นขาทั้งสองข้าง:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>แขนซ้าย:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>แขนขวา:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ขาซ้าย:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ขาขวา:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>ผิวหนังบริเวณหน้าแข้งหนาและบวมแดง:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>เล็บเปราะแตกง่าย เล็บแยกจากฐานเล็บ:</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div>อื่นๆ</div>
+        </ion-col>
+        <ion-col col-6>
+          <div>///</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-card>
-<button ion-button (click)="editphysicals()" color="1">Edit</button>
+
+<button ion-button *ngIf="showMenu" (click)="editphysicals()" color="1">แก้ไขข้อมูล</button>
 </ion-content>

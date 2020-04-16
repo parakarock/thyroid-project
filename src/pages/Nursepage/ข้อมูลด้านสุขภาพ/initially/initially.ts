@@ -111,7 +111,7 @@ export class InitiallyPage {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = JSON.stringify({
-      idcard: this.global.patientID,
+      idcard: this.global.getpatientID(),
       round: this.global.getSelectRound()
     });
 

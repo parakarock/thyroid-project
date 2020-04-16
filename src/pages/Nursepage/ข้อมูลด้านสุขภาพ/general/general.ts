@@ -56,7 +56,7 @@ export class GeneralPage {
  async getdata(){
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify({ idcard: this.global.patientID, round: this.global.getSelectRound() });
+    let body = JSON.stringify({ idcard: this.global.getpatientID(), round: this.global.getSelectRound() });
     console.log("body : " + body);
    await this.http
       .post(

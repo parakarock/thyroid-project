@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams,AlertController, } from "ionic-angular";
 import { Http, Headers, RequestOptions, ResponseOptions } from "@angular/http";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { GlobalProvider } from "../../../providers/global/global";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 
 /**
@@ -26,6 +27,7 @@ export class RegistersPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
+    public global: GlobalProvider,
     public http: Http,
     public alertCtrl: AlertController,
   ) {
@@ -38,8 +40,8 @@ export class RegistersPage {
       ],
       from_name1: ["",],
       to_name1: ["",],
-      from_name2: ["", Validators.pattern("^[ก-๏s]+$")],
-      to_name2: ["", Validators.pattern("^[ก-๏s]+$")]
+      from_name2: ["", Validators.pattern("^[ก-๏sa-zA-Z]+$")],
+      to_name2: ["", Validators.pattern("^[ก-๏sa-zA-Z]+$")]
     });
   }
 
@@ -54,7 +56,7 @@ export class RegistersPage {
   getHospital() {
     this.http
       .get(
-        "http://192.168.31.98:8000/admin.php?method=get_hospital&role=nurse"
+        "http://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
       )
       .map(res => res.json())
       .subscribe(
@@ -91,7 +93,7 @@ export class RegistersPage {
       this.showNameHosOut = false;
     }
   }
-  insertdata() {
+  async insertdata() {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = JSON.stringify({
@@ -117,21 +119,32 @@ export class RegistersPage {
         this.formgroup.controls.to_name2.value
     });
     console.log(body);
-    this.http
-      .post("http://192.168.31.98:8000/register.php?method=insert_pantient&role=nurse", body, options)
+    await this.http
+      .post("http://"+this.global.getIP()+"/register.php?method=insert_pantient&role="+this.global.getSelectRole(), body, options)
       .map(res => res.json())
       .subscribe(
         data => {
-          console.log(data);
-          if(data.username&&data.password){
-            this.presentAlertUser("Username : "+data.username+"<br>"+"Password : "+data.password);
-            this.navCtrl.remove(this.navCtrl.getActive().index - 1, 2);
+          if(data.result){
+             this.presentAlert(data.result);
           }else{
-            this.presentAlert(data.result);
+            alert(1)
+            this.presentAlertUser("Username : "+data[2].username+"<br>"+"Password : "+data[2].password);
+            alert(2)
+            this.global.setRound(data[1]);
+            alert(3)
+            this.global.setpatientID(data[0].person_id);
+            alert(4)
+            this.global.setpatientName(data[0].fullname);
+            alert(5)
+            this.global.setSex(data[0].gender);
+            alert(6)
+            this.global.setShowMenuMain(true);
+            this.navCtrl.remove(this.navCtrl.getActive().index - 1, 2);
           }
 
         },
         error => {
+          alert("fuck")
           console.log(error);
         }
       );
@@ -153,7 +166,6 @@ export class RegistersPage {
           text: 'ยืนยัน',
           handler: () => {
            this.insertdata();
-           this.navCtrl.remove(this.navCtrl.getActive().index - 1, 2);
           }
         }
       ]

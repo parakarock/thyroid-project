@@ -1,54 +1,57 @@
-import { Component,ViewChild } from "@angular/core";
-import { NavController,MenuController,Slides} from "ionic-angular";
-import { LoginPage } from '../login/login';
-import { Events } from 'ionic-angular';
+import { Component, ViewChild } from "@angular/core";
+import { NavController, MenuController, Slides } from "ionic-angular";
+import { LoginPage } from "../login/login";
+import { Events } from "ionic-angular";
+import {
+  Http,
+  Response,
+  Headers,
+  ResponseOptions,
+  RequestOptions,
+} from "@angular/http";
 
 import "rxjs/add/operator/map";
 
-
 @Component({
   selector: "page-home",
-  templateUrl: "home.html"
+  templateUrl: "home.html",
 })
 export class HomePage {
   url: string;
-  data: string;
+  posts: any = [];
+  googleToken: string="AIzaSyD9U_vfpvJt8aCVUDy_vRiW70xLCUbPxY8";
+  playlistId: string = "PLME1fWasJoeXCQeeJlZafOJzNPlCE5kH-";
   @ViewChild(Slides) slides: Slides;
 
-  constructor(public navCtrl: NavController,public menuCtrl:MenuController,public events: Events) {}
+  constructor(
+    public navCtrl: NavController,
+    public menuCtrl: MenuController,
+    public events: Events,
+    private http: Http
+  ) {
+    this.url =
+      "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=" +
+      this.playlistId +
+      "&key=" +
+      this.googleToken;
+    this.http
+      .get(this.url)
+      .map((res) => res.json())
+      .subscribe(
+        (data) => {
+          this.posts = this.posts.concat(data.items);
+          console.log(this.posts);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
   ionViewDidLoad() {
-    // this.loadUser();
-    // console.log("dddd")
     this.events.publish("user:guest");
-
-  }
-  slideChanged() {
-    let currentIndex = this.slides.getActiveIndex();
-    console.log('Current index is', currentIndex);
   }
 
-  // loadUser() {
-  //   this.http
-  //     .get("https://www.randomuser.me/api/?results=20")
-  //     .map(res => res.json())
-  //     .subscribe(
-  //       data => {
-  //         this.data = data.results;
-  //         console.log(data.results);
-  //       },
-  //       err => {
-  //         console.log(err);
-  //       }
-  //     );
-  // }
-
-  // sentToDetail(gg){
-  //   this.navCtrl.push(LoginPage,{text:gg})
-  // }
-  goLoginPage(){
-    this.navCtrl.push(LoginPage)
+  goLoginPage() {
+    this.navCtrl.push(LoginPage);
   }
 }
-
-
-

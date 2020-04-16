@@ -10,7 +10,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content overflow-scroll="true">
 
     <ion-slides pager="true" autoplay="400" loop="true" speed="3000">
       <ion-slide style="background-color: green">
@@ -32,59 +32,30 @@
   <ion-grid>
     <ion-row>
 
-      <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
-        <ion-card>
-          <iframe
-          width="100%"
-          height="80%"
-          src="https://www.youtube.com/embed/ST8TJvT8wlo"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="text-align: center;"
-        ></iframe>
+      <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 *ngFor="let item of posts">
+        <ion-card >
+          <ion-card-header>
+            {{item.snippet.title}}
+          </ion-card-header>
+          <ion-card-content>
+            <iframe
+
+            height="80%"
+            width= "100%"
+
+            class="youtube-player" type="text/html"
+            [src]="item.contentDetails.videoId | youtube"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="text-align: center;"
+          ></iframe>
+          <!-- <img [src]="item.snippet.thumbnails.high.url"> -->
+          </ion-card-content>
         </ion-card>
-      </ion-col>
-      <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
-        <ion-card>
-          <iframe
-          width="100%"
-          height="80%"
-          src="https://www.youtube.com/embed/ST8TJvT8wlo?autoplay=1&mute=1"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="text-align: center;"
-        ></iframe>
-        </ion-card>
+
       </ion-col>
 
-
-      <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
-        <ion-card>
-          <iframe
-          width="100%"
-          height="80%"
-          src="https://www.youtube.com/embed/ST8TJvT8wlo"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="text-align: center;"
-        ></iframe>
-        </ion-card>
-      </ion-col><ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
-        <ion-card>
-          <iframe
-          width="100%"
-          height="80%"
-          src="https://www.youtube.com/embed/ST8TJvT8wlo"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="text-align: center;"
-        ></iframe>
-        </ion-card>
-      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

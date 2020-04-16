@@ -115,7 +115,7 @@ export class EditTabooPage {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = JSON.stringify({
-      idcard: this.global.patientID,
+      idcard: this.global.getpatientID(),
       round: this.global.getSelectRound(),
 
       therapy_1: this.editData(this.NeckSurgery),

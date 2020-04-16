@@ -2,7 +2,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { FileOpener } from '@ionic-native/file-opener';
 import { FilePath } from '@ionic-native/file-path';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { CameraOptions, Camera } from '@ionic-native/camera';
 
 /**
  * Generated class for the EditphysicalPage page.
@@ -18,11 +19,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EditphysicalPage {
   urls = [];
+  myPhoto: string;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private filePath: FilePath,
               private fileOpener: FileOpener,
-              private fileChooser: FileChooser
+              private fileChooser: FileChooser,
+              public alertController: AlertController,
+              private camera: Camera,
               ) {
   }
 
@@ -30,16 +34,44 @@ export class EditphysicalPage {
     console.log('ionViewDidLoad EditphysicalPage');
   }
 
-  onSelectFile(event){
-    // if (event.target.files && event.target.files[0]) {
-    //   var reader = new FileReader();
+  AlertTakePhoto(){
+    let alert = this.alertController.create({
+      title: "โปรดเลือกวิธีการอัพโหลดรูป",
+      buttons: [
+        {
+        text: "เลือกจากคลังรูปภาพ",
+        handler: () => {
+          this.takePhoto(0);
+          }
+        },
+        {
+          text: "ถ่ายรูปจากกล้อง",
+        handler: () => {
+          this.takePhoto(1);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
-    //   reader.readAsDataURL(event.target.files[0]); // read file as data url
+  takePhoto(SourceType:number){
+    const options: CameraOptions = {
+      quality: 70,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      sourceType: SourceType,
+    }
 
-    //   reader.onload = (event) => { // called once readAsDataURL is completed
-    //     this.urls = event.target.result;
-    //   }
-    // }
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+    this.myPhoto = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      alert("กรุณาอัพโหลดรูปผ่านแอพลิเคชั่นบนมือถือ");
+    });
   }
 
 }
