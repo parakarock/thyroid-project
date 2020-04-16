@@ -37,7 +37,7 @@ export class HealthdatahomePage {
     public events: Events
   ) {
    
-    if(this.global.getSelectRole() === "พยาบาล"){
+    if(this.global.getSelectRole() === "หมอ"){
       this.showMenu = true;
     }else{
       this.showMenu = false;
