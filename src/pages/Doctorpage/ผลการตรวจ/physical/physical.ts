@@ -40,7 +40,7 @@ export class PhysicalPage {
               public navParams: NavParams,
               public global: GlobalProvider,
               public http: Http) {
-    if(this.global.getSelectRole() === "doctor"){
+    if(this.global.getSelectRole() === "หมอ"){
       this.showMenu = true;
     }else{
       this.showMenu = false;
@@ -61,20 +61,20 @@ export class PhysicalPage {
   async getData(){
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify({ idcard: this.global.getpatientID(), round: this.global.getSelectRound() });
+    let body = JSON.stringify({
+      idcard: this.global.getpatientID(),
+      round: this.global.getSelectRound()
+    });
     console.log("body : " + body);
-   await this.http
-      .post(
-        "http://192.168.31.98:8000/result.php?method=get_bodyresult1&role=doctor",
+    await this.http.post(
+        "http://" + this.global.getIP() + "/result.php?method=get_bodyresult1&role=" + this.global.getSelectRole(),
         body,
         options
       )
       .map(res => res.json())
       .subscribe(
         data => {
-          if ( data[0].firstname !== null) {
             this.showData = true;
-            console.log("data : " + this.showData);
             this.check_date = moment(data.check_date,"YYYY-MM-DD").format("Do MMMM YYYY");
             this.sweat = data.sweat;
             this.hair_loss = data.lastname;
@@ -90,10 +90,7 @@ export class PhysicalPage {
             this.doctor_file = "http://" + this.global.getIP() + data.doctor_file;
             this.doctor_result= data.doctor_result;
             this.treatment = data.treatment;
-          } else {
-            this.showData = false;
-            console.log("data : " + this.showData);
-          }
+            console.log(JSON.stringify(data));
         },
         error => {
           console.log(error);

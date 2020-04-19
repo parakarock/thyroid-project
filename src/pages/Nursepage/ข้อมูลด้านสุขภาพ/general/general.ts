@@ -4,9 +4,7 @@ import { EditgeneralPage } from "../editgeneral/editgeneral";
 import { GlobalProvider } from "../../../../providers/global/global";
 import {
   Http,
-  Response,
   Headers,
-  ResponseOptions,
   RequestOptions
 } from "@angular/http";
 import moment from 'moment';
@@ -24,9 +22,9 @@ import 'moment/locale/TH';
   templateUrl: "general.html"
 })
 export class GeneralPage {
-  name;
-  title;
-  firstname;
+  name ;
+  title
+  firstname
   lastname;
   date;
   birthday;
@@ -35,8 +33,8 @@ export class GeneralPage {
   gender;
   nationality;
   status;
-  input;
-  hninput;
+  input;  //ชื่อ รพ. เข้า
+  hninput; //hn รพ. เข้า
   hnbuu;
   output;
   hnoutput;
@@ -60,7 +58,7 @@ export class GeneralPage {
     console.log("body : " + body);
    await this.http
       .post(
-        "http://192.168.31.98:8000/healthdata.php?method=get_profile&role=nurse",
+        "http://"+this.global.getIP()+"/healthdata.php?method=get_profile&role="+this.global.getSelectRole(),
         body,
         options
       )
@@ -69,7 +67,7 @@ export class GeneralPage {
         data => {
           if ( data[0].firstname !== null) {
             this.showData = true;
-            console.log("data : " + this.showData);
+            console.log("data : " + data);
             this.name =
               data[0].title + data[0].firstname + " " + data[0].lastname;
 
@@ -77,7 +75,7 @@ export class GeneralPage {
             this.lastname = data[0].lastname;
             this.title = data[0].title;
             this.date = moment(data[0].birthdate,"YYYY-MM-DD").format("Do MMMM YYYY");
-            this.age = moment().diff(moment(data[0].birthdate,"YYYY-MM-DD"), 'years');
+            this.age = moment().diff(moment(data[0].birthdate,"YYYY-MM-DD").subtract(543, 'y'), 'years');
             this.birthday = data[0].birthdate;
             this.idcard = data[0].person_id;
             this.gender = data[0].gender;
@@ -100,14 +98,34 @@ export class GeneralPage {
       );
   }
 
-  async ionViewWillEnter() {
-    console.log("ionViewWillEnter InitiallyPage");
-    await this.navCtrl.getActive().component
+
+  async ionViewDidLoad() {
     this.showData = false;
-  }
- async ionViewDidEnter(){
-    console.log("ionViewDidEnter InitiallyPage");
     await this.getdata()
+  }
+  ionViewWillEnter(){
+    if(this.navParams.get("formData")){
+    return  new Promise((resolve, reject) => {
+    this.name = this.navParams.get("formData").title+this.navParams.get("formData").fname+" "+this.navParams.get("formData").lname;
+    this.title = this.navParams.get("formData").title;
+    this.firstname= this.navParams.get("formData").fname;
+    this.lastname= this.navParams.get("formData").lname;
+    this.date = moment(this.navParams.get("formData").birthday,"YYYY-MM-DD").format("Do MMMM YYYY");
+    this.age= moment().diff(moment(this.navParams.get("formData").birthday,"YYYY-MM-DD").subtract(543, 'y'), 'years');
+    this.idcard= this.navParams.get("formData").idCard;
+    this.gender= this.navParams.get("formData").sex;
+    this.nationality= this.navParams.get("formData").National;
+    this.status= this.navParams.get("formData").status;
+    this.input= this.navParams.get("formData").from_name2;  //ชื่อ รพ. เข้า
+    this.hninput= this.navParams.get("formData").from_id; //hn รพ. เข้า
+    this.hnbuu= this.navParams.get("formData").Hos_base_id;
+    this.output= this.navParams.get("formData").to_name2;
+    this.hnoutput= this.navParams.get("formData").to_id;
+    this.tel= this.navParams.get("formData").tel;
+
+        });
+
+    }
   }
 
   editgeneral() {
@@ -131,10 +149,11 @@ export class GeneralPage {
   }
 
   checkRole(role){
-    if(role === "nurse"){
+    if(role === "พยาบาล"){
       return true;
     }else{
       return false;
     }
   }
+
 }

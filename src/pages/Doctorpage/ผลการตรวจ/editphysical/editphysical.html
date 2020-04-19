@@ -5,277 +5,374 @@
 </ion-header>
 
 <ion-content padding>
+<form [formGroup]="formgroup">
+    <ion-card id="css" padding>
 
-  <ion-card id="css" padding>
-    <!-- <ion-item >
-      <ion-label color="dark">วันที่</ion-label>
-      <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+            <label for="check_date">วันที่ตรวจ</label>
+          </ion-col>
+          <ion-col col-6>
+          <input
+            type="date"
+            id="check_date"
+            name="check_date"
+            [formControl]="formgroup.controls['check_date']"
+            size="20">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-item no-lines><div>เหงื่อแตก ผิวอุ่นและชื้น</div></ion-item>
+      <ion-list radio-group [formControl]="formgroup.controls['sweat']">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <ion-item>
+                <ion-radio [value]="false"></ion-radio>
+                <ion-label>ไม่พบ</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item>
+                <ion-radio [value]="true"></ion-radio>
+                <ion-label>พบ</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+
+      <ion-item no-lines><div>ผมเส้นเล็กและร่วงง่าย</div></ion-item>
+      <ion-list radio-group [formControl]="formgroup.controls['hair_loss']">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <ion-item>
+                <ion-radio [value]="false"></ion-radio>
+                <ion-label>ไม่พบ</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item>
+                <ion-radio [value]="true"></ion-radio>
+                <ion-label>พบ</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+
+      <!--
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+            <label for="date">วันที่ตรวจ</label>
+          </ion-col>
+          <ion-col col-6>
+          <input
+            type="date"
+            id="check_date"
+            name="check_date"
+            formControlName="check_date"
+            size="20">
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+        <label for="body_weight">BW</label>
+      </ion-col>
+        <input
+          type="text"
+          id="body_weight"
+          name="body_weight"
+          [formControl]="formgroup.controls['body_weight']"
+          size="10">
+        <label for="kg">&ensp;kg</label>
+      </ion-row>
+    </ion-grid>
+
+      <!-- <ion-item >
+        <ion-label color="dark" >BW</ion-label>
+          <ion-row item-content>
+            <ion-col>
+              <ion-input [(ngModel)]="BW" type="number" min="0" placeholder=""></ion-input>
+            </ion-col>
+            <ion-label color="dark" >kg</ion-label>
+          </ion-row>
+      </ion-item> -->
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+        <label for="PR">PR</label>
+      </ion-col>
+        <input
+          type="text"
+          id="PR"
+          name="PR"
+          [formControl]="formgroup.controls['heart_rate']"
+          size="10">
+        <label for="bpm">&ensp;bpm</label>
+      </ion-row>
+    </ion-grid>
+
+      <!-- <ion-item >
+        <ion-label color="dark" >PR </ion-label>
+          <ion-row item-content>
+            <ion-col>
+              <ion-input [(ngModel)]="PR" type="number" min="0" placeholder=""></ion-input>
+            </ion-col>
+            <ion-label color="dark" >bpm</ion-label>
+          </ion-row>
+      </ion-item> -->
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+        <label for="BP">BP</label>
+      </ion-col>
+        <input
+          type="text"
+          id="blood_pressure_upper"
+          name="blood_pressure_upper"
+          [formControl]="formgroup.controls['blood_pressure_upper']"
+          size="5"
+        >
+        <label for="/"> </label>
+        <label for="/">&ensp; / &ensp;</label>
+        <input
+          type="text"
+          id="blood_pressure_lower"
+          name="blood_pressure_lower"
+          [formControl]="formgroup.controls['blood_pressure_lower']"
+          size="5"
+        >
+        <label for="kg">&ensp; kg</label>
+      </ion-row>
+    </ion-grid>
+
+      <!-- <ion-item >
+        <ion-label color="dark" >BP</ion-label>
+          <ion-row item-content>
+            <ion-col>
+              <ion-input [(ngModel)]="BP" type="number" min="0" placeholder=""></ion-input>
+            </ion-col>
+            <ion-label color="dark" >/</ion-label>
+            <ion-col>
+              <ion-input [(ngModel)]="KG" type="number" min="0" placeholder=""></ion-input>
+            </ion-col>
+            <ion-label color="dark" >kg</ion-label>
+          </ion-row>
+      </ion-item> -->
+
+    <!-- <ion-item no-lines><div>ตาโปนหรือตาโตกว่าปกติ</div></ion-item>
+      <ion-item no-lines >
+      <ion-label class="radio-inline">
+        <input type="radio" name="Eye" checked >
+        ไม่พบ
+      </ion-label>
+      <ion-label class="radio-inline">
+        <input type="radio" name="Eye">
+        พบ
+      </ion-label>
     </ion-item> -->
+
+      <ion-item no-lines><div>ตาโปนหรือตาโตกว่าปกติ</div></ion-item>
+      <ion-list radio-group [formControl]="formgroup.controls['eye_detect']">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <ion-item>
+                <ion-radio [value]="false"></ion-radio>
+                <ion-label>ไม่พบ</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item>
+                <ion-radio [value]="true"></ion-radio>
+                <ion-label>พบ</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
 
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-        <label for="date">วันที่</label>
-      </ion-col>
-      <ion-col col-6>
-      <input type="date" id="date" name="date" size="20">
+            <label for="specify">ระบุ</label>
+        </ion-col>
+            <ion-col col-6>
+              <ion-item>
+                <select [formControl]="formgroup.controls['eye_result']">
+                  <option value="น้อย">น้อย</option>
+                  <option value="กลาง">กลาง</option>
+                  <option value="มาก">มาก</option>
+                </select>
+              </ion-item>
+            </ion-col>
+      </ion-row>
+    </ion-grid>
+    <br>
+      <!-- <ion-item >
+        <ion-label color="dark">ระบุ</ion-label>
+        <ion-select [(ngModel)]="specify" placeholder=เลือก interface="popover">
+            <ion-option value="น้อย">น้อย</ion-option>
+            <ion-option value="ปานกลาง">ปานกลาง</ion-option>
+            <ion-option value="มาก">มาก</ion-option>
+        </ion-select>
+      </ion-item> -->
+
+
+    <ion-item  no-lines><h1>ส่งปรึกษาจักษุแพทย์</h1></ion-item>
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+      <label for="PR">PR</label>
     </ion-col>
-  </ion-row>
-  </ion-grid>
+      <input
+        type="text"
+        id="PR"
+        name="PR"
+        formControlName="heart_rate"
+        size="10">
+      <label for="bpm">&ensp;bpm</label>
+    </ion-row>
+  </ion-grid> -->
 
-    <ion-item no-lines >
-  <div>เหงื่อแตก ผิวอุ่นและชื้น</div>
-</ion-item>
-  <ion-item no-lines >
-    <ion-label class="radio-inline">
-      <input type="radio" name="Sweat" checked >
-      ไม่พบ
-    </ion-label>
-    <ion-label class="radio-inline">
-      <input type="radio" name="Sweat">
-      พบ
-    </ion-label>
-  </ion-item>
-  <ion-item no-lines >
-  <div>ผมเส้นเล็กและร่วงง่าย</div>
-</ion-item>
-  <ion-item no-lines >
-    <ion-label class="radio-inline">
-      <input type="radio" name="ThiHair" checked >
-      ไม่พบ
-    </ion-label>
-    <ion-label class="radio-inline">
-      <input type="radio" name="ThiHair">
-      พบ
-    </ion-label>
-  </ion-item>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col col-3>
-    <label for="BW">BW</label>
-  </ion-col>
-
-    <input type="text" id="BW" name="BW" size="10">
-
-    <label for="kg">&ensp;kg</label>
-
-  </ion-row>
-</ion-grid>
-
-  <!-- <ion-item >
-    <ion-label color="dark" >BW</ion-label>
-      <ion-row item-content>
-        <ion-col>
-          <ion-input [(ngModel)]="BW" type="number" min="0" placeholder=""></ion-input>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <label for="doc" >ชื่อจักษุแพทย์    </label>
         </ion-col>
-        <ion-label color="dark" >kg</ion-label>
-      </ion-row>
-  </ion-item> -->
-
-  <ion-grid>
-    <ion-row>
-      <ion-col col-3>
-    <label for="PR">PR</label>
-  </ion-col>
-
-    <input type="text" id="PR" name="PR" size="10">
-
-    <label for="bpm">&ensp;bpm</label>
-
-  </ion-row>
-</ion-grid>
-
-  <!-- <ion-item >
-    <ion-label color="dark" >PR </ion-label>
-      <ion-row item-content>
-        <ion-col>
-          <ion-input [(ngModel)]="PR" type="number" min="0" placeholder=""></ion-input>
-        </ion-col>
-        <ion-label color="dark" >bpm</ion-label>
-      </ion-row>
-  </ion-item> -->
-
-  <ion-grid>
-    <ion-row>
-      <ion-col col-3>
-    <label for="BP">BP</label>
-  </ion-col>
-
-    <input type="text" id="BP" name="BP" size="5">
-    <label for="/"> </label>
-    <label for="/">&ensp; / &ensp;</label>
-    <input type="text" id="BP" name="BP" size="5">
-    <label for="kg">&ensp; kg</label>
-  </ion-row>
-</ion-grid>
-
-  <!-- <ion-item >
-    <ion-label color="dark" >BP</ion-label>
-      <ion-row item-content>
-        <ion-col>
-          <ion-input [(ngModel)]="BP" type="number" min="0" placeholder=""></ion-input>
-        </ion-col>
-        <ion-label color="dark" >/</ion-label>
-        <ion-col>
-          <ion-input [(ngModel)]="KG" type="number" min="0" placeholder=""></ion-input>
-        </ion-col>
-        <ion-label color="dark" >kg</ion-label>
-      </ion-row>
-  </ion-item> -->
-
-
-  <ion-item no-lines>
-  <div>ตาโปนหรือตาโตกว่าปกติ</div>
-
-</ion-item>
-<ion-item no-lines >
-  <ion-label class="radio-inline">
-    <input type="radio" name="Eye" checked >
-    ไม่พบ
-  </ion-label>
-  <ion-label class="radio-inline">
-    <input type="radio" name="Eye">
-    พบ
-  </ion-label>
-</ion-item>
-
-<ion-grid>
-  <ion-row>
-    <ion-col col-4>
-        <label for="specify" >ระบุ     </label>
-      </ion-col>
         <ion-col col-6>
-        <select >
-          <option value="น้อย">น้อย</option>
-          <option value="ปานกลาง">ปานกลาง</option>
-          <option value="มาก">มาก</option>
-        </select>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-<br>
-  <!-- <ion-item >
-    <ion-label color="dark">ระบุ</ion-label>
-    <ion-select [(ngModel)]="specify" placeholder=เลือก interface="popover">
-        <ion-option value="น้อย">น้อย</ion-option>
-        <ion-option value="ปานกลาง">ปานกลาง</ion-option>
-        <ion-option value="มาก">มาก</ion-option>
-    </ion-select>
-  </ion-item> -->
+          <input
+            type="text"
+            id="doctor_name"
+            name="doctor_name"
 
-
-  <ion-item  no-lines>
-  <h1>ส่งปรึกษาจักษุแพทย์</h1>
-</ion-item>
-
-<ion-grid>
-  <ion-row>
-    <ion-col col-4>
-      <label for="doc" >ชื่อจักษุแพทย์    </label>
-    </ion-col>
-    <ion-col col-6>
-      <input type="text" id="doc" name="doc" size="20">
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
-  <!-- <ion-item >
-    <ion-label  color="dark">ชื่อจักษุแพทย์</ion-label>
-    <ion-input [(ngModel)]="doc" type="text" placeholder=""></ion-input>
-  </ion-item> -->
-
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-        <label for="date" >วันที่    </label>
-      </ion-col>
-      <ion-col col-6>
-        <input type="date" id="date" name="date" size="20">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-<!--
-  <ion-item >
-    <ion-label  color="dark">วันที่</ion-label>
-    <ion-input [(ngModel)]="datetime" type="text" placeholder=""></ion-input>
-  </ion-item> -->
-  <!-- <ion-grid>
-    <ion-item no-lines>
-    <ion-label  color="dark">ไฟล์ผลการตรวจ</ion-label>
-  </ion-item>
-  <div class="container">
-    <div class="button-wrap">
-      <input id="upload" type="file">
-    </div>
-  </div>
-  </ion-grid> -->
-
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-        <label>ไฟล์ผลการตรวจ</label>
-      </ion-col>
-      <ion-col col 6>
-        <button ion-button full >เลือกรูปภาพ</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-
-  <ion-grid>
-    <ion-col col-4>
-      <label>ไฟล์ผลการตรวจ</label>
-    </ion-col>
-    <button ion-button (click)="AlertTakePhoto()">เลือกรูปภาพ</button>
-  </ion-grid>
-
-  <ion-grid>
-    <ion-item>
-      <!-- <h4>Image Preview</h4> -->
-      <p><img align="center" src="{{ myPhoto }}"/></p>
-    </ion-item>
-  </ion-grid>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-          <label for="diagnose" >ผลการวินิจฉัย     </label>
+            [formControl]="formgroup.controls['doctor_name']"
+            size="20">
         </ion-col>
+      </ion-row>
+    </ion-grid>
+
+      <!-- <ion-item >
+        <ion-label  color="dark">ชื่อจักษุแพทย์</ion-label>
+        <ion-input [(ngModel)]="doc" type="text" placeholder=""></ion-input>
+      </ion-item> -->
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+          <label for="doctor_date">วันที่ตรวจ</label>
+        </ion-col>
+        <ion-col col-6>
+        <input
+          type="date"
+          id="doctor_date"
+          name="doctor_date"
+
+          [formControl]="formgroup.controls['doctor_date']"
+          size="20">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!--
+      <ion-item >
+        <ion-label  color="dark">วันที่</ion-label>
+        <ion-input [(ngModel)]="datetime" type="text" placeholder=""></ion-input>
+      </ion-item> -->
+      <!-- <ion-grid>
+        <ion-item no-lines>
+        <ion-label  color="dark">ไฟล์ผลการตรวจ</ion-label>
+      </ion-item>
+      <div class="container">
+        <div class="button-wrap">
+          <input id="upload" type="file">
+        </div>
+      </div>
+      </ion-grid> -->
+
+      <!-- <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label>ไฟล์ผลการตรวจ</label>
+          </ion-col>
+          <ion-col col 6>
+            <button ion-button full >เลือกรูปภาพ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+
+      <ion-grid>
+        <ion-col col-4>
+          <label>ไฟล์ผลการตรวจ</label>
+        </ion-col>
+        <button ion-button (click)="AlertTakePhoto()">เลือกรูปภาพ</button>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-item>
+          <!-- <h4>Image Preview</h4> -->
+          <p><img align="center" src="{{ myPhoto }}"/></p>
+        </ion-item>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+              <label for="diagnose" >ผลการวินิจฉัย     </label>
+            </ion-col>
+              <ion-col col-6>
+              <select [formControl]="formgroup.controls['doctor_result']">
+                <option value="สามารถกลืนแร่ได้">สามารถกลืนแร่ได้</option>
+                <option value="ไม่สามารถกลืนแร่ได้">ไม่สามารถกลืนแร่ได้</option>
+              </select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- <ion-item >
+        <ion-label color="dark">ผลการวินิจฉัย</ion-label>
+        <ion-select [(ngModel)]="diagnose" placeholder=เลือก interface="popover">
+          <ion-option value="สามารถกลืนแร่ได้">สามารถกลืนแร่ได้</ion-option>
+          <ion-option value="ไม่สามารถกลืนแร่ได้">ไม่สามารถกลืนแร่ได้</ion-option>
+        </ion-select>
+      </ion-item> -->
+
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="treat" >การรักษา    </label>
+          </ion-col>
           <ion-col col-6>
-          <select >
-            <option value="สามารถกลืนแร่ได้">สามารถกลืนแร่ได้</option>
-            <option value="ไม่สามารถกลืนแร่ได้">ไม่สามารถกลืนแร่ได้</option>
-          </select>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            <input
+              type="text"
+              id="treat"
+              name="treat"
 
-  <!-- <ion-item >
-    <ion-label color="dark">ผลการวินิจฉัย</ion-label>
-    <ion-select [(ngModel)]="diagnose" placeholder=เลือก interface="popover">
-      <ion-option value="สามารถกลืนแร่ได้">สามารถกลืนแร่ได้</ion-option>
-      <ion-option value="ไม่สามารถกลืนแร่ได้">ไม่สามารถกลืนแร่ได้</ion-option>
-    </ion-select>
-  </ion-item> -->
+              [formControl]="formgroup.controls['treatment']"
+              size="20">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
+      <!-- <ion-item >
+        <ion-label  color="dark">การรักษา</ion-label>
+        <ion-input [(ngModel)]="treat" type="text" placeholder=""></ion-input>
+      </ion-item> -->
+      </ion-card>
+      <button type="submit" ion-button color="1" id="button" (click)="presentConfirm()">Save</button>
+</form>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-        <label for="treat" >การรักษา    </label>
-      </ion-col>
-      <ion-col col-6>
-        <input type="text" id="treat" name="treat" size="20">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <!-- <ion-item >
-    <ion-label  color="dark">การรักษา</ion-label>
-    <ion-input [(ngModel)]="treat" type="text" placeholder=""></ion-input>
-  </ion-item> -->
-  </ion-card>
-  <button ion-button color="1" id= "button">Save</button>
 
 
 </ion-content>

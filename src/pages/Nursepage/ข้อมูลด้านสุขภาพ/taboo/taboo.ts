@@ -3,9 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditTabooPage } from '../edit-taboo/edit-taboo';
 import {
   Http,
-  Response,
   Headers,
-  ResponseOptions,
   RequestOptions
 } from "@angular/http";
 import { GlobalProvider } from "../../../../providers/global/global";
@@ -39,14 +37,26 @@ export class TabooPage {
     this.showButtonedit = this.checkRole(this.global.getSelectRole());
   }
 
-  async ionViewWillEnter() {
-    console.log("ionViewWillEnter InitiallyPage");
-    await this.navCtrl.getActive().component
+  async ionViewDidLoad() {
     this.showData = false;
-  }
- async ionViewDidEnter(){
-    console.log("ionViewDidEnter InitiallyPage");
     await this.getdata()
+  }
+
+  ionViewWillEnter(){
+    if(this.navParams.get("formData")){
+    return  new Promise((resolve, reject) => {
+      this.showData = true;
+    this.showNeckSurgery = this.navParams.get("formData").therapy_1;
+    this.showIrradiate = this.navParams.get("formData").therapy_2;
+    this.showCorrection= this.navParams.get("formData").therapy_3;
+    this.showchild= this.navParams.get("formData").therapy_4;
+    this.showAmblyopia= this.navParams.get("formData").therapy_5;
+    this.showdifficult= this.navParams.get("formData").therapy_6;
+    this.showrecommend= this.navParams.get("formData").therapy_7;
+    this.showInjection= this.navParams.get("formData").therapy_8;
+        });
+
+    }
   }
 
   async getdata(){
@@ -56,21 +66,15 @@ export class TabooPage {
     console.log("body : " + body);
    await this.http
       .post(
-        "http://192.168.31.98:8000/healthdata.php?method=get_mineral_therapy&role=nurse",
+        "http://"+this.global.getIP()+"/healthdata.php?method=get_mineral_therapy&role="+this.global.getSelectRole(),
         body,
         options
       )
       .map(res => res.json())
       .subscribe(
         data => {
-          if ( data.therapy_1) {
+          if ( data.therapy_1 !== null) {
             this.showData = true;
-            console.log("therapy_1 : "+  data.therapy_1);
-            console.log("therapy_2 : "+  data.therapy_2);
-            console.log("therapy_3 : "+  data.therapy_3);
-            console.log("therapy_4 : "+  data.therapy_4);
-            console.log("therapy_5 : "+  data.therapy_5);
-
             this.showNeckSurgery = data.therapy_1;
             this.showIrradiate = data.therapy_2;
             this.showCorrection = data.therapy_3;
@@ -100,7 +104,6 @@ export class TabooPage {
       difficult : this.showdifficult,
       recommend : this.showrecommend,
       Injection : this.showInjection,
-      FormSex : this.showFormSex
     })
   }
   checkSex(sex){
@@ -111,7 +114,7 @@ export class TabooPage {
     }
   }
   checkRole(role){
-    if(role === "nurse"){
+    if(role === "พยาบาล"){
       return true;
     }else{
       return false;

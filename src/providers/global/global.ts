@@ -10,15 +10,16 @@ import "rxjs/add/observable/interval"
 @Injectable()
 export class GlobalProvider {
   public mydate: string = "2020-03-02";
-  public role: any; //สถานะ[] คน login
-  public name: string; //ชื่อคน login
-  public selectRole; //role คน login ที่เลือก
+  private role: any; //สถานะ[] คน login
+  private name: string; //ชื่อคน login
+  private loginID:string; //idcard คน login
+  private selectRole; //role คน login ที่เลือก
 
   public patientID: string = "123456"; //ปปช. ผู้ป่วย
   private patientName: string; //ชื่อ ผู้ป่วย
-  public round: any; //รอบ[] ผู้ป่วย
-  public selectRound = 1; //เลือก รอบ
-  public sex:string; //เพศผู้ป่วย
+  private round: any; //รอบ[] ผู้ป่วย
+  private selectRound = 1; //เลือก รอบ
+  private sex:string; //เพศผู้ป่วย
 
   private showMenuMain:boolean =false;
 
@@ -30,9 +31,14 @@ export class GlobalProvider {
   constructor() {
     console.log("Hello GlobalProvider Provider");
   }
-
+  setname(name){
+    this.name = name;
+  }
   getname() {
     return this.name;
+  }
+  setrole(role){
+    this.role = role
   }
   getrole() {
     return this.role;
@@ -79,6 +85,14 @@ export class GlobalProvider {
   getShowMenuMain(){
     return this.showMenuMain;
   }
+  setLoginID(idcard){
+    this.loginID = idcard;
+  }
+  getLoginID(){
+    return this.loginID;
+  }
+
+
 
 
   startTimer(){

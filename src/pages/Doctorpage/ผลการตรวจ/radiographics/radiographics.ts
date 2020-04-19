@@ -1,3 +1,5 @@
+import { FilePath } from '@ionic-native/file-path';
+import { stringify } from '@angular/core/src/util';
 import { Http,
   Response,
   Headers,
@@ -17,13 +19,6 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
-/**
- * Generated class for the RadiographicsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-radiographics',
@@ -31,15 +26,13 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 })
 export class RadiographicsPage {
 
-  // imageURI:any;
-  // imageFileName:any;
   formgroup: FormGroup;
   myPhoto: any;
   HashID: any;
   Date: string;
-  PersonID: string;
+  PersonID: string = this.global.getpatientID();
   description : string = "";
-  round: any;
+  round: any = this.global.getSelectRound();
   Time: any;
   data:any;
 
@@ -47,6 +40,8 @@ export class RadiographicsPage {
   imageLink:any;
   desc: any;
   showMenu: boolean;
+  ContentType = "image/jpeg";
+  folderpath = this.file.externalRootDirectory;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -60,8 +55,9 @@ export class RadiographicsPage {
     public global: GlobalProvider,
     public formBuilder: FormBuilder,
     public alertCtrl: AlertController,
+    private filePath: FilePath
     ) {
-      if(this.global.getSelectRole() === "doctor"){
+      if(this.global.getSelectRole() === "หมอ"){
         this.showMenu = true;
       }else{
         this.showMenu = false;
@@ -120,64 +116,87 @@ export class RadiographicsPage {
     this.camera.getPicture(options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
-    this.myPhoto = 'data:image/jpeg;base64,' + imageData;
+      this.myPhoto = 'data:image/jpeg;base64,' + imageData;
+
     }, (err) => {
       alert("กรุณาอัพโหลดรูปผ่านแอพลิเคชั่นบนมือถือ");
     });
   }
 
   uploadFile(){
-    // let url = "http://localhost:8000/upload.php";
-    // let postData = new FormData();
-    // postData.append('file', this.myPhoto);
-    // let data:Observable<any> = this.http.post(url, postData);
-    // data.subscribe((result) => {
-    //   alert(result);
-    // })
     let loader = this.loadingCtrl.create({
       content: "กำลังอัพโหลดรูปภาพ..."
     });
     loader.present();
     const fileTransfer: FileTransferObject = this.transfer.create();
-    this.round = this.global.selectRound;
-    this.Date = moment().format('DD_MM_YYYY');
-    this.Time = moment().format('h_mm_ss');
-    this.HashID = Md5.hashStr('this.global.getpatientID()');
+    this.round = this.global.getSelectRound();
+    this.Date = moment().format('DD-MM-YYYY').toString();
+    this.Time = moment().format('h-mm-ss').toString();
+    this.HashID = Md5.hashStr('this.global.getpatientID()').toString();
     let options: FileUploadOptions = {
       fileKey: 'photo',
       fileName:  this.HashID + "_r" + this.round + "_" + this.Date + "_" + this.Time + ".jpg",
       chunkedMode: false,
       httpMethod: 'post',
-      mimeType: "multipart/form-data",
+      mimeType: "image/jpeg",
       headers: {},
-      params: {
-        description: this.description
-      }
     }
 
-    fileTransfer.upload(this.myPhoto, 'http://192.168.31.98:8000/upload.php', options)
+    fileTransfer.upload(this.myPhoto, "http://" + this.global.getIP() + "/upload.php", options)
       .then((data) => {
       alert("การอัพโหลดรูปเสร็จสมบูรณ์");
-      // this.updateData();
+      this.imageLink = data.response;
+      this.updateData();
+      console.log(data);
+      console.log(this.imageLink);
       loader.dismiss();
-      // console.log(data + " Uploaded Successfully");
-      // this.myPhoto = "http://10.80.82.229:8000/Images/ionicfile.jpg"
-      //this.presentToast("Image uploaded successfully");
     }, (err) => {
-      // console.log(err);
-      // this.presentToast(JSON.stringify(err));
-      // alert("เกิดข้อผิดพลาดในการอัพโหลด กรุณาทำรายการใหม่อีกครั้ง");
       alert(JSON.stringify(err));
       loader.dismiss();
     });
   }
 
-  getData(){
-    this.http.get("http://192.168.31.98:8000/result.php?method=get_thyroidScan&role=patient")
+  updateData(){
+      let headers = new Headers({ "Content-type": "application/json" });
+      let options = new RequestOptions({ headers: headers });
+      let body = {
+        idcard: this.PersonID,
+        round: this.round,
+        thy_scan_image: this.imageLink,
+        thy_scan_desc: this.description
+      };
+      console.log(JSON.stringify(body));
+      this.http.post("http://" + this.global.getIP() + "/result.php?method=update_thyroidScan&role=" + this.global.getSelectRole(),
+          body,
+          options
+        )
+        .map(res => res.json())
+        .subscribe(
+          data => {
+            console.log(JSON.stringify(data));
+          },
+          error => {
+            console.log(error);
+          }
+        );
+    }
+
+  async getData(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify({
+      idcard: this.global.getpatientID(),
+      round: this.global.getSelectRound()
+    });
+    console.log("body : " + body);
+    await this.http.post("http://" + this.global.getIP() + "/result.php?method=get_thyroidScan&role=" + this.global.getSelectRole()
+    ,body
+    ,options
+    )
     .map(res=>res.json())
     .subscribe(
       data => {
-        this.imageFile = "http://" + this.global.getIP() + data.thy_scan_image;
+        this.imageFile = "http://" + this.global.getIP() + "/" + data.thy_scan_image;
         this.desc = data.thy_scan_desc;
         console.log(data);
       }, error => {
@@ -186,37 +205,7 @@ export class RadiographicsPage {
     )
   }
 
-  transformImageLink(){
 
-  }
-
-  // updateData(){
-  //   let headers = new Headers({ "Content-type": "application/json" });
-  //   let options = new RequestOptions({ headers: headers });
-  //   let body = {
-  //     idcard: this.PersonID,
-  //     round: this.round,
-  //     thy_scan_image: this.myPhoto,
-  //     thy_scan_desc: this.description
-  //   };
-
-  //   console.log("body : " + body);
-  //   this.http
-  //     .post(
-  //       "http://192.168.31.98:8000/result.php?method=update_thyroidScan&role=doctor",
-  //       body,
-  //       options
-  //     )
-  //     .map(res => res.json())
-  //     .subscribe(
-  //       data => {
-  //         console.log(data);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
 
   // presentToast(msg) {
   //   let toast = this.toastCtrl.create({

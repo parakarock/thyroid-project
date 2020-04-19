@@ -25,6 +25,9 @@
                 <option value="นางสาว">นางสาว</option>
                 <option value="เด็กหญิง">เด็กหญิง</option>
                 <option value="เด็กชาย">เด็กชาย</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Miss ">Miss</option>
               </select>
               <p
                 class="help-inline"
@@ -164,13 +167,13 @@
             <ion-col col-6>
               <select formControlName="status">
                 <option value="โสด" selected>โสด </option>
-                <option value="คู่">คู่ </option>
+                <option value="สมรส">สมรส </option>
                 <option value="หย่า">หย่า </option>
                 <option value="คู่สมรสเสียชีวิต">คู่สมรสเสียชีวิต </option>
               </select>
               <p class="help-inline"
               *ngIf="!formgroup.get('status').valid
-              && formgroup.get('status').touched">กรุณาเลือกสถานะ</p>
+              && formgroup.get('status').touched">กรุณาเลือกสถานะการสมรส</p>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -184,13 +187,13 @@
               <input type="phone" formControlName="tel" size="20" />
               <p class="help-inline" 
               *ngIf="!formgroup.get('tel').valid
-              && formgroup.get('tel').touched">กรุณากรอกตัวเลข อย่างน้อย 6 หลัก และ ไม่เกิน 15 หลัก</p>
+              && formgroup.get('tel').touched">กรุณากรอกตัวเลข</p>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-list>
     </ion-card>
-{{language}}
+
     <button ion-button [disabled]="!formgroup.valid" (click)="onClickToRegister()"  color="1">
       ถัดไป
     </button>

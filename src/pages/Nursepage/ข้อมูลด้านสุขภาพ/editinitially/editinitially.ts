@@ -7,9 +7,7 @@ import {
 } from "ionic-angular";
 import {
   Http,
-  Response,
   Headers,
-  ResponseOptions,
   RequestOptions
 } from "@angular/http";
 import { GlobalProvider } from "../../../../providers/global/global";
@@ -44,6 +42,7 @@ export class EditinitiallyPage {
   diseaseName: string;
 
   showFormSex: boolean;
+  data;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -67,12 +66,16 @@ export class EditinitiallyPage {
     this.disease = navParams.get("disease");
     this.diseaseName = navParams.get("diseaseName");
 
-    this.showFormSex = navParams.get("showFormSex");
+    this.showFormSex = this.checkSex(this.global.getSex());
+  }
+  checkSex(sex) {
+    if (sex === "หญิง") {
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad EditinitiallyPage");
-  }
 
   beforeSend(x) {
     if (x&&this.diseaseName) {
@@ -93,7 +96,7 @@ export class EditinitiallyPage {
   updateData() {
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify({
+    let body ={
       idcard: this.global.getpatientID(),
       round: this.global.getSelectRound(),
       frustration: this.editData(this.edgy),
@@ -110,11 +113,12 @@ export class EditinitiallyPage {
       weak_arm: this.editData(this.leg),
       few_period: this.editData(this.fshit),
       disease_name: this.beforeSend(this.disease)
-    });
-    console.log(body);
+    };
+    this.data = body;
+    this.navCtrl.getPrevious().data.formData = this.data
     this.http
       .post(
-        "http://192.168.31.98:8000/healthdata.php?method=update_init-phase&role=nurse",
+        "http://"+this.global.getIP()+"/healthdata.php?method=update_init-phase&role="+this.global.getSelectRole(),
         body,
         options
       )
@@ -146,7 +150,6 @@ export class EditinitiallyPage {
           text: "ยืนยัน",
           handler: () => {
             this.updateData();
-            // this.navCtrl.remove(this.navCtrl.getPrevious().index);
             this.navCtrl.pop();
           }
         }

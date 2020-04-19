@@ -115,6 +115,9 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { AutosizeModule } from 'ngx-autosize';
 
 import { YoutubePipe } from '../pipes/youtube/youtube'
+
+import { ChangepassLogin1Page } from '../pages/changepass-login1/changepass-login1'
+import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-login2'
 @NgModule({
   declarations: [
     MyApp,
@@ -205,7 +208,9 @@ import { YoutubePipe } from '../pipes/youtube/youtube'
     GenPage,
     AddhosPage,
     InsertPage,
-    YoutubePipe
+    YoutubePipe,
+    ChangepassLogin1Page,
+    ChangepassLogin2Page
 
 
   ],
@@ -308,7 +313,9 @@ import { YoutubePipe } from '../pipes/youtube/youtube'
     AppointmentPage,
     GenPage,
     AddhosPage,
-    InsertPage
+    InsertPage,
+    ChangepassLogin1Page,
+    ChangepassLogin2Page
 
   ],
   providers: [

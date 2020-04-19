@@ -19,7 +19,8 @@ import "rxjs/add/operator/map";
 export class HomePage {
   url: string;
   posts: any = [];
-  googleToken: string="AIzaSyD9U_vfpvJt8aCVUDy_vRiW70xLCUbPxY8";
+  googleToken1: string="AIzaSyD9U_vfpvJt8aCVUDy_vRiW70xLCUbPxY8";
+  googleToken2: string="AIzaSyDsBqTOtXTm43wSr68NGejE6SlyrpBWq6I";
   playlistId: string = "PLME1fWasJoeXCQeeJlZafOJzNPlCE5kH-";
   @ViewChild(Slides) slides: Slides;
 
@@ -33,7 +34,7 @@ export class HomePage {
       "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=" +
       this.playlistId +
       "&key=" +
-      this.googleToken;
+      this.googleToken1;
     this.http
       .get(this.url)
       .map((res) => res.json())

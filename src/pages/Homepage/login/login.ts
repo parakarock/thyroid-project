@@ -5,15 +5,12 @@ import {
   NavParams,
   AlertController,
   Events,
-  Form,
   ToastController
 } from "ionic-angular";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import {
   Http,
-  Response,
   Headers,
-  ResponseOptions,
   RequestOptions
 } from "@angular/http";
 
@@ -22,11 +19,11 @@ import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
 import { AdminhomePage } from "../../AdminPage/adminhome/adminhome";
 import { GlobalProvider } from "../../../providers/global/global";
+import { ChangepassLogin1Page } from "../../changepass-login1/changepass-login1"
 import {
   FormGroup,
   FormBuilder,
   Validators,
-  AbstractControl
 } from "@angular/forms";
 
 @IonicPage()
@@ -81,20 +78,18 @@ export class LoginPage {
             // this.showToastWithCloseButton(data.result);
             this.presentAlert(data.result);
           } else {
-            this.global.name =
-              data[0].title + data[0].firstname + " " + data[0].lastname;
-            this.global.role = data[1];
-            this.global.setpatientID(data[0].person_id);
-            // alert(data[0].person_id)
+            this.global.setname(data[0].title + data[0].firstname + " " + data[0].lastname)
+            this.global.setLoginID(data[0].person_id)
+            this.global.setrole(data[1])
             if (
               data[1].findIndex(
-                role_name => role_name.role_name === "doctor"
+                role_name => role_name.role_name === "หมอ"
               ) >= 0
             ) {
               this.events.publish("user:doctor");
               this.navCtrl.setRoot(DoctorHomePage);
             } else if (
-              data[1].findIndex(role_name => role_name.role_name === "nurse") >=
+              data[1].findIndex(role_name => role_name.role_name === "พยาบาล") >=
               0
             ) {
               this.events.publish("user:nurse");
@@ -104,7 +99,8 @@ export class LoginPage {
                 role_name => role_name.role_name === "ผู้ป่วย"
               ) >= 0
             ) {
-
+              this.global.setpatientName(data[0].title + data[0].firstname + " " + data[0].lastname)
+              this.global.setpatientID(data[0].person_id)
               this.events.publish("user:patient");
               this.navCtrl.setRoot(PatientHomePage);
             }
@@ -147,6 +143,10 @@ export class LoginPage {
       buttons: ['Ok']
     });
     alert.present();
+  }
+
+  changePass(){
+    this.navCtrl.push(ChangepassLogin1Page);
   }
 
 }

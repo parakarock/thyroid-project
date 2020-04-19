@@ -37,7 +37,7 @@
           <ion-option
             *ngFor="let role of roles"
             [value]="role.role_name"
-            [selected]="role.role_name === 'nurse'"
+            [selected]="role.role_name === 'พยาบาล'"
             >{{role.role_name}}</ion-option
           >
         </ion-select>
@@ -53,6 +53,22 @@
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
 <ion-content padding>
+  <ion-card *ngIf="showMenu">
+    <ion-card-header style="text-align: center;  font-size: 24px;">
+      ขณะนี้คุณกำลังตรวจ
+    </ion-card-header>
+    <ion-card-content style="text-align: center;">
+      <div >
+<label style=" font-size: 16px; text-align: center;" >{{patientname}}
+        </label>
+         <button style="vertical-align: middle;" ion-button color="1" icon-end (click)="logoutPatient()">
+          เปลี่ยนผู้ป่วย <ion-icon name="swap"></ion-icon>
+        </button>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
   <ion-grid>
     <ion-row *ngIf="!showMenu">
       <a class="col col-50 text-center" (click)="onClickRegister()">
@@ -110,25 +126,11 @@
 
 
 
-        <button ion-button color="1">Scan</button>
+        <button ion-button (click)="scan()" color="1">Scan</button>
 
 
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="showMenu">
-    <ion-card-header style="text-align: center;  font-size: 24px;">
-      ขณะนี้คุณกำลังตรวจ
-    </ion-card-header>
-    <ion-card-content style="text-align: center;">
-      <div >
-<label style=" font-size: 16px; text-align: center;" >{{patientname}}
-        </label>
-         <button style="vertical-align: middle;" ion-button color="1" icon-end (click)="logoutPatient()">
-          เปลี่ยนผู้ป่วย <ion-icon name="swap"></ion-icon>
-        </button>
-      </div>
 
-    </ion-card-content>
-  </ion-card>
 </ion-content>

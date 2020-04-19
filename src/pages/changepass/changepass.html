@@ -5,25 +5,44 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="1">
     <ion-title>เปลี่ยนรหัส</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-item >
-    <ion-label  color="dark">รหัสผ่านเดิม</ion-label>
-    <ion-input [(ngModel)]="passold" type="text" placeholder=""></ion-input>
-  </ion-item>
+  <form class="form" [formGroup]="formgroup">
+    <ion-item>
+      <ion-label color="dark">รหัสผ่านเดิม</ion-label>
+      <ion-input
+        formControlName="oldPassword"
+        type="text"
+        placeholder=""
+      ></ion-input>
+    </ion-item>
 
-  <ion-item >
-    <ion-label  color="dark">รหัสผ่านใหม่</ion-label>
-    <ion-input [(ngModel)]="passnew" type="text" placeholder=""></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label color="dark">รหัสผ่านใหม่</ion-label>
+      <ion-input
+        formControlName="password"
+        type="text"
+        placeholder=""
+      ></ion-input>
+    </ion-item>
 
-  <ion-item >
-    <ion-label  color="dark">รหัสผ่านใหม่อีกครั้ง</ion-label>
-    <ion-input [(ngModel)]="passnewagain" type="text" placeholder=""></ion-input>
-  </ion-item>
-  <button ion-button  >บันทึก</button>
+    <ion-item>
+      <ion-label color="dark">รหัสผ่านใหม่อีกครั้ง</ion-label>
+      <ion-input
+        formControlName="confirmPassword"
+        type="text"
+        placeholder=""
+      ></ion-input>
+    </ion-item>
+  </form>
+  <br>
+  <div style="text-align: center;">
+    <button ion-button [disabled]="!formgroup.valid" (click)="checkMatch()">
+      บันทึก
+    </button>
+  </div>
 </ion-content>
