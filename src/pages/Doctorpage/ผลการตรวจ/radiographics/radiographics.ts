@@ -69,40 +69,6 @@ export class RadiographicsPage {
     this.getData()
   }
 
-  // openGallery(){
-  //   const options: CameraOptions = {
-  //     quality: 100,
-  //     destinationType: this.camera.DestinationType.DATA_URL,
-  //     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-  //     saveToPhotoAlbum: false
-  //   }
-
-  //   this.camera.getPicture(options).then((imageData) => {
-  //   // this.myPhoto = 'data:image/jpeg,' + imageData;
-  //   this.myPhoto = imageData;
-  //   }, (err) => {
-  //     alert("Error getPicture:" + err);
-  //     // this.presentToast(err);
-  //   });
-  // }
-
-  // openCamera(){
-  //   const options: CameraOptions = {
-  //     quality: 70,
-  //     destinationType: this.camera.DestinationType.DATA_URL,
-  //     encodingType: this.camera.EncodingType.JPEG,
-  //     mediaType: this.camera.MediaType.PICTURE
-  //   }
-
-  //   this.camera.getPicture(options).then((imageData) => {
-  //     // imageData is either a base64 encoded string or a file URI
-  //     // If it's base64:
-  //     this.myPhoto = 'data:image/jpeg;base64,' + imageData;
-  //   }, (err) => {
-  //     alert("Error openCamera : " + err);
-  //   });
-  // }
-
   takePhoto(SourceType:number){
     const options: CameraOptions = {
       quality: 70,
@@ -123,6 +89,7 @@ export class RadiographicsPage {
     });
   }
 
+  //Upload รูปไปยัง Server โดยไปไว้ใน Folder Images
   uploadFile(){
     let loader = this.loadingCtrl.create({
       content: "กำลังอัพโหลดรูปภาพ..."
@@ -156,6 +123,7 @@ export class RadiographicsPage {
     });
   }
 
+  //Update Path รูปภาพและคำอธิบายรูปไปยัง Database
   updateData(){
       let headers = new Headers({ "Content-type": "application/json" });
       let options = new RequestOptions({ headers: headers });
@@ -181,6 +149,7 @@ export class RadiographicsPage {
         );
     }
 
+  //ดึง Path รูปภาพและคำอธิบายรูปมาแสดง
   async getData(){
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
@@ -204,21 +173,5 @@ export class RadiographicsPage {
       }
     )
   }
-
-
-
-  // presentToast(msg) {
-  //   let toast = this.toastCtrl.create({
-  //     message: msg,
-  //     duration: 3000,
-  //     position: 'bottom'
-  //   });
-
-  //   toast.onDidDismiss(() => {
-  //     console.log('Dismissed toast');
-  //   });
-
-  //   toast.present();
-  // }
 
 }

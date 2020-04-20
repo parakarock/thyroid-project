@@ -1,16 +1,19 @@
 
+<!-- ส่วนแสดงของหมอ -->
 <ion-header *ngIf="showMenu">
   <ion-navbar color="1">
     <ion-title>อัพโหลดภาพไทรอยด์สแกน</ion-title>
   </ion-navbar>
 </ion-header>
 
+<!-- ส่วนแสดงของผู้ป่วย -->
 <ion-header *ngIf="!showMenu">
   <ion-navbar color="1">
     <ion-title>ภาพไทรอยด์สแกน</ion-title>
   </ion-navbar>
 </ion-header>
 
+<!-- ส่วนแสดงของหมอ -->
 <ion-content padding id="css" *ngIf="showMenu">
   <ion-card>
   <ion-card-header>ภาพ Thyroid Scan</ion-card-header>
@@ -31,6 +34,7 @@
 </ion-card>
 </ion-content>
 
+<!-- ส่วนแสดงของผู้ป่วย -->
 <ion-content *ngIf="!showMenu">
   <ion-item full>
     <h3>รูปภาพ</h3>
