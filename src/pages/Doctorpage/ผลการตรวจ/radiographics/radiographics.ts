@@ -112,7 +112,7 @@ export class RadiographicsPage {
     fileTransfer.upload(this.myPhoto, "http://" + this.global.getIP() + "/upload.php", options)
       .then((data) => {
       alert("การอัพโหลดรูปเสร็จสมบูรณ์");
-      this.imageLink = data.response;
+      this.imageLink = data.response; //เอา File Path มาใส่ในตัวแปร
       this.updateData();
       console.log(data);
       console.log(this.imageLink);
