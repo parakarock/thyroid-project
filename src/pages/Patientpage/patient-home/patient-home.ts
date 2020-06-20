@@ -1,6 +1,6 @@
 import { GenPage } from '../../gen/gen';
 import { Component, ViewChild } from "@angular/core";
-import { IonicPage, NavController, NavParams, Slides,MenuController } from "ionic-angular";
+import { IonicPage, NavController, NavParams, Slides,MenuController, AlertController } from "ionic-angular";
 import { Events } from "ionic-angular";
 import { HealthdatahomePage } from "../../Nursepage/ข้อมูลด้านสุขภาพ/healthdatahome/healthdatahome";
 import { TestresultPage } from "../../Doctorpage/ผลการตรวจ/testresult/testresult";
@@ -12,6 +12,11 @@ import { ChangepassPage } from "../../changepass/changepass";
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { NurseHomePage } from "../../Nursepage/nurse-home/nurse-home";
 import { GlobalProvider } from "../../../providers/global/global";
+import {
+  Http,
+  Headers,
+  RequestOptions,
+} from "@angular/http";
 
 /**
  * Generated class for the PatientHomePage page.
@@ -28,6 +33,8 @@ import { GlobalProvider } from "../../../providers/global/global";
 export class PatientHomePage {
   roles;
   name;
+  rounds;
+  number
   status: string;
   @ViewChild(Slides) slides: Slides;
 
@@ -36,13 +43,19 @@ export class PatientHomePage {
     public navParams: NavParams,
     public events: Events,
     public menu: MenuController,
-    public global: GlobalProvider
-  ) {}
+    public global: GlobalProvider,
+    private http: Http,
+    public alertCtrl: AlertController,
+  ) {
+   
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad PatientHomePage");
+    this.getRound()
     this.roles = this.global.getrole();
     this.name = this.global.getname();
+    
   }
 
   selectRole() {
@@ -57,7 +70,46 @@ export class PatientHomePage {
       this.navCtrl.setRoot(DoctorHomePage);
     }
   }
+  SelectRound(){
+    this.global.setSelectRound(this.number)
+    console.log(this.global.getSelectRound())
+  }
 
+  getRound(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = { person_id: this.global.getpatientID() };
+    console.log(body)
+     this.http
+      .post(
+        "http://"+this.global.getIP()+"/login.php?method=getRounds&role="+this.global.getSelectRole(),
+        body,
+        options
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          if (data.result) {
+            this.presentAlert(data.result);
+          } else {
+            this.global.setRound(data);
+            this.rounds = this.global.getRound();
+            
+          }
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+  async presentAlert(txt: string) {
+    let alert = await this.alertCtrl.create({
+      title: "แจ้งเตือน",
+      subTitle: txt,
+      buttons: ["Ok"]
+    });
+    alert.present();
+  }
 
   slideChanged() {
     let currentIndex = this.slides.getActiveIndex();

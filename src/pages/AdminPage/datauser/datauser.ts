@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {DdPage } from '../../AdminPage/dd/dd';
-import {DpPage } from '../../AdminPage/dp/dp';
-import {DnPage } from '../../AdminPage/dn/dn';
+import { DpPage } from '../../AdminPage/dp/dp';
+
 /**
  * Generated class for the DatauserPage page.
  *
@@ -24,12 +23,13 @@ export class DatauserPage {
     console.log('ionViewDidLoad DatauserPage');
   }
   dd(){
-    this.navCtrl.push(DdPage);
+    this.navCtrl.push(DpPage,{search : "หมอ",title: "ผู้ใช้ที่มีสถานะเป็นหมอ"});
   }
   dp(){
-    this.navCtrl.push(DpPage);
+    this.navCtrl.push(DpPage,{search : "ผู้ป่วย",
+  title: "ผู้ใช้ที่มีสถานะเป็นคนไข้"});
   }
   dn(){
-    this.navCtrl.push(DnPage);
+    this.navCtrl.push(DpPage,{search : "พยาบาล",title: "ผู้ใช้ที่มีสถานะเป็นพยาบาล"});
   }
 }

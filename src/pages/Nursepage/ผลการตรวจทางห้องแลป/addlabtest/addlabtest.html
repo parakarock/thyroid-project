@@ -6,7 +6,7 @@
 
 <ion-content padding>
 <ion-card id="css" padding>
- 
+  <form [formGroup]="formgroup"  >
   <ion-grid>
     <ion-row>
       <ion-col col-4>
@@ -17,40 +17,45 @@
 </ion-col>
 </ion-row>
 </ion-grid>
-<!-- 
-  <ion-item >
-    <ion-label  color="dark">วันที่</ion-label>
-    <ion-label  color="dark"></ion-label>
-  </ion-item> -->
 
   <ion-grid>
     <ion-row>
       <ion-col col-4>
-          <label for="hos" >โรงพยาบาล      </label>
+          <label for="hos" >รพ.      </label>
         </ion-col>
           <ion-col col-6>
-          <select >
-            <option value="รายชื่อโรงพยาบาล">รายชื่อโรงพยาบาล</option>
+          <select formControlName="Hospital" (change) = "showHosIn()">
+            <option value="" disabled selected hidden>รายชื่อโรงพยาบาล</option>
+            <option *ngFor="let hos of hospitals" value="{{hos.hos_name}}">{{hos.hos_name}}</option>
           </select>
+          <p
+                class="help-inline"
+                *ngIf="!formgroup.get('Hospital').valid
+      && formgroup.get('Hospital').touched"
+              >
+                กรุณาเลือก
+              </p>  
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-grid>
+  <ion-grid *ngIf="showNameHosIn">
     <ion-row>
       <ion-col col-4>
-  <label for="hos">โรงพยาบาล</label>
+  <label for="hos" >รพ.</label>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="hos" name="hos" size="20">
+  <input type="text" formControlName="HospitalOther"  id="hos" name="hos" size="20">
+  <p
+  class="help-inline"
+  *ngIf="!formgroup.get('HospitalOther').valid
+&& formgroup.get('HospitalOther').touched"
+>
+  กรุณาเขียนชื่อโรงพยาบาล
+</p>  
 </ion-col>
 </ion-row>
 </ion-grid>
-
-  <!-- <ion-item >
-    <ion-label  color="dark">โรงพยาบาล</ion-label>
-    <ion-label  color="dark"></ion-label>
-  </ion-item> -->
 
   <ion-grid>
     <ion-row>
@@ -58,26 +63,31 @@
   <label for="ft3">serum free T3</label>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="ft3" name="ft3" size="20">
+  <input type="number" formControlName="SerumT3" id="SerumT3" name="SerumT3" size="20">
+  <p 
+                class="help-inline"
+                *ngIf="!formgroup.get('SerumT3').valid
+      && formgroup.get('SerumT3').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p>  
 </ion-col>
 </ion-row>
 <ion-row>
 <ion-col col-4>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="ft3" name="ft3" size="20">
+  <input type="number" formControlName="SerumT3st" id="SerumT3st" name="SerumT3st" size="20">
+  <p
+                class="help-inline"
+                *ngIf="!formgroup.get('SerumT3st').valid
+      && formgroup.get('SerumT3st').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p> 
 </ion-col>
 </ion-row>
 </ion-grid>
-
-  <!-- <ion-item >
-    <ion-label  color="dark">serum free T3</ion-label>
-    <ion-label  color="dark"></ion-label>
-  </ion-item>
-
-  <ion-item >
-    <ion-label  color="dark"></ion-label>
-  </ion-item> -->
 
   <ion-grid>
     <ion-row>
@@ -85,26 +95,32 @@
   <label for="ft4">serum free T4</label>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="ft4" name="ft4" size="20">
+  <input type="number" formControlName="SerumT4" id="SerumT4" name="SerumT4" size="20">
+  <p
+                class="help-inline"
+                *ngIf="!formgroup.get('SerumT4').valid
+      && formgroup.get('SerumT4').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p>  
 </ion-col>
 </ion-row>
 <ion-row>
 <ion-col col-4>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="ft4" name="ft4" size="20">
+  <input type="number" formControlName="SerumT4st" id="SerumT4st" name="SerumT4st" size="20">
+  <p
+                class="help-inline"
+                *ngIf="!formgroup.get('SerumT4st').valid
+      && formgroup.get('SerumT4st').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p>  
 </ion-col>
 </ion-row>
 </ion-grid>
 
-  <!-- <ion-item >
-    <ion-label  color="dark">serum free T4</ion-label>
-    <ion-label  color="dark"></ion-label>
-  </ion-item>
-
-  <ion-item >
-    <ion-label  color="dark"></ion-label>
-  </ion-item> -->
 
   <ion-grid>
     <ion-row>
@@ -112,25 +128,32 @@
   <label for="TSH">serum TSH</label>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="TSH" name="TSH" size="20">
+   <input type="number" formControlName="SerumTSH" id="SerumTSH" name="SerumTSH" size="20">
+  <p
+                class="help-inline"
+                *ngIf="!formgroup.get('SerumTSH').valid
+      && formgroup.get('SerumTSH').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p> 
 </ion-col>
 </ion-row>
 <ion-row>
 <ion-col col-4>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="TSH" name="TSH" size="20">
+   <input type="number" formControlName="SerumTSHst" id="SerumTSHst" name="SerumTSHst" size="20">
+  <p
+                class="help-inline"
+                *ngIf="!formgroup.get('SerumTSHst').valid
+      && formgroup.get('SerumTSHst').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p> 
 </ion-col>
 </ion-row>
 </ion-grid>
 
-  <!-- <ion-item >
-    <ion-label  color="dark">serum TSH</ion-label>
-    <ion-label  color="dark"></ion-label>
-  </ion-item>
-  <ion-item >
-    <ion-label  color="dark"></ion-label>
-  </ion-item> -->
   
   <ion-grid>
     <ion-row>
@@ -138,25 +161,32 @@
   <label for="TRAb">serum TRAb</label>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="TRAb" name="TRAb" size="20">
+ <input type="number" formControlName="SerumTRAb" id="SerumTRAb" name="SerumTRAb" size="20">
+  <p
+                class="help-inline"
+                *ngIf="!formgroup.get('SerumTRAb').valid
+      && formgroup.get('SerumTRAb').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p> 
 </ion-col>
 </ion-row>
 <ion-row>
 <ion-col col-4>
 </ion-col>
 <ion-col col-6>
-  <input type="text" id="TRAb" name="TRAb" size="20">
+ <input type="number" formControlName="SerumTRAbst" id="SerumTRAbst" name="SerumTRAbst" size="20">
+  <p
+                class="help-inline"
+                *ngIf="!formgroup.get('SerumTRAbst').valid
+      && formgroup.get('SerumTRAbst').touched"
+              >
+                กรุณากรอกตัวเลข
+              </p> 
 </ion-col>
 </ion-row>
 </ion-grid>
 
-  <!-- <ion-item >
-    <ion-label  color="dark">serum TRAb</ion-label>
-    <ion-label  color="dark"></ion-label>
-  </ion-item>
-  <ion-item >
-    <ion-label  color="dark"></ion-label>
-  </ion-item> -->
   <ion-grid>
     <ion-row>
       <ion-col col-12>
@@ -171,7 +201,8 @@
         <label for="ThyroidMed" >ยาต้านอาการไทรอยด์</label>
       </ion-col>
         <ion-col col-5>
-        <select >
+        <select formControlName="ThyroidMed" (change)="addThyroidMed($event.target.value)">
+          <option value="" disabled selected hidden>รายชื่อยาต้านอาการไทรอยด์</option>
           <option value="Propylthiouracil (PTU)">Propylthiouracil (PTU)</option>
           <option value="Methimazole (MMI)">Methimazole (MMI)</option>
           <option value="Tapazole">Tapazole</option>
@@ -179,21 +210,28 @@
           <option value="ไม่ต้องรับประทาน">ไม่ต้องรับประทาน</option>
           <option value="อื่นๆ">อื่นๆ</option>
         </select>
+        <p
+        class="help-inline"
+        *ngIf="!formgroup.get('ThyroidMed').valid
+&& formgroup.get('ThyroidMed').touched"
+      >
+        กรุณาเลือก
+      </p>  
     </ion-col>
-    <ion-col col-3>
-      <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">
+    <ion-col col-3 >
+      <input type="text" *ngIf="showAntiOther" formControlName="ThyroidMedEtc" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">
     </ion-col>
   </ion-row>
 </ion-grid>
 
 
-<ion-grid>
+<ion-grid *ngIf="showAntiPill">
   <ion-row>
       
-    <input type="number" id="ThyroidMedVol" name="ThyroidMedVol" size="5">  
+    <input type="number" formControlName="ThyroidMedVol" id="ThyroidMedVol" name="ThyroidMedVol" size="5">  
     <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
      
-  <input type="number" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">  
+  <input type="number"formControlName="ThyroidMedRoundPerDay" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">  
   <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;  </label>
   </ion-row>
 </ion-grid>
@@ -204,83 +242,43 @@
           <label for="BetaBlock" >ยากลุ่ม Beta-Blocker</label>
         </ion-col>
           <ion-col col-5>
-          <select >
+          <select formControlName="BetaBlock" (change)="addBetaBlock($event.target.value)">
+            <option value="" disabled selected hidden>รายชื่อยา Beta-Blocker</option>
             <option value="Propranolol (10)">Propranolol (10)</option>
             <option value="Propranolol (40)">Propranolol (40)</option>
             <option value="Betalol (10)">Betalol (10)</option>
             <option value="Atenolol (50)">Atenolol (50)</option>
+            <option value="ไม่ต้องรับประทาน">ไม่ต้องรับประทาน</option>
             <option value="อื่นๆ">อื่นๆ</option>
           </select>
+          <p
+          class="help-inline"
+          *ngIf="!formgroup.get('BetaBlock').valid
+&& formgroup.get('BetaBlock').touched"
+        >
+          กรุณาเลือก
+        </p>  
       </ion-col>
-      <ion-col col-3>
-        <input type="text" id="BetaBlockEtc" name="BetaBlockEtc" size="20">
+      <ion-col col-3 >
+        <input type="text" *ngIf="showBlockOther" formControlName="BetaBlockEtc" id="BetaBlockEtc" name="BetaBlockEtc" size="20">
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-grid>
+  <ion-grid *ngIf="showBlockPill">
     <ion-row>
         
-      <input type="number" id="BetaBlockVol" name="BetaBlockVol" size="5">  
+      <input type="number" formControlName="BetaBlockVol" id="BetaBlockVol" name="BetaBlockVol" size="5">  
       <label for="BetaBlockVol" >&ensp; เม็ด &ensp;    </label>
        
-    <input type="number" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">  
+    <input type="number" formControlName="BetaBlockRoundPerDay" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">  
     <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
     </ion-row>
   </ion-grid>
+</form>
 </ion-card>
 
 
 
-<!-- <ion-label ion-text color="dark">ยาที่รับประทานในวันตรวจเลือด</ion-label> -->
-
-<!-- <ion-item>
-      <ion-label color="dark">ยาต้านอาการไทรอยด์</ion-label>
-      <ion-select [(ngModel)]="ThyroidMed" placeholder="เลือก" interface="popover">
-        <ion-option value='Propylthiouracil (PTU)'>Propylthiouracil (PTU)</ion-option>
-        <ion-option value='Methimazole (MMI)'>Methimazole (MMI)</ion-option>
-        <ion-option value='Tapazole'>Tapazole</ion-option>
-        <ion-option value='Lithium'>Lithium</ion-option>
-        <ion-option value='ไม่ต้องรับประทาน'>ไม่ต้องรับประทาน</ion-option>
-        <ion-option value='อื่นๆ'>อื่นๆ</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-item >
-      <ion-label  >ถ้าเป็นอื่นๆ โปรดระบุ</ion-label>
-      <ion-input  [(ngModel)]="ThyroidMedEtc"  type="text" placeholder=""></ion-input>
-    </ion-item>
-
-
-    <ion-item >
-      <ion-label color="dark">ยากลุ่ม Beta-Blocker</ion-label>
-      <ion-select [(ngModel)]="BetaBlock" placeholder="เลือก" interface="popover">
-        <ion-option value='Propranolol (10)'>Propranolol (10)</ion-option>
-        <ion-option value='Propranolol (40)'>Propranolol (40)</ion-option>
-        <ion-option value='Betalol (10)'>Betalol (10)</ion-option>
-        <ion-option value='Atenolol (50)'>Atenolol (50)</ion-option>
-        <ion-option value='อื่นๆ'>อื่นๆ</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-item >
-      <ion-label  >ถ้าเป็นอื่นๆ โปรดระบุ</ion-label>
-      <ion-input  [(ngModel)]="BetaBlockEtc"  type="text" placeholder=""></ion-input>
-    </ion-item>
-
-
-
-      <ion-item >
-        <ion-row item-content>
-        <ion-label color="dark" >ระบุปริมาณ</ion-label>
-            <ion-col  col-2>
-              <ion-input [(ngModel)]="BetaBlockVol"  type="number" min="0" placeholder=""></ion-input>
-            </ion-col >
-            <ion-label color="dark" >ครั้งต่อวัน</ion-label>
-            <ion-col col-2>
-              <ion-input [(ngModel)]="BetaBlockRoundPerDay" type="number" min="0" placeholder=""></ion-input>
-            </ion-col>
-          </ion-row>
-      </ion-item>
-    </ion-card> -->
-
-    <button ion-button  (click)="do()" color="1">บันทึก</button>
+    <button ion-button [disabled]="!formgroup.valid"  (click)="addLabTest()" color="1">บันทึก</button>
 </ion-content>

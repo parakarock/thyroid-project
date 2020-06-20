@@ -11,26 +11,34 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="isControl">
+    <ion-card padding id="css">
+      <div color="dark">
+        ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์
+        ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่
+      </div>
+      <ion-item no-lines>
+        <ion-label color="dark">ตั้งแต่ {{dateBefore}}</ion-label>
+      </ion-item>
 
-<ion-card  padding id="css">
+      <ion-label color="dark"
+        >และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</ion-label
+      >
+      <ion-item no-lines>
+        <ion-label color="dark">ตั้งแต่ {{dateAfter}}</ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+  <div *ngIf="!isControl">
+    <ion-card padding id="css">
+      
+      <ion-item no-lines>
+        <ion-label color="dark">ไม่ต้องงดยาต้านไทรอยด์</ion-label>
+      </ion-item>
 
+      
+    </ion-card>
+  </div>
 
-
-
-  <div color="dark" >ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์ ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่</div>
-  <ion-item no-lines>
-    <ion-label color="dark">{{dateBefore}}</ion-label>
-  </ion-item>
-  
-
-  <ion-label color="dark">และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</ion-label>
-  <ion-item no-lines>
-    <ion-label color="dark">{{dateAfter}}</ion-label>
-  </ion-item>
- 
-</ion-card>
-
-
-
-  <button ion-button color="1" (click)=" editantidepressant()">แก้ไข</button>
+  <button ion-button color="1" *ngIf="showButtonedit" (click)=" editantidepressant()">แก้ไข</button>
 </ion-content>

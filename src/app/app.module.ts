@@ -28,7 +28,6 @@ import { RegisterPage } from "../pages/Nursepage/register/register";
 import { NurseHomePage } from "../pages/Nursepage/nurse-home/nurse-home";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
-import { RegisterProvider } from "../providers/register/register";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegistersPage } from "../pages/Nursepage/registers/registers";
 import { ToxinthyPage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/toxinthy/toxinthy";
@@ -60,7 +59,7 @@ import { AddcontraceptivePage} from '../pages/Nursepage/ขั้นตอนก
 import { EditdatePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/editdate/editdate';
 import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/eatfood/eatfood';
 import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
-import {InsertPage} from '../pages/Nursepage/insert/insert';
+import {InsertPage} from '../pages/Nursepage/ข้อมูลด้านสุขภาพ/insert/insert';
 
 import { TestresultPage} from '../pages/Doctorpage/ผลการตรวจ/testresult/testresult';
 import { PhysicalPage} from '../pages/Doctorpage/ผลการตรวจ/physical/physical';
@@ -82,11 +81,12 @@ import { PatientHomePage } from '../pages/Patientpage/patient-home/patient-home'
 import { AdminhomePage } from '../pages/AdminPage/adminhome/adminhome';
 import { DatauserPage } from '../pages/AdminPage/datauser/datauser';
 import { DatahosPage } from '../pages/AdminPage/datahos/datahos';
-import { DdPage } from '../pages/AdminPage/dd/dd';
 import { DpPage } from '../pages/AdminPage/dp/dp';
-import { DnPage } from '../pages/AdminPage/dn/dn';
 import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
 import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
+import { ShowhosPage } from '../pages/AdminPage/showhos/showhos';
+import { ShowuserPage } from '../pages/AdminPage/showuser/showuser';
+
 
 import {  QrcodePage } from '../pages/qrscan/qrscan';
 import {  GenPage } from '../pages/gen/gen';
@@ -96,6 +96,8 @@ import { YoutubePipe } from '../pipes/youtube/youtube'
 
 import { ChangepassLogin1Page } from '../pages/changepass-login1/changepass-login1'
 import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-login2'
+import { ShowlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/showlabtest/showlabtest'
+import { AddiodineresultPage } from '../pages/Doctorpage/addiodineresult/addiodineresult'
 @NgModule({
   declarations: [
     MyApp,
@@ -160,9 +162,9 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     AdminhomePage,
     DatauserPage,
     DatahosPage,
-    DdPage,
+    ShowhosPage,
     DpPage,
-    DnPage,
+    ShowuserPage,
     QrcodePage,
     AdddatauserPage,
     EatfoodPage,
@@ -173,7 +175,9 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     InsertPage,
     YoutubePipe,
     ChangepassLogin1Page,
-    ChangepassLogin2Page
+    ChangepassLogin2Page,
+    ShowlabtestPage,
+    AddiodineresultPage
 
 
   ],
@@ -249,9 +253,9 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     AdminhomePage,
     DatauserPage,
     DatahosPage,
-    DdPage,
+    ShowhosPage,
     DpPage,
-    DnPage,
+    ShowuserPage,
     QrcodePage,
     AdddatauserPage,
     EatfoodPage,
@@ -261,14 +265,15 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     AddhosPage,
     InsertPage,
     ChangepassLogin1Page,
-    ChangepassLogin2Page
+    ChangepassLogin2Page,
+    ShowlabtestPage,
+    AddiodineresultPage
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    RegisterProvider,
     GlobalProvider,
     BarcodeScanner,
     FileTransfer,

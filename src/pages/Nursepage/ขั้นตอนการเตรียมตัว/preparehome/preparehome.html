@@ -6,59 +6,74 @@
 
 <ion-content padding>
   <ion-card id="css" padding>
-    
- 
-    <div>วันที่นัดกลืนแร่ครั้งที่ 1</div>
-    <ion-grid>      
-    <ion-row>
-      <ion-col col-1>
-      </ion-col>
-      <ion-col col-5>
-        <div>วิธีการกลืนที่เลือก</div>
-      </ion-col>
-      <ion-col col-4>
-        <div>{{global.mydate}}</div>
-      </ion-col>
-      <ion-col col-2>
-        <button ion-button (click)="editdate()" color="1">Edit</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-card>
+    <div>วันที่นัดกลืนแร่ {{method||""}}</div><br>
 
-<ion-card id="css">
-  <button ion-item (click)="contraceptive()">
-    การคุมกำเนิดสำหรับสตรีวัยเจริญพันธุ์
-    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-  </button>
-</ion-card>
+    <div style="text-align: center;" *ngIf="showData">
+      {{appoint_date}}
+    </div>
+    <div style="text-align: center;" *ngIf="!showData">
+      ยังไม่มีกำหนดการ
+    </div>
 
-<ion-card id="css">
-  <button ion-item (click)="antidepressant()">
-    การงดยาต้านไทรอยด์
-    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-  </button>
-</ion-card>
+    <div style="text-align: right;">
+      <button ion-button (click)="editdate()" color="1" *ngIf="showButtonedit">
+        แก้ไข
+      </button>
+    </div>
+  </ion-card>
 
-<ion-card id="css">
-  <button ion-item (click)="avoideating()">
-    การหลีกเลี่ยงการรับประทานอาหารที่มีไอโอดีนสูง
-    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-  </button>
-</ion-card>
+  <ion-card id="css">
+    <button ion-item (click)="contraceptive()">
+      การคุมกำเนิดสำหรับสตรีวัยเจริญพันธุ์
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+    </button>
+  </ion-card>
 
-<ion-card id="css">
-  <button ion-item (click)="practice()">
-    วิธีปฏิบัติตัวของผู้ป่วยหลังการกลืนแร่
-    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-  </button>
-</ion-card>
+  <ion-card id="css">
+    <button ion-item (click)="antidepressant()">
+      การงดยาต้านไทรอยด์
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+    </button>
+  </ion-card>
 
-<ion-card id="css">
-  <button ion-item (click)="dataswallow()">
-    การปฏิบัติตัวในวันที่มากลืนแร่
-    <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-  </button>
-</ion-card>
+  <ion-card id="css">
+    <button ion-item (click)="avoideating()">
+      การหลีกเลี่ยงการรับประทานอาหารที่มีไอโอดีนสูง
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+    </button>
+  </ion-card>
 
+  <ion-card id="css">
+    <button ion-item (click)="practice()">
+      วิธีปฏิบัติตัวของผู้ป่วยหลังการกลืนแร่
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+    </button>
+  </ion-card>
+
+  <ion-card id="css">
+    <button ion-item (click)="dataswallow()">
+      การปฏิบัติตัวในวันที่มากลืนแร่
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+    </button>
+  </ion-card>
 </ion-content>

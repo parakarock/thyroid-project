@@ -2,7 +2,7 @@
   <ion-navbar color="1">
     <ion-title id="title" >หน้าหลัก</ion-title>
 
-    <ion-buttons end>
+    <ion-buttons end *ngIf="showButton">
       <button ion-button icon-only (click)="goLoginPage()">
         <ion-icon name="log-in"></ion-icon>
       </button>

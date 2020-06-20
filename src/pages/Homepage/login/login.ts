@@ -51,8 +51,6 @@ export class LoginPage {
       password: ["", Validators.required]
     });
 
-    // this.mUsername = this.formgroup.controls["username"];
-    // this.mPassword = this.formgroup.controls["password"];
   }
 
   ionViewDidLoad() {
@@ -74,7 +72,6 @@ export class LoginPage {
       .subscribe(
         data => {
           if (data.result) {
-            // this.showToastWithCloseButton(data.result);
             this.presentAlert(data.result);
           } else {
             this.global.setname(data[0].title + data[0].firstname + " " + data[0].lastname)
@@ -102,6 +99,14 @@ export class LoginPage {
               this.global.setpatientID(data[0].person_id)
               this.events.publish("user:patient");
               this.navCtrl.setRoot(PatientHomePage);
+            }
+            else if (
+              data[1].findIndex(
+                role_name => role_name.role_name === "แอดมิน"
+              ) >= 0
+            ) {
+              this.events.publish("user:admin");
+              this.navCtrl.setRoot(AdminhomePage);
             }
           }
         },

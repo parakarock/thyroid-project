@@ -11,20 +11,28 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" padding>
+  <ion-card id="css" padding *ngIf="showData">
   <div> ผู้ป่วยได้รับการวินิจฉัยเป็นต่อมไทรอยด์เป็นพิษเมื่อ </div>
-  <div> เดือน ............. ปี ............. (เป็นระยะเวลา XX เดือน XX ปี) </div>
+  <div> เดือน <b>{{month}}</b> ปี <b>{{year}} (เป็นระยะเวลา {{monShow}} {{yearShow}})</b> </div>
 <br>
-<div >ภาวะแทรกซ้อนของต่อมไทรอยด์เป็นพิษ &ensp; xxxxxxxxxxx</div>
+<div >ภาวะแทรกซ้อนของต่อมไทรอยด์เป็นพิษ</div>
+<div>{{toxic}} {{toxicOther}}</div>
 
 <br>
 <div >ยาต้านไทรอยด์ที่ได้รับในปัจจุบัน</div>
-<div >(ชื่อยา)  &ensp; ....... เม็ด ....... ครั้งต่อวัน</div>
-
+<div >({{comp_anit_thy_name}})  &ensp; {{comp_anit_thy_amount}} เม็ด {{comp_anit_thy_daily}} ครั้ง</div>
+<br>
 <div >(ยากลุ่ม beta-blocker)</div>
-<div >(ชื่อยา) &ensp; ....... เม็ด ....... ครั้งต่อวัน</div>
-
-<div >ข้อบ่งชี้ของการกลืนแร่ไอโอดีน  &ensp; xxxxxxxxxxx</div>
+<div >({{comp_beta_name}}) &ensp; {{comp_beta_amount}} เม็ด {{comp_beta_daily}} ครั้ง</div>
+<br>
+<div >ข้อบ่งชี้ของการกลืนแร่ไอโอดีน</div>
+<div>{{allergy}} {{allergyOther}}</div>
 </ion-card>
-<button ion-button  (click)="insert()" color="1">แก้ไข</button>
+<ion-card id="css" *ngIf="!showData">
+
+  <ion-item no-lines>
+  <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
+</ion-item>
+</ion-card>
+<button ion-button  (click)="insert()" *ngIf="showButtonedit" color="1">แก้ไข</button>
 </ion-content>

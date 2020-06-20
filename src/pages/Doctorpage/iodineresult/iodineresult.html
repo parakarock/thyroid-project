@@ -11,120 +11,107 @@
 </ion-header>
 
 <ion-content padding>
-
   <ion-card id="css">
-    <button ion-item (click)="onClickIodineDetail()">
+    <button ion-item (click)="onClickIodineDetail(1)">
       ก่อนกลืนแร่
-      <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+     <label class="data" >{{data1}}</label> 
     </button>
   </ion-card>
 
-
   <ion-card id="css">
     <ion-grid>
       <ion-row>
-        <ion-col col-4>
-        <label for="date">กลืนแร่ครั้งที่ 1 วิธีการ</label>
-      </ion-col>
-      <ion-col col-6>
-      <input type="date" id="date" name="date" size="20">
-    </ion-col>
-  </ion-row>
-  </ion-grid>
+        
+          <label for="date">กลืนแร่ครั้งที่ {{round}} {{method}}</label>
+        
+        
+          <label for="date">วันที่กลืนแร่ {{date}}</label>
+     
+      </ion-row>
+    </ion-grid>
 
-    <!-- <ion-item >
-      <ion-label color="dark">กลืนแร่ครั้งที่ 1 วิธีการ </ion-label>
-      <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
-    </ion-item> -->
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-    <label for="g">ปริมาณ</label>
-  </ion-col>
-  <ion-col col-6>
-    <input type="text" id="g" name="g" size="20">
-</ion-col>
-</ion-row>
-</ion-grid>
-
-      <!-- <ion-item>
-        <ion-label color="dark">ปริมาณ</ion-label>
-        <ion-input type="text" value="" text-right></ion-input>
-      </ion-item> -->
-      <button ion-button float-right color="1">บันทึกผล</button>
-    </ion-card >
-
-
-      <ion-card id="css">
-        <button ion-item (click)="onClickIodineDetail()">
-          หลังกลืนแร่ 1-2 เดือน
-          <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-        </button>
-      </ion-card>
-  
-
-        <ion-card id="css">
-          <button ion-item (click)="onClickIodineDetail()">
-            หลังกลืนแร่ 3-4 เดือน
-            <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-          </button>
-        </ion-card>
-    
-
-          <ion-card id="css">
-            <button ion-item (click)="onClickIodineDetail()">
-              หลังกลืนแร่ 5-6 เดือน
-              <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-            </button>
-          </ion-card>
-      
-
-      <!-- <button ion-item (click)="onClickIodineDetail()">
-        หลังกลืนแร่ 1-2 เดือน
-        <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-      </button>
-
-      <button ion-item (click)="onClickIodineDetail()">
-        หลังกลืนแร่ 3-4 เดือน
-        <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-      </button>
-
-      <button ion-item (click)="onClickIodineDetail()">
-        หลังกลืนแร่ 5-6 เดือน
-        <ion-icon name="arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
-      </button>
-    </ion-list>
-  </ion-card> -->
-
-  <ion-card id="css">
-    <ion-row style="height: 100"></ion-row>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-            <label for="help" >ผลการรักษา      </label>
-          </ion-col>
-            <ion-col col-6>
-            <select >
-              <option value="สำเร็จแบบการทำงานของไทรอยด์ปกติ">สำเร็จแบบการทำงานของไทรอยด์ปกติ</option>
-              <option value="สำเร็จแบบต่อมไทรอยด์ทำงานน้อย">สำเร็จแบบต่อมไทรอยด์ทำงานน้อย</option>
-              <option value="ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ">ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ</option>
-    
-            </select>
+          <label for="g">ปริมาณ</label>
+        </ion-col>
+        <ion-col col-6>
+          <input type="number" id="g" name="g" size="20" [(ngModel)]="volume_result" *ngIf="volumeButton&&doctorRole" />
+          <div *ngIf="!volumeButton">{{volume_result}}</div>
+          <div *ngIf="volumeButton&&!doctorRole">ยังไม่ได้ระบุ</div>
         </ion-col>
       </ion-row>
     </ion-grid>
-    
 
-    <!-- <ion-item>
-      <ion-label color="dark">ผลการรักษา</ion-label>
-      <ion-select [(ngModel)]="title" placeholder="เลือก"  interface="popover">
-        <ion-option value='Propylthiouracil (PTU)'>สำเร็จแบบการทำงานของไทรอยด์ปกติ</ion-option>
-        <ion-option value='Methimazole (MMI)'>สำเร็จแบบต่อมไทรอยด์ทำงานน้อย</ion-option>
-        <ion-option value='Tapazole'>ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ</ion-option>
-      </ion-select>
-    </ion-item> -->
-
-    <button ion-button float-right color="1">บันทึกผล</button>
+    <button ion-button float-right color="1" *ngIf="volumeButton&&doctorRole" (click)="volume()">บันทึกผล</button>
   </ion-card>
 
+  <ion-card id="css">
+    <button ion-item (click)="onClickIodineDetail(2)">
+      หลังกลืนแร่ 1-2 เดือน
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+      <label class="data" >{{data2}}</label> 
+    </button>
+  </ion-card>
+
+  <ion-card id="css">
+    <button ion-item (click)="onClickIodineDetail(3)">
+      หลังกลืนแร่ 3-4 เดือน
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+      <label class="data" >{{data3}}</label> 
+    </button>
+  </ion-card>
+
+  <ion-card id="css">
+    <button ion-item (click)="onClickIodineDetail(4)">
+      หลังกลืนแร่ 5-6 เดือน
+      <ion-icon
+        name="arrow-dropright"
+        md="md-arrow-dropright"
+        item-right
+      ></ion-icon>
+      <label class="data" >{{data4}}</label> 
+    </button>
+  </ion-card>
+
+  <ion-card id="css">
+    <ion-row style="height: 100;"></ion-row>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <label for="help">ผลการรักษา </label>
+        </ion-col>
+        <ion-col col-6>
+          <select [(ngModel)]="iodine_result" *ngIf="iodineButton&&doctorRole">
+            <option value="สำเร็จแบบการทำงานของไทรอยด์ปกติ"
+              >สำเร็จแบบการทำงานของไทรอยด์ปกติ</option
+            >
+            <option value="สำเร็จแบบต่อมไทรอยด์ทำงานน้อย"
+              >สำเร็จแบบต่อมไทรอยด์ทำงานน้อย</option
+            >
+            <option value="ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ"
+              >ไม่สำเร็จ ต้องรักษาด้วยแร่ไอโอดีนซ้ำ</option
+            >
+          </select>
+          <div *ngIf="!iodineButton">{{iodine_result}}</div>
+          <div *ngIf="iodineButton&&!doctorRole">ยังไม่ได้สรุปผลการรักษา</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <button ion-button float-right color="1" (click)="summary()" *ngIf="iodineButton&&doctorRole">บันทึกผล</button>
+  </ion-card>
 </ion-content>

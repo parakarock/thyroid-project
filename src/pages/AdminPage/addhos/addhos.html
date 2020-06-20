@@ -6,148 +6,138 @@
 -->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>addhos</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+ 
   <ion-card id="css" padding>
-    
-  <ion-list>
-
+   
+  
+    <form [formGroup]="formgroup" >
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <label for="numberhos" >รหัสพยาบาล :   </label>
+          <label  >รหัส รพ.   </label>
         </ion-col>
         <ion-col col-6>
-          <input type="text" id="numberhos" name="numberhos" size="20">  
+          <input type="text" formControlName="hos_id" size="20">  
         </ion-col>
       </ion-row>
     </ion-grid>
 
-      <!-- <ion-item>
-        <ion-label  color="dark">รหัสพยาบาล :</ion-label>
-        <ion-input   type="text" placeholder="ภาษาไทย"></ion-input>
-      </ion-item> -->
+    
 
      <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <label for="namehos" >ชื่อโรงพยาบาล :   </label>
+          <label  >ชื่อ รพ.   </label>
         </ion-col>
         <ion-col col-6>
-          <input type="text" id="namehos" name="namehos" size="20">  
+          <input type="text" id="hos_name" name="hos_name" formControlName="hos_name" size="20">
+          <p class="help-inline" 
+              *ngIf="!formgroup.get('hos_name').valid
+              && formgroup.get('hos_name').touched">กรุณากรอกชื่อโรงพยาบาล</p>  
         </ion-col>
       </ion-row>
     </ion-grid>
-<!-- 
-      <ion-item>
-        <ion-label  color="dark">ชื่อโรงพยาบาล :</ion-label>
-        <ion-input   type="text" placeholder="ภาษาไทย"></ion-input>
-      </ion-item> -->
+
 
        <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <label for="home">ที่อยู่ :</label>
+            <label >ที่อยู่</label>
           </ion-col>
           <ion-col col-6>
-            <textarea id="home" rows="4" cols="20"> 
+            <textarea  rows="4" formControlName="address" cols="20">
+              <p class="help-inline" 
+              *ngIf="!formgroup.get('address').valid
+              && formgroup.get('address').touched">กรุณาระบุที่อยู่</p> 
             </textarea>
           </ion-col>
         </ion-row>
       </ion-grid> 
 
-      <!-- <ion-item>
-        <ion-label  color="dark">ที่อยู่ :</ion-label>
-        <ion-input   type="text" placeholder=""></ion-input>
-      </ion-item> -->
-  
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <label for="tel" >เบอร์โทรศัพท์ :   </label>
+            <label  >เบอร์โทรศัพท์ </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" id="tel" name="tel" size="20">  
+            <input type="text" formControlName="tel" size="20">
+            <p class="help-inline" 
+              *ngIf="!formgroup.get('tel').valid
+              && formgroup.get('tel').touched">กรุณากรอกตัวเลข</p>  
           </ion-col>
         </ion-row>
       </ion-grid>
 
-      <!-- <ion-item>
-        <ion-label  color="dark">เบอร์โทรศัพท์ :</ion-label>
-        <ion-input   type="text" placeholder=""></ion-input>
-      </ion-item> -->
-  
+    
       <strong padding id="strong">ค่าอ้างอิง</strong>
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <label for="T3" >serum free T3 :   </label>
+            <label  >serum free T3 </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" id="T3" name="T3" size="20">  
+            <input type="number" formControlName="SerumT3st" size="20">
+            <p class="help-inline" 
+              *ngIf="!formgroup.get('SerumT3st').valid
+              && formgroup.get('SerumT3st').touched">กรุณาระบุค่า</p>  
           </ion-col>
         </ion-row>
       </ion-grid>
-
-      <!-- <ion-item>
-        <ion-label  color="dark">serum free T3 : </ion-label>
-        <ion-input   type="text" placeholder=""></ion-input>
-      </ion-item> -->
 
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <label for="T4" >serum free T4 :   </label>
+            <label for="T4" >serum free T4 </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" id="T4" name="T4" size="20">  
+            <input type="number" formControlName="SerumT4st" size="20">
+            <p class="help-inline" 
+              *ngIf="!formgroup.get('SerumT4st').valid
+              && formgroup.get('SerumT4st').touched">กรุณาระบุค่า</p>   
           </ion-col>
         </ion-row>
       </ion-grid>
 
-      <!-- <ion-item>
-        <ion-label  color="dark">serum free T4 : </ion-label>
-        <ion-input   type="text" placeholder=""></ion-input>
-      </ion-item> -->
 
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <label for="TSH" >serum TSH :   </label>
+            <label for="TSH" >serum TSH </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" id="TSH" name="TSH" size="20">  
+            <input type="number" formControlName="SerumTSHst" size="20">
+            <p class="help-inline" 
+              *ngIf="!formgroup.get('SerumTSHst').valid
+              && formgroup.get('SerumTSHst').touched">กรุณาระบุค่า</p>   
           </ion-col>
         </ion-row>
       </ion-grid>
 
-      <!-- <ion-item>
-        <ion-label  color="dark">serum TSH : </ion-label>
-        <ion-input   type="text" placeholder=""></ion-input>
-      </ion-item> -->
-
+   
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <label for="TRAb" >serum TRAb :   </label>
+            <label for="TRAb" >serum TRAb </label>
           </ion-col>
           <ion-col col-6>
-            <input type="text" id="TRAb" name="TRAb" size="20">  
+            <input type="number" formControlName="SerumTRAbst" size="20">
+            <p class="help-inline" 
+              *ngIf="!formgroup.get('SerumTRAbst').valid
+              && formgroup.get('SerumTRAbst').touched">กรุณาระบุค่า</p>   
           </ion-col>
         </ion-row>
       </ion-grid>
-<!-- 
-      <ion-item>
-        <ion-label  color="dark">serum TRAb :</ion-label>
-        <ion-input   type="text" placeholder=""></ion-input>
-      </ion-item> -->
-    
-    </ion-list>
+    </form>
+   
+
   </ion-card>
   
   
-    <button ion-button  color="1">บันทึก</button>
+    <button ion-button  color="1" [disabled]="!formgroup.valid" (click)="AddHospital()">บันทึก</button>
+  
 </ion-content>

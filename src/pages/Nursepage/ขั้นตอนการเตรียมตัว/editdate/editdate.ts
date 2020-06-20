@@ -1,8 +1,13 @@
 import { Component,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import { GlobalProvider } from "../../../../providers/global/global";
 import moment from 'moment';
 import 'moment/locale/TH';
+import {
+  Http,
+  Headers,
+  RequestOptions
+} from "@angular/http";
 
 
 /**
@@ -18,33 +23,92 @@ import 'moment/locale/TH';
   templateUrl: 'editdate.html',
 })
 export class EditdatePage {
-  howto:String;
-  inDate:String;
-  toDate:String;
-  currentDate;
-  mydate;
+  method
+  showDate:boolean = true;
+  date1
+  date2
+  startMin: any;
+  startMax: any;
 
-  @ViewChild("Date") date;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider,public http: Http,
+    public alertCtrl: AlertController) {
+    this.startMin = moment().add(443, 'y').format("YYYY");
+    this.startMax = moment().add(643, 'y').format("YYYY");
 
   }
  
   ionViewDidLoad() {
-   // this.date.push(moment().format('dddd'));
-    console.log('ionViewDidLoad EditdatePage');
-   
-  }
-  datadate() {
-    this.currentDate = moment(this.mydate,"YYYY-MM-DD").add(1, 'days').calendar();
+    if(this.navParams.get("method")){
+      this.method = this.navParams.get("method")
+      this.date1 = this.global.getdate()
+      console.log("in")
+    }else{
+      this.method = "วิธีคำนวณ"
+      this.date1 = moment().add(543, 'y').format()
+      console.log("out")
+    }
+    this.selectMethod(this.navParams.get("method"))
     
   }
-  do(){
+  
+  selectMethod(method){
+    if(method == "วิธีการประมาณ"){
+      this.showDate = false;
+    }else{
+      this.showDate = true;
+      this.updateDate()
+    }
+    console.log(method+this.showDate)
+  }
+  updateDate(){
+    this.date2 = moment(this.date1,"YYYY-MM-DD").add('days', 1).format("DD-MM-YYYY")
+  }
+  checkDate2(){
+    if(this.showDate == true){
+      return moment(this.date2,"DD-MM-YYYY").format("YYYY-MM-DD")
+    }else{
+      return  null
+    }
+  }
+  update(){
     let body = JSON.stringify({
-     
-      howto: this.howto,
-      inDate: this.inDate,
-      toDate: this.toDate 
-     
+      idcard: this.global.getpatientID(),
+      round: this.global.getSelectRound(),
+      prep_date:this.date1,
+      end_date: this.checkDate2(),
+      method:this.method
+      
+  
+   });
+   console.log(body)
+
+   let headers = new Headers({ "Content-type": "application/json" });
+   let options = new RequestOptions({ headers: headers });
+      this.http
+        .post(
+          "http://"+this.global.getIP()+"/preparephase.php?method=update_preparephase&role="+this.global.getSelectRole(),
+          body,
+          options
+        )
+        .map(res => res.json())
+        .subscribe(
+          data => {
+            this.presentAlert(data.result)
+            if(data.result !== "Fail"){
+              this.navCtrl.pop();
+            } 
+          },
+          error => {
+            console.log(error);
+          }
+        );
+  }
+  async presentAlert(txt: string) {
+    let alert = await this.alertCtrl.create({
+      title: 'การแจ้งเตือน',
+      subTitle: txt,
+      buttons: ['Ok']
     });
+    alert.present();
   }
 }

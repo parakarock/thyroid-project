@@ -21,9 +21,7 @@ import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scan
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
 import {
   Http,
-  Response,
   Headers,
-  ResponseOptions,
   RequestOptions,
 } from "@angular/http";
 import "rxjs/add/operator/map";
@@ -111,7 +109,7 @@ export class NurseHomePage {
   }
 
   navigateToLabTest() {
-    this.navCtrl.push(QrcodePage, { page: "LabtestresultPage" });
+    this.navCtrl.push(LabtestresultPage);
   }
 
   goDoctorPage() {

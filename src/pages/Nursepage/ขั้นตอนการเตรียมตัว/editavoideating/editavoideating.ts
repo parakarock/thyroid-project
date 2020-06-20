@@ -24,11 +24,5 @@ export class EditavoideatingPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditavoideatingPage');
   }
-  do(){
-    let body = JSON.stringify({
-     
-      myDate: this.myDate,
-      AfterIngestion:this.AfterIngestion
-    });
-  }
+  
 }

@@ -7,12 +7,13 @@ import { PracticePage } from '../practice/practice';
 import { DataswallowPage } from '../dataswallow/dataswallow';
 import { EditdatePage } from '../editdate/editdate';
 import { GlobalProvider } from "../../../../providers/global/global";
-/**
- * Generated class for the PreparehomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {
+  Http,
+  Headers,
+  RequestOptions
+} from "@angular/http";
+import moment from "moment";
+import "moment/locale/TH";
 
 @IonicPage()
 @Component({
@@ -20,21 +21,67 @@ import { GlobalProvider } from "../../../../providers/global/global";
   templateUrl: 'preparehome.html',
 })
 export class PreparehomePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider) {
+  showFormSex : boolean;
+  showButtonedit: boolean;
+  showData: boolean = true;
+  appoint_date;
+  method;
+  data;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider, private http: Http) {
+    this.showFormSex = this.checkSex(this.global.getSex())
+    this.showButtonedit = this.checkRole(this.global.getSelectRole());
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PreparehomePage');
+  ionViewWillEnter() {
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = {
+      idcard: this.global.getpatientID(),
+      round: this.global.getSelectRound()
+    };
+      this.http
+        .post(
+          "http://"+this.global.getIP()+"/preparephase.php?method=get_preparephase&role="+this.global.getSelectRole(),
+          body,
+          options
+        )
+        .map(res => res.json())
+        .subscribe(
+          data => {
+            if(data.result){
+             console.log("error get data")
+            }else{
+              if(data.method){
+                this.showData = true
+                this.method = data.method
+                if(data.method == "วิธีคำนวณ"){
+                  this.appoint_date = "วันที่ " + moment(data.prep_date,"YYYY-MM-DD").format("Do MMMM YYYY") +" ถึง " + moment(data.prep_date,"YYYY-MM-DD").add('days', 1).format("Do MMMM YYYY")
+                }else{
+                  this.appoint_date = "วันที่ " + moment(data.prep_date,"YYYY-MM-DD").format("Do MMMM YYYY")
+                }
+                this.global.setdate(data.prep_date)
+              }else{
+                this.showData = false
+              }
+              this.data = data
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
   }
+
   contraceptive(){
-    this.navCtrl.push(ContraceptivePage)
+    this.navCtrl.push(ContraceptivePage,this.data)
   }
   antidepressant(){
-    this.navCtrl.push(AntidepressantPage)
+    this.navCtrl.push(AntidepressantPage,{isControl:this.data.period_control})
   }
   avoideating(){
-    this.navCtrl.push(AvoideatingPage)
+    this.navCtrl.push(AvoideatingPage,{
+      method:this.method
+    })
   }
   practice(){
     this.navCtrl.push(PracticePage)
@@ -43,7 +90,23 @@ export class PreparehomePage {
     this.navCtrl.push(DataswallowPage)
   }
   editdate(){
-    this.navCtrl.push(EditdatePage)
+    this.navCtrl.push(EditdatePage,{
+      method:this.method
+    })
+  }
+  checkSex(sex){
+    if(sex === "หญิง"){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  checkRole(role){
+    if(role === "พยาบาล"){
+      return true;
+    }else{
+      return false;
+    }
   }
  
  

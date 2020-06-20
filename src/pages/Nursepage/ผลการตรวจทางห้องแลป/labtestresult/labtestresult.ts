@@ -1,5 +1,6 @@
 import { EditlabtestPage } from '../editlabtest/editlabtest';
 import { AddlabtestPage } from '../addlabtest/addlabtest';
+import { ShowlabtestPage } from '../showlabtest/showlabtest';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalProvider } from "../../../../providers/global/global";
@@ -10,6 +11,8 @@ import {
   ResponseOptions,
   RequestOptions
 } from "@angular/http";
+import moment from 'moment';
+import 'moment/locale/TH';
 
 /**
  * Generated class for the LabtestresultPage page.
@@ -24,57 +27,68 @@ import {
   templateUrl: 'labtestresult.html',
 })
 export class LabtestresultPage {
-  
-  public obj:any;
-  data:any;
-  lab:any;
-  
-
+  showData: boolean = true;
+  showMore: boolean = false;
+  items;
+  shownGroup = null;
   constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider, private http: Http) {
-    
-    // let headers = new Headers({ "Content-type": "application/json" });
-    // let options = new RequestOptions({ headers: headers });
-    // let body = { idcard: this.global.patientID, round: this.global.round };
-    // console.log("body : " + body);
-    // this.http
-    //   .post(
-    //     "http://10.80.34.218:8000/labtest.php?method=get_labtest&role=doctor",
-    //     body,
-    //     options
-    //   )
-      // .map(res => res.json())
-      // .subscribe(
-      //   data => {
-      //     this.data = JSON.stringify(data);
-      //     this.lab = this.data  
-      //     console.log("lab : " + this.lab);
-      //   },
-      //   error => {
-      //     console.log(error);
-        //  }
-      // );
-    
-     
-       
-   
-      
-
+        
+  
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LabtestresultPage');
+  }
+  ionViewWillEnter(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = {
+      idcard: this.global.getpatientID(),
+      round: this.global.getSelectRound()
+    };
+      this.http
+        .post(
+          "http://"+this.global.getIP()+"/labtest.php?method=get_labtest&role="+this.global.getSelectRole(),
+          body,
+          options
+        )
+        .map(res => res.json())
+        .subscribe(
+          data => {
+            if(data.result){
+              this.showData = false; 
+            }else{
+              this.showData = true;
+              for(let i = 0;i < data.length; i++){
+                data[i].lab_date = moment(data[i].lab_date,"YYYY-MM-DD").format("Do MMMM YYYY")
+              }
+              this.items = data;
+              this.showMore = false;
+              console.log(JSON.stringify(data))
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
   }
 
   onClickAddLabTest(){
     this.navCtrl.push(AddlabtestPage);
   }
 
-  onClickEditLabTest(){
-    this.navCtrl.push(EditlabtestPage);
+  onClickEditLabTest(id){
+    this.navCtrl.push(EditlabtestPage,this.items[id]);
   }
-
-  do(){
-
+  ShowMore(){
+    this.showMore = !this.showMore
   }
-
+  isShowMore(){
+    return this.showMore
+  }
+  showLabtest(id){
+    this.navCtrl.push(ShowlabtestPage,this.items[id])
+  }
+  
+ 
 }

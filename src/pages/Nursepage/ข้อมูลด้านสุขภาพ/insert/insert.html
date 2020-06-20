@@ -1,0 +1,165 @@
+<!--
+  Generated template for the InsertPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>ภาวะแทรกซ้อน</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card id="css" padding>
+    <form [formGroup]="formgroup" >
+    <div>
+      <label for="title"
+        >ผู้ป่วยได้รับการวินิจฉัยเป็นต่อมไทรอยด์เป็นพิษเมื่อ
+      </label>
+      <ion-grid>
+        <ion-row>
+          <label for="month">เดือน &ensp;</label>
+          <select formControlName="month" id="month" name="month">
+            <option value="มกราคม">มกราคม</option>
+            <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+            <option value="มีนาคม"> มีนาคม</option>
+            <option value="เมษายน">เมษายน</option>
+            <option value="พฤษภาคม">พฤษภาคม</option>
+            <option value="มิถุนายน">มิถุนายน</option>
+            <option value="กรกฎาคม">กรกฎาคม</option>
+            <option value="กันยายน">กันยายน</option>
+            <option value="ตุลาคม">ตุลาคม</option>
+            <option value="พฤศจิกายน">พฤศจิกายน</option>
+            <option value="ธันวาคม">ธันวาคม</option>
+          </select>
+          <div>
+            <label for="year">&ensp;ปี&ensp;</label>
+            <select formControlName="year">
+              <option *ngFor="let index of pages" value="{{index}}"
+                >{{index}}</option
+              >
+            </select>
+
+          </div>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <label for="thyroid">ภาวะแทรกซ้อนของต่อมไทรอยด์เป็นพิษ</label>
+    <ion-grid>
+      <ion-row>
+        <select (change) = "showComp($event.target.value)" formControlName="Toxic">
+          <option *ngFor="let toxic of toxics" value="{{toxic.name}}">{{toxic.name}}</option>
+        </select>
+        <div *ngIf="showCompOther">
+          <label for="ระบุ">&ensp;ระบุ&ensp;</label>
+          <input type="text" id="sp" name="sp" formControlName="ToxicEtc" size="20" />
+        </div>
+      </ion-row>
+    </ion-grid>
+
+    <br /><br />
+
+    <label for="ยาต้านไทรอยด์ที่ได้รับในปัจจุบัน"
+      >ยาต้านไทรอยด์ที่ได้รับในปัจจุบัน
+    </label>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <label for="ThyroidMed" >ยาต้านอาการไทรอยด์</label>
+          </ion-col>
+            <ion-col col-5>
+            <select formControlName="ThyroidMed" (change)="addThyroidMed($event.target.value)">
+              <option value="" disabled selected hidden>รายชื่อยาต้านอาการไทรอยด์</option>
+              <option *ngFor="let anti of antinames" value="{{anti.name}}">{{anti.name}}</option>
+            </select>
+            <p
+            class="help-inline"
+            *ngIf="!formgroup.get('ThyroidMed').valid
+    && formgroup.get('ThyroidMed').touched"
+          >
+            กรุณาเลือก
+          </p>  
+        </ion-col>
+        <ion-col col-3 >
+          <input type="text" *ngIf="showAntiOther" formControlName="ThyroidMedEtc" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    
+    <ion-grid *ngIf="showAntiPill">
+      <ion-row>
+          
+        <input type="number" formControlName="ThyroidMedVol" id="ThyroidMedVol" name="ThyroidMedVol" size="5">  
+        <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
+         
+      <input type="number"formControlName="ThyroidMedRoundPerDay" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">  
+      <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;  </label>
+      </ion-row>
+    </ion-grid>
+    
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+              <label for="BetaBlock" >ยากลุ่ม Beta-Blocker</label>
+            </ion-col>
+              <ion-col col-5>
+              <select formControlName="BetaBlock" (change)="addBetaBlock($event.target.value)">
+                <option value="" disabled selected hidden>รายชื่อยา Beta-Blocker</option>
+                <option *ngFor="let beta of betanames" value="{{beta.name}}">{{beta.name}}</option>
+              </select>
+              <p
+              class="help-inline"
+              *ngIf="!formgroup.get('BetaBlock').valid
+    && formgroup.get('BetaBlock').touched"
+            >
+              กรุณาเลือก
+            </p>  
+          </ion-col>
+          <ion-col col-3 >
+            <input type="text" *ngIf="showBlockOther" formControlName="BetaBlockEtc" id="BetaBlockEtc" name="BetaBlockEtc" size="20">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      <ion-grid *ngIf="showBlockPill">
+        <ion-row>
+            
+          <input type="number" formControlName="BetaBlockVol" id="BetaBlockVol" name="BetaBlockVol" size="5">  
+          <label for="BetaBlockVol" >&ensp; เม็ด &ensp;    </label>
+           
+        <input type="number" formControlName="BetaBlockRoundPerDay" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">  
+        <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
+        </ion-row>
+      </ion-grid>
+    <br /><br />
+
+    <label for="ข้อบ่งชี้ของการกลืนแร่ไอโอดีน"
+      >ข้อบ่งชี้ของการกลืนแร่ไอโอดีน
+    </label>
+    <ion-grid>
+      <ion-row>
+        <select formControlName="Allergy" (change) = "addAllery($event.target.value)">
+          <option value="medical failure">medical failure</option>
+          <option value="มีภาวะแทรกซ้อนของโรค"> มีภาวะแทรกซ้อนของโรค </option>
+          <option value="Major adverse reactions to">
+            Major adverse reactions to</option
+          >
+          <option value="ระบุอาการแพ้ยา">ระบุอาการแพ้ยา</option>
+        </select>
+        <label for="null">&ensp;&ensp;</label>
+        <select formControlName="Drug" *ngIf="showAllergy" (change) = "addDrug($event.target.value)">
+          <option *ngFor="let all of allergy" value="{{all.name}}">{{all.name}}</option>
+        </select>
+      </ion-row>
+    </ion-grid>
+    <div *ngIf="showAllergyOther">
+      <label for="ระบุ">&ensp;ระบุ&ensp;</label>
+    <input type="text" id="sp1" name="sp1" size="20" formControlName="DrugEtc" />
+    </div>
+  </form>
+  </ion-card>
+  <button ion-button (click)="update()" color="1">บันทึก</button>
+</ion-content>

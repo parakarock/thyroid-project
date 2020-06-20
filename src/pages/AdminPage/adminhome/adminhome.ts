@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
 import {DatauserPage } from '../../AdminPage/datauser/datauser';
 import {DatahosPage } from '../../AdminPage/datahos/datahos';
 import { HomePage } from "../../Homepage/home/home";
+import { ChangepassPage } from "../../changepass/changepass";
 /**
  * Generated class for the AdminhomePage page.
  *
@@ -33,5 +34,8 @@ export class AdminhomePage {
   onClickLogoutButton(){
     this.events.publish("user:guest");
     this.navCtrl.setRoot(HomePage);
+  }
+  ChangePass() {
+    this.navCtrl.push(ChangepassPage);
   }
 }

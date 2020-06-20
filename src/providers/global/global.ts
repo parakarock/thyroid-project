@@ -9,7 +9,7 @@ import "rxjs/add/observable/interval"
 */
 @Injectable()
 export class GlobalProvider {
-  public mydate: string = "2020-03-02";
+  private appoint_date: string ;
   private role: any; //สถานะ[] คน login
   private name: string; //ชื่อคน login
   private loginID:string; //idcard คน login
@@ -27,7 +27,7 @@ export class GlobalProvider {
   timeVar;
   timeVal;
   public using:boolean = false;
-  private ip = "192.168.42.83:8000" //ip API
+  private ip = "192.168.43.140:8000" //ip API
   constructor() {
     console.log("Hello GlobalProvider Provider");
   }
@@ -112,8 +112,11 @@ export class GlobalProvider {
   checkCanUse(){
     return this.using;
   }
+  setdate(date){
+    this.appoint_date = date
+  }
   getdate() {
-    return this.mydate;
+    return this.appoint_date;
   }
  
 }

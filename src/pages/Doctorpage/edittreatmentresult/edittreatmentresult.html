@@ -6,248 +6,156 @@
 -->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>ติดตามผลการรักษา</ion-title>
+    <ion-title>แก้ไขติดตามผลการรักษา</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" padding>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-          <label for="date" >วันที่ </label>
-        </ion-col>
-        <ion-col col-6>
-          <input type="date" id="date" name="date" size="20">  
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <!-- <ion-item>
-      <ion-label  color="dark">วันที่</ion-label>
-      <ion-input type="text" value="" text-right></ion-input>
-    </ion-item> -->
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-          <label for="hos" >อาการทางคลินิค </label>
-        </ion-col>
-        <ion-col col-6>
-          <input type="text" id="hos" name="hos" size="20">  
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <!-- <ion-item>
-      <ion-label  color="dark">อาการทางคลินิค</ion-label>
-      <ion-input type="text" value="" text-right></ion-input>
-    </ion-item> -->
-  </ion-card> -
-
-
-  <ion-card id="css" padding>
-    <ion-label  color="dark">ผลการตรวจทางห้องปฏิบัติการ</ion-label>
-<!-- 
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-          <label for="TT3/fT3" >TT3/fT3 </label>
-        </ion-col>
-        <ion-col col-6>
-          <input type="text" id="TT3/fT3" name="TT3/fT3" size="20">  
-        </ion-col>
-      </ion-row>
-    </ion-grid> -->
-
-    <!-- <ion-item>
-       <ion-label  color="dark">TT3/fT3</ion-label>
-      <ion-input type="text" value="" text-right></ion-input>
-    </ion-item>  -->
-
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-          <label for="fT4" >fT4 </label>
-        </ion-col>
-        <ion-col col-6>
-          <input type="text" id="fT4" name="fT4" size="20">  
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <!-- <ion-item>
-      <ion-label  color="dark">fT4</ion-label>
-        <ion-input type="text" value="" text-right></ion-input>
-    </ion-item> -->
-
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-          <label for="TSH" >TSH </label>
-        </ion-col>
-        <ion-col col-6>
-          <input type="text" id="TSH" name="TSH" size="20">  
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <!-- <ion-item>
-      <ion-label color="dark">TSH</ion-label>
-      <ion-input type="text" value="" text-right></ion-input>
-    </ion-item> -->
-  </ion-card>
-
-  <ion-card id="css" padding>
-
-    <label for="การรักษา" >การรักษา </label>
-    <label for="ThyroidMed" >ยาต้านอาการไทรอยด์      </label>
-    <ion-grid>
-      <ion-row>
-        
-            
-         
-            <ion-col col-4>
-            <select >
-              <option value="Propylthiouracil (PTU)">Propylthiouracil (PTU)</option>
-              <option value="Methimazole (MMI)">Methimazole (MMI)</option>
-              <option value="Tapazole">Tapazole</option>
-              <option value="Lithium">Lithium</option>
-              <option value="ไม่ต้องรับประทาน">ไม่ต้องรับประทาน</option>
-              <option value="อื่นๆ">อื่นๆ</option>
-            </select>
-        </ion-col>
-        <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">  
-      </ion-row>
-    </ion-grid>
+  <form [formGroup]="formgroup">
+    <ion-card id="css" padding>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="date">วันที่ </label>
+          </ion-col>
+          <ion-col col-6>
+            <label for="date">{{date}}</label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="ThyroidSize" >อาการทางคลินิก </label>
+          </ion-col>
+          <ion-col col-6>
+            <input type="text" formControlName="ThyroidSize" id="ThyroidSize" name="ThyroidSize" size="20">
+            <p
+                class="help-inline"
+                *ngIf="!formgroup.get('ThyroidSize').valid
+      && formgroup.get('ThyroidSize').touched"
+              >
+                กรุณาระบุอาการทางคลินิก
+              </p>    
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <br>
+  
+  
+      <label for="ผลการตรวจทางห้องปฏิบัติการ" >ผลการตรวจทางห้องปฏิบัติการ </label>
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="FT4" >FT4 </label>
+          </ion-col>
+          <ion-col col-6>
+            <input type="number" formControlName="FT4" id="FT4" name="FT4" size="20">
+            <p
+                class="help-inline"
+                *ngIf="!formgroup.get('FT4').valid
+      && formgroup.get('FT4').touched"
+              >
+                กรุณาระบุค่า FT4
+              </p>    
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="TSH" >TSH </label>
+          </ion-col>
+          <ion-col col-6>
+            <input type="number" formControlName="TSH" id="TSH" name="TSH" size="20">
+            <p
+                class="help-inline"
+                *ngIf="!formgroup.get('TSH').valid
+      && formgroup.get('TSH').touched"
+              >
+                กรุณาระบุค่า TSH
+              </p>    
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     
-
-
-    <ion-grid>
-      <ion-row>
-          
-        <input type="number" id="ThyroidMedVol" name="ThyroidMedVol" size="5">  
-        <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
-          
-      <input type="number" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">  
-      <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
-      </ion-row>
-    </ion-grid>
-   
-
-    <label for="ThyroidMed" >ยากลุ่ม Beta-Blocker    </label>
-    <ion-grid>
-      <ion-row>
-     
-       
-       
-            <ion-col col-4>
-            <select >
-              <option value="Propranolol (10)">Propranolol (10)</option>
-              <option value="Propranolol (40)">Propranolol (40)</option>
-              <option value="Betalol (10)">Betalol (10)</option>
-              <option value="Atenolol (50)">Atenolol (50)</option>
-              <option value="อื่นๆ">อื่นๆ</option>
-            </select>
-        </ion-col>
-        <input type="text" id="BetaBlockEtc" name="BetaBlockEtc" size="20">  
-      </ion-row>
-    </ion-grid>
-
-
-    <ion-grid>
-      <ion-row>
-          
-        <input type="number" id="BetaBlockVol" name="BetaBlockVol" size="5">  
-        <label for="BetaBlockVol" >&ensp;เม็ด &ensp;    </label>
-        
-      <input type="number" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">  
-      <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
-      </ion-row>
-    </ion-grid>
-
-    <!-- <label for="การรักษา" >การรักษา </label>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-            <label for="ThyroidMed" >ยาต้านอาการไทรอยด์      </label>
+      <label for="การรักษา" >การรักษา </label>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+              <label for="ThyroidMed" >ยาต้านอาการไทรอยด์</label>
+            </ion-col>
+              <ion-col col-5>
+              <select formControlName="ThyroidMed" (change)="addThyroidMed($event.target.value)">
+                <option value="" disabled selected hidden>รายชื่อยาต้านอาการไทรอยด์</option>
+                <option *ngFor="let anti of antinames" value="{{anti.name}}">{{anti.name}}</option>
+              </select>
+              <p
+              class="help-inline"
+              *ngIf="!formgroup.get('ThyroidMed').valid
+      && formgroup.get('ThyroidMed').touched"
+            >
+              กรุณาเลือก
+            </p>  
           </ion-col>
+          <ion-col col-3 >
+            <input type="text" *ngIf="showAntiOther" formControlName="ThyroidMedEtc" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+      <ion-grid *ngIf="showAntiPill">
+        <ion-row>
             
-            <select >
-              <option value="Propylthiouracil (PTU)">Propylthiouracil (PTU)</option>
-              <option value="Methimazole (MMI)">Methimazole (MMI)</option>
-              <option value="Tapazole">Tapazole</option>
-              <option value="Lithium">Lithium</option>
-              <option value="ไม่ต้องรับประทาน">ไม่ต้องรับประทาน</option>
-              <option value="อื่นๆ">อื่นๆ</option>
-            </select>
-            <label for="" >&ensp; </label>
-        <input type="text" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">  
-      </ion-row>
-    </ion-grid> -->
-    <!-- <ion-label color="dark">ผลการรักษา</ion-label>
-
-    <ion-item>
-      <ion-label color="dark">ยาต้านอาการไทรอยด์</ion-label>
-      <ion-select [(ngModel)]="title" placeholder="เลือก"  interface="popover">
-        <ion-option value='Propylthiouracil (PTU)'>Propylthiouracil (PTU)</ion-option>
-        <ion-option value='Methimazole (MMI)'>Methimazole (MMI)</ion-option>
-        <ion-option value='Tapazole'>Tapazole</ion-option>
-        <ion-option value='Lithium'>Lithium</ion-option>
-        <ion-option value='ไม่ต้องรับประทาน'>ไม่ต้องรับประทาน</ion-option>
-        <ion-option value='อื่นๆ'>อื่นๆ</ion-option>
-      </ion-select>
-      <ion-input  #flName type="text" placeholder=""></ion-input>
-    </ion-item> -->
-
-    <!-- <ion-item>
-      <ion-label color="dark" >จำนวนยา</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนยา"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="dark" >จำนวนครั้งต่อวัน</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนครั้ง"></ion-input>
-    </ion-item>
-
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-            <label for="ThyroidMed" >ยากลุ่ม Beta-Blocker      </label>
-          </ion-col>
-          
-            <select >
-              <option value="Propranolol (10)">Propranolol (10)</option>
-              <option value="Propranolol (40)">Propranolol (40)</option>
-              <option value="Betalol (10)">Betalol (10)</option>
-              <option value="Atenolol (50)">Atenolol (50)</option>
-              <option value="อื่นๆ">อื่นๆ</option>
-            </select>
-            <label for="" >&ensp; </label>
-        <input type="text" id="BetaBlockEtc" name="BetaBlockEtc" size="20">  
-      </ion-row>
-    </ion-grid> -->
-
-    <!-- <ion-item>
-      <ion-label color="dark">ยากลุ่ม Beta-Blocker</ion-label>
-      <ion-select [(ngModel)]="title" placeholder="เลือก"  interface="popover">
-        <ion-option value='Propranolol (10)'>Propranolol (10)</ion-option>
-        <ion-option value='Propranolol (40)'>Propranolol (40)</ion-option>
-        <ion-option value='Betalol (10)'>Betalol (10)</ion-option>
-        <ion-option value='Atenolol (50)'>Atenolol (50)</ion-option>
-        <ion-option value='อื่นๆ'>อื่นๆ</ion-option>
-      </ion-select>
-      <ion-input  #flName type="text" placeholder=""></ion-input>
-    </ion-item> -->
-
-
-    <!-- <ion-item>
-      <ion-label color="dark" >จำนวนยา</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนยา"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="dark" >จำนวนครั้งต่อวัน</ion-label>
-      <ion-input type="number" min="0" placeholder="จำนวนครั้ง"></ion-input>
-    </ion-item> -->
-  </ion-card>
-
-  <button ion-button color="1" >บันทึก</button>
+          <input type="number" formControlName="ThyroidMedVol" id="ThyroidMedVol" name="ThyroidMedVol" size="5">  
+          <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
+           
+        <input type="number"formControlName="ThyroidMedRoundPerDay" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">  
+        <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;  </label>
+        </ion-row>
+      </ion-grid>
+      
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+                <label for="BetaBlock" >ยากลุ่ม Beta-Blocker</label>
+              </ion-col>
+                <ion-col col-5>
+                <select formControlName="BetaBlock" (change)="addBetaBlock($event.target.value)">
+                  <option value="" disabled selected hidden>รายชื่อยา Beta-Blocker</option>
+                  <option *ngFor="let beta of betanames" value="{{beta.name}}">{{beta.name}}</option>
+                </select>
+                <p
+                class="help-inline"
+                *ngIf="!formgroup.get('BetaBlock').valid
+      && formgroup.get('BetaBlock').touched"
+              >
+                กรุณาเลือก
+              </p>  
+            </ion-col>
+            <ion-col col-3 >
+              <input type="text" *ngIf="showBlockOther" formControlName="BetaBlockEtc" id="BetaBlockEtc" name="BetaBlockEtc" size="20">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      
+        <ion-grid *ngIf="showBlockPill">
+          <ion-row>
+              
+            <input type="number" formControlName="BetaBlockVol" id="BetaBlockVol" name="BetaBlockVol" size="5">  
+            <label for="BetaBlockVol" >&ensp; เม็ด &ensp;    </label>
+             
+          <input type="number" formControlName="BetaBlockRoundPerDay" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">  
+          <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
+          </ion-row>
+        </ion-grid>
+     
+    </ion-card>
+  </form>
+  
+    <button ion-button [disabled]="!formgroup.valid" (click)="update()"  color="1">บันทึก</button>
 </ion-content>

@@ -1,9 +1,5 @@
-<!--
-  Generated template for the IodineresultdetailPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+
 <ion-header>
   <ion-navbar color="1">
     <ion-title>รายละเอียดผลการกลืนแร่</ion-title>
@@ -11,49 +7,57 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let item of obj" id="css">
-    <ion-item >
+  <ion-card id="css">
+    <ion-item>
+      <ion-label  color="dark">วันที่</ion-label>
+      <ion-label  color="dark">{{date}}</ion-label>
+    </ion-item>
+    <ion-item>
       <ion-label  color="dark">ขนาดต่อมไทรอยด์</ion-label>
-      <div>{{item.thysize}}</div>
+      <ion-label  color="dark">{{thysize}}</ion-label>
     </ion-item>
   </ion-card>
 
 
-  <ion-card *ngFor="let item of obj" id="css">
+  <ion-card id="css">
     <ion-item >
       <ion-label color="dark">ผลการตรวจทางห้องปฏิบัติการ</ion-label>
     </ion-item>
     <ion-item >
       <ion-label fixed color="dark">TT3/fT3</ion-label>
-      <div>{{item.TT3orfT3}}</div>
+      <ion-label  color="dark">{{TT3orfT3}}</ion-label>
     </ion-item>
 
     <ion-item>
       <ion-label fixed color="dark">fT4</ion-label>
-      <div>{{item.fT4}}</div>
+      <ion-label  color="dark">{{fT4}}</ion-label>
     </ion-item>
 
     <ion-item>
       <ion-label fixed color="dark">TSH</ion-label>
-      <div>{{item.TSH}}</div>
+      <ion-label  color="dark">{{TSH}}</ion-label>
     </ion-item>
   </ion-card>
 
 
-  <ion-card *ngFor="let item of obj" id="css">
+  <ion-card id="css">
     <ion-item >
       <ion-label color="dark">การรักษา</ion-label>
     </ion-item>
     <ion-item >
       <ion-label color="dark">ยาต้านอาการไทรอยด์</ion-label>
-        <div>{{item.thyMed}}</div>
-
+    </ion-item>
+    <ion-item>
+      <ion-label  color="dark">{{thyMed}}</ion-label>
+      <ion-label  color="dark">{{thyAmount}} เม็ด</ion-label>
+      <ion-label  color="dark">{{thyDaily}} ครั้ง</ion-label>
     </ion-item>
     <ion-item>
       <ion-label color="dark">ยากลุ่ม Beta-Blocker</ion-label>
-      <div>{{item.betaBlock}}</div>
+      <ion-label  color="dark">{{betaBlock}} {{betaAmount}} เม็ด {{betaDaily}} ครั้ง</ion-label>
     </ion-item>
+    
   </ion-card>
 
-  <button ion-button  (click)="EditResultDetail()" color="1">แก้ไขข้อมูล</button>
+  <button ion-button  (click)="EditResultDetail()" *ngIf="ButtonShow" color="1">แก้ไขข้อมูล</button>
 </ion-content>
