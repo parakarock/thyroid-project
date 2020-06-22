@@ -147,7 +147,7 @@ export class EditphysicalsPage {
   async presentConfirm() {
     let alert = await this.alertCtrl.create({
       title: "ยืนยันการอัพเดทข้อมูล",
-      message: "",
+      message: "คุณต้องการดำเนินการต่อหรือไม่",
       buttons: [
         {
           text: "ยกเลิก",
@@ -157,7 +157,7 @@ export class EditphysicalsPage {
           }
         },
         {
-          text: "ยืนยัน",
+          text: "ตกลง",
           handler: () => {
             this.updateData();
             // this.navCtrl.getPrevious().data.formData = this.formgroup.value

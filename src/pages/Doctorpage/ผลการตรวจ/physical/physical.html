@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>ตรวจร่างกาย</ion-title>
+    <ion-title>ผลการตรวจร่างกาย (ส่วนที่ 1)</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -108,21 +108,10 @@
       </ion-row>
     </ion-grid>
 
-    <!-- <ion-grid *ngIf="eye_detect === 1">
-      <ion-row>
-        <ion-col col-4>
-          <div>มีอาการตาโปนหรือตาโตกว่าปกติ: </div>
-        </ion-col>
-        <ion-col col-6>
-          <div>{{ eye_result }}  </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid> -->
-
     <ion-grid>
       <ion-row>
         <ion-col>
-          <div><b>คลำได้ก้อนเนื้องอกในต่อมไทรอยด์</b></div>
+          <div><b>มีอาการตาโปนหรือตาโตกว่าปกติ:</b></div>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -146,11 +135,10 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <div><b>ส่งปรึกษาจักษุแพทย์:</b> </div>
+          <div>
+           <h2><b>ส่งปรึกษาจักษุแพทย์</b></h2>
+          </div>
         </ion-col>
-        <!-- <ion-col col-6>
-          <div>{{ eye_result }}  </div>
-        </ion-col> -->
       </ion-row>
     </ion-grid>
 
@@ -212,8 +200,8 @@
   </ion-card>
 
 <button ion-button id="button" *ngIf="showMenu" (click)="editphysical()" color="1" id="editphysical">แก้ไขข้อมูล</button>
-<br>
-<button ion-button (click)="physicals()" color="1" id="physicals">ถัดไป</button>
+
+<button ion-button id="button" (click)="physicals()" color="1" id="physicals">ถัดไป</button>
 
 
 </ion-content>

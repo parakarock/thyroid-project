@@ -1,0 +1,170 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>ผลการตรวจทางห้องปฏิบัติการ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card id="css" padding>
+   
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+    <label for="date">วันที่</label>
+  </ion-col>
+  <ion-col col-6>
+    <label for="date">{{date}}</label>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <label for="hos" >รพ.      </label>
+          </ion-col>
+            <ion-col col-6>
+            {{hos_name}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+    <label for="ft3">serum free T3</label>
+  </ion-col>
+  <ion-col col-6>
+    <input type="number" [(ngModel)]="SerumT3" id="SerumT3" name="SerumT3" size="20" disabled>
+  </ion-col>
+  </ion-row>
+  <ion-row>
+  <ion-col col-4>
+  </ion-col>
+  <ion-col col-6>
+    <input type="number" [(ngModel)]="SerumT3st" id="SerumT3st" name="SerumT3st" size="20" disabled>
+    
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+    <label for="ft4">serum free T4</label>
+  </ion-col>
+  <ion-col col-6>
+    <input type="number" [(ngModel)]="SerumT4" id="SerumT4" name="SerumT4" size="20" disabled>
+   
+  </ion-col>
+  </ion-row>
+  <ion-row>
+  <ion-col col-4>
+  </ion-col>
+  <ion-col col-6>
+    <input type="number" [(ngModel)]="SerumT4st" id="SerumT4st" name="SerumT4st" size="20" disabled>
+      
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+    <label for="TSH">serum TSH</label>
+  </ion-col>
+  <ion-col col-6>
+     <input type="number" [(ngModel)]="SerumTSH" id="SerumTSH" name="SerumTSH" size="20" disabled>
+   
+  </ion-col>
+  </ion-row>
+  <ion-row>
+  <ion-col col-4>
+  </ion-col>
+  <ion-col col-6>
+     <input type="number" [(ngModel)]="SerumTSHst" id="SerumTSHst" name="SerumTSHst" size="20" disabled>
+    
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+    <label for="TRAb">serum TRAb</label>
+  </ion-col>
+  <ion-col col-6>
+   <input type="number" [(ngModel)]="SerumTRAb" id="SerumTRAb" name="SerumTRAb" size="20" disabled>
+    
+  </ion-col>
+  </ion-row>
+  <ion-row>
+  <ion-col col-4>
+  </ion-col>
+  <ion-col col-6>
+   <input type="number" [(ngModel)]="SerumTRAbst" id="SerumTRAbst" name="SerumTRAbst" size="20" disabled>
+    
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+    <label for="Text">ยาที่รับประทานในวันตรวจเลือด</label>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+          <label for="ThyroidMed" >ยาต้านอาการไทรอยด์</label>
+        </ion-col>
+          <ion-col col-5>
+            {{ThyroidMed}}
+         
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  
+  <ion-grid *ngIf="showAntiPill">
+    <ion-row>
+        
+      <input type="number" [(ngModel)]="ThyroidMedVol" id="ThyroidMedVol" name="ThyroidMedVol" size="5" disabled>  
+      <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
+       
+    <input type="number"[(ngModel)]="ThyroidMedRoundPerDay" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5" disabled>  
+    <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;  </label>
+    </ion-row>
+  </ion-grid>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <label for="BetaBlock" >ยากลุ่ม Beta-Blocker</label>
+          </ion-col>
+            <ion-col col-5>
+              {{BetaBlock}}
+             
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-grid *ngIf="showBlockPill">
+      <ion-row>
+          
+        <input type="number" [(ngModel)]="BetaBlockVol" id="BetaBlockVol" name="BetaBlockVol" size="5" disabled>  
+        <label for="BetaBlockVol" >&ensp; เม็ด &ensp;    </label>
+         
+      <input type="number" [(ngModel)]="BetaBlockRoundPerDay" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5" disabled>  
+      <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  
+  </ion-content>

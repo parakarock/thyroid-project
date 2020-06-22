@@ -133,7 +133,7 @@ export class RadiographicsPage {
 
     fileTransfer.upload(this.myPhoto, "http://" + this.global.getIP() + "/upload.php", options)
       .then((data) => {
-      alert("การอัพโหลดรูปเสร็จสมบูรณ์");
+      // alert("การอัพโหลดรูปเสร็จสมบูรณ์");
       this.imageLink = data.response; //เอา File Path มาใส่ในตัวแปร
       this.updateData();
       console.log(data);
@@ -164,6 +164,7 @@ export class RadiographicsPage {
         .subscribe(
           data => {
             console.log(JSON.stringify(data));
+            this.presentAlert();
           },
           error => {
             console.log(error);
@@ -195,5 +196,16 @@ export class RadiographicsPage {
       }
     )
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      title: 'แจ้งเตือน',
+      message: 'การบันทึกข้อมูลเสร็จสมบูรณ์',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+
 
 }

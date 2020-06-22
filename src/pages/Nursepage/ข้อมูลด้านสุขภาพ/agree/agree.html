@@ -1,10 +1,11 @@
-
+<!-- ส่วนแสดงของผู้ป่วย -->
 <ion-header *ngIf="showMenu">
   <ion-navbar color="1">
     <ion-title>อัพโหลดใบยินยอมเข้ารับการรักษา</ion-title>
   </ion-navbar>
 </ion-header>
 
+<!-- ส่วนแสดงของหมอ -->
 <ion-header *ngIf="!showMenu">
   <ion-navbar color="1">
     <ion-title>ภาพใบยินยอมเข้ารับการรักษา</ion-title>
@@ -13,27 +14,27 @@
 
   <ion-content padding id="css" *ngIf="showMenu">
     <ion-card id="css">
-    <ion-card-header>ภาพใบรับรองการรักษา</ion-card-header>
-    <button ion-button full (click)="takePhoto(0)">เลือกรูปภาพ</button>
-    <button ion-button full (click)="takePhoto(1)">เปิดกล้องถ่ายรูป</button>
-
-    <ion-item>
+    <ion-card-header><b>เลือกภาพใบรับรองการรักษา</b></ion-card-header>
+    <button ion-button full (click)="AlertTakePhoto()">เลือกรูปภาพ</button>
+    <ion-item *ngIf="myContract">
       <!-- <h4>Image Preview</h4> -->
       <p><img align="center" src="{{ myContract }}"/></p>
     </ion-item>
 
-    <ion-item>
+    <ion-item *ngIf="myContract">
       <button ion-button full (click)="uploadFile()">อัพโหลดรูปภาพ</button>
     </ion-item>
   </ion-card>
-</ion-content>
 
-<!-- ส่วนแสดงของผู้ป่วย -->
-<ion-content *ngIf="!showMenu">
-  <ion-item full>
-    <h3>รูปภาพ</h3>
-    <img src="{{imageFile}}"> <br><br>
-  </ion-item>
+    <br>
+<!-- ส่วนแสดงรูปภาพ -->
+  <ion-card *ngIf="imageFile">
+    <ion-item full>
+      <ion-card-header><b>รูปภาพใบรับรองการรักษา</b></ion-card-header><br>
+      <img src="{{imageFile}}"> <br><br>
+    </ion-item>
+  </ion-card>
+
 </ion-content>
 
 

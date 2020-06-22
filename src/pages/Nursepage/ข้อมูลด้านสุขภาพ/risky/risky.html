@@ -14,12 +14,12 @@
 
     <ion-item no-lines *ngIf="stress">
       <input type="checkbox" name="stress" disabled="disabled" checked/>
-      <label for="stress"> มีความเครียด</label><br />
+      <label for="stress"> มีความเครียดหรือความวิตกกังวล</label><br />
     </ion-item>
 
     <ion-item no-lines  *ngIf="hard_work">
       <input type="checkbox" name="hard_work" disabled="disabled" checked/>
-      <label for="hard_work"> ทำงานหนักเกิน 12 ชั่วโมงต่อวัน</label><br />
+      <label for="hard_work">ระบบการทำงาน (Shift work)</label><br />
     </ion-item>
 
     <ion-item no-lines  *ngIf="nightWork">
@@ -38,7 +38,7 @@
 
     <ion-item no-lines *ngIf="sleep_less_than_4">
       <input type="checkbox" name="sleep_less_than_4" disabled="disabled" checked/>
-      <label for="sleep_less_than_4">นอนน้อยกว่า 4 ชั่วโมงต่อวัน</label><br />
+      <label for="sleep_less_than_4">ทำงานหนักหรือนอนน้อยกว่า 4 ชั่วโมงต่อวัน</label><br />
     </ion-item>
 
     <ion-item no-lines *ngIf="pregnant&&showFormSex">
@@ -96,7 +96,7 @@
 
     <ion-item no-lines *ngIf="relative_toxic_thyroid">
       <input type="checkbox" name="relative_toxic_thyroid" disabled="disabled" checked/>
-      <label for="relative_toxic_thyroid">ญาติตรงของผู้ป่วยต่อมไทรอยด์เป็นพิษ</label
+      <label for="relative_toxic_thyroid">บุคคลในครอบครัวมีต่อมไทรอยด์เป็นพิษ</label
       ><br />
     </ion-item>
 

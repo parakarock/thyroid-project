@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="1" hideBackButton="true">
+  <ion-navbar color="1">
     <ion-title>เมนู</ion-title>
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
@@ -7,39 +7,50 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu persistent="true" menuId="first" side="right" [content]="mycontent" >
-
+<ion-menu side="right" [content]="mycontent">
   <ion-content>
-
-
-
     <ion-list>
-      <br>
+      <br />
       <img class="profile" src="../../../assets/icon/Pic_Icon/fracture.png" />
 
-        <h3>{{ name }}</h3>
+      <h3>{{ name }}</h3>
 
-        <ion-item>
-          <ion-label>รักษาครั้งที่</ion-label>
-          <ion-select [(ngModel)]="number" interface="popover">
-            <ion-option value="1">1</ion-option>
-            <ion-option value="2">2</ion-option>
-          </ion-select>
-        </ion-item>
+      <ion-item >
+        <ion-label >รักษาครั้งที่</ion-label>
+        <ion-select [(ngModel)]="number" interface="popover" (ionChange)="SelectRound()">
+          <ion-option
+            *ngFor="let round of rounds"
+            [value]="round.rou_id"
+            [selected]="round.rou_id === 1"
+            >{{round.rou_id}}</ion-option
+          >
+        </ion-select>
+      </ion-item>
 
       <ion-item>
         <ion-label>Status</ion-label>
-        <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
-          <ion-option *ngFor="let role of roles" [value]="role.role_name" [selected]="role.role_name === 'patient'">{{role.role_name}}</ion-option>
+        <ion-select
+          [(ngModel)]="status"
+          interface="popover"
+          (ionChange)="selectRole()"
+        >
+          <ion-option
+            *ngFor="let role of roles"
+            [value]="role.role_name"
+            [selected]="role.role_name === 'ผู้ป่วย'"
+            >{{role.role_name}}</ion-option
+          >
         </ion-select>
       </ion-item>
 
       <button ion-item (click)="ChangePass()" color="2">เปลี่ยนรหัสผ่าน</button>
-      <button ion-item (click)="onClickLogoutButton()" color="2">ออกจากระบบ</button>
+      <button ion-item (click)="onClickLogoutButton()" color="2">
+        ออกจากระบบ
+      </button>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-nav #mycontent [root]="rootPage" ></ion-nav>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
 
 <ion-content >
   <ion-slides pager="true" autoplay="400" loop="true" speed="3000">

@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-navbar color="1">
     <ion-title>การคุมกำเนิด</ion-title>
@@ -6,12 +5,104 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" padding>
+  <ion-card id="css" padding >
+    <div *ngIf="showData">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="patient">ผู้ป่วยคุมกำเนิดหรือไม่ </label>
+          </ion-col>
+          <ion-col col-6>
+           {{control_name}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+      <ion-grid *ngIf="showControl">
+        <ion-row>
+          <ion-col col-4>
+            <label for="contraceptive">คุมกำเนิด </label>
+          </ion-col>
+  
+          {{control_amount}} {{control_daily}}
+          
+        </ion-row>
+      </ion-grid>
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="date">ประจำเดือนครั้งสุดท้ายของท่าน</label>
+          </ion-col>
+          <ion-col col-6>
+           {{last_peroid_date}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <label for="number">จำนวน </label>
+          </ion-col>
+          {{last_peroid_amount}} วัน
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngIf="!showData">
+      <ion-item no-lines>
+        <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
+      </ion-item>
+    </div>
+  
+      <button ion-button  color="1" (click)="editcontraceptive()" *ngIf="showButtonedit">แก้ไข</button>
+  
 
-  <ion-item no-lines>
-    <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
-  </ion-item>
-</ion-card>
+    <ion-item no-lines>
+      <div><label name="title">ผลตรวจ UPT</label> <ion-icon name="add-circle" float-right  (click)="addcontraceptive('add')" *ngIf="showButtonedit" color="1" ></ion-icon></div>
+    </ion-item>
+    
+<div *ngIf="showUPT">
+  <ion-card *ngFor="let item of UPTs; let i = index">
+    <ion-grid>
+      <ion-row >
+        <ion-col col-9>
+          <ion-item>
+          <ion-label class="name" color="dark">UPT วันที่</ion-label>
+          <ion-label color="dark">{{item.UPT_date}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="name" color="dark">ผลการตรวจ </ion-label>
+          <ion-label color="dark">{{item.UPT_result}}</ion-label>
+        </ion-item>
+        </ion-col>
+        <ion-col col-3 id="center-button">
+          <button ion-button color="1" (click)="addcontraceptive(i)" *ngIf="showButtonedit">
+        แก้ไข
+      </button>
+        </ion-col>
+        
+      </ion-row>
+      
+    </ion-grid>
+      
+      
+   
+    
+  
+    
+  </ion-card>
+</div>
+  
+  <div *ngIf="!showUPT">
+    <ion-item no-lines>
+      <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
+    </ion-item>
+  </div>
 
-<button ion-button color="1" (click)="editcontraceptive()">แก้ไข</button>
+    
+  </ion-card>
+  
+
+ 
 </ion-content>

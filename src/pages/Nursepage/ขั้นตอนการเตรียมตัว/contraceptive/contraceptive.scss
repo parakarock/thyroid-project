@@ -1,5 +1,8 @@
 page-contraceptive {
-    ion-label {
+    ion-icon{
+        font-size: 40px;
+       }
+    ion-label{
         font-size: 15px;
 
     }
@@ -10,24 +13,54 @@ page-contraceptive {
         margin-left: auto;
         margin-right: auto;
     }
+    .div{
+        font-size: 15px;
+
+    }
+    label {
+        font-size: 15px bold;
+        font-weight: bold;
+    }
+    label#title{
+        font-size: 50px ;
+    }
+    #center-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .name{
+        font-weight: bold;
+    }
 
     @media only screen and (min-width: 1224px) {
-        ion-label {
+        ion-icon{
+            font-size: 64px;
+           }
+        ion-label{
             font-size: 20px;
+
         }
         .button{
             font-size: 20px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
         }
+        .div{
+            font-size: 20px;
 
+        }
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
 
-    #css{
-        width: 40%;
-        position: relative;
-        left: 30%;
+        }
+        label {
+            font-size: 20px;
 
-    }
+        }
       }
 }

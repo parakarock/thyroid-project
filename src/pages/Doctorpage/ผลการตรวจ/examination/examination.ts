@@ -16,7 +16,6 @@ import { RequestOptions, Http, Headers } from '@angular/http';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
 const STORAGE_KEY = 'IMAGE_LIST';
 @Component({
   selector: 'page-examination',
@@ -27,6 +26,8 @@ export class ExaminationPage {
   Time: any;
   Date: string;
   HashID: any;
+  startMin: any;
+  startMax: any;
 
   @ViewChild('imageCanvas')
   canvas: any;
@@ -65,6 +66,9 @@ export class ExaminationPage {
               public formBuilder: FormBuilder,
               public http: Http,
               ) {
+                this.startMin = moment().add(443, 'y').format("YYYY");
+                this.startMax = moment().add(543, 'y').format("YYYY");
+
                 this.formgroup = formBuilder.group({
                   thy_num1: ['',],
                   thy_ult_date1: ['',],
@@ -131,7 +135,6 @@ export class ExaminationPage {
   }
 
   saveCanvasImage() {
-    // console.log(this.formgroup.get("Detail").value);
     var dataUrl = this.canvasElement.toDataURL();
     let ctx = this.canvasElement.getContext('2d');
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -140,7 +143,7 @@ export class ExaminationPage {
     let options: IWriteOptions = { replace: true };
     var data = dataUrl.split(',')[1];
     let blob = this.b64toBlob(data, 'image/png');
-    let loader = this.loadingCtrl.create({ content: "กำลังอัพโหลดรูปภาพ..." }); loader.present();
+    let loader = this.loadingCtrl.create({ content: "กำลังบันทึกข้อมูล..." }); loader.present();
     this.file.writeFile(path, name, blob, options).then(res => {
       this.filepath = this.getImagePath(name);
       const fileTransfer: FileTransferObject = this.transfer.create();
@@ -161,19 +164,11 @@ export class ExaminationPage {
               alert("บันทึกข้อมูลเสร็จสมบูรณ์");
               this.imageLink = data.response;
               this.updateData();
-
-              // console.log(data + " Uploaded Successfully");
-              //this.myPhoto = "http://10.80.82.229:8000/Images/ionicfile.jpg"
               loader.dismiss();
-              //this.presentToast("Image uploaded successfully");
             }, (err) => {
-              // console.log(err);
-              // this.presentToast(JSON.stringify(err));
               alert("เกิดข้อผิดพลาดในการอัพโหลด กรุณาทำรายการใหม่อีกครั้ง");
               loader.dismiss();
             });
-
-      // alert(this.getImagePath(name));
     }, err => {
       alert('error: ' + err);
     });
@@ -189,7 +184,6 @@ export class ExaminationPage {
       thyroid_image: this.imageLink,
       thy_ult_result: this.formgroup.controls.thy_ult_result.value
     };
-    // console.log(body);
       this.http.post("http://" + this.global.getIP() + "/result.php?method=update_thyroidUltraPic&role=" + this.global.getSelectRole()
       ,body
       ,options
@@ -329,53 +323,27 @@ export class ExaminationPage {
         ctx.clearRect(1, 0, this.canvasElement.width, this.canvasElement.height);
     }
 
-    // doUpdate() {
-    //   console.log(this.formgroup.value);
-    // }
+    showConfirmAlert() {
+      let alert = this.alertController.create({
+        title: 'ยืนยันการบันทึกข้อมูล',
+        message: 'คุณต้องการดำเนินการต่อหรือไม่',
+        buttons: [
+          {
+            text: 'ยกเลิก',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'ตกลง',
+            handler: () => {
+              this.saveCanvasImage();
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
 
-//   uploadImage(){
-//   let loader = this.loadingCtrl.create({
-//     content: "กำลังอัพโหลดรูปภาพ..."
-//   });
-//   loader.present();
-//   const fileTransfer: FileTransferObject = this.transfer.create();
-
-//   var random = Math.floor(Math.random() * 1000);
-
-//   let options: FileUploadOptions = {
-//     fileKey: 'photo',
-//     fileName: "myCanvas_" + random + ".jpg",
-//     chunkedMode: false,
-//     httpMethod: 'post',
-//     mimeType: "image/jpeg",
-//     headers: {}
-//   }
-
-//   fileTransfer.upload(imagepath, 'http://192.168.31.190:8000/uploadCanvas.php', options)
-//     .then((data) => {
-//     alert("การอัพโหลดรูปเสร็จสมบูรณ์");
-//     // console.log(data + " Uploaded Successfully");
-//     //this.myPhoto = "http://10.80.82.229:8000/Images/ionicfile.jpg"
-//     loader.dismiss();
-//     //this.presentToast("Image uploaded successfully");
-//   }, (err) => {
-//     // console.log(err);
-//     // this.presentToast(JSON.stringify(err));
-//     alert("เกิดข้อผิดพลาดในการอัพโหลด กรุณาทำรายการใหม่อีกครั้ง"+ JSON.stringify(err));
-//     loader.dismiss();
-//   });
-// }
-
-// presentToast(msg) {
-//   let toast = this.toastCtrl.create({
-//     message: msg,
-//     duration: 3000,
-//     position: 'bottom'
-//   });
-
-//   toast.onDidDismiss(() => {
-//     console.log('Dismissed toast');
-//   });
-
-//   toast.present();
  }

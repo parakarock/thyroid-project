@@ -30,6 +30,7 @@ export class HealthdatahomePage {
   number;
   rounds;
   showMenu:boolean;
+  showComp:boolean;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -37,10 +38,15 @@ export class HealthdatahomePage {
     public events: Events
   ) {
 
-    if(this.global.getSelectRole() === "หมอ"){
+    if(this.global.getSelectRole() === "พยาบาล"){
       this.showMenu = true;
     }else{
       this.showMenu = false;
+    }
+    if(this.global.getSelectRole() === "ผู้ป่วย"){
+      this.showComp = true;
+    }else{
+      this.showComp = false;
     }
   }
   ionViewDidLoad() {

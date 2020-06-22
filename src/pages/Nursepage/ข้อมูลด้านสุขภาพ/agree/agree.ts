@@ -3,7 +3,7 @@ import { Md5 } from 'ts-md5/dist/md5';
 import { GlobalProvider } from './../../../../providers/global/global';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController  } from 'ionic-angular';
 import * as moment from "moment";
 import { LoadingController, ToastController } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -54,6 +54,7 @@ export class AgreePage {
     private Md5: Md5,
     public global: GlobalProvider,
     public formBuilder: FormBuilder,
+    public alertController: AlertController,
     ) {
       if(this.global.getSelectRole() === "ผู้ป่วย"){
         this.showMenu = true;
@@ -64,6 +65,28 @@ export class AgreePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AgreePage');
+    this.getData()
+  }
+
+  AlertTakePhoto(){
+    let alert = this.alertController.create({
+      title: "โปรดเลือกวิธีการอัพโหลดรูป",
+      buttons: [
+        {
+        text: "เลือกจากคลังรูปภาพ",
+        handler: () => {
+          this.takePhoto(0);
+          }
+        },
+        {
+          text: "ถ่ายรูปจากกล้อง",
+        handler: () => {
+          this.takePhoto(1);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   takePhoto(SourceType:number){
@@ -106,7 +129,7 @@ export class AgreePage {
 
     fileTransfer.upload(this.myContract, "http://" + this.global.getIP() + "/uploadContract.php", options)
       .then((data) => {
-      alert("การอัพโหลดรูปเสร็จสมบูรณ์");
+      // alert("การอัพโหลดรูปเสร็จสมบูรณ์");
       this.imageLink = data.response; //เอา File Path มาใส่ในตัวแปร
       this.updateData();
       console.log(data);
@@ -136,6 +159,7 @@ export class AgreePage {
       .subscribe(
         data => {
           console.log(JSON.stringify(data));
+          this.presentAlert();
         },
         error => {
           console.log(error);
@@ -179,4 +203,14 @@ export class AgreePage {
 
     toast.present();
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      title: 'แจ้งเตือน',
+      message: 'การบันทึกข้อมูลเสร็จสมบูรณ์',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
 }

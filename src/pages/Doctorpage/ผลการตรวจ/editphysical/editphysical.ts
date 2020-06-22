@@ -35,6 +35,8 @@ export class EditphysicalPage {
   Date: string;
   ImageName: string;
   imageLink: any;
+  startMin: any;
+  startMax: any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertController: AlertController,
@@ -47,6 +49,9 @@ export class EditphysicalPage {
               public formBuilder: FormBuilder,
               //public alertCtrl: AlertController,
               ) {
+                this.startMin = moment().add(443, 'y').format("YYYY");
+                this.startMax = moment().add(543, 'y').format("YYYY");
+
                 this.formgroup = formBuilder.group({
                   check_date: ['',
                   // Validators.compose([Validators.required,
@@ -236,7 +241,7 @@ export class EditphysicalPage {
   async presentConfirm() {
       let alert = await this.alertController.create({
         title: "ยืนยันการอัพเดทข้อมูล",
-        message: "",
+        message: "คุณต้องการดำเนินการต่อหรือไม่",
         buttons: [
           {
             text: "ยกเลิก",
@@ -246,7 +251,7 @@ export class EditphysicalPage {
             }
           },
           {
-            text: "ยืนยัน",
+            text: "ตกลง",
             handler: () => {
               this.uploadFile()
               // this.navCtrl.getPrevious().data.formData = this.formgroup.value

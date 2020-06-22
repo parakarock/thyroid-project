@@ -17,7 +17,11 @@ page-addcontraceptive {
         margin-left: auto;
         margin-right: auto;
     }
-
+    #center-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
 
     @media only screen and (min-width: 1224px) {

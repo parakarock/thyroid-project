@@ -2,14 +2,14 @@
 <!-- ส่วนแสดงของหมอ -->
 <ion-header *ngIf="showMenu">
   <ion-navbar color="1">
-    <ion-title>อัพโหลดภาพไทรอยด์สแกน</ion-title>
+    <ion-title>อัพโหลดภาพ Thyroid Scan</ion-title>
   </ion-navbar>
 </ion-header>
 
 <!-- ส่วนแสดงของผู้ป่วย -->
 <ion-header *ngIf="!showMenu">
   <ion-navbar color="1">
-    <ion-title>ภาพไทรอยด์สแกน</ion-title>
+    <ion-title>ภาพ Thyroid Scan</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -18,7 +18,7 @@
   <ion-card>
   <ion-card-header><b>เลือกภาพ Thyroid Scan</b></ion-card-header>
   <button ion-button full (click)="AlertTakePhoto()">เลือกรูปภาพ</button>
-  <ion-item>
+  <ion-item *ngIf="myPhoto">
     <!-- <h4>Image Preview</h4> -->
     <p><img align="center" src="{{ myPhoto }}"/></p>
   </ion-item>
@@ -32,6 +32,7 @@
   </ion-item>
 </ion-card>
 
+<!-- ส่วนแสดงรูปภาพ -->
 <ion-card *ngIf="imageFile">
   <ion-item full>
     <ion-card-header><b>รูปภาพ Thyroid Scan ของผู้ป่วย</b></ion-card-header><br>

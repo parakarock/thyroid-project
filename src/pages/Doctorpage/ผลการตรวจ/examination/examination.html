@@ -1,13 +1,12 @@
 <ion-header>
   <ion-navbar color="1" >
     <ion-title>
-      Thyroid ultrasound
+      บันทึกผล Thyroid ultrasound
     </ion-title>
   </ion-navbar>
 </ion-header>
 
   <ion-content padding>
-    <!-- <form [formGroup]="formgroup" (ngSubmit)="doUpdate()"> -->
       <ion-card color="1">
         <ion-card-header><b>เพิ่มก้อนไทรอยด์</b></ion-card-header>
         <ion-grid>
@@ -80,36 +79,22 @@
       <form [formGroup]="formgroup">
       <ion-card>
         <ion-card-header><b>คำแนะนำเพิมเติม</b></ion-card-header>
-        <!-- <button ion-button full (click)="addDetailForm()">เพิ่มข้อมูล</button> -->
 
             <ion-card>
               <ion-card-header><b>ก้อนที่ 1</b></ion-card-header>
-              <!-- <ion-row>
-                <ion-col col-4>
-                  <label for="thy_num1" >ก้อนที่</label>
-                </ion-col>
-                <ion-col col-6>
-                  <input
-                    type="text"
-                    id="thy_num1"
-                    name="thy_num1"
-                    formControlName="thy_num1"
-                    value="1"
-                    size="20">
-                </ion-col>
-              </ion-row> -->
-
                 <ion-row>
                   <ion-col col-4>
-                  <label for="thy_ult_date1">วันที่ตรวจ</label>
-                </ion-col>
+                    <ion-label for="thy_ult_date1">วันที่ตรวจ</ion-label>
+                  </ion-col>
                 <ion-col col-6>
-                <input
-                  type="date"
-                  id="thy_ult_date1"
-                  name="thy_ult_date1"
-                  formControlName="thy_ult_date1"
-                  size="20">
+                  <ion-datetime
+                    displayFormat="DD-MM-YYYY"
+                    pickerFormat="DD MMMM YYYY"
+                    min={{startMin}} max={{startMax}}
+                    formControlName="thy_ult_date1"
+                    placeholder="ระบุวันที่ตรวจ"
+                    monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, ">
+                  </ion-datetime>
                 </ion-col>
               </ion-row>
 
@@ -180,32 +165,19 @@
 
             <ion-card>
               <ion-card-header><b>ก้อนที่ 2</b></ion-card-header>
-              <!-- <ion-row>
-                <ion-col col-4>
-                  <label for="thy_num2" >ก้อนที่</label>
-                </ion-col>
-                <ion-col col-6>
-                  <input
-                    type="text"
-                    id="thy_num2"
-                    name="thy_num2"
-                    formControlName="thy_num2"
-                    value="2"
-                    size="20">
-                </ion-col>
-              </ion-row> -->
-
                 <ion-row>
                   <ion-col col-4>
-                  <label for="thy_ult_date2">วันที่ตรวจ</label>
+                  <ion-label for="thy_ult_date2">วันที่ตรวจ</ion-label>
                 </ion-col>
                 <ion-col col-6>
-                <input
-                  type="date"
-                  id="thy_ult_date2"
-                  name="thy_ult_date2"
+                  <ion-datetime
+                  displayFormat="DD-MM-YYYY"
+                  pickerFormat="DD MMMM YYYY"
+                  min={{startMin}} max={{startMax}}
                   formControlName="thy_ult_date2"
-                  size="20">
+                  placeholder="ระบุวันที่ตรวจ"
+                  monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, ">
+                </ion-datetime>
                 </ion-col>
               </ion-row>
 
@@ -276,32 +248,19 @@
 
             <ion-card>
               <ion-card-header><b>ก้อนที่ 3</b></ion-card-header>
-              <!-- <ion-row>
-                <ion-col col-4>
-                  <label for="thy_num3" >ก้อนที่</label>
-                </ion-col>
-                <ion-col col-6>
-                  <input
-                    type="text"
-                    id="thy_num3"
-                    name="thy_num3"
-                    formControlName="thy_num3"
-                    value="3"
-                    size="20">
-                </ion-col>
-              </ion-row> -->
-
                 <ion-row>
                   <ion-col col-4>
-                  <label for="thy_ult_date3">วันที่ตรวจ</label>
-                </ion-col>
+                    <ion-label for="thy_ult_date3">วันที่ตรวจ</ion-label>
+                  </ion-col>
                 <ion-col col-6>
-                <input
-                  type="date"
-                  id="thy_ult_date3"
-                  name="thy_ult_date3"
-                  formControlName="thy_ult_date3"
-                  size="20">
+                  <ion-datetime
+                    displayFormat="DD-MM-YYYY"
+                    pickerFormat="DD MMMM YYYY"
+                    min={{startMin}} max={{startMax}}
+                    formControlName="thy_ult_date3"
+                    placeholder="ระบุวันที่ตรวจ"
+                    monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, ">
+                  </ion-datetime>
                 </ion-col>
               </ion-row>
 
@@ -335,7 +294,6 @@
                       <option value="ปี">ปี</option>
                     </select>
                 </ion-col>
-
               </ion-row>
 
               <ion-row *ngIf="formgroup.controls.thy_ult_advice3.value === 'ส่ง Fine needle Aspiration'">
@@ -351,7 +309,6 @@
                     <option value="V">V</option>
                   </select>
                 </ion-col>
-
               </ion-row>
 
               <ion-row *ngIf="formgroup.controls.thy_ult_advice3.value === 'ส่งผ่าตัด'">
@@ -371,7 +328,7 @@
             </ion-card>
 
               <br>
-                    <!-- <button ion-button full (click)="deleteDetailForm(i)">ลบ</button> -->
+
           </ion-card>
 
       <ion-card>
@@ -387,13 +344,13 @@
                   <option value="TA">TA</option>
                   <option value="TMNG">TMNG</option>
                 </select>
+
             </ion-col>
           </ion-row>
         </ion-grid>
-        <button ion-button full (click)=saveCanvasImage()>บันทึกข้อมูล</button>
+        <button ion-button full (click)=showConfirmAlert()>บันทึกข้อมูล</button>
+
       </ion-card>
-
 </form>
-
 
 </ion-content>

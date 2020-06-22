@@ -10,13 +10,15 @@
 
 
 
+
+
             <ion-grid>
               <ion-row>
                 <ion-col col-4>
                     <label for="patient" >ผู้ป่วยคุมกำเนิดหรือไม่ </label>
                   </ion-col>
                     <ion-col col-6>
-                    <select >
+                    <select [(ngModel)]="control_name" (change) = "isControl($event.target.value)">
                       <option value="ไม่ได้คุม">ไม่ได้คุม</option>
                       <option value="รับประทานยาคุมกำเนิด">รับประทานยาคุมกำเนิด</option>
                       <option value="ฉีดยาคุมกำเนิด">ฉีดยาคุมกำเนิด</option>
@@ -28,33 +30,21 @@
               </ion-row>
             </ion-grid>
 
-                 <!-- <ion-item >
-              <ion-label color="dark">ผู้ป่วยคุมกำเนิดหรือไม่</ion-label>
-              <ion-select [(ngModel)]="patient" placeholder=เลือก interface="popover">
-                <ion-option value="ไม่ได้คุม">ไม่ได้คุม</ion-option>
-                <ion-option value="รับประทานยาคุมกำเนิด">รับประทานยาคุมกำเนิด</ion-option>
-                <ion-option value="ฉีดยาคุมกำเนิด">ฉีดยาคุมกำเนิด</ion-option>
-                <ion-option value="ฝังยสคุมกำเนิด">ฝังยสคุมกำเนิด</ion-option>
-                <ion-option value="ทำหมัน">ทำหมัน</ion-option>
-                <ion-option value="หมดประจำเดือน">หมดประจำเดือน</ion-option>
-              </ion-select>
-            </ion-item> -->
-
-            <ion-grid>
+            <ion-grid *ngIf="showControl">
               <ion-row>
                 <ion-col col-4>
-                  <label for="contraceptive" >คุมกำเนิด    </label>
+                  <label for="control_amount" >คุมกำเนิด    </label>
                 </ion-col>
-
-                  <input type="text" id="contraceptive" name="contraceptive" size="18">
+                  <input type="number" [(ngModel)]="control_amount" id="control_amount" name="control_amount" size="18">
                   <label for="">&ensp;&ensp;</label>
-                  <select >
+                  <select [(ngModel)]="control_daily">
                     <option value="เดือน">เดือน </option>
                     <option value="ปี">ปี </option>
                   </select>
 
               </ion-row>
             </ion-grid>
+<!-- <<<<<<< HEAD -->
 
 <!--
             <ion-item >
@@ -64,12 +54,9 @@
                 <ion-option value="เดือน">เดือน</ion-option>
                 <ion-option value="ปี">ปี</ion-option>
               </ion-select>
-<<<<<<< HEAD
-            </ion-item>
-
-            <ion-item>
-=======
             </ion-item> -->
+<!-- ======= -->
+
 
             <ion-grid>
               <ion-row>
@@ -77,10 +64,12 @@
                 <label for="date">ประจำเดือนครั้งสุดท้ายของท่าน</label>
               </ion-col>
               <ion-col col-6>
-              <input type="date" id="date" name="date" size="18">
+                <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MMMM YYYY" min={{startMin}} max={{startMax}}  [(ngModel)]="last_peroid_date"
+                monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, "></ion-datetime>
             </ion-col>
           </ion-row>
           </ion-grid>
+<!-- <<<<<<< HEAD -->
 
             <!-- <ion-item>
 >>>>>>> c5cc4bd8b715c75b2c1d42d0e600e3824fb73329
@@ -88,55 +77,30 @@
               <ion-datetime [(ngModel)]="Date" displayFormat="DD MMM YYYY" placeholder="เลือกวันที่"></ion-datetime>
             </ion-item> -->
 
+=======
+          <form [formGroup]="formgroup">
+<!-- >>>>>>> 8a1e7bebe2d757f1cb7340db1d376122ac24b6ad -->
             <ion-grid>
               <ion-row>
                 <ion-col col-4>
                   <label for="number" >จำนวน    </label>
                 </ion-col>
 
-                  <input type="text" id="number" name="number" size="18">
+                  <input type="number" formControlName="last_peroid_amount" id="number" name="number" step="1" size="18">
+                  <p
+                  class="help-inline"
+                  *ngIf="!formgroup.get('last_peroid_amount').valid
+        && formgroup.get('last_peroid_amount').touched"
+                >
+                  กรุณากรอกตัวเลข
+                </p>
                   <label for="">&ensp;&ensp;</label>
                   <label for="d" >วัน   </label>
 
               </ion-row>
             </ion-grid>
 
-            <!-- <ion-item >
-              <ion-label color="dark">จำนวน</ion-label>
-              <ion-row item-content>
-            <ion-col>
-              <ion-input type="text" [(ngModel)]="number"></ion-input>
-            </ion-col>
-              <div><ion-label color="dark">วัน</ion-label></div>
-          </ion-row>
-            </ion-item> -->
-
-
-            <div padding></div>
-            <ion-item no-lines >
-              <div >กรณีที่ผู้ป่วยมีเพศสัมพันธ์แต่ไม่ได้คุมกำเนิดหรือประจำเดือนมาไม่สม่ำเสมอ ผู้ป่วยจะต้องเก็บปัสสาวะเพื่อตรวจการตั้งครรภ์</div>
-            </ion-item >
-
-            <ion-item no-lines>
-            <div>ผลตรวจ UPT</div>
-            <ion-icon name="add-circle" float-right round (click)="addcontraceptive()" color="1"></ion-icon>
-            </ion-item>
-
-
-
-<ion-card padding>
-   <ion-item >
-          <ion-label color="dark">UPT </ion-label>
-          <ion-label color="dark">วันที่ </ion-label>
-          <ion-label color="dark">DD/MM/YYYY </ion-label>
-      </ion-item>
-      <ion-item >
-          <ion-label color="dark">ผลการตรวจ </ion-label>
-          <ion-label color="dark">negative </ion-label>
-        </ion-item>
-        <div padding></div>
-        <button ion-button  float-right color="1" (click)="addcontraceptive()">แก้ไข</button>
+          </form>
 </ion-card>
-</ion-card>
-<button ion-button color="1" >บันทึก</button>
+<button ion-button color="1" (click) = "update()" [disabled]="!formgroup.valid">บันทึก</button>
 </ion-content>

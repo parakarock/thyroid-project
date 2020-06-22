@@ -37,8 +37,7 @@ import { RegisterPage } from "../pages/Nursepage/register/register";
 import { NurseHomePage } from "../pages/Nursepage/nurse-home/nurse-home";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
-import { RegisterProvider } from "../providers/register/register";
-import { FormArray,FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegistersPage } from "../pages/Nursepage/registers/registers";
 import { ToxinthyPage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/toxinthy/toxinthy";
 import { AgreePage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/agree/agree";
@@ -67,6 +66,9 @@ import { EditavoideatingPage } from '../pages/Nursepage/ขั้นตอนก
 import { EditdataswallowPage } from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/editdataswallow/editdataswallow';
 import { AddcontraceptivePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/addcontraceptive/addcontraceptive';
 import { EditdatePage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/editdate/editdate';
+import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/eatfood/eatfood';
+import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
+import {InsertPage} from '../pages/Nursepage/ข้อมูลด้านสุขภาพ/insert/insert';
 
 // //Nurse Page//
 import { TestresultPage} from '../pages/Doctorpage/ผลการตรวจ/testresult/testresult';
@@ -90,21 +92,17 @@ import { DiagnosticResultsPage} from '../pages/Doctorpage/ผลการตร�
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { HttpClientModule } from '@angular/common/http';
 
-moment
-import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/eatfood/eatfood';
-import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
-import {InsertPage} from '../pages/Nursepage/insert/insert';
-
 import { PatientHomePage } from '../pages/Patientpage/patient-home/patient-home';
 
 import { AdminhomePage } from '../pages/AdminPage/adminhome/adminhome';
 import { DatauserPage } from '../pages/AdminPage/datauser/datauser';
 import { DatahosPage } from '../pages/AdminPage/datahos/datahos';
-import { DdPage } from '../pages/AdminPage/dd/dd';
 import { DpPage } from '../pages/AdminPage/dp/dp';
-import { DnPage } from '../pages/AdminPage/dn/dn';
 import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
 import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
+import { ShowhosPage } from '../pages/AdminPage/showhos/showhos';
+import { ShowuserPage } from '../pages/AdminPage/showuser/showuser';
+
 
 import {  QrcodePage } from '../pages/qrscan/qrscan';
 import {  GenPage } from '../pages/gen/gen';
@@ -120,6 +118,8 @@ import { YoutubePipe } from '../pipes/youtube/youtube'
 
 import { ChangepassLogin1Page } from '../pages/changepass-login1/changepass-login1'
 import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-login2'
+import { ShowlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/showlabtest/showlabtest'
+import { AddiodineresultPage } from '../pages/Doctorpage/addiodineresult/addiodineresult'
 @NgModule({
   declarations: [
     MyApp,
@@ -199,9 +199,9 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     AdminhomePage,
     DatauserPage,
     DatahosPage,
-    DdPage,
+    ShowhosPage,
     DpPage,
-    DnPage,
+    ShowuserPage,
     QrcodePage,
     AdddatauserPage,
     EatfoodPage,
@@ -213,7 +213,9 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     YoutubePipe,
     ChangepassLogin1Page,
     ChangepassLogin2Page,
-    ShowExaminationPage
+    ShowExaminationPage,
+    ShowlabtestPage,
+    AddiodineresultPage
 
 
   ],
@@ -307,9 +309,9 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     AdminhomePage,
     DatauserPage,
     DatahosPage,
-    DdPage,
+    ShowhosPage,
     DpPage,
-    DnPage,
+    ShowuserPage,
     QrcodePage,
     AdddatauserPage,
     EatfoodPage,
@@ -320,14 +322,15 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     InsertPage,
     ChangepassLogin1Page,
     ChangepassLogin2Page,
-    ShowExaminationPage
+    ShowExaminationPage,
+    ShowlabtestPage,
+    AddiodineresultPage
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RegisterProvider,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     GlobalProvider,
     BarcodeScanner,
     FileTransfer,

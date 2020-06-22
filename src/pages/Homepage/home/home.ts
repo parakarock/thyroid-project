@@ -1,5 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { NavController, MenuController, Slides } from "ionic-angular";
+import {GlobalProvider} from '../../../providers/global/global'
 import { LoginPage } from "../login/login";
 import { Events } from "ionic-angular";
 import {
@@ -19,15 +20,17 @@ import "rxjs/add/operator/map";
 export class HomePage {
   url: string;
   posts: any = [];
+  showButton = true
   googleToken1: string="AIzaSyD9U_vfpvJt8aCVUDy_vRiW70xLCUbPxY8";
   googleToken2: string="AIzaSyDsBqTOtXTm43wSr68NGejE6SlyrpBWq6I";
-  playlistId: string = "PLME1fWasJoeXCQeeJlZafOJzNPlCE5kH-";
+  playlistId: string = "PL1D3jrUPZCAYRd5eCL4x4S_bW9jp6MM2p";
   @ViewChild(Slides) slides: Slides;
 
   constructor(
     public navCtrl: NavController,
     public menuCtrl: MenuController,
     public events: Events,
+    public global: GlobalProvider,
     private http: Http
   ) {
     this.url =
@@ -49,10 +52,23 @@ export class HomePage {
       );
   }
   ionViewDidLoad() {
-    this.events.publish("user:guest");
+    // console.log("ionViewDidLoad")
+    // this.events.publish("user:guest");
+  }
+  ionViewWillEnter(){
+    this.isPatient()
+    console.log(this.global.getSelectRole());
   }
 
   goLoginPage() {
     this.navCtrl.push(LoginPage);
+  }
+
+  isPatient(){
+    if(this.global.getSelectRole() == "ผู้ป่วย"){
+      this.showButton = false
+    }else{
+      this.showButton = true
+    }
   }
 }
