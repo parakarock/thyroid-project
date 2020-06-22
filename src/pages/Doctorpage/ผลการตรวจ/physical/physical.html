@@ -10,7 +10,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <div>วันที่ตรวจ: </div>
+          <div><b>วันที่ตรวจ:</b></div>
         </ion-col>
         <ion-col col-6>
           <div>{{ check_date || "ไม่มีข้อมูล" }}</div>
@@ -20,19 +20,54 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col col-4>
-          <div>เหงื่อแตก ผิวอุ่นและชื้น ผมเส้นเล็กและร่วงง่าย: </div>
+        <ion-col>
+          <div><b>เหงื่อแตก ผิวอุ่นและชื้น</b></div>
         </ion-col>
-        <ion-col col-6>
-          <div>{{ sweat || "ไม่มีข้อมูล"}}</div>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="sweat === 1">
+      <ion-row>
+        <ion-col>
+          <div>พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="sweat === 0">
+      <ion-row>
+        <ion-col>
+          <div>ไม่พบ</div>
         </ion-col>
       </ion-row>
     </ion-grid>
 
     <ion-grid>
       <ion-row>
+        <ion-col>
+          <div><b>มีอาการผมเส้นเล็กและร่วงง่าย</b></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="hair_loss === 1">
+      <ion-row>
+        <ion-col>
+          <div>พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="hair_loss === 0">
+      <ion-row>
+        <ion-col>
+          <div>ไม่พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
         <ion-col col-4>
-          <div>น้ำหนักตัว: </div>
+          <div><b>น้ำหนักตัว:</b> </div>
         </ion-col>
         <ion-col col-6>
           <div>{{ body_weight }} กิโลกรัม </div>
@@ -43,7 +78,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <div>อัตราการเต้นของหัวใจ: </div>
+          <div><b>อัตราการเต้นของหัวใจ:</b> </div>
         </ion-col>
         <ion-col col-6>
           <div>{{ heart_rate }} ครั้งต่อนาที </div>
@@ -54,7 +89,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <div>ค่าความดันเลือด (บน): </div>
+          <div><b>ค่าความดันเลือด (บน):</b> </div>
         </ion-col>
         <ion-col col-6>
           <div>{{ blood_pressure_upper }}  </div>
@@ -65,7 +100,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <div>ค่าความดันเลือด (ล่าง): </div>
+          <div><b>ค่าความดันเลือด (ล่าง):</b> </div>
         </ion-col>
         <ion-col col-6>
           <div>{{ blood_pressure_lower }}  </div>
@@ -73,32 +108,56 @@
       </ion-row>
     </ion-grid>
 
-    <ion-grid>
+    <!-- <ion-grid *ngIf="eye_detect === 1">
       <ion-row>
         <ion-col col-4>
-          <div>ตาโปนหรือตาโตกว่าปกติ: </div>
-        </ion-col>
-        <ion-col col-6>
-          <div>{{ eye_detect }}  </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-          <div>ส่งปรึกษาจักษุแพทย์: </div>
+          <div>มีอาการตาโปนหรือตาโตกว่าปกติ: </div>
         </ion-col>
         <ion-col col-6>
           <div>{{ eye_result }}  </div>
         </ion-col>
       </ion-row>
+    </ion-grid> -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>คลำได้ก้อนเนื้องอกในต่อมไทรอยด์</b></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="eye_detect === 1">
+      <ion-row>
+        <ion-col>
+          <div>พบ {{ eye_result }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="eye_detect === 0">
+      <ion-row>
+        <ion-col>
+          <div>ไม่พบความผิดปกติ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>ส่งปรึกษาจักษุแพทย์:</b> </div>
+        </ion-col>
+        <!-- <ion-col col-6>
+          <div>{{ eye_result }}  </div>
+        </ion-col> -->
+      </ion-row>
     </ion-grid>
 
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <div>ชื่อจักษุแพทย์: </div>
+          <div><b>ชื่อจักษุแพทย์: </b></div>
         </ion-col>
         <ion-col col-6>
           <div>{{ doctor_name }}  </div>
@@ -109,7 +168,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <div>วันที่: </div>
+          <div><b>วันที่:</b> </div>
         </ion-col>
         <ion-col col-6>
           <div>{{ doctor_date }}  </div>
@@ -117,13 +176,13 @@
       </ion-row>
     </ion-grid>
 
-    <ion-grid>
+    <ion-grid >
       <ion-row>
         <ion-col col-4>
-          <div>รูปภาพผลการตรวจ: </div>
+          <div><b>รูปภาพผลการตรวจ:</b> </div>
         </ion-col>
         <ion-col col-6>
-          <img src="{{ doctor_file }}"> <br><br>
+          <img src="{{ doctor_file  }}"> <br><br>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -131,21 +190,22 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <div>ผลการวินิจฉัย: </div>
+          <div><b>ผลการวินิจฉัย:</b> </div>
         </ion-col>
         <ion-col col-6>
-          <img src="{{ doctor_result }}"> <br><br>
+          <div>{{ doctor_result }}</div>
         </ion-col>
       </ion-row>
     </ion-grid>
 
+    <br>
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <div>การรักษา: </div>
+          <div><b>การรักษา:</b> </div>
         </ion-col>
         <ion-col col-6>
-          <img src="{{ treatment }}"> <br><br>
+          <div>{{ treatment }}  </div>
         </ion-col>
       </ion-row>
     </ion-grid>

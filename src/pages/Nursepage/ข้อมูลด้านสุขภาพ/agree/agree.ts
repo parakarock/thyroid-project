@@ -1,11 +1,15 @@
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { Md5 } from 'ts-md5/dist/md5';
+import { GlobalProvider } from './../../../../providers/global/global';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import * as moment from "moment";
 import { LoadingController, ToastController } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 /**
  * Generated class for the AgreePage page.
  *
@@ -21,6 +25,22 @@ import { File } from '@ionic-native/file';
 export class AgreePage {
 
   myContract:any;
+  formgroup: FormGroup;
+  myPhoto: any;
+  HashID: any;
+  Date: string;
+  PersonID: string = this.global.getpatientID();
+  description : string = "";
+  round: any = this.global.getSelectRound();
+  Time: any;
+  data:any;
+
+  imageFile: any;
+  imageLink:any;
+  desc: any;
+  showMenu: boolean;
+  ContentType = "image/jpeg";
+  folderpath = this.file.externalRootDirectory;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,8 +49,17 @@ export class AgreePage {
     public toastCtrl: ToastController,
     private transfer: FileTransfer,
     // public http: HttpClient,
-    private file: File
+    private file: File,
+    public http: Http,
+    private Md5: Md5,
+    public global: GlobalProvider,
+    public formBuilder: FormBuilder,
     ) {
+      if(this.global.getSelectRole() === "ผู้ป่วย"){
+        this.showMenu = true;
+      }else{
+        this.showMenu = false;
+      }
   }
 
   ionViewDidLoad() {
@@ -57,43 +86,84 @@ export class AgreePage {
   }
 
   uploadFile(){
-    // let url = "http://localhost:8000/upload.php";
-    // let postData = new FormData();
-    // postData.append('file', this.myPhoto);
-    // let data:Observable<any> = this.http.post(url, postData);
-    // data.subscribe((result) => {
-    //   alert(result);
-    // })
     let loader = this.loadingCtrl.create({
       content: "กำลังอัพโหลดรูปภาพ..."
     });
     loader.present();
     const fileTransfer: FileTransferObject = this.transfer.create();
-
-    var random = Math.floor(Math.random() * 1000);
-
+    this.round = this.global.getSelectRound();
+    this.Date = moment().format('DD-MM-YYYY').toString();
+    this.Time = moment().format('h-mm-ss').toString();
+    this.HashID = Md5.hashStr('this.global.getpatientID()').toString();
     let options: FileUploadOptions = {
       fileKey: 'photo',
-      fileName: "myContract_" + random + ".jpg",
+      fileName: this.HashID + "_r" + this.round + "_" + this.Date + "_" + this.Time + ".jpg",
       chunkedMode: false,
       httpMethod: 'post',
       mimeType: "image/jpeg",
       headers: {}
     }
 
-    fileTransfer.upload(this.myContract, 'http://192.168.31.190:8000/uploadContract.php', options)
+    fileTransfer.upload(this.myContract, "http://" + this.global.getIP() + "/uploadContract.php", options)
       .then((data) => {
       alert("การอัพโหลดรูปเสร็จสมบูรณ์");
-      // console.log(data + " Uploaded Successfully");
-      //this.myPhoto = "http://10.80.82.229:8000/Images/ionicfile.jpg"
+      this.imageLink = data.response; //เอา File Path มาใส่ในตัวแปร
+      this.updateData();
+      console.log(data);
+      console.log(this.imageLink);
       loader.dismiss();
       //this.presentToast("Image uploaded successfully");
     }, (err) => {
-      // console.log(err);
-      // this.presentToast(JSON.stringify(err));
-      alert("เกิดข้อผิดพลาดในการอัพโหลด กรุณาทำรายการใหม่อีกครั้ง");
+      alert(JSON.stringify(err));
       loader.dismiss();
     });
+  }
+
+  updateData(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = {
+      idcard: this.PersonID,
+      round: this.round,
+      acceptionform: this.imageLink,
+    };
+    console.log(JSON.stringify(body));
+    this.http.post("http://" + this.global.getIP() + "/acceptionform.php?method=update_acceptionform&role=" + this.global.getSelectRole(),
+        body,
+        options
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          console.log(JSON.stringify(data));
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  async getData(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify({
+      idcard: this.global.getpatientID(),
+      round: this.global.getSelectRound()
+    });
+    console.log("body : " + body);
+    await this.http.post("http://" + this.global.getIP() + "/acceptionform.php?method=get_acceptionform&role=" + this.global.getSelectRole()
+    ,body
+    ,options
+    )
+    .map(res=>res.json())
+    .subscribe(
+      data => {
+        this.imageFile = "http://" + this.global.getIP() + "/" + data.acceptionform;
+        console.log(data);
+      }, error => {
+        console.log(error);
+      }
+    )
   }
 
   presentToast(msg) {

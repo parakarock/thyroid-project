@@ -6,91 +6,394 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding no-bounce>
-
-
-
-  <div #fixedContainer ion-fixed>
-
-
-     <ion-item no-lines>
-      <h1>เพิ่มก้อนไทรอยด์</h1>
-     </ion-item>
-
-
-     <ion-card color="1">
-      <ion-grid>
-        <ion-row>
-          <ion-col  col-8>
-            <p>เลือกลำดับก้อน (สี)</p>
-          </ion-col>
-          <ion-col *ngIf="selectNum <= 4" col-4>
-            <p >ลำดับก้อน = {{selectNum}}</p>
-          </ion-col>
-          <ion-col *ngIf="selectNum >= 5" col-4>
-            <p>ลำดับก้อน = {{5}}</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-      <ion-card-header>
-        <ion-row>
-          <!--
-          <ion-col *ngFor="let color of colors; let i = index;" [style.background]="color" class="color-block" tappable (click)="selectColor(color,i+1)">
-            {{i+1}}
-          </ion-col>
-          -->
-          <ion-col [style.background]="colors[0]" class="color-block" tappable (click)="selectColor(colors[0],1)">{{1}}</ion-col>
-          <ion-col [style.background]="colors[1]" class="color-block" tappable (click)="selectColor(colors[1],2)">{{2}}</ion-col>
-          <ion-col [style.background]="colors[2]" class="color-block" tappable (click)="selectColor(colors[2],3)">{{3}}</ion-col>
-          <ion-col [style.background]="colors[3]" class="color-block" tappable (click)="selectColor(colors[3],4)">{{4}}</ion-col>
-          <ion-col [style.background]="colors[4]" class="color-block" tappable (click)="selectColor(colors[4],5)">{{5}}</ion-col>
-        </ion-row>
-                  <!-- <ion-row radio-group [(ngModel)]="selectedColor" >
-            <ion-col *ngFor="let color of colors"   text-center>
-              <ion-radio [value]="color" ></ion-radio>
+  <ion-content padding>
+    <!-- <form [formGroup]="formgroup" (ngSubmit)="doUpdate()"> -->
+      <ion-card color="1">
+        <ion-card-header><b>เพิ่มก้อนไทรอยด์</b></ion-card-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col  col-8>
+              <p>เลือกลำดับก้อน (สี)</p>
             </ion-col>
-          </ion-row>-->
-      </ion-card-header>
+            <ion-col *ngIf="selectNum <= 4" col-4>
+              <p >ลำดับก้อน = {{selectNum}}</p>
+            </ion-col>
+            <ion-col *ngIf="selectNum >= 5" col-4>
+              <p>ลำดับก้อน = {{5}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-     </ion-card>
+        <ion-card-header>
+          <ion-row>
+            <!--
+            <ion-col *ngFor="let color of colors; let i = index;" [style.background]="color" class="color-block" tappable (click)="selectColor(color,i+1)">
+              {{i+1}}
+            </ion-col>
+            -->
+            <ion-col [style.background]="colors[0]" class="color-block" tappable (click)="selectColor(colors[0],1)">{{1}}</ion-col>
+            <ion-col [style.background]="colors[1]" class="color-block" tappable (click)="selectColor(colors[1],2)">{{2}}</ion-col>
+            <ion-col [style.background]="colors[2]" class="color-block" tappable (click)="selectColor(colors[2],3)">{{3}}</ion-col>
+            <ion-col [style.background]="colors[3]" class="color-block" tappable (click)="selectColor(colors[3],4)">{{4}}</ion-col>
+            <ion-col [style.background]="colors[4]" class="color-block" tappable (click)="selectColor(colors[4],5)">{{5}}</ion-col>
+          </ion-row>
+                    <!-- <ion-row radio-group [(ngModel)]="selectedColor" >
+              <ion-col *ngFor="let color of colors"   text-center>
+                <ion-radio [value]="color" ></ion-radio>
+              </ion-col>
+            </ion-row>-->
+        </ion-card-header>
 
-    <ion-card color="2">
-      <ion-grid>
-        <ion-row>
-          <ion-col  col-8>
-            <p>เลือกขนาด</p>
-          </ion-col>
-          <ion-col  col-3>
-            <p>Size = {{lineSize/2}}</p>
-          </ion-col>
-        </ion-row>
+      </ion-card>
 
-        <ion-row>
-          <ion-col  col-10>
-            <ion-range  min="1" max="6"  step="n" color="primary" snaps="true" [(ngModel)]="lineSize" >
-              <ion-label range-left>0.5</ion-label>
-              <ion-label range-right>3</ion-label>
-            </ion-range>
-          </ion-col>
-          <ion-col   col-2 >
-            <ion-buttons>
-              <button ion-button icon-only (click)="clearCanvas()" color="danger">
-                <ion-icon name="trash"></ion-icon>
-              </button>
-            </ion-buttons>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
+      <ion-card color="2">
+        <ion-grid>
+          <ion-row>
+            <ion-col  col-8>
+              <p>เลือกขนาด</p>
+            </ion-col>
+            <ion-col  col-3>
+              <p>Size = {{lineSize/2}}</p>
+            </ion-col>
+          </ion-row>
 
-    <canvas #imageCanvas (click)="startDrawing($event)"></canvas>
-    <ion-card>
-      <button ion-button full (click)=saveCanvasImage()>บันทึกภาพวาด</button>
-    </ion-card>
+          <ion-row>
+            <ion-col  col-10>
+              <ion-range  min="1" max="6"  step="n" color="primary" snaps="true" [(ngModel)]="lineSize" >
+                <ion-label range-left>0.5</ion-label>
+                <ion-label range-right>3</ion-label>
+              </ion-range>
+            </ion-col>
+            <ion-col   col-2 >
+              <ion-buttons>
+                <button ion-button icon-only (click)="clearCanvas()" color="danger">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
 
-  </div>
+      <canvas #imageCanvas (click)="startDrawing($event)"></canvas>
 
+      <form [formGroup]="formgroup">
+      <ion-card>
+        <ion-card-header><b>คำแนะนำเพิมเติม</b></ion-card-header>
+        <!-- <button ion-button full (click)="addDetailForm()">เพิ่มข้อมูล</button> -->
+
+            <ion-card>
+              <ion-card-header><b>ก้อนที่ 1</b></ion-card-header>
+              <!-- <ion-row>
+                <ion-col col-4>
+                  <label for="thy_num1" >ก้อนที่</label>
+                </ion-col>
+                <ion-col col-6>
+                  <input
+                    type="text"
+                    id="thy_num1"
+                    name="thy_num1"
+                    formControlName="thy_num1"
+                    value="1"
+                    size="20">
+                </ion-col>
+              </ion-row> -->
+
+                <ion-row>
+                  <ion-col col-4>
+                  <label for="thy_ult_date1">วันที่ตรวจ</label>
+                </ion-col>
+                <ion-col col-6>
+                <input
+                  type="date"
+                  id="thy_ult_date1"
+                  name="thy_ult_date1"
+                  formControlName="thy_ult_date1"
+                  size="20">
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-4>
+                    <label for="thy_ult_advice1" >คำแนะนำ</label>
+                  </ion-col>
+                    <ion-col col-6>
+                    <select formControlName="thy_ult_advice1">
+                      <option value="ควรติดตามผล Thyroid Ultrasound">ควรติดตามผล Thyroid Ultrasound</option>
+                      <option value="ส่ง Fine needle Aspiration">ส่ง Fine needle Aspiration</option>
+                      <option value="ส่งผ่าตัด">ส่งผ่าตัด</option>
+                    </select>
+                </ion-col>
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice1.value === 'ควรติดตามผล Thyroid Ultrasound'">
+                <ion-col col-4>
+                  <label for="thy_ult_follow_num1">เป็นระยะเวลา</label>
+                </ion-col>
+              <ion-col>
+                <input
+                  type="text"
+                  id="thy_ult_follow_num1"
+                  name="thy_ult_follow_num1"
+                  formControlName="thy_ult_follow_num1"
+                  size="10"
+                >
+                  <select formControlName="thy_ult_follow_unit1">
+                    <option value="เดือน">เดือน</option>
+                    <option value="ปี">ปี</option>
+                  </select>
+              </ion-col>
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice1.value === 'ส่ง Fine needle Aspiration'">
+                <ion-col col-4>
+                  <label for="thy_ult_fine_result1">ผลทางเซลล์วิทยา</label>
+                </ion-col>
+                <ion-col col-6>
+                  <select formControlName="thy_ult_fine_result1">
+                  <option value="I">I</option>
+                  <option value="II">II</option>
+                  <option value="III">III</option>
+                  <option value="IV">IV</option>
+                  <option value="V">V</option>
+                </select>
+                </ion-col>
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice1.value === 'ส่งผ่าตัด'">
+                <ion-col col-4>
+                  <label for="thy_ult_surgury_desc1">ระบุชนิดการผ่าตัด</label>
+                </ion-col>
+                <ion-col col-6>
+                  <input
+                  type="text"
+                  id="thy_ult_surgury_desc1"
+                  name="thy_ult_surgury_desc1"
+                  formControlName="thy_ult_surgury_desc1"
+                  size="20"
+                >
+                </ion-col>
+              </ion-row>
+            </ion-card>
+
+              <br>
+
+            <ion-card>
+              <ion-card-header><b>ก้อนที่ 2</b></ion-card-header>
+              <!-- <ion-row>
+                <ion-col col-4>
+                  <label for="thy_num2" >ก้อนที่</label>
+                </ion-col>
+                <ion-col col-6>
+                  <input
+                    type="text"
+                    id="thy_num2"
+                    name="thy_num2"
+                    formControlName="thy_num2"
+                    value="2"
+                    size="20">
+                </ion-col>
+              </ion-row> -->
+
+                <ion-row>
+                  <ion-col col-4>
+                  <label for="thy_ult_date2">วันที่ตรวจ</label>
+                </ion-col>
+                <ion-col col-6>
+                <input
+                  type="date"
+                  id="thy_ult_date2"
+                  name="thy_ult_date2"
+                  formControlName="thy_ult_date2"
+                  size="20">
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-4>
+                    <label for="thy_ult_advice2" >คำแนะนำ</label>
+                  </ion-col>
+                    <ion-col col-6>
+                    <select formControlName="thy_ult_advice2">
+                      <option value="ควรติดตามผล Thyroid Ultrasound">ควรติดตามผล Thyroid Ultrasound</option>
+                      <option value="ส่ง Fine needle Aspiration">ส่ง Fine needle Aspiration</option>
+                      <option value="ส่งผ่าตัด">ส่งผ่าตัด</option>
+                    </select>
+                </ion-col>
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice2.value === 'ควรติดตามผล Thyroid Ultrasound'">
+                <ion-col col-4>
+                  <label for="thy_ult_follow_num2">เป็นระยะเวลา</label>
+                </ion-col>
+                <ion-col col-6>
+                  <input
+                  type="text"
+                  id="thy_ult_follow_num2"
+                  name="thy_ult_follow_num2"
+                  formControlName="thy_ult_follow_num2"
+                  size="10"
+                  >
+                  <select formControlName="thy_ult_follow_unit2">
+                    <option value="เดือน">เดือน</option>
+                    <option value="ปี">ปี</option>
+                  </select>
+                </ion-col>
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice2.value === 'ส่ง Fine needle Aspiration'">
+                <ion-col col-4>
+                  <label for="thy_ult_fine_result2">ผลทางเซลล์วิทยา</label>
+                </ion-col>
+                <ion-col col-6>
+                  <select formControlName="thy_ult_fine_result2">
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                    <option value="IV">IV</option>
+                    <option value="V">V</option>
+                  </select>
+                </ion-col>
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice2.value === 'ส่งผ่าตัด'">
+                <ion-col col-4>
+                  <label for="thy_ult_surgury_desc2">ระบุชนิดการผ่าตัด</label>
+                </ion-col>
+                <ion-col col-6>
+                  <input
+                    type="text"
+                    id="thy_ult_surgury_desc2"
+                    name="thy_ult_surgury_desc2"
+                    formControlName="thy_ult_surgury_desc2"
+                    size="20"
+                  >
+                </ion-col>
+              </ion-row>
+            </ion-card>
+
+              <br>
+
+            <ion-card>
+              <ion-card-header><b>ก้อนที่ 3</b></ion-card-header>
+              <!-- <ion-row>
+                <ion-col col-4>
+                  <label for="thy_num3" >ก้อนที่</label>
+                </ion-col>
+                <ion-col col-6>
+                  <input
+                    type="text"
+                    id="thy_num3"
+                    name="thy_num3"
+                    formControlName="thy_num3"
+                    value="3"
+                    size="20">
+                </ion-col>
+              </ion-row> -->
+
+                <ion-row>
+                  <ion-col col-4>
+                  <label for="thy_ult_date3">วันที่ตรวจ</label>
+                </ion-col>
+                <ion-col col-6>
+                <input
+                  type="date"
+                  id="thy_ult_date3"
+                  name="thy_ult_date3"
+                  formControlName="thy_ult_date3"
+                  size="20">
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-4>
+                    <label for="thy_ult_advice3" >คำแนะนำ</label>
+                  </ion-col>
+                    <ion-col col-6>
+                    <select formControlName="thy_ult_advice3">
+                      <option value="ควรติดตามผล Thyroid Ultrasound">ควรติดตามผล Thyroid Ultrasound</option>
+                      <option value="ส่ง Fine needle Aspiration">ส่ง Fine needle Aspiration</option>
+                      <option value="ส่งผ่าตัด">ส่งผ่าตัด</option>
+                    </select>
+                </ion-col>
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice3.value === 'ควรติดตามผล Thyroid Ultrasound'">
+                <ion-col col-4>
+                  <label for="thy_ult_follow_num3">เป็นระยะเวลา</label>
+                </ion-col>
+                <ion-col col-6>
+                  <input
+                    type="text"
+                    id="thy_ult_follow_num3"
+                    name="thy_ult_follow_num3"
+                    formControlName="thy_ult_follow_num3"
+                    size="10"
+                    >
+                    <select formControlName="thy_ult_follow_unit3">
+                      <option value="เดือน">เดือน</option>
+                      <option value="ปี">ปี</option>
+                    </select>
+                </ion-col>
+
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice3.value === 'ส่ง Fine needle Aspiration'">
+                <ion-col col-4>
+                  <label for="thy_ult_fine_result3">ผลทางเซลล์วิทยา</label>
+                </ion-col>
+                <ion-col col-6>
+                  <select formControlName="thy_ult_fine_result3">
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                    <option value="IV">IV</option>
+                    <option value="V">V</option>
+                  </select>
+                </ion-col>
+
+              </ion-row>
+
+              <ion-row *ngIf="formgroup.controls.thy_ult_advice3.value === 'ส่งผ่าตัด'">
+                <ion-col col-4>
+                  <label for="thy_ult_surgury_desc3">ระบุชนิดการผ่าตัด</label>
+                </ion-col>
+                <ion-col col-6>
+                  <input
+                    type="text"
+                    id="thy_ult_surgury_desc3"
+                    name="thy_ult_surgury_desc3"
+                    formControlName="thy_ult_surgury_desc3"
+                    size="20"
+                  >
+                </ion-col>
+              </ion-row>
+            </ion-card>
+
+              <br>
+                    <!-- <button ion-button full (click)="deleteDetailForm(i)">ลบ</button> -->
+          </ion-card>
+
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+                <label for="thy_ult_result" >ผลการวินิจฉัย</label>
+              </ion-col>
+                <ion-col col-6>
+                <select formControlName="thy_ult_result" >
+                  <option value="GD">GD</option>
+                  <option value="GD with nodule(s)">GD with nodule(s)</option>
+                  <option value="TA">TA</option>
+                  <option value="TMNG">TMNG</option>
+                </select>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button full (click)=saveCanvasImage()>บันทึกข้อมูล</button>
+      </ion-card>
+
+</form>
 
 
 </ion-content>

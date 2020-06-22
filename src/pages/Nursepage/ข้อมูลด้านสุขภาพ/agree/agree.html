@@ -1,19 +1,17 @@
-<!--
-  Generated template for the AgreePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<ion-header *ngIf="showMenu">
   <ion-navbar color="1">
-    <ion-title>อัพโหลดใบยินยอมเข้ารับการักษา</ion-title>
+    <ion-title>อัพโหลดใบยินยอมเข้ารับการรักษา</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-header *ngIf="!showMenu">
+  <ion-navbar color="1">
+    <ion-title>ภาพใบยินยอมเข้ารับการรักษา</ion-title>
+  </ion-navbar>
+</ion-header>
 
-  <!-- <div id="subtitle" ></div> -->
-  <ion-content padding id="css">
+  <ion-content padding id="css" *ngIf="showMenu">
     <ion-card id="css">
     <ion-card-header>ภาพใบรับรองการรักษา</ion-card-header>
     <button ion-button full (click)="takePhoto(0)">เลือกรูปภาพ</button>
@@ -28,5 +26,14 @@
       <button ion-button full (click)="uploadFile()">อัพโหลดรูปภาพ</button>
     </ion-item>
   </ion-card>
-
 </ion-content>
+
+<!-- ส่วนแสดงของผู้ป่วย -->
+<ion-content *ngIf="!showMenu">
+  <ion-item full>
+    <h3>รูปภาพ</h3>
+    <img src="{{imageFile}}"> <br><br>
+  </ion-item>
+</ion-content>
+
+

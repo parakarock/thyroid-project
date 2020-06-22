@@ -1,8 +1,15 @@
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-native/file-transfer';
 import { Component, ViewChild, Renderer, Input } from '@angular/core';
-import { NavController, Platform, normalizeURL, Content, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, Platform, normalizeURL, Content, ToastController, LoadingController, AlertController } from 'ionic-angular';
 import { File, IWriteOptions } from '@ionic-native/file';
 import { Storage } from '@ionic/storage';
+import * as moment from "moment";
+import { GlobalProvider } from './../../../../providers/global/global';
+import { Md5 } from 'ts-md5/dist/md5';
+import { EditbiopsyPage } from '../editbiopsy/editbiopsy';
+import { DiagnosticResultsPage } from '../diagnostic-results/diagnostic-results';
+import { RequestOptions, Http, Headers } from '@angular/http';
 /**
  * Generated class for the ExaminationPage page.
  *
@@ -10,14 +17,16 @@ import { Storage } from '@ionic/storage';
  * Ionic pages and navigation.
  */
 
-
 const STORAGE_KEY = 'IMAGE_LIST';
 @Component({
   selector: 'page-examination',
   templateUrl: 'examination.html',
 })
 export class ExaminationPage {
-
+  round: any = this.global.getSelectRound();
+  Time: any;
+  Date: string;
+  HashID: any;
 
   @ViewChild('imageCanvas')
   canvas: any;
@@ -30,7 +39,7 @@ export class ExaminationPage {
   saveX: number;
   saveY: number;
   n=1;
-
+  public formgroup: FormGroup;
   storedImages = [];
 
   @ViewChild(Content) content: Content;
@@ -39,23 +48,55 @@ export class ExaminationPage {
   selectedColor = '#f1a1b1';
   selectNum= 1;
   colors = [ '#f1a1b1', '#0cf514', '#0c7df5', '#f2cf07', '#ee07f2'];
+  formCount: any = 1;
+  imageLink: any;
 
   constructor(public navCtrl: NavController,
               private file: File,
               /*private storage: Storage,*/
               public renderer: Renderer,
               public toastCtrl: ToastController,
+              public alertController: AlertController,
               private transfer: FileTransfer,
               public loadingCtrl: LoadingController,
-              private plt: Platform) {
+              private plt: Platform,
+              private Md5: Md5,
+              public global: GlobalProvider,
+              public formBuilder: FormBuilder,
+              public http: Http,
+              ) {
+                this.formgroup = formBuilder.group({
+                  thy_num1: ['',],
+                  thy_ult_date1: ['',],
+                  thy_ult_advice1: ['',],
+                  thy_ult_follow_num1: ['',],
+                  thy_ult_follow_unit1: ['',],
+                  thy_ult_fine_result1: ['',],
+                  thy_ult_surgury_desc1: ['',],
+                  thy_num2: ['',],
+                  thy_ult_date2: ['',],
+                  thy_ult_advice2: ['',],
+                  thy_ult_follow_num2: ['',],
+                  thy_ult_follow_unit2: ['',],
+                  thy_ult_fine_result2: ['',],
+                  thy_ult_surgury_desc2: ['',],
+                  thy_num3: ['',],
+                  thy_ult_date3: ['',],
+                  thy_ult_advice3: ['',],
+                  thy_ult_follow_num3: ['',],
+                  thy_ult_follow_unit3: ['',],
+                  thy_ult_fine_result3: ['',],
+                  thy_ult_surgury_desc3: ['',],
+                  thy_ult_result: ['',]
+                });
+
   }
 
   ionViewDidEnter() {
-    let itemHeight = this.fixedContainer.nativeElement.offsetHeight;
-    let scroll = this.content.getScrollElement();
-
-    itemHeight = Number.parseFloat(scroll.style.marginTop.replace("px", "")) + itemHeight;
-    scroll.style.marginTop = itemHeight + 'px';
+    // let itemHeight = this.fixedContainer.nativeElement.offsetHeight;
+    // let scroll = this.content.getScrollElement();
+    // itemHeight = Number.parseFloat(scroll.style.marginTop.replace("px", "")) + itemHeight;
+    // scroll.style.marginTop = itemHeight + 'px';
   }
 
 
@@ -89,28 +130,8 @@ export class ExaminationPage {
     }
   }
 
-  // saveCanvasImage() {
-  //   var dataUrl = this.canvasElement.toDataURL();
-  //   let ctx = this.canvasElement.getContext('2d');
-  //   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  //   let name = new Date().getTime() + '.png';
-  //   let path = this.file.dataDirectory;
-  //   let options: IWriteOptions = { replace: true };
-  //   var data = dataUrl.split(',')[1];
-  //   let blob = this.b64toBlob(data, 'image/png');
-
-
-  //   this.file.writeFile(path, name, blob, options).then(res => {
-
-
-  //     alert(this.getImagePath(name));
-
-  //   }, err => {
-  //     alert('error: ' + err);
-  //   });
-  // }
-
   saveCanvasImage() {
+    // console.log(this.formgroup.get("Detail").value);
     var dataUrl = this.canvasElement.toDataURL();
     let ctx = this.canvasElement.getContext('2d');
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -123,18 +144,24 @@ export class ExaminationPage {
     this.file.writeFile(path, name, blob, options).then(res => {
       this.filepath = this.getImagePath(name);
       const fileTransfer: FileTransferObject = this.transfer.create();
-      var random = Math.floor(Math.random() * 1000);
+      this.round = this.global.getSelectRound();
+      this.Date = moment().format('DD-MM-YYYY').toString();
+      this.Time = moment().format('h-mm-ss').toString();
+      this.HashID = Md5.hashStr('this.global.getpatientID()').toString();
       let options: FileUploadOptions = {
             fileKey: 'photo',
-            fileName: "myCanvas_" + random + ".jpg",
+            fileName: this.HashID + "_r" + this.round + "_" + this.Date + "_" + this.Time + ".jpg",
             chunkedMode: false,
             httpMethod: 'post',
             mimeType: "image/jpeg",
             headers: {}
           }
-          fileTransfer.upload(this.filepath, 'http://192.168.31.190:8000/uploadCanvas.php', options)
+          fileTransfer.upload(this.filepath, "http://" + this.global.getIP() + "/uploadCanvas.php", options)
               .then((data) => {
-              alert("การอัพโหลดรูปเสร็จสมบูรณ์");
+              alert("บันทึกข้อมูลเสร็จสมบูรณ์");
+              this.imageLink = data.response;
+              this.updateData();
+
               // console.log(data + " Uploaded Successfully");
               //this.myPhoto = "http://10.80.82.229:8000/Images/ionicfile.jpg"
               loader.dismiss();
@@ -150,6 +177,125 @@ export class ExaminationPage {
     }, err => {
       alert('error: ' + err);
     });
+  }
+
+
+  updateData(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = {
+      idcard: this.global.getpatientID(),
+      round: this.global.getSelectRound(),
+      thyroid_image: this.imageLink,
+      thy_ult_result: this.formgroup.controls.thy_ult_result.value
+    };
+    // console.log(body);
+      this.http.post("http://" + this.global.getIP() + "/result.php?method=update_thyroidUltraPic&role=" + this.global.getSelectRole()
+      ,body
+      ,options
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.updateForm1();
+          console.log(JSON.stringify(data));
+        }, error => {
+          console.log(error);
+        }
+      )
+  }
+
+  updateForm1(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = {
+    idcard: this.global.getpatientID(),
+    round: this.global.getSelectRound(),
+    thy_num: 1,
+    thy_ult_date: moment(this.formgroup.controls.thy_ult_date1.value).format("YYYY-MM-DD"),
+    thy_ult_advice: this.formgroup.controls.thy_ult_advice1.value,
+    thy_ult_follow_num: this.formgroup.controls.thy_ult_follow_num1.value,
+    thy_ult_follow_unit: this.formgroup.controls.thy_ult_follow_unit1.value,
+    thy_ult_fine_result: this.formgroup.controls.thy_ult_fine_result1.value,
+    thy_ult_surgury_desc: this.formgroup.controls.thy_ult_surgury_desc1.value,
+    };
+    console.log(body);
+    this.http.post("http://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
+    ,body
+    ,options
+    )
+    .map(res => res.json())
+    .subscribe(
+      data => {
+        this.updateForm2();
+        console.log(JSON.stringify(data));
+      }, error => {
+        console.log(error);
+      }
+    )
+  }
+
+  updateForm2(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = {
+    idcard: this.global.getpatientID(),
+    round: this.global.getSelectRound(),
+    thy_num: 2,
+    thy_ult_date: moment(this.formgroup.controls.thy_ult_date2.value).format("YYYY-MM-DD"),
+    thy_ult_advice: this.formgroup.controls.thy_ult_advice2.value,
+    thy_ult_follow_num: this.formgroup.controls.thy_ult_follow_num2.value,
+    thy_ult_follow_unit: this.formgroup.controls.thy_ult_follow_unit2.value,
+    thy_ult_fine_result: this.formgroup.controls.thy_ult_fine_result2.value,
+    thy_ult_surgury_desc: this.formgroup.controls.thy_ult_surgury_desc2.value,
+    };
+    console.log(body);
+    this.http.post("http://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
+    ,body
+    ,options
+    )
+    .map(res => res.json())
+    .subscribe(
+      data => {
+        this.updateForm3();
+        console.log(JSON.stringify(data));
+      }, error => {
+        console.log(error);
+      }
+    )
+  }
+
+  updateForm3(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = {
+    idcard: this.global.getpatientID(),
+    round: this.global.getSelectRound(),
+    thy_num: 3,
+    thy_ult_date: moment(this.formgroup.controls.thy_ult_date3.value).format("YYYY-MM-DD"),
+    thy_ult_advice: this.formgroup.controls.thy_ult_advice3.value,
+    thy_ult_follow_num: this.formgroup.controls.thy_ult_follow_num3.value,
+    thy_ult_follow_unit: this.formgroup.controls.thy_ult_follow_unit3.value,
+    thy_ult_fine_result: this.formgroup.controls.thy_ult_fine_result3.value,
+    thy_ult_surgury_desc: this.formgroup.controls.thy_ult_surgury_desc3.value,
+    };
+    console.log(body);
+    this.http.post("http://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
+    ,body
+    ,options
+    )
+    .map(res => res.json())
+    .subscribe(
+      data => {
+        if(data.result){
+        // this.presentAlert(data.result);
+        console.log(data.result);
+        }
+        console.log(JSON.stringify(data));
+      }, error => {
+        console.log(error);
+      }
+    )
   }
 
   b64toBlob(b64Data, contentType) {
@@ -172,20 +318,22 @@ export class ExaminationPage {
     return blob;
   }
 
-  getImagePath(imageName) {
-    let path = this.file.dataDirectory + imageName;
-    path = normalizeURL(path);
-    return path;
-  }
+    getImagePath(imageName) {
+      let path = this.file.dataDirectory + imageName;
+      path = normalizeURL(path);
+      return path;
+    }
 
+      clearCanvas(){
+        let ctx = this.canvasElement.getContext('2d');
+        ctx.clearRect(1, 0, this.canvasElement.width, this.canvasElement.height);
+    }
 
+    // doUpdate() {
+    //   console.log(this.formgroup.value);
+    // }
 
-  clearCanvas(){
-    let ctx = this.canvasElement.getContext('2d');
-    ctx.clearRect(1, 0, this.canvasElement.width, this.canvasElement.height);
-}
-
-  // uploadImage(){
+//   uploadImage(){
 //   let loader = this.loadingCtrl.create({
 //     content: "กำลังอัพโหลดรูปภาพ..."
 //   });

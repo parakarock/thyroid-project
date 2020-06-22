@@ -11,9 +11,9 @@ import { GlobalProvider } from './../../../../providers/global/global';
 import { Md5 } from 'ts-md5/dist/md5';
 // import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
-import { LoadingController, ToastController, AlertController } from 'ionic-angular';
+import { LoadingController, ToastController} from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
@@ -54,8 +54,9 @@ export class RadiographicsPage {
     private Md5: Md5,
     public global: GlobalProvider,
     public formBuilder: FormBuilder,
-    public alertCtrl: AlertController,
-    private filePath: FilePath
+    //public alertCtrl: AlertController,
+    private filePath: FilePath,
+    public alertController: AlertController,
     ) {
       if(this.global.getSelectRole() === "หมอ"){
         this.showMenu = true;
@@ -67,6 +68,27 @@ export class RadiographicsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RadiographicsPage');
     this.getData()
+  }
+
+  AlertTakePhoto(){
+    let alert = this.alertController.create({
+      title: "โปรดเลือกวิธีการอัพโหลดรูป",
+      buttons: [
+        {
+        text: "เลือกจากคลังรูปภาพ",
+        handler: () => {
+          this.takePhoto(0);
+          }
+        },
+        {
+          text: "ถ่ายรูปจากกล้อง",
+        handler: () => {
+          this.takePhoto(1);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   takePhoto(SourceType:number){

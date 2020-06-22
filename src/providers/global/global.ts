@@ -15,7 +15,7 @@ export class GlobalProvider {
   private loginID:string; //idcard คน login
   private selectRole; //role คน login ที่เลือก
 
-  public patientID: string = "123456"; //ปปช. ผู้ป่วย
+  public patientID: string ; //ปปช. ผู้ป่วย
   private patientName: string; //ชื่อ ผู้ป่วย
   private round: any; //รอบ[] ผู้ป่วย
   private selectRound = 1; //เลือก รอบ

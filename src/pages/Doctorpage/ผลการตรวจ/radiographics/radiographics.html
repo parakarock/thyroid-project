@@ -16,9 +16,8 @@
 <!-- ส่วนแสดงของหมอ -->
 <ion-content padding id="css" *ngIf="showMenu">
   <ion-card>
-  <ion-card-header>ภาพ Thyroid Scan</ion-card-header>
-  <button ion-button full (click)="takePhoto(0)">เลือกรูปภาพ</button>
-  <button ion-button full (click)="takePhoto(1)">เปิดกล้องถ่ายรูป</button>
+  <ion-card-header><b>เลือกภาพ Thyroid Scan</b></ion-card-header>
+  <button ion-button full (click)="AlertTakePhoto()">เลือกรูปภาพ</button>
   <ion-item>
     <!-- <h4>Image Preview</h4> -->
     <p><img align="center" src="{{ myPhoto }}"/></p>
@@ -32,14 +31,23 @@
     <button ion-button full (click)="uploadFile()">อัพโหลดรูปภาพ</button>
   </ion-item>
 </ion-card>
+
+<ion-card *ngIf="imageFile">
+  <ion-item full>
+    <ion-card-header><b>รูปภาพ Thyroid Scan ของผู้ป่วย</b></ion-card-header><br>
+    <img src="{{imageFile}}"> <br><br>
+    <h2><b>คำอธิบายรูปภาพ</b></h2>
+    {{desc}}
+  </ion-item>
+</ion-card>
 </ion-content>
 
 <!-- ส่วนแสดงของผู้ป่วย -->
 <ion-content *ngIf="!showMenu">
   <ion-item full>
-    <h3>รูปภาพ</h3>
+    <h2><b>รูปภาพ</b></h2><br>
     <img src="{{imageFile}}"> <br><br>
-    <h3>คำอธิบายรูปภาพ</h3>
+    <h2><b>คำอธิบายรูปภาพ</b></h2>
     {{desc}}
   </ion-item>
 </ion-content>

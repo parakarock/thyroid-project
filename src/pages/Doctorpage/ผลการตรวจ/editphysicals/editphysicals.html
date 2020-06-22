@@ -5,252 +5,295 @@
 </ion-header>
 
 <ion-content padding>
-
+<form [formGroup]="formgroup" (ngSubmit)="doUpdate()">
   <ion-card id="css" padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+      <label for="thyroid_size">ขนาดของต่อมไทรอยด์</label>
+    </ion-col>
+    <ion-col col-6>
+    <input
+      type="text"
+      id="thyroid_size"
+      name="thyroid_size"
+      formControlName="thyroid_size"
+      size="20">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+  <!-- <ion-item >
+    <ion-label  color="dark">ขนาดของต่อมไทรอยด์</ion-label>
+    <ion-input [(ngModel)]="doc" type="text" placeholder=""></ion-input>
+  </ion-item> -->
+
+  <ion-item no-lines><div>คลำได้ก้อนเนื้องอกในต่อมไทรอยด์</div></ion-item>
+  <ion-list radio-group formControlName="thyroid_tumor_detect">
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-    <label for="doc">ขนาดของต่อมไทรอยด์</label>
-  </ion-col>
-  <ion-col col-6>
-    <input type="text" id="doc" name="doc" size="20">
-</ion-col>
-</ion-row>
-</ion-grid>
-
-<!-- <ion-item >
-  <ion-label  color="dark">ขนาดของต่อมไทรอยด์</ion-label>
-  <ion-input [(ngModel)]="doc" type="text" placeholder=""></ion-input>
-</ion-item> -->
-
-<ion-item no-lines >
-  <div>คลำได้ก้อนเนื้องอกในต่อมไทรอยด์</div>
-</ion-item>
-<ion-item no-lines >
-  <ion-label class="radio-inline">
-    <input type="radio" name="checked" checked >
-    ไม่พบ
-  </ion-label>
-  <ion-label class="radio-inline">
-    <input type="radio" name="checked">
-    พบ
-  </ion-label>
-</ion-item>
-  <ion-item no-lines>
-    <ion-label  color="dark">ระบุ</ion-label>
-    <ion-input [(ngModel)]="specify" type="text" placeholder=""></ion-input>
-  </ion-item>
-
-  <ion-item no-lines >
-    <div>ระบบหัวใจและปอด</div>
-  </ion-item>
-  <ion-item no-lines >
-    <ion-label class="radio-inline">
-      <input type="radio" name="heart" checked >
-      ปกติ
-    </ion-label>
-    <ion-label class="radio-inline">
-      <input type="radio" name="heart">
-      ผิดปกติ
-    </ion-label>
-  </ion-item>
-  <ion-item no-lines>
-    <ion-label  color="dark">ระบุ</ion-label>
-    <ion-input [(ngModel)]="specify" type="text" placeholder=""></ion-input>
-  </ion-item>
-
-  <ion-item no-lines >
-    <div>มือสั่น</div>
-  </ion-item>
-  <ion-item no-lines >
-    <ion-label class="radio-inline" >
-      <input type="radio" name="hand" checked>
-      ไม่พบ
-    </ion-label>
-    <ion-label class="radio-inline">
-      <input type="radio" name="hand">
-      พบ
-    </ion-label>
-  </ion-item>
-  <!-- <div>มือสั่น</div>
-</ion-item>
-<ion-item no-lines >
-  <ion-label class="radio-inline">
-    <input type="radio" name="ShakinHands" >
-    ไม่พบ
-  </ion-label>
-  <ion-label class="radio-inline">
-    <input type="radio" name="ShakinHands">
-    พบ
-  </ion-label>
-</ion-item> -->
-
-
-
-<ion-item >
-  <div>ความแรงของกล้ามเนื้อต้นแขนและต้นขาทั้งสองข้าง</div>
-</ion-item >
-
-<ion-grid>
-  <ion-row>
-    <ion-col col-4>
-        <label for="LeftArm" >แขนซ้าย </label>
-      </ion-col>
-        <ion-col col-6>
-        <select >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
-  <!-- <ion-item >
-    <ion-label color="dark">แขนซ้าย</ion-label>
-    <ion-select [(ngModel)]="LeftArm" placeholder=เลือก interface="popover">
-      <ion-option value="1">1</ion-option>
-      <ion-option value="2">2</ion-option>
-      <ion-option value="3">3</ion-option>
-      <ion-option value="4">4</ion-option>
-      <ion-option value="5">5</ion-option>
-    </ion-select>
-  </ion-item> -->
-
-
-<ion-grid>
-  <ion-row>
-    <ion-col col-4>
-        <label for="RightArm" >แขนขวา      </label>
-      </ion-col>
-        <ion-col col-6>
-        <select >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
-  <!-- <ion-item >
-    <ion-label color="dark">แขนขวา</ion-label>
-    <ion-select [(ngModel)]="RightArm" placeholder=เลือก interface="popover">
-      <ion-option value="1">1</ion-option>
-      <ion-option value="2">2</ion-option>
-      <ion-option value="3">3</ion-option>
-      <ion-option value="4">4</ion-option>
-      <ion-option value="5">5</ion-option>
-    </ion-select>
-  </ion-item> -->
-
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-          <label for="LeftLeg" >ขาซ้าย      </label>
+          <ion-item>
+            <ion-radio [value]="0"></ion-radio>
+            <ion-label>ไม่พบ</ion-label>
+          </ion-item>
         </ion-col>
-          <ion-col col-6>
-          <select >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-      </ion-col>
+        <ion-col col-4>
+          <ion-item>
+            <ion-radio [value]="1"></ion-radio>
+            <ion-label>พบ</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+    <!-- <ion-item *ngIf="formgroup.controls.thyroid_tumor_detect.value === true">
+      <label  color="dark">ระบุ</label>
+      <input
+      type="text"
+      id="thyroid_tumor_size"
+      name="thyroid_tumor_size"
+      formControlName="thyroid_tumor_size"
+      >
+      </input>
+    </ion-item> -->
+
+    <ion-grid *ngIf="formgroup.controls.thyroid_tumor_detect.value === 1">
+      <ion-row>
+        <ion-col col-3>
+      <label for="thyroid_tumor_size">ระบุ</label>
+    </ion-col>
+      <input
+        type="text"
+        id="thyroid_tumor_size"
+        name="thyroid_tumor_size"
+        formControlName="thyroid_tumor_size"
+        size="30"
+        >
     </ion-row>
   </ion-grid>
 
-  <!-- <ion-item >
-    <ion-label color="dark">ขาซ้าย</ion-label>
-    <ion-select [(ngModel)]="LeftLeg" placeholder=เลือก interface="popover">
-      <ion-option value="1">1</ion-option>
-      <ion-option value="2">2</ion-option>
-      <ion-option value="3">3</ion-option>
-      <ion-option value="4">4</ion-option>
-      <ion-option value="5">5</ion-option>
-    </ion-select>
-  </ion-item> -->
+    <ion-item no-lines><div>ระบบหัวใจและปอด</div></ion-item>
+    <ion-list radio-group formControlName="heart_lung_unusual">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <ion-item>
+              <ion-radio [value]="0"></ion-radio>
+              <ion-label>ไม่พบ</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-4>
+            <ion-item>
+              <ion-radio [value]="1"></ion-radio>
+              <ion-label>พบ</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4>
-          <label for="RightLeg" >ขาขวา      </label>
-        </ion-col>
-          <ion-col col-6>
-          <select >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-      </ion-col>
+    <ion-grid *ngIf="formgroup.controls.heart_lung_unusual.value === 1">
+      <ion-row>
+        <ion-col col-3>
+      <label for="heart_lung_detail">ระบุ</label>
+    </ion-col>
+      <input
+        type="text"
+        id="heart_lung_detail"
+        name="heart_lung_detail"
+        formControlName="heart_lung_detail"
+        size="30"
+        >
     </ion-row>
   </ion-grid>
 
-<!--
+  <ion-item no-lines><div>มือสั่น</div></ion-item>
+  <ion-list radio-group formControlName="trembling_hand">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <ion-item>
+            <ion-radio [value]="0"></ion-radio>
+            <ion-label>ไม่พบ</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4>
+          <ion-item>
+            <ion-radio [value]="1"></ion-radio>
+            <ion-label>พบ</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
   <ion-item >
-    <ion-label color="dark">ขาขวา</ion-label>
-    <ion-select [(ngModel)]="RightLeg" placeholder=เลือก interface="popover">
-      <ion-option value="1">1</ion-option>
-      <ion-option value="2">2</ion-option>
-      <ion-option value="3">3</ion-option>
-      <ion-option value="4">4</ion-option>
-      <ion-option value="5">5</ion-option>
-    </ion-select>
-  </ion-item> -->
+    <div>ความแรงของกล้ามเนื้อต้นแขนและต้นขาทั้งสองข้าง</div>
+  </ion-item >
 
-  <ion-item no-lines >
-    <div>ผิวหนังบริเวณหน้าแข้งหนาและบวมแดง</div>
-  </ion-item>
-  <ion-item no-lines >
-    <ion-label class="radio-inline">
-      <input type="radio" name="shin" checked >
-      ไม่พบ
-    </ion-label>
-    <ion-label class="radio-inline">
-      <input type="radio" name="shin">
-      พบ
-    </ion-label>
-  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+          <label for="LeftArm" >แขนซ้าย </label>
+        </ion-col>
+          <ion-col col-6>
+          <select formControlName="power_left_hand">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <ion-item no-lines >
-    <div>เล็บเปราะแตกง่าย เล็บแยกจากฐานเล็บ</div>
-  </ion-item>
-  <ion-item no-lines >
-    <ion-label class="radio-inline">
-      <input type="radio" name="NailsAreFragile" checked >
-      ไม่พบ
-    </ion-label>
-    <ion-label class="radio-inline">
-      <input type="radio" name="NailsAreFragile">
-      พบ
-    </ion-label>
-  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+          <label for="RightArm" >แขนขวา </label>
+        </ion-col>
+          <ion-col col-6>
+          <select formControlName="power_right_hand">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
+    <!-- <ion-item >
+      <ion-label color="dark">แขนขวา</ion-label>
+      <ion-select [(ngModel)]="RightArm" placeholder=เลือก interface="popover">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+      </ion-select>
+    </ion-item> -->
 
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-    <label for="other">อื่นๆ</label>
-  </ion-col>
-  <ion-col col-6>
-    <input type="text" id="other" name="other" size="20">
-</ion-col>
-</ion-row>
-</ion-grid>
+            <label for="LeftLeg" >ขาซ้าย      </label>
+          </ion-col>
+            <ion-col col-6>
+            <select formControlName="power_left_leg">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-  <!-- <ion-item >
-    <ion-label  color="dark">อื่นๆ</ion-label>
-    <ion-input [(ngModel)]="other" type="text" placeholder=""></ion-input>
-  </ion-item> -->
-</ion-card>
+    <!-- <ion-item >
+      <ion-label color="dark">ขาซ้าย</ion-label>
+      <ion-select [(ngModel)]="LeftLeg" placeholder=เลือก interface="popover">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+      </ion-select>
+    </ion-item> -->
 
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <label for="RightLeg" >ขาขวา      </label>
+          </ion-col>
+            <ion-col col-6>
+            <select formControlName="power_right_leg">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-  <button ion-button  color="1">Save</button>
+  <!--
+    <ion-item >
+      <ion-label color="dark">ขาขวา</ion-label>
+      <ion-select [(ngModel)]="RightLeg" placeholder=เลือก interface="popover">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+      </ion-select>
+    </ion-item> -->
+
+    <ion-item no-lines><div>ผิวหนังบริเวณหน้าแข้งหนาและบวมแดง</div></ion-item>
+    <ion-list radio-group formControlName="swell_shin">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <ion-item>
+              <ion-radio [value]="0"></ion-radio>
+              <ion-label>ไม่พบ</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-4>
+            <ion-item>
+              <ion-radio [value]="1"></ion-radio>
+              <ion-label>พบ</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-item no-lines><div>เล็บเปราะแตกง่าย เล็บแยกจากฐานเล็บ</div></ion-item>
+    <ion-list radio-group formControlName="brittle_nail">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <ion-item>
+              <ion-radio [value]="0"></ion-radio>
+              <ion-label>ไม่พบ</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-4>
+            <ion-item>
+              <ion-radio [value]="1"></ion-radio>
+              <ion-label>พบ</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+      <label for="detail" color="dark">อื่นๆ</label>
+    </ion-col>
+      <input
+        type="text"
+        id="detail"
+        name="detail"
+        formControlName="detail"
+        size="30"
+        >
+    </ion-row>
+  </ion-grid>
+
+  </ion-card>
+
+  <button type="submit" ion-button color="1" id="button" (click)="presentConfirm()">Save</button>
+</form>
+
 </ion-content>

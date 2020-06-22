@@ -1,3 +1,4 @@
+import { ShowExaminationPage } from '../pages/Doctorpage/ผลการตรวจ/show-examination/show-examination';
 import moment from 'moment';
 // import { EditlabtestPage } from '../pages/Nursepage/editlabtest/editlabtest';
 import { EditlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/editlabtest/editlabtest';
@@ -37,7 +38,7 @@ import { NurseHomePage } from "../pages/Nursepage/nurse-home/nurse-home";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { RegisterProvider } from "../providers/register/register";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormArray,FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegistersPage } from "../pages/Nursepage/registers/registers";
 import { ToxinthyPage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/toxinthy/toxinthy";
 import { AgreePage} from "../pages/Nursepage/ข้อมูลด้านสุขภาพ/agree/agree";
@@ -75,6 +76,7 @@ import { LabPage} from '../pages/Doctorpage/ผลการตรวจ/lab/lab'
 import { RadiographicPage} from '../pages/Doctorpage/ผลการตรวจ/radiographic/radiographic';
 import { RadiographicsPage} from '../pages/Doctorpage/ผลการตรวจ/radiographics/radiographics';
 import { ExaminationPage} from '../pages/Doctorpage/ผลการตรวจ/examination/examination';
+
 import { BiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/biopsy/biopsy';
 import { EditphysicalPage} from '../pages/Doctorpage/ผลการตรวจ/editphysical/editphysical';
 import { EditphysicalsPage} from '../pages/Doctorpage/ผลการตรวจ/editphysicals/editphysicals';
@@ -210,7 +212,8 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     InsertPage,
     YoutubePipe,
     ChangepassLogin1Page,
-    ChangepassLogin2Page
+    ChangepassLogin2Page,
+    ShowExaminationPage
 
 
   ],
@@ -222,6 +225,7 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     ReactiveFormsModule,
     HttpClientModule,
     AutosizeModule,
+
     // IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -315,7 +319,8 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     AddhosPage,
     InsertPage,
     ChangepassLogin1Page,
-    ChangepassLogin2Page
+    ChangepassLogin2Page,
+    ShowExaminationPage
 
   ],
   providers: [
@@ -342,7 +347,8 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
     Md5,
     FilePath,
     FileOpener,
-    FileChooser
+    FileChooser,
+
   ]
 })
 

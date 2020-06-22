@@ -20,10 +20,11 @@ import * as moment from "moment";
   templateUrl: 'physical.html',
 })
 export class PhysicalPage {
+  
   showMenu: boolean;
   showData: boolean = true;
   check_date: string;
-  sweat: string;
+  sweat: any;
   hair_loss: any;
   body_weight: any;
   heart_rate: any;
@@ -47,15 +48,13 @@ export class PhysicalPage {
     }
   }
 
-  ionViewDidLoad() {
+  async ionViewDidLoad() {
     console.log('ionViewDidLoad PhysicalPage');
+    await this.getData();
   }
 
   physicals(){
     this.navCtrl.push(PhysicalsPage);
-  }
-  editphysical(){
-    this.navCtrl.push(EditphysicalPage);
   }
 
   async getData(){
@@ -77,7 +76,6 @@ export class PhysicalPage {
             this.showData = true;
             this.check_date = moment(data.check_date,"YYYY-MM-DD").format("Do MMMM YYYY");
             this.sweat = data.sweat;
-            this.hair_loss = data.lastname;
             this.hair_loss = data.hair_loss;
             this.body_weight = data.body_weight;
             this.heart_rate = data.heart_rate;
@@ -87,7 +85,7 @@ export class PhysicalPage {
             this.eye_result = data.eye_result;
             this.doctor_name = data.doctor_name;
             this.doctor_date = moment(data.doctor_date,"YYYY-MM-DD").format("Do MMMM YYYY");
-            this.doctor_file = "http://" + this.global.getIP() + data.doctor_file;
+            this.doctor_file = "http://" + this.global.getIP() + "/" +  data.doctor_file;
             this.doctor_result= data.doctor_result;
             this.treatment = data.treatment;
             console.log(JSON.stringify(data));
@@ -96,7 +94,27 @@ export class PhysicalPage {
           console.log(error);
         }
       );
+  }
 
+  editphysical(){
+    this.navCtrl.push(EditphysicalPage,
+      {
+      check_date: this.check_date,
+      sweat: this.sweat,
+      hair_loss: this.hair_loss,
+      body_weight: this.body_weight,
+      heart_rate: this.heart_rate,
+      blood_pressure_upper: this.blood_pressure_upper,
+      blood_pressure_lower: this.blood_pressure_lower,
+      eye_dedtect: this.eye_detect,
+      eye_result: this.eye_result,
+      doctor_name: this.doctor_name,
+      doctor_date: this.doctor_date,
+      doctor_file: this.doctor_file,
+      doctor_result: this.doctor_result,
+      treatment: this.treatment,
+    }
+    );
   }
 
 }

@@ -1,0 +1,114 @@
+<!--
+  Generated template for the ShowExaminationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color=1>
+    <ion-title>ข้อมูล Thyroid Ultrasound</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+
+    <ng-container *ngIf="!Thy_ult_data.length">
+      <h3 align="center">ไม่พบข้อมูล</h3>
+    </ng-container>
+
+    <ng-container *ngIf="Thy_ult_data.length">
+      <ion-card>
+        <ion-card-header>รูปภาพ Thyroid Ultrasound</ion-card-header>
+          <img src="{{ thyroid_image  }}">
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                  <div><b>ผลการรักษา </b></div>
+                </ion-col>
+                <ion-col col-6>
+                  <div>{{ thy_ult_result }}</div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-card>
+
+    <ion-card *ngFor="let data of Thy_ult_data">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <div><b>ก้อนที่ </b></div>
+          </ion-col>
+          <ion-col col-6>
+            {{data.thy_num}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <div><b>วันที่ตรวจ </b></div>
+          </ion-col>
+          <ion-col col-6>
+            {{ momentjs(data.thy_ult_date,"YYYY-MM-DD").format("Do MMMM YYYY") }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <div><b>คำแนะนำในการรักษา </b></div>
+          </ion-col>
+          <ion-col col-6>
+            {{data.thy_ult_advice}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngIf="data.thy_ult_advice === 'ควรติดตามผล Thyroid Ultrasound'">
+        <ion-row>
+          <ion-col col-4>
+            <div><b>เป็นระยะเวลา</b></div>
+          </ion-col>
+          <ion-col col-6>
+            {{data.thy_ult_follow_num}}
+            {{data.thy_ult_follow_unit}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngIf="data.thy_ult_advice === 'ส่ง Fine needle Aspiration'">
+        <ion-row>
+          <ion-col col-4>
+            <div><b>ผลทางเซลล์วิทยา</b></div>
+          </ion-col>
+          <ion-col col-6>
+            {{data.thy_ult_fine_result}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngIf="data.thy_ult_advice === 'ส่งผ่าตัด'">
+        <ion-row>
+          <ion-col col-4>
+            <div><b>ชนิดการผ่าตัด</b></div>
+          </ion-col>
+          <ion-col col-6>
+            {{data.thy_ult_surgury_desc}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    </ng-container>
+
+
+    <div text-center>
+      <button ion-button *ngIf="showMenu" (click)="examination()" color="1">เพิ่มข้อมูล</button>
+    </div>
+
+  <!-- <button ion-button (click)="getData()" color="1">แสดงข้อมูล</button> -->
+
+</ion-content>
