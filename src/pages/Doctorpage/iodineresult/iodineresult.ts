@@ -61,19 +61,22 @@ export class IodineresultPage {
       if (this.data.find((indexs) => indexs.index === id)) {
         console.log(JSON.stringify(this.data[id-1]))
         this.navCtrl.push(IodineresultdetailPage,this.data[id-1]);
-     } else {
+     } else if(this.doctorRole == true){
        if (this.data.find((indexs) => indexs.index === id-1)&&this.volume_result){
-         this.navCtrl.push(AddiodineresultPage);
+          this.navCtrl.push(AddiodineresultPage);
        }else{
          this.presentAlert("ยังไม่ได้บันทึกข้อมูลก่อนหน้า");
        }
      }
     }else{
-      if(id === 1){
+      if(this.doctorRole == true){
+        if(id === 1){
         this.navCtrl.push(AddiodineresultPage);
       }else{
         this.presentAlert("ยังไม่ได้บันทึกข้อมูลก่อนหน้า");
       }
+      }
+      
     }
     
    
@@ -287,6 +290,35 @@ export class IodineresultPage {
       }
     }else{
       this.presentAlert("ต้องบันทึกข้อมูลให้ครบก่อน")
+      
     }
+  }
+  async presentConfirm(txt) {
+    let alert = await this.alertCtrl.create({
+      title: "ยืนยันการบันทึกข้อมูล",
+      message: "***หมายเหตุ***<br>เมื่อบันทึกข้อมูลแล้วจะไม่สามารถแก้ไขได้",
+      buttons: [
+        {
+          text: "ยกเลิก",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "ยืนยัน",
+          handler: () => {
+            if(txt==='volume'){
+              this.volume();
+              console.log("volume")
+            }else{
+              this.summary();
+            }
+            
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

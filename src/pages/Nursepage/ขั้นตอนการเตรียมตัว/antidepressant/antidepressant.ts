@@ -40,7 +40,7 @@ export class AntidepressantPage {
     }
   }
   checkRole(role) {
-    if (role === "หมอ") {
+    if (role === "พยาบาล") {
       return true;
     } else {
       return false;
@@ -53,9 +53,16 @@ export class AntidepressantPage {
       this.dateBefore = moment(this.global.getdate(), "YYYY-MM-DD")
         .subtract(3, "days")
         .format("Do MMMM YYYY");
-      this.dateAfter = moment(this.global.getdate(), "YYYY-MM-DD")
+        if(this.navParams.get("method")==="วิธีการประมาณ"){
+          this.dateAfter = moment(this.global.getdate(), "YYYY-MM-DD")
         .add(4, "days")
         .format("Do MMMM YYYY");
+        }else{
+          this.dateAfter = moment(this.global.getdate(), "YYYY-MM-DD")
+          .add(5, "days")
+          .format("Do MMMM YYYY");
+        }
+      
     } else {
       this.isControl = false;
       this.Control = "ไม่ต้อง"
@@ -65,6 +72,7 @@ export class AntidepressantPage {
   editantidepressant() {
     this.navCtrl.push(EditantidepressantPage, {
       isControl: this.Control,
+      method:this.navParams.get("method")
     });
   }
 }

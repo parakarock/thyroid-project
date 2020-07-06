@@ -7,16 +7,7 @@ import {
 } from "ionic-angular";
 import { GlobalProvider } from "../../../providers/global/global";
 import { Http, Headers, RequestOptions } from "@angular/http";
-import moment from "moment";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import "moment/locale/TH";
-/**
- * Generated class for the AddhosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: "page-addhos",
@@ -117,6 +108,34 @@ export class AddhosPage {
       title: "การแจ้งเตือน",
       subTitle: txt,
       buttons: ["Ok"],
+    });
+    alert.present();
+  }
+  async presentConfirm() {
+    let txt
+    if(this.navParams.get("event") == "edit"){
+      txt = "ยืนยันการแก้ไขข้อมูล"
+    }else{
+      txt = "ยืนยันการบันทึกข้อมูล"
+    }
+    let alert = await this.alertCtrl.create({
+      title: txt,
+      message: "",
+      buttons: [
+        {
+          text: "ยกเลิก",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "ยืนยัน",
+          handler: () => {
+            this.AddHospital();
+          }
+        }
+      ]
     });
     alert.present();
   }

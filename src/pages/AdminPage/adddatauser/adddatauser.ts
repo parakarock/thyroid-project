@@ -11,13 +11,6 @@ import { Http, Headers, RequestOptions } from "@angular/http";
 import moment from "moment";
 import "moment/locale/TH";
 
-/**
- * Generated class for the AdddatauserPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: "page-adddatauser",
@@ -25,6 +18,7 @@ import "moment/locale/TH";
 })
 export class AdddatauserPage {
   formgroup: FormGroup;
+  header = this.navParams.get('header')
   age = 0;
   startMin: any;
   startMax: any;
@@ -275,7 +269,7 @@ export class AdddatauserPage {
 
   async presentAlert(txt: string) {
     let alert = await this.alertCtrl.create({
-      title: "เกิดข้อผิดพลาด",
+      title: "การแจ้งเตือน",
       subTitle: txt,
       buttons: ["Ok"],
     });

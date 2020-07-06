@@ -5,7 +5,19 @@ page-labtestresult {
    ion-label {
     font-size: 15px;  
     } 
-   
+    .topic{
+        font-weight: bold;
+    }
+    .button{
+        font-size: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .editButton{
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
 
    @media only screen and (min-width: 1024px) {
      
@@ -20,6 +32,15 @@ page-labtestresult {
         position: relative;
         left: 30%;
       
+    }
+    .button{
+        font-size: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .editButton{
+        margin-right: 30px;  
     }
     }
 }

@@ -1,9 +1,3 @@
-<!--
-  Generated template for the IodineresultPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="1">
     <ion-title>ผลการกลืนแร่ไอโอดีน</ion-title>
@@ -26,29 +20,19 @@
   <ion-card id="css">
     <ion-grid>
       <ion-row>
-        
-          <label for="date">กลืนแร่ครั้งที่ {{round}} {{method}}</label>
-        
-        
-          <label for="date">วันที่กลืนแร่ {{date}}</label>
-     
+          <label for="date">กลืนแร่ครั้งที่ {{round}} {{method}} วันที่กลืนแร่ {{date}}</label>
       </ion-row>
     </ion-grid>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-          <label for="g">ปริมาณ</label>
-        </ion-col>
-        <ion-col col-6>
-          <input type="number" id="g" name="g" size="20" [(ngModel)]="volume_result" *ngIf="volumeButton&&doctorRole" />
-          <div *ngIf="!volumeButton">{{volume_result}}</div>
-          <div *ngIf="volumeButton&&!doctorRole">ยังไม่ได้ระบุ</div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-item style="text-align: center;" *ngIf="volumeButton&&doctorRole">ปริมาณ
+      <input type="number" id="g" name="g" size="20" [(ngModel)]="volume_result"/>
+    </ion-item>
+    <ion-item style="text-align: center;" *ngIf="!volumeButton">ปริมาณ {{volume_result}}</ion-item>
+    <ion-item style="text-align: center;" *ngIf="volumeButton&&!doctorRole">ปริมาณ ยังไม่ได้ระบุ</ion-item>
 
-    <button ion-button float-right color="1" *ngIf="volumeButton&&doctorRole" (click)="volume()">บันทึกผล</button>
+
+
+    <button ion-button float-right color="1" *ngIf="volumeButton&&doctorRole" (click)="presentConfirm('volume')">บันทึกผล</button>
   </ion-card>
 
   <ion-card id="css">
@@ -112,6 +96,6 @@
       </ion-row>
     </ion-grid>
 
-    <button ion-button float-right color="1" (click)="summary()" *ngIf="iodineButton&&doctorRole">บันทึกผล</button>
+    <button ion-button float-right color="1" (click)="presentConfirm('summary')" *ngIf="iodineButton&&doctorRole">บันทึกผล</button>
   </ion-card>
 </ion-content>

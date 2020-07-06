@@ -1,4 +1,4 @@
-page-datahos {
+page-showtreatmentdetail {
     ion-label{
         font-size: 15px;
         
@@ -6,20 +6,28 @@ page-datahos {
     
     .button{
         font-size: 15px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
     }
-    ion-card{
-        font-size: 15px;
-        
+    ion-icon{
+        font-size: 40px;
+       }
+       #tabMain{
+        padding-left:3em
+       }
+       #tabSub{
+        padding-left:5em
+       }
+       .topic{
+           font-weight: bold;
+       }
+       .editButton{
+        margin-right: 20px;
+        margin-bottom: 10px;
     }
-    .topic{
-        font-weight: bold;
-    }
-    
     
     @media only screen and (min-width: 1224px) {
+        ion-icon{
+            font-size: 64px;
+           }
       
         ion-label{
             font-size: 20px;
@@ -27,14 +35,6 @@ page-datahos {
         }
         .button{
             font-size: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    
-        ion-card{
-            font-size: 20px;
-            
         }
         #css{
             width: 40%;
@@ -42,5 +42,7 @@ page-datahos {
             left: 30%;
           
         }
+ 
+    
       }
 }

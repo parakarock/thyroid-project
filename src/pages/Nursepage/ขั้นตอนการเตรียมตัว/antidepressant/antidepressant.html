@@ -13,7 +13,7 @@
 <ion-content padding>
   <div *ngIf="isControl">
     <ion-card padding id="css">
-      <div color="dark">
+      <div class="topic" color="dark">
         ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์
         ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่
       </div>
@@ -21,8 +21,8 @@
         <ion-label color="dark">ตั้งแต่ {{dateBefore}}</ion-label>
       </ion-item>
 
-      <ion-label color="dark"
-        >และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</ion-label
+      <div class="topic" color="dark"
+        >และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่ 4</div
       >
       <ion-item no-lines>
         <ion-label color="dark">ตั้งแต่ {{dateAfter}}</ion-label>
@@ -33,7 +33,7 @@
     <ion-card padding id="css">
       
       <ion-item no-lines>
-        <ion-label color="dark">ไม่ต้องงดยาต้านไทรอยด์</ion-label>
+        <ion-label style="text-align: center;" color="dark">ไม่ต้องงดยาต้านไทรอยด์</ion-label>
       </ion-item>
 
       

@@ -6,14 +6,14 @@
 -->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>อาการเริ่มแรก</ion-title>
+    <ion-title>แก้ไขอาการเริ่มแรก</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card id="css" padding>
-    <div>อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
-    <div>กรุณาเลือกข้อที่ท่านมีอาการดังต่อไปนี้ (เลือกได้มากกว่า1คำตอบ)</div>
+    <div class="topic">อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
+    <div class="topic">กรุณาเลือกข้อที่ท่านมีอาการดังต่อไปนี้ (เลือกได้มากกว่า1คำตอบ)</div>
     <br />
 
     <ion-item no-lines (change)="changeedgy()">
@@ -100,7 +100,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-12>
-          <label for="disease">ท่านมีโรคประจำตัวอื่นๆหรือไม่ </label>
+          <label for="disease" class="topic">ท่านมีโรคประจำตัวอื่นๆหรือไม่ </label>
         </ion-col>
         <ion-col col-6>
           <select (change)="changeOther()" *ngIf="disease">
@@ -118,7 +118,7 @@
     <ion-grid *ngIf="disease">
       <ion-row>
         <ion-col col-4>
-          <label  color="danger">*ถ้ามี(โปรดระบุโรค) </label>
+          <label class="topic"  color="danger">*ถ้ามี(โปรดระบุโรค) </label>
         </ion-col>
         <ion-col col-6>
           <input type="textarea" [(ngModel)]="diseaseName" size="20" value="{{diseaseName}}"/>

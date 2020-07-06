@@ -21,6 +21,7 @@ export class AddcontraceptivePage {
   startMin: any;
   startMax: any;
   button;
+  title;
 
   constructor(
     public navCtrl: NavController,
@@ -37,8 +38,10 @@ export class AddcontraceptivePage {
     console.log("ionViewDidLoad AddcontraceptivePage");
     if(this.navParams.get('data')){
       this.button = "เพิ่ม"
+      this.title = "เพิ่มข้อมูล"
     }else{
       this.button = "อัพเดท"
+      this.title = "แก้ไขข้อมูล"
     }
   }
 
@@ -88,6 +91,28 @@ export class AddcontraceptivePage {
       title: "การแจ้งเตือน",
       subTitle: txt,
       buttons: ["Ok"],
+    });
+    alert.present();
+  }
+  async presentConfirm() {
+    let alert = await this.alertCtrl.create({
+      title: "ยืนยันการ"+this.title,
+      message: "",
+      buttons: [
+        {
+          text: "ยกเลิก",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "ยืนยัน",
+          handler: () => {
+            this.update();
+          }
+        }
+      ]
     });
     alert.present();
   }

@@ -22,7 +22,7 @@
     </div>
   </ion-card>
 
-  <ion-card id="css">
+  <ion-card id="css" *ngIf="showFormSex">
     <button ion-item (click)="contraceptive()">
       การคุมกำเนิดสำหรับสตรีวัยเจริญพันธุ์
       <ion-icon
@@ -33,7 +33,7 @@
     </button>
   </ion-card>
 
-  <ion-card id="css">
+  <ion-card id="css" *ngIf="(showPatient&&showData)||!showPatient">
     <button ion-item (click)="antidepressant()">
       การงดยาต้านไทรอยด์
       <ion-icon
@@ -44,7 +44,7 @@
     </button>
   </ion-card>
 
-  <ion-card id="css">
+  <ion-card id="css" *ngIf="(showPatient&&showData)||!showPatient">
     <button ion-item (click)="avoideating()">
       การหลีกเลี่ยงการรับประทานอาหารที่มีไอโอดีนสูง
       <ion-icon

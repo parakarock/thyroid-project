@@ -28,7 +28,6 @@ export class RiskyPage {
 
   sleep_less_than_4: boolean;
   pregnant: boolean;
-  toxic_womb: boolean;
 
   smoking: boolean;
   amount: boolean;
@@ -43,7 +42,6 @@ export class RiskyPage {
 
   no_risk_factor: boolean;
   relative_toxic_thyroid: boolean;
-  relative_low_thyroid: boolean;
 
   showFormSex: boolean;
   showButtonedit: boolean;
@@ -76,8 +74,6 @@ export class RiskyPage {
             true ||
           this.navParams.get("formData").sleep_less_than_4 === 1 ||
           (this.navParams.get("formData").pregnant === 1 && this.showFormSex) ||
-          (this.navParams.get("formData").toxic_womb === 1 &&
-            this.showFormSex) ||
           this.checkStringSmoke(
             this.navParams.get("formData").smoking_amount,
             this.navParams.get("formData").select_amount,
@@ -87,8 +83,7 @@ export class RiskyPage {
             this.navParams.get("formData").select_stop
           ) === true ||
           this.navParams.get("formData").no_risk_factor === 1 ||
-          this.navParams.get("formData").relative_toxic_thyroid === 1 ||
-          this.navParams.get("formData").relative_low_thyroid === 1
+          this.navParams.get("formData").relative_toxic_thyroid === 1 
         ) {
           this.showData = true;
           this.stress = this.navParams.get("formData").stress;
@@ -106,7 +101,6 @@ export class RiskyPage {
             "formData"
           ).sleep_less_than_4;
           this.pregnant = this.navParams.get("formData").pregnant;
-          this.toxic_womb = this.navParams.get("formData").toxic_womb;
 
           this.smoking = this.checkStringSmoke(
             this.navParams.get("formData").smoking_amount,
@@ -121,9 +115,6 @@ export class RiskyPage {
           this.relative_toxic_thyroid = this.navParams.get(
             "formData"
           ).relative_toxic_thyroid;
-          this.relative_low_thyroid = this.navParams.get(
-            "formData"
-          ).relative_low_thyroid;
         } else {
           this.showData = false;
           this.stress = this.navParams.get("formData").stress;
@@ -141,7 +132,6 @@ export class RiskyPage {
             "formData"
           ).sleep_less_than_4;
           this.pregnant = this.navParams.get("formData").pregnant;
-          this.toxic_womb = this.navParams.get("formData").toxic_womb;
 
           this.smoking = this.checkStringSmoke(
             this.navParams.get("formData").smoking_amount,
@@ -156,9 +146,7 @@ export class RiskyPage {
           this.relative_toxic_thyroid = this.navParams.get(
             "formData"
           ).relative_toxic_thyroid;
-          this.relative_low_thyroid = this.navParams.get(
-            "formData"
-          ).relative_low_thyroid;
+          
         }
       });
     }
@@ -191,7 +179,6 @@ export class RiskyPage {
             this.checkStringOver(data.overtime_hour) === true ||
             data.sleep_less_than_4 === 1 ||
             (data.pregnant === 1 && this.showFormSex) ||
-            (data.toxic_womb === 1 && this.showFormSex) ||
             this.checkStringSmoke(
               data.smoking_amount,
               data.select_amount,
@@ -201,8 +188,7 @@ export class RiskyPage {
               data.select_stop
             ) === true ||
             data.no_risk_factor === 1 ||
-            data.relative_toxic_thyroid === 1 ||
-            data.relative_low_thyroid === 1
+            data.relative_toxic_thyroid === 1 
           ) {
             this.showData = true;
             this.stress = data.stress;
@@ -214,7 +200,6 @@ export class RiskyPage {
 
             this.sleep_less_than_4 = data.sleep_less_than_4;
             this.pregnant = data.pregnant;
-            this.toxic_womb = data.toxic_womb;
 
             this.smoking = this.checkStringSmoke(
               data.smoking_amount,
@@ -227,7 +212,7 @@ export class RiskyPage {
 
             this.no_risk_factor = data.no_risk_factor;
             this.relative_toxic_thyroid = data.relative_toxic_thyroid;
-            this.relative_low_thyroid = data.relative_low_thyroid;
+         
           } else {
             this.showData = false;
           }
@@ -251,7 +236,6 @@ export class RiskyPage {
 
       sleep_less_than_4: this.sleep_less_than_4,
       pregnant: this.pregnant,
-      toxic_womb: this.toxic_womb,
 
       smoking: this.smoking,
       amount: this.amount,
@@ -266,7 +250,7 @@ export class RiskyPage {
 
       no_risk_factor: this.no_risk_factor,
       relative_toxic_thyroid: this.relative_toxic_thyroid,
-      relative_low_thyroid: this.relative_low_thyroid,
+     
       showFormSex: this.showFormSex,
       showData: this.showData,
     });

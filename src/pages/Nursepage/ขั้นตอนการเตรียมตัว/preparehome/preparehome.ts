@@ -23,6 +23,7 @@ import "moment/locale/TH";
 export class PreparehomePage {
   showFormSex : boolean;
   showButtonedit: boolean;
+  showPatient : boolean;
   showData: boolean = true;
   appoint_date;
   method;
@@ -30,6 +31,8 @@ export class PreparehomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider, private http: Http) {
     this.showFormSex = this.checkSex(this.global.getSex())
     this.showButtonedit = this.checkRole(this.global.getSelectRole());
+    this.showPatient = this.checkPatient()
+    console.log(this.global.getSex()+this.showFormSex+"-"+this.showButtonedit+"-"+this.showPatient)
   }
 
   ionViewWillEnter() {
@@ -76,7 +79,8 @@ export class PreparehomePage {
     this.navCtrl.push(ContraceptivePage,this.data)
   }
   antidepressant(){
-    this.navCtrl.push(AntidepressantPage,{isControl:this.data.period_control})
+    this.navCtrl.push(AntidepressantPage,{isControl:this.data.period_control,
+    method:this.data.method})
   }
   avoideating(){
     this.navCtrl.push(AvoideatingPage,{
@@ -96,6 +100,13 @@ export class PreparehomePage {
   }
   checkSex(sex){
     if(sex === "หญิง"){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  checkPatient(){
+    if(this.global.getSelectRole() === "ผู้ป่วย"){
       return true;
     }else{
       return false;

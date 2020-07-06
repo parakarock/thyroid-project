@@ -1,9 +1,3 @@
-<!--
-  Generated template for the DpPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="1">
     <ion-title>{{title}}</ion-title>
@@ -11,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  
+  <div id="css">
 <ion-item >
   <ion-label ><ion-searchbar [(ngModel)]="searchTerm" placeholder="ระบุชื่อ-นามสกุล" (ionInput)="setFilteredItems($event.target.value)"></ion-searchbar></ion-label>
   
@@ -24,17 +18,17 @@
       <div (click)=showDetail(i)>
       
       <ion-item>
-        <ion-label  color="dark">เลขประจำตัวประชาชน</ion-label>
+        <ion-label class="topic" color="dark">เลขประจำตัวประชาชน</ion-label>
         <ion-label color="dark">{{item.person_id}}</ion-label>
       </ion-item>
     
       <ion-item>
-        <ion-label  color="dark">ชื่อ - นามสกุล</ion-label>
+        <ion-label class="topic" color="dark">ชื่อ - นามสกุล</ion-label>
         <ion-label color="dark">{{item.name}}</ion-label>
       </ion-item>
     
       <ion-item>
-        <ion-label color="dark">เบอร์โทรศัพท์</ion-label>
+        <ion-label class="topic" color="dark">เบอร์โทรศัพท์</ion-label>
         <ion-label color="dark">{{item.phone}}</ion-label>
       </ion-item>
     </div>
@@ -56,6 +50,6 @@
 
 </div>
 
-
+</div>
 
 </ion-content>

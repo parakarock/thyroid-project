@@ -2,16 +2,10 @@ import { EditiodineresultdetailPage } from "../editiodineresultdetail/editiodine
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { GlobalProvider } from "../../../providers/global/global";
-import { Http, Headers, RequestOptions } from "@angular/http";
 import moment from "moment";
 import "moment/locale/TH";
 
-/**
- * Generated class for the IodineresultdetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -34,8 +28,7 @@ export class IodineresultdetailPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public global: GlobalProvider,
-    public http: Http
+    public global: GlobalProvider
   ) {
     
   }

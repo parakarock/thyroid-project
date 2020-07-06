@@ -162,7 +162,7 @@ export class EditTabooPage {
 
   async presentConfirm() {
     let alert = await this.alertCtrl.create({
-      title: "ยืนยันการอัพเดทข้อมูล",
+      title: "ยืนยันการแก้ไขข้อมูล",
       message: "",
       buttons: [
         {
@@ -185,7 +185,7 @@ export class EditTabooPage {
   }
   async presentAlert(txt: string) {
     let alert = await this.alertCtrl.create({
-      title: "แจ้งเตือน",
+      title: "การแจ้งเตือน",
       subTitle: txt,
       buttons: ["Ok"]
     });

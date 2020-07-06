@@ -10,6 +10,10 @@ page-toxinthy {
         margin-left: auto;
         margin-right: auto;
     }
+    .topic{
+        font-size: 17px;
+        font-weight: bold;
+    }
     
     @media only screen and (min-width: 1224px) {
         div {
@@ -27,6 +31,9 @@ page-toxinthy {
             display: block;
             margin-left: auto;
             margin-right: auto;
+        }
+        .topic{
+            font-size: 22px;
         }
     
       }

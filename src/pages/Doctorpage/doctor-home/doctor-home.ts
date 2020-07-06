@@ -16,12 +16,7 @@ import {
   RequestOptions,
 } from "@angular/http";
 import "rxjs/add/operator/map";
-/**
- * Generated class for the DoctorHomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -50,6 +45,9 @@ export class DoctorHomePage {
       this.navCtrl.setRoot(NurseHomePage);
     }
     if (this.status === "ผู้ป่วย") {
+      this.logoutPatient()
+      this.global.setpatientID(this.global.getLoginID())
+      this.global.setSex(this.global.getSexLogin())
       this.events.publish("user:patient");
       this.menu.enable(false);
       this.navCtrl.setRoot(PatientHomePage);

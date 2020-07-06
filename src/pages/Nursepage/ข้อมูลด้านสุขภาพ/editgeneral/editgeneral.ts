@@ -6,12 +6,9 @@ import {
   AlertController
 } from "ionic-angular";
 import { GlobalProvider } from "../../../../providers/global/global";
-import { NurseHomePage } from "../../nurse-home/nurse-home";
 import {
   Http,
-  Response,
   Headers,
-  ResponseOptions,
   RequestOptions
 } from "@angular/http";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -31,8 +28,12 @@ import 'moment/locale/TH';
 })
 export class EditgeneralPage {
   formgroup: FormGroup;
+  hospitals;
+  showNameHosIn: boolean = false;
+  showNameHosOut: boolean = false;
   startMin: any;
   startMax: any;
+  dataReturn;
   age = moment().diff(moment(this.navParams.get("date"),"YYYY-MM-DD").subtract(543, 'y'), 'years');
   constructor(
     public navCtrl: NavController,
@@ -95,8 +96,10 @@ export class EditgeneralPage {
         navParams.get("hnbuu"),
         Validators.compose([Validators.required, Validators.pattern("[0-9]+")])
       ],
-      from_name2: [navParams.get("input"), Validators.pattern("^[ก-๏sa-zA-Z]+$")],
-      to_name2: [navParams.get("output"), Validators.pattern("^[ก-๏sa-zA-Z]+$")]
+      from_name1: [navParams.get("input"),],
+      to_name1: [navParams.get("output"),],
+      from_name2: ["", Validators.pattern("^[ก-๏sa-zA-Z]+$")],
+      to_name2: ["", Validators.pattern("^[ก-๏sa-zA-Z]+$")]
     });
     
     
@@ -107,6 +110,61 @@ export class EditgeneralPage {
   doUpdate() {
     console.log(this.formgroup.value);
     console.log(this.formgroup.valid);
+  }
+  getHospital() {
+    this.http
+      .get(
+        "http://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          let hosin = this.navParams.get("input")
+          let hosout = this.navParams.get("output")
+          this.hospitals = data;
+          this.addOtherItem(this.hospitals);
+          if(this.hospitals.find(hospital => hospital.hos_name === hosin)||hosin===""){
+      
+          }else{
+            this.hospitals.unshift({
+              hos_name: hosin 
+            }); 
+          }
+          if(this.hospitals.find(hospital => hospital.hos_name === hosout)||hosout===""){
+      
+          }else{
+            this.hospitals.unshift({
+              hos_name: hosout 
+            }); 
+          }
+          console.log(this.hospitals);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+  addOtherItem(arr) {
+    arr.push({
+      hos_name: "อื่นๆ"
+    });
+    arr.push({
+      hos_name: ""
+    });
+  }
+  showHosIn(hosname) {
+    if (hosname === "อื่นๆ") {
+      this.showNameHosIn = !this.showNameHosIn;
+    } else {
+      this.showNameHosIn = false;
+    }
+  }
+  showHosOut(hosname) {
+    if (hosname === "อื่นๆ") {
+      this.showNameHosOut = !this.showNameHosOut;
+    } else {
+      this.showNameHosOut = false;
+    }
   }
   updateData() {
     let headers = new Headers({ "Content-type": "application/json" });
@@ -124,10 +182,14 @@ export class EditgeneralPage {
       from_id: this.formgroup.controls.from_id.value,
       to_id: this.formgroup.controls.to_id.value,
       Hos_base_id: this.formgroup.controls.Hos_base_id.value,
-      from_name: this.formgroup.controls.from_name2.value,
-      to_name: this.formgroup.controls.to_name2.value
+      from_name: (this.formgroup.controls.from_name1.value !== "อื่นๆ" &&
+      this.formgroup.controls.from_name1.value) ||
+    this.formgroup.controls.from_name2.value,
+      to_name: (this.formgroup.controls.to_name1.value !== "อื่นๆ" &&
+      this.formgroup.controls.to_name1.value) ||
+    this.formgroup.controls.to_name2.value
     };
-
+    this.navCtrl.getPrevious().data.formData = body
     console.log("body : " + body);
     this.http
       .post(
@@ -139,6 +201,9 @@ export class EditgeneralPage {
       .subscribe(
         data => {
           if(data.result){
+            if(this.global.getpatientID() === this.global.getLoginID()){
+              this.global.setSexLogin(this.formgroup.controls.sex.value)
+            }
            this.global.setSex(this.formgroup.controls.sex.value);
             this.presentAlert(data.result); 
           }
@@ -150,10 +215,12 @@ export class EditgeneralPage {
   }
   ionViewDidLoad() {
     console.log("ionViewDidLoad EditgeneralPage");
+    this.getHospital();
   }
+
   async presentConfirm() {
     let alert = await this.alertCtrl.create({
-      title: "ยืนยันการอัพเดทข้อมูล",
+      title: "ยืนยันการแก้ไขข้อมูล",
       message: "",
       buttons: [
         {
@@ -167,7 +234,6 @@ export class EditgeneralPage {
           text: "ยืนยัน",
           handler: () => {
             this.updateData();
-            this.navCtrl.getPrevious().data.formData = this.formgroup.value
             this.navCtrl.pop();
            
            
@@ -179,7 +245,7 @@ export class EditgeneralPage {
   }
   async presentAlert(txt: string) {
     let alert = await this.alertCtrl.create({
-      title: 'แจ้งเตือน',
+      title: 'การแจ้งเตือน',
       subTitle: txt,
       buttons: ['Ok']
     });

@@ -81,11 +81,11 @@ export class GeneralPage {
             this.gender = data[0].gender;
             this.nationality = data[0].nationality;
             this.status = data[0].status;
-            this.input = data[1].from_h_id;
-            this.hninput = data[1].to_h_id;
+            this.input = data[1].from_hn;
+            this.hninput = data[1].from_h_id;
             this.hnbuu = data[1].Hos_base_h_id;
-            this.output = data[1].from_hn;
-            this.hnoutput = data[1].to_hn;
+            this.output = data[1].to_hn;
+            this.hnoutput = data[1].to_h_id;
             this.tel = data[0].phone;
           } else {
             this.showData = false;
@@ -106,22 +106,22 @@ export class GeneralPage {
   ionViewWillEnter(){
     if(this.navParams.get("formData")){ 
     return  new Promise((resolve, reject) => {
-    this.name = this.navParams.get("formData").title+this.navParams.get("formData").fname+" "+this.navParams.get("formData").lname;
+    this.name = this.navParams.get("formData").title+this.navParams.get("formData").firstname+" "+this.navParams.get("formData").lastname;
     this.title = this.navParams.get("formData").title;
-    this.firstname= this.navParams.get("formData").fname;
-    this.lastname= this.navParams.get("formData").lname;
-    this.date = moment(this.navParams.get("formData").birthday,"YYYY-MM-DD").format("Do MMMM YYYY");
-    this.age= moment().diff(moment(this.navParams.get("formData").birthday,"YYYY-MM-DD").subtract(543, 'y'), 'years');
-    this.idcard= this.navParams.get("formData").idCard;
-    this.gender= this.navParams.get("formData").sex;
-    this.nationality= this.navParams.get("formData").National;
+    this.firstname= this.navParams.get("formData").firstname;
+    this.lastname= this.navParams.get("formData").lastname;
+    this.date = moment(this.navParams.get("formData").dof,"YYYY-MM-DD").format("Do MMMM YYYY");
+    this.age= moment().diff(moment(this.navParams.get("formData").dof,"YYYY-MM-DD").subtract(543, 'y'), 'years');
+    this.idcard= this.navParams.get("formData").idcard;
+    this.gender= this.navParams.get("formData").gender;
+    this.nationality= this.navParams.get("formData").national;
     this.status= this.navParams.get("formData").status;
-    this.input= this.navParams.get("formData").from_name2;  //ชื่อ รพ. เข้า
+    this.input= this.navParams.get("formData").from_name;  //ชื่อ รพ. เข้า
     this.hninput= this.navParams.get("formData").from_id; //hn รพ. เข้า
     this.hnbuu= this.navParams.get("formData").Hos_base_id;
-    this.output= this.navParams.get("formData").to_name2;
+    this.output= this.navParams.get("formData").to_name;
     this.hnoutput= this.navParams.get("formData").to_id;
-    this.tel= this.navParams.get("formData").tel;
+    this.tel= this.navParams.get("formData").phone;
      
         });
   

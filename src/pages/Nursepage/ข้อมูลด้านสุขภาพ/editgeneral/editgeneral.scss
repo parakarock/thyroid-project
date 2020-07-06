@@ -1,7 +1,6 @@
 page-editgeneral {
     ion-label {
-        font-size: 15px;
-       
+        font-size: 15px;     
     }
     
     .button{
@@ -12,7 +11,11 @@ page-editgeneral {
     }
     label{
         font-size:  15px;
+        font-weight: bold;
      }
+     .help-inline{
+        color: red;
+    }
     @media only screen and (min-width: 1224px) {
         ion-label {
             font-size: 20px;

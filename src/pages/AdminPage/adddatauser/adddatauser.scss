@@ -12,7 +12,10 @@ page-adddatauser {
     }
     label {
         font-size: 15px;
-        
+        font-weight: bold;
+    }
+    .help-inline{
+        color: red;
     }
     @media only screen and (min-width: 1224px) {
         ion-label {

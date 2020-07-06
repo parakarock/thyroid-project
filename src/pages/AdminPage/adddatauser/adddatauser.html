@@ -1,21 +1,11 @@
-<!--
-  Generated template for the AdddatauserPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>จัดการข้อมูล</ion-title>
+    <ion-title>{{header}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-  <ion-card id="css" padding>
-    
-  
-    <ion-list >
 
       <form [formGroup]="formgroup">
         <ion-card id="css" padding>
@@ -208,22 +198,22 @@
           </ion-col>
           <ion-col col-8>
             <div (change)="changeDoctor()">
-              <input type="checkbox" *ngIf="!doctorRole&&!doctorControl" >
-              <input type="checkbox"  *ngIf="doctorRole&&!doctorControl" checked>
-              <input type="checkbox"  *ngIf="doctorControl" disabled checked>
-              <label for="doc" (click)="changeDoctor()"> หมอ</label>
+              <input id="doc" type="checkbox" *ngIf="!doctorRole&&!doctorControl" >
+              <input id="doc" type="checkbox"  *ngIf="doctorRole&&!doctorControl" checked>
+              <input id="doc" type="checkbox"  *ngIf="doctorControl" disabled checked>
+              <label for="doc" > หมอ</label>
             </div>
             <div (change)="changeNurse()">
-              <input type="checkbox" *ngIf="!nurseRole&&!nurseControl" >
-              <input type="checkbox"  *ngIf="nurseRole&&!nurseControl" checked>
-              <input type="checkbox"  *ngIf="nurseControl" disabled checked>
-              <label for="nurse" (change)="changeNurse()"> พยาบาล</label>
+              <input id="nurse" type="checkbox" *ngIf="!nurseRole&&!nurseControl" >
+              <input id="nurse" type="checkbox"  *ngIf="nurseRole&&!nurseControl" checked>
+              <input id="nurse" type="checkbox"  *ngIf="nurseControl" disabled checked>
+              <label for="nurse"> พยาบาล</label>
             </div>
             <div (change)="changePatient()">
-              <input type="checkbox" *ngIf="!patientRole&&!patientControl" >
-              <input type="checkbox"  *ngIf="patientRole&&!patientControl" checked>
-              <input type="checkbox"  *ngIf="patientControl" disabled checked>
-              <label for="patient" (change)="changePatient()"> ผู้ป่วย</label>
+              <input id="patient" type="checkbox" *ngIf="!patientRole&&!patientControl" >
+              <input id="patient" type="checkbox"  *ngIf="patientRole&&!patientControl" checked>
+              <input id="patient" type="checkbox"  *ngIf="patientControl" disabled checked>
+              <label for="patient"> ผู้ป่วย</label>
             </div>
             </ion-col>
           </ion-row>
@@ -235,8 +225,7 @@
       </form>
       
 
-    </ion-list>
-</ion-card>
+
 
 
 <button ion-button [disabled]="!formgroup.valid" (click)="presentConfirm()"  color="1">

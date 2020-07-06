@@ -1,12 +1,6 @@
-<!--
-  Generated template for the IodineresultdetailPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>เพิ่มติดตามผลการรักษา</ion-title>
+    <ion-title>เพิ่มข้อมูลติดตามผลการรักษา</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -157,5 +151,5 @@
   </ion-card>
 </form>
 
-  <button ion-button [disabled]="!formgroup.valid"  (click)="update()"  color="1">บันทึก</button>
+  <button ion-button [disabled]="!formgroup.valid"  (click)="presentConfirm()"  color="1">บันทึก</button>
 </ion-content>

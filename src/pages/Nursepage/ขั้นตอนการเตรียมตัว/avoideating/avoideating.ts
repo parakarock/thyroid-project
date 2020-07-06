@@ -28,11 +28,11 @@ export class AvoideatingPage {
     console.log('ionViewDidLoad AvoideatingPage');
     this.dateBefore = moment(this.global.getdate(),"YYYY-MM-DD").subtract(7, "days").format("Do MMMM YYYY");
     if(this.navParams.get('method') == "วิธีคำนวณ"){
-      this.dateAfter = moment(this.global.getdate(),"YYYY-MM-DD").add(12, 'days').format("Do MMMM YYYY");
+      this.dateAfter = moment(this.global.getdate(),"YYYY-MM-DD").add(5, 'days').format("Do MMMM YYYY");
     }else{
-      this.dateAfter = moment(this.global.getdate(),"YYYY-MM-DD").add(11, 'days').format("Do MMMM YYYY");
+      this.dateAfter = moment(this.global.getdate(),"YYYY-MM-DD").add(4, 'days').format("Do MMMM YYYY");
     }
-    console.log(this.navParams.get('method'))
+    console.log(this.navParams.get('method')+this.dateAfter)
     
   }
 

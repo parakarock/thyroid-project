@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-card id="css" padding *ngIf="showData">
-    <div>อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
+    <div class="topic">อาการเริ่มแรกที่ได้รับการวินิจฉัย</div>
     <br />
 
     <ion-item no-lines *ngIf="edgy">
@@ -81,7 +81,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-10>
-            <label for="disease">ท่านมีโรคประจำตัวอื่นๆหรือไม่ </label>
+            <label for="disease" class="topic">ท่านมีโรคประจำตัวอื่นๆหรือไม่ </label>
             <select>
               <option value="มี" disabled="disabled" selected>มี</option>
             </select>
@@ -92,7 +92,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <label for="other" color="danger">*ถ้ามี(โปรดระบุโรค) </label>
+            <label for="other" class="topic">*ถ้ามี(โปรดระบุโรค) </label>
           </ion-col>
           <ion-col col-6>
             <input type="textbox" id="other" name="other" size="20" value="{{diseaseName}}" disabled="disabled"/>

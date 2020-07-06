@@ -105,17 +105,14 @@
         <label>HN รพ. :  </label>
       </ion-col>
       <ion-col col-6>
-        <input type="text" value="{{ hninput||'ไม่มีข้อมูล' }}" disabled="disabled" size="20" />
-        
+        <div>{{ hninput||'ไม่มีข้อมูล' }}</div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-grid>
     <ion-row>
-      
-        <label>รพ.มหาวิทยาลัยบูรพา HN :  {{ hnbuu||'ไม่มีข้อมูล' }}</label>
-     
+        <label>รพ.มหาวิทยาลัยบูรพา HN :  </label>{{ hnbuu||'ไม่มีข้อมูล' }}
     </ion-row>
   </ion-grid>
   <ion-grid>
@@ -135,7 +132,7 @@
         <label>HN รพ. :  </label>
       </ion-col>
       <ion-col col-6>
-        <label>{{ hnoutput||"ไม่มีข้อมูล" }}</label>
+        <div>{{ hnoutput||"ไม่มีข้อมูล" }}</div>
       </ion-col>
     </ion-row>
   </ion-grid>

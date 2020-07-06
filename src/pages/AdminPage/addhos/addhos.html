@@ -1,9 +1,4 @@
-<!--
-  Generated template for the AddhosPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="1">
     <ion-title>{{title}}</ion-title>
@@ -74,7 +69,7 @@
       </ion-grid>
 
     
-      <strong padding id="strong">ค่าอ้างอิง</strong>
+      <strong padding class="title">ค่าอ้างอิง</strong>
       <ion-grid>
         <ion-row>
           <ion-col col-4>
@@ -138,6 +133,6 @@
   </ion-card>
   
   
-    <button ion-button  color="1" [disabled]="!formgroup.valid" (click)="AddHospital()">บันทึก</button>
+    <button ion-button  color="1" [disabled]="!formgroup.valid" (click)="presentConfirm()">บันทึก</button>
   
 </ion-content>

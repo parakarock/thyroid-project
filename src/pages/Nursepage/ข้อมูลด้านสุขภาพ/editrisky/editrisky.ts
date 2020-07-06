@@ -32,7 +32,6 @@ export class EditriskyPage {
 
   sleep_less_than_4: boolean = this.checkNull(this.navParams.get("sleep_less_than_4"));
   pregnant: boolean = this.checkNull(this.navParams.get("pregnant"));
-  toxic_womb: boolean = this.checkNull(this.navParams.get("toxic_womb"));
 
   smoking: boolean = this.navParams.get("smoking");
   
@@ -47,7 +46,6 @@ export class EditriskyPage {
 
   no_risk_factor: boolean = this.checkNull(this.navParams.get("no_risk_factor"));
   relative_toxic_thyroid: boolean = this.checkNull(this.navParams.get("relative_toxic_thyroid"));
-  relative_low_thyroid: boolean = this.checkNull(this.navParams.get("relative_low_thyroid"));
 
   showFormSex: boolean = this.navParams.get("showFormSex");
   showData : boolean = this.navParams.get("showData");
@@ -120,10 +118,6 @@ export class EditriskyPage {
     this.pregnant = !this.pregnant;
     console.log(this.pregnant);
   }
-  changeToxic_womb(){
-    this.toxic_womb = !this.toxic_womb;
-    console.log(this.toxic_womb);
-  }
   changeSmoking(){
     this.smoking = !this.smoking;
     console.log(this.smoking);
@@ -150,10 +144,6 @@ export class EditriskyPage {
     this.relative_toxic_thyroid = !this.relative_toxic_thyroid;
     console.log(this.relative_toxic_thyroid);
   }
-  changeRelative_low_thyroid(){
-    this.relative_low_thyroid = !this.relative_low_thyroid;
-    console.log(this.relative_low_thyroid);
-  }
 
   updateData(){
     let headers = new Headers({ "Content-type": "application/json" });
@@ -171,7 +161,6 @@ export class EditriskyPage {
 
       sleep_less_than_4: this.editData(this.sleep_less_than_4),
       pregnant: this.editData(this.pregnant),
-      toxic_womb: this.editData(this.toxic_womb),
 
       smoking_amount: this.beforeUpdate1(this.smoking,this.smoking_amount) || null,
       select_amount: this.beforeUpdate2(this.smoking,this.checkString(this.smoking_amount),this.revertChoice1(this.select_amount)),
@@ -183,8 +172,7 @@ export class EditriskyPage {
       select_stop: this.beforeUpdate2(this.smoking,this.checkString(this.smoking_stop),this.revertChoice2(this.select_stop)),
 
       no_risk_factor: this.editData(this.no_risk_factor),
-      relative_toxic_thyroid: this.editData(this.relative_toxic_thyroid),
-      relative_low_thyroid: this.editData(this.relative_low_thyroid),
+      relative_toxic_thyroid: this.editData(this.relative_toxic_thyroid)
       
     }
     this.data = body;

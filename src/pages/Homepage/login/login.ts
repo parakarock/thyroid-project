@@ -77,6 +77,7 @@ export class LoginPage {
             this.global.setname(data[0].title + data[0].firstname + " " + data[0].lastname)
             this.global.setLoginID(data[0].person_id)
             this.global.setrole(data[1])
+            this.global.setSexLogin(data[0].gender)
             if (
               data[1].findIndex(
                 role_name => role_name.role_name === "หมอ"
@@ -97,6 +98,7 @@ export class LoginPage {
             ) {
               this.global.setpatientName(data[0].title + data[0].firstname + " " + data[0].lastname)
               this.global.setpatientID(data[0].person_id)
+              this.global.setSex(data[0].gender)
               this.events.publish("user:patient");
               this.navCtrl.setRoot(PatientHomePage);
             }

@@ -15,7 +15,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-6>
-          <label for="BetaBlock">ผู้ป่วยต้องงดยาต้านไทรอยด์หรือไม่ </label>
+          <label class="topic" for="BetaBlock">ผู้ป่วยต้องงดยาต้านไทรอยด์หรือไม่ </label>
         </ion-col>
         <ion-col col-6>
           <select [(ngModel)]="isControl" (change)="isShow($event.target.value)">
@@ -29,7 +29,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-12>
-            <div color="dark">
+            <div class="topic" color="dark">
               ยาต้านไทรอยด์จะยับยั้งการจับแร่ไอโอดีนของต่อมไทรอยด์
               ผู้ป่วยควรงดยาต้านไทรอยด์ 3 วันก่อนการกลืนแร่
             </div>
@@ -43,7 +43,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-12>
-            <div color="dark">
+            <div class="topic" color="dark">
               และเริ่มกินยาต้านไทรอยด์หลังการกลืนแร่ในวันที่
             </div>
           </ion-col>
@@ -56,9 +56,9 @@
 
     <div *ngIf="!showData">
       <ion-item no-lines>
-        <ion-label color="dark">ไม่ต้องงดยาต้านไทรอยด์</ion-label>
+        <ion-label style="text-align: center;" color="dark">ไม่ต้องงดยาต้านไทรอยด์</ion-label>
       </ion-item>
     </div>
   </ion-card>
-  <button ion-button color="1" (click)="update()">บันทึก</button>
+  <button ion-button color="1" (click)="presentConfirm()">บันทึก</button>
 </ion-content>

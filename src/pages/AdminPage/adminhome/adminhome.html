@@ -7,12 +7,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu side="right" [content]="mycontent">
+<ion-menu type="overlay" side="right" [content]="mycontent">
 <ion-content>
   <br>
   <img class="profile" src="../../../assets/icon/Pic_Icon/doctor.png" />
     
-  <h3>Admin</h3>
+  <h3>แอดมิน</h3>
   <ion-list>
     <button ion-item (click)="ChangePass()" color="2">เปลี่ยนรหัสผ่าน</button>
     <button ion-item (click)="onClickLogoutButton()" color="2">ออกจากระบบ</button>
@@ -23,7 +23,7 @@
 
 <ion-content padding>
 
-
+<div id="css">
   <ion-grid>
      <ion-row>
       <a class="col col-50 text-center" (click)="user()">
@@ -47,5 +47,5 @@
 
    
   </ion-grid>
-
+</div>
 </ion-content>

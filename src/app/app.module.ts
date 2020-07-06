@@ -98,6 +98,7 @@ import { ChangepassLogin1Page } from '../pages/changepass-login1/changepass-logi
 import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-login2'
 import { ShowlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/showlabtest/showlabtest'
 import { AddiodineresultPage } from '../pages/Doctorpage/addiodineresult/addiodineresult'
+import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail/showtreatmentdetail'
 @NgModule({
   declarations: [
     MyApp,
@@ -177,7 +178,8 @@ import { AddiodineresultPage } from '../pages/Doctorpage/addiodineresult/addiodi
     ChangepassLogin1Page,
     ChangepassLogin2Page,
     ShowlabtestPage,
-    AddiodineresultPage
+    AddiodineresultPage,
+    ShowtreatmentdetailPage
 
 
   ],
@@ -267,7 +269,8 @@ import { AddiodineresultPage } from '../pages/Doctorpage/addiodineresult/addiodi
     ChangepassLogin1Page,
     ChangepassLogin2Page,
     ShowlabtestPage,
-    AddiodineresultPage
+    AddiodineresultPage,
+    ShowtreatmentdetailPage
 
   ],
   providers: [

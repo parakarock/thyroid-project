@@ -84,11 +84,13 @@ export class DpPage {
     if (index || index == 0) {
       let item = this.items[index];
       item["event"] = "edit";
+      item["header"] = "แก้ไขข้อมูล"+this.navParams.get("title");
       this.navCtrl.push(AdddatauserPage, item);
     } else {
       this.navCtrl.push(AdddatauserPage, {
         event: "add",
         role: this.navParams.get("search"),
+        header: "เพิ่มข้อมูล"+this.navParams.get("title")
       });
     }
   }

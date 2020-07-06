@@ -17,13 +17,7 @@ import {
   Headers,
   RequestOptions,
 } from "@angular/http";
-
-/**
- * Generated class for the PatientHomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 
 @IonicPage()
 @Component({
@@ -36,6 +30,10 @@ export class PatientHomePage {
   rounds;
   number
   status: string;
+
+  options: BarcodeScannerOptions;
+  encodeData:any={};
+  scannedData:any={};
   @ViewChild(Slides) slides: Slides;
 
   constructor(
@@ -46,6 +44,7 @@ export class PatientHomePage {
     public global: GlobalProvider,
     private http: Http,
     public alertCtrl: AlertController,
+    public scanner: BarcodeScanner
   ) {
    
   }
@@ -55,16 +54,15 @@ export class PatientHomePage {
     this.getRound()
     this.roles = this.global.getrole();
     this.name = this.global.getname();
-    
   }
 
   selectRole() {
-    if (this.status === "nurse") {
+    if (this.status === "พยาบาล") {
       this.events.publish("user:nurse");
       this.menu.enable(false);
       this.navCtrl.setRoot(NurseHomePage);
     }
-    if (this.status === "doctor") {
+    if (this.status === "หมอ") {
       this.events.publish("user:doctor");
       this.menu.enable(false);
       this.navCtrl.setRoot(DoctorHomePage);
@@ -102,9 +100,51 @@ export class PatientHomePage {
         }
       );
   }
+  generateQR(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = { idcard: this.global.getpatientID() };
+    console.log(body)
+     this.http
+      .post(
+        "http://"+this.global.getIP()+"/qrcode.php?method=genarate_QRcode&role="+this.global.getSelectRole(),
+        body,
+        options
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          if (data.code) {
+            this.encode(data.code);
+          } else {
+            this.presentAlert(data.result)
+          }
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+  encode(encodText){
+    this.scanner.encode(this.scanner.Encode.TEXT_TYPE, encodText).then((data) => {
+      this.encodeData = data;
+    },(err)=> {
+      this.presentAlertQR("รหัสQRcode : "+encodText)
+      console.log('Error :',err);
+    })
+
+  }
   async presentAlert(txt: string) {
     let alert = await this.alertCtrl.create({
       title: "แจ้งเตือน",
+      subTitle: txt,
+      buttons: ["Ok"]
+    });
+    alert.present();
+  }
+  async presentAlertQR(txt: string) {
+    let alert = await this.alertCtrl.create({
+      title: "QRcode",
       subTitle: txt,
       buttons: ["Ok"]
     });

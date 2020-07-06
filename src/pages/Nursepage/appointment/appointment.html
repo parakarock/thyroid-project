@@ -13,7 +13,7 @@
 <ion-content padding>
   <ion-card id="css" padding>
     <ion-item>
-      <ion-label fixed color="dark">วันนัดตรวจ</ion-label>
+      <ion-label fixed id="title" color="dark">วันนัดตรวจ</ion-label>
       <ion-label
         ><ion-datetime
           displayFormat="DD/MM/YYYY"
@@ -33,32 +33,32 @@
     </ion-item>
   </ion-card>
  
-    <ion-card  *ngIf="showData">
+    <ion-card id="css"  *ngIf="showData">
       <div *ngFor="let item of items">
         <ion-item>
-          <ion-label color="dark">ชื่อ-นามสกุล</ion-label>
-          <ion-label color="primary" text-right>{{item.name}}</ion-label>
+          <ion-label class="topic" color="dark">ชื่อ-นามสกุล</ion-label>
+          <ion-label color="dark" text-right>{{item.name}}</ion-label>
         </ion-item>
   
         <ion-item>
-          <ion-label color="dark">เวลานัด</ion-label>
-          <ion-label color="primary" text-right>8.00 น.</ion-label>
+          <ion-label class="topic" color="dark">เวลานัด</ion-label>
+          <ion-label color="dark" text-right>8.00 น.</ion-label>
         </ion-item>
   
         <ion-item>
-          <ion-label color="dark">วิธีการกลืนแร่ที่กำหนด</ion-label>
-          <ion-label color="primary" text-right>{{item.method}}</ion-label>
+          <ion-label class="topic" color="dark">วิธีการกลืนแร่ที่กำหนด</ion-label>
+          <ion-label color="dark" text-right>{{item.method}}</ion-label>
         </ion-item>
   
         <ion-item>
-          <ion-label color="dark">เบอร์โทรศัพท์ติดต่อ</ion-label>
-          <ion-label color="primary" text-right>{{item.phone}}</ion-label>
+          <ion-label class="topic" color="dark">เบอร์โทรศัพท์ติดต่อ</ion-label>
+          <ion-label color="dark" text-right>{{item.phone}}</ion-label>
         </ion-item>
       </div>
       
     </ion-card>
   
-  <div *ngIf="!showData" style="text-align: center;">
-    <ion-label color="dark">ไม่พบข้อมูล</ion-label>
+  <div *ngIf="!showData" >
+    <ion-label color="dark" style="text-align: center;">ไม่พบข้อมูล</ion-label>
   </div>
 </ion-content>

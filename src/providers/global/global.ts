@@ -14,6 +14,7 @@ export class GlobalProvider {
   private name: string; //ชื่อคน login
   private loginID:string; //idcard คน login
   private selectRole; //role คน login ที่เลือก
+  private sexLogin; //เพศ คน login
 
   private patientID: string; //ปปช. ผู้ป่วย
   private patientName: string; //ชื่อ ผู้ป่วย
@@ -117,6 +118,12 @@ export class GlobalProvider {
   }
   getdate() {
     return this.appoint_date;
+  }
+  setSexLogin(gender){
+    this.sexLogin = gender
+  }
+  getSexLogin(){
+    return this.sexLogin
   }
  
 }

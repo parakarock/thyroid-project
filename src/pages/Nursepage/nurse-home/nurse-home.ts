@@ -69,6 +69,7 @@ export class NurseHomePage {
     this.showMenu = this.global.getShowMenuMain();
   }
   ionViewWillEnter(){
+    this.menu.enable(true)
     this.showMenu = this.global.getShowMenuMain();
     this.rounds = this.global.getRound();
     this.patientname = this.global.getpatientName()
@@ -85,6 +86,9 @@ export class NurseHomePage {
   selectRole() {
     if (this.status === "ผู้ป่วย") {
       this.events.publish("user:patient");
+      this.logoutPatient()
+      this.global.setpatientID(this.global.getLoginID())
+      this.global.setSex(this.global.getSexLogin())
       this.menu.enable(false);
       this.navCtrl.setRoot(PatientHomePage);
     }

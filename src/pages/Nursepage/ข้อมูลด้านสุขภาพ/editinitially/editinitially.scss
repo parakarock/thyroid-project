@@ -5,7 +5,7 @@ page-editinitially {
      label{
         font-size:  15px;
      }
-    .button{
+    button{
         font-size: 15px;
         display: block;
         margin-left: auto;
@@ -13,6 +13,9 @@ page-editinitially {
     }
     ion-label{
         font-size:  15px;
+    }
+    .topic{
+        font-weight: bold;
     }
     @media only screen and (min-width: 1024px) {
      

@@ -12,13 +12,17 @@ page-login {
     .button{
         font-size: 15px;
     }
+    .alert{
+        color:red;
+    }
    
     @media only screen and (min-width: 1024px) {
         
-
-        .img{
-            height: 250px;
-            width: 250px;
+        #css{
+            width: 40%;
+            position: relative;
+            left: 30%;
+          
         }
 
         .button{

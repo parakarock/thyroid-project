@@ -387,5 +387,28 @@ export class InsertPage {
     });
     alert.present();
   }
+
+  async presentConfirm() {
+    let alert = await this.alertCtrl.create({
+      title: "ยืนยันการแก้ไขข้อมูล",
+      message: "",
+      buttons: [
+        {
+          text: "ยกเลิก",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "ยืนยัน",
+          handler: () => {
+            this.update();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
   
 }

@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>แก้ไขติดตามผลการรักษา</ion-title>
+    <ion-title>แก้ไขข้อมูลติดตามผลการรักษา</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -157,5 +157,5 @@
     </ion-card>
   </form>
   
-    <button ion-button [disabled]="!formgroup.valid" (click)="update()"  color="1">บันทึก</button>
+    <button ion-button [disabled]="!formgroup.valid" (click)="presentConfirm()"  color="1">บันทึก</button>
 </ion-content>

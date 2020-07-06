@@ -13,7 +13,8 @@
             <label for="patient">ผู้ป่วยคุมกำเนิดหรือไม่ </label>
           </ion-col>
           <ion-col col-6>
-           {{control_name}}
+            <div>{{control_name}}</div>
+           
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -23,8 +24,8 @@
           <ion-col col-4>
             <label for="contraceptive">คุมกำเนิด </label>
           </ion-col>
-  
-          {{control_amount}} {{control_daily}}
+          <div> {{control_amount}} {{control_daily}}</div>
+         
           
         </ion-row>
       </ion-grid>
@@ -35,7 +36,7 @@
             <label for="date">ประจำเดือนครั้งสุดท้ายของท่าน</label>
           </ion-col>
           <ion-col col-6>
-           {{last_peroid_date}}
+           <div>{{last_peroid_date}}</div>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -45,13 +46,13 @@
           <ion-col col-4>
             <label for="number">จำนวน </label>
           </ion-col>
-          {{last_peroid_amount}} วัน
+          <div>{{last_peroid_amount}} วัน</div>
         </ion-row>
       </ion-grid>
     </div>
     <div *ngIf="!showData">
       <ion-item no-lines>
-        <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
+        <ion-label style="text-align: center;"  color="dark">ไม่พบข้อมูล</ion-label>
       </ion-item>
     </div>
   
@@ -59,7 +60,7 @@
   
 
     <ion-item no-lines>
-      <div><label name="title">ผลตรวจ UPT</label> <ion-icon name="add-circle" float-right  (click)="addcontraceptive('add')" *ngIf="showButtonedit" color="1" ></ion-icon></div>
+      <div><label id="title">ผลตรวจ UPT</label> <ion-icon name="add-circle" float-right  (click)="addcontraceptive('add')" *ngIf="showButtonedit" color="1" ></ion-icon></div>
     </ion-item>
     
 <div *ngIf="showUPT">
@@ -76,8 +77,8 @@
           <ion-label color="dark">{{item.UPT_result}}</ion-label>
         </ion-item>
         </ion-col>
-        <ion-col col-3 id="center-button">
-          <button ion-button color="1" (click)="addcontraceptive(i)" *ngIf="showButtonedit">
+        <ion-col col-3 id="center-button" *ngIf="showButtonedit">
+          <button ion-button color="1" (click)="addcontraceptive(i)" >
         แก้ไข
       </button>
         </ion-col>

@@ -27,9 +27,16 @@ export class EditantidepressantPage {
     this.dateBefore = moment(this.global.getdate(), "YYYY-MM-DD")
         .subtract(3, "days")
         .format("Do MMMM YYYY");
-      this.dateAfter = moment(this.global.getdate(), "YYYY-MM-DD")
+        if(this.navParams.get("method")==="วิธีการประมาณ"){
+          this.dateAfter = moment(this.global.getdate(), "YYYY-MM-DD")
         .add(4, "days")
         .format("Do MMMM YYYY");
+        }else{
+          this.dateAfter = moment(this.global.getdate(), "YYYY-MM-DD")
+          .add(5, "days")
+          .format("Do MMMM YYYY");
+        }
+      
   }
 
   ionViewDidLoad() {
@@ -87,6 +94,28 @@ export class EditantidepressantPage {
       title: "การแจ้งเตือน",
       subTitle: txt,
       buttons: ["Ok"],
+    });
+    alert.present();
+  }
+  async presentConfirm() {
+    let alert = await this.alertCtrl.create({
+      title: "ยืนยันการแก้ไขข้อมูล",
+      message: "",
+      buttons: [
+        {
+          text: "ยกเลิก",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "ยืนยัน",
+          handler: () => {
+            this.update();
+          }
+        }
+      ]
     });
     alert.present();
   }

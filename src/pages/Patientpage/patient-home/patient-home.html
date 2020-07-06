@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu side="right" [content]="mycontent">
+<ion-menu type="overlay" side="right" [content]="mycontent">
   <ion-content>
     <ion-list>
       <br />
@@ -53,6 +53,7 @@
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
 <ion-content >
+  
   <ion-slides pager="true" autoplay="400" loop="true" speed="3000">
     <ion-slide style="background-color: green">
       <h2>Slide 1</h2>
@@ -66,10 +67,10 @@
       <h2>Slide 3</h2>
     </ion-slide>
   </ion-slides>
-
+  <div id="css">
   <ion-grid>
     <ion-row>
-      <a class="col col-33 text-center"  (click)="genqrcode()">
+      <a class="col col-33 text-center"  (click)="generateQR()">
         <img
           class="img-auto"
           id="logo"
@@ -123,21 +124,5 @@
       </ion-row>
 
   </ion-grid>
-
-
-
-
-
-  <!-- <a class="col col-50 text-center"  (click)="onClicktestresult()">
-    <img
-      class="img-auto"
-      id="logo"
-      src="../../../assets/icon/Pic_Icon/P-Advice.png"
-    />
-    <h5>ผลการตรวจ</h5>
-  </a>
-
-  <ion-buttons>
-    <button ion-button (click)="goDoctorPage()">Go to Doctor Page </button>
-  </ion-buttons> -->
+</div>
 </ion-content>

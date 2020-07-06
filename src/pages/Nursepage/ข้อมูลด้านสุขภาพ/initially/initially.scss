@@ -6,6 +6,12 @@ page-initially {
         margin-left: auto;
         margin-right: auto;
     }
+    ion-label {
+        font-size: 15px;     
+    }
+    .topic{
+        font-weight: bold;
+    }
     
     @media only screen and (min-width: 1224px) {
         .button{
@@ -14,6 +20,12 @@ page-initially {
             margin-left: auto;
             margin-right: auto;
         }
+        label{
+            font-size:  20px;
+         }
+        div{
+            font-size:  20px;
+         }
         #css{
             width: 40%;
             position: relative;

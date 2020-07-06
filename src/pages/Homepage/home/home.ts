@@ -4,11 +4,7 @@ import {GlobalProvider} from '../../../providers/global/global'
 import { LoginPage } from "../login/login";
 import { Events } from "ionic-angular";
 import {
-  Http,
-  Response,
-  Headers,
-  ResponseOptions,
-  RequestOptions,
+  Http
 } from "@angular/http";
 
 import "rxjs/add/operator/map";
@@ -21,6 +17,7 @@ export class HomePage {
   url: string;
   posts: any = [];
   showButton = true
+  title;
   googleToken1: string="AIzaSyD9U_vfpvJt8aCVUDy_vRiW70xLCUbPxY8";
   googleToken2: string="AIzaSyDsBqTOtXTm43wSr68NGejE6SlyrpBWq6I";
   playlistId: string = "PL1D3jrUPZCAYRd5eCL4x4S_bW9jp6MM2p";
@@ -33,6 +30,7 @@ export class HomePage {
     public global: GlobalProvider,
     private http: Http
   ) {
+    
     this.url =
       "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=" +
       this.playlistId +
@@ -52,8 +50,8 @@ export class HomePage {
       );
   }
   ionViewDidLoad() {
+    
     // console.log("ionViewDidLoad")
-    // this.events.publish("user:guest");
   }
   ionViewWillEnter(){
     this.isPatient()
@@ -67,8 +65,10 @@ export class HomePage {
   isPatient(){
     if(this.global.getSelectRole() == "ผู้ป่วย"){
       this.showButton = false
+      this.title = "ความรู้"
     }else{
       this.showButton = true
+      this.title = "หน้าแรก"
     }
   }
 }

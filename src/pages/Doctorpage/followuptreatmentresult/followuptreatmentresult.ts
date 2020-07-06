@@ -1,5 +1,6 @@
 import { EdittreatmentresultPage } from '../edittreatmentresult/edittreatmentresult';
 import { AddtreatmentresultPage } from '../addtreatmentresult/addtreatmentresult';
+import { ShowtreatmentdetailPage } from '../showtreatmentdetail/showtreatmentdetail';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalProvider } from "../../../providers/global/global";
@@ -11,12 +12,6 @@ import {
 import moment from 'moment';
 import 'moment/locale/TH';
 
-/**
- * Generated class for the FollowuptreatmentresultPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -78,6 +73,9 @@ export class FollowuptreatmentresultPage {
 
   onClickEditLabTest(id){
     this.navCtrl.push(EdittreatmentresultPage,this.items[id]);
+  }
+  showFollowResult(id){
+    this.navCtrl.push(ShowtreatmentdetailPage,this.items[id])
   }
   ShowMore(){
     this.showMore = !this.showMore

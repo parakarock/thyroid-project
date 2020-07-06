@@ -12,7 +12,7 @@
 
 <ion-content padding>
   <ion-card id="css">
-    <div padding>
+    <div class="topic" padding>
       ขณะท่านมีอาการไทรอยด์เป็นพิษ
       กรุณาใส่เครื่องหมายถูกในช่องสี่เหลี่ยมหากท่านมีปัจจัยที่ก่อให้เกิดโรคดังต่อไปนี้
     </div>
@@ -48,20 +48,15 @@
     <ion-item no-lines (change)="changeSleep_less_than_4()">
       <input type="checkbox" id="sleep_less_than_4" *ngIf="sleep_less_than_4" checked/>
       <input type="checkbox" id="sleep_less_than_4" *ngIf="!sleep_less_than_4"/>
-      <label for="sleep_less_than_4">ทำงานหนักหรือนอนน้อยกว่า 4 ชั่วโมงต่อวัน</label><br />
+      <label for="sleep_less_than_4">นอนน้อยกว่า 4 ชั่วโมงต่อวัน</label><br />
     </ion-item>
 
     <ion-item no-lines (change)="changePregnant()" *ngIf="showFormSex">
       <input type="checkbox" id="pregnant" *ngIf="pregnant&&showFormSex" checked/>
       <input type="checkbox" id="pregnant" *ngIf="!pregnant&&showFormSex"/>
-      <label for="pregnant">เป็นหญิงกำลังตั้งครรภ์</label><br />
+      <label for="pregnant">ไทรอยด์เป็นพิษขณะกำลังตั้งครรภ์</label><br />
     </ion-item>
 
-    <ion-item no-lines (change)="changeToxic_womb()" *ngIf="showFormSex">
-      <input type="checkbox" id="toxic_womb" *ngIf="toxic_womb&&showFormSex" checked/>
-      <input type="checkbox" id="toxic_womb" *ngIf="!toxic_womb&&showFormSex"/>
-      <label for="toxic_womb">มีครรภ์เป็นพิษ</label><br />
-    </ion-item>
 
     
     <ion-item no-lines (change)="changeSmoking()">
@@ -141,12 +136,7 @@
     ><br />
   </ion-item>
 
-  <ion-item no-lines (change)="changeRelative_low_thyroid()">
-    <input type="checkbox" id="relative_low_thyroid" *ngIf="relative_low_thyroid" checked/>
-    <input type="checkbox" id="relative_low_thyroid" *ngIf="!relative_low_thyroid"/>
-    <label for="relative_low_thyroid">ญาติตรงของผู้ป่วยต่อมไทรอยด์ทำงานน้อย</label
-    ><br />
-  </ion-item>
+ 
   </ion-card>
 
   <button ion-button small (click)="presentConfirm()" color="1">บันทึก</button>

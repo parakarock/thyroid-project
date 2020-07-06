@@ -36,6 +36,7 @@ export class GenPage {
     this.scanner.encode(this.scanner.Encode.TEXT_TYPE, this.encodText).then((data) => {
       this.encodeData = data;
     },(err)=> {
+      
       console.log('Error :',err);
     })
 

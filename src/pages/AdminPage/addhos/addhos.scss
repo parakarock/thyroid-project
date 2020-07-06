@@ -15,7 +15,14 @@ page-addhos {
     }
     label {
         font-size: 15px;
-        
+        font-weight: bold;
+    }
+    .help-inline{
+        color: red;
+    }
+    .title{
+        font-size: 17px;
+        font-weight: bold;
     }
     @media only screen and (min-width: 1224px) {
         ion-label {
@@ -40,6 +47,10 @@ page-addhos {
         }
         label {
             font-size: 20px;
+            
+        }
+        .title{
+            font-size: 22px;
             
         }
       }
