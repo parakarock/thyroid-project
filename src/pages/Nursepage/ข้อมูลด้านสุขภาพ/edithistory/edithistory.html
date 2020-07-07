@@ -6,29 +6,36 @@
 
 <ion-content padding>
 
-  
+
 <ion-card id="css" padding>
-  
 
-<div>ท่านเคยรักษาด้วยแร่ไอโอดีนหรือไม่</div>
 
-  
+<div class="topic">ท่านเคยรักษาด้วยแร่ไอโอดีนหรือไม่</div>
+
+
 <ion-grid>
   <ion-row>
     <ion-col col-12>
       
       <ion-list >
         <ion-item no-lines (change)="changespecify()">
-          <ion-label class="radio-inline">
-            <input type="radio" *ngIf="specify"  >
-            <input type="radio" *ngIf="!specify" checked >
-            ไม่เคย
+          <ion-label>
+            <input id="nospecify" type="radio" *ngIf="specify"  >
+            <input id="nospecify" type="radio" *ngIf="!specify" checked >
+            <label for="nospecify" class="radio-inline">
+              ไม่เคย
+            </label>
           </ion-label>
-          <ion-label class="radio-inline">
-            <input type="radio" *ngIf="!specify">
-            <input type="radio" *ngIf="specify" checked>
+            
+            
+          <ion-label>
+
+            <input id="yesspecify" type="radio" *ngIf="!specify">
+            <input id="yesspecify" type="radio" *ngIf="specify" checked>
+            <label for="yesspecify" class="radio-inline">
             เคย
-          </ion-label>
+          </label>
+        </ion-label>
         </ion-item>
         </ion-list>
 
@@ -39,7 +46,7 @@
 <ion-grid>
   <ion-row>
     <ion-col col-4>
-      <label >โรงพยาบาลหรือสถาบัน    </label>
+      <label class="topic">โรงพยาบาลหรือสถาบัน    </label>
     </ion-col>
     <ion-col col-6>
       <input type="text" id="hospital" name="hospital" formControlName="hospital" size="20">
@@ -53,10 +60,10 @@
 <ion-grid>
   <ion-row>
     <ion-col col-4>
-      <label for="้date" >วันที่กลืนแร่    </label>
+      <label class="topic" class="topic" for="้date" >วันที่กลืนแร่    </label>
     </ion-col>
     <ion-col col-6>
-      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MMMM YYYY" min={{startMin}} max={{startMax}} formControlName="datemineral" 
+      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MMMM YYYY" min={{startMin}} max={{startMax}} placeholder="กรุณาเลือกวันที่" formControlName="datemineral" 
     monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, "></ion-datetime>
               
               <p class="help-inline"
@@ -69,7 +76,7 @@
   <ion-grid>
     <ion-row>
       <ion-col col-4>
-        <label for="amount" >ปริมาณ (mCi)    </label>
+        <label class="topic" for="amount" >ปริมาณ (mCi)    </label>
       </ion-col>
       <ion-col col-6>
         <input type="number" id="amount" name="amount" formControlName="amount"  size="20">

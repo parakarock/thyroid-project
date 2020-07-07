@@ -23,7 +23,7 @@ import 'moment/locale/TH';
 })
 export class GeneralPage {
   name ;
-  title 
+  title
   firstname
   lastname;
   date;
@@ -104,7 +104,7 @@ export class GeneralPage {
     await this.getdata()
   }
   ionViewWillEnter(){
-    if(this.navParams.get("formData")){ 
+    if(this.navParams.get("formData")){
     return  new Promise((resolve, reject) => {
     this.name = this.navParams.get("formData").title+this.navParams.get("formData").firstname+" "+this.navParams.get("formData").lastname;
     this.title = this.navParams.get("formData").title;
@@ -124,10 +124,10 @@ export class GeneralPage {
     this.tel= this.navParams.get("formData").phone;
      
         });
-  
+
     }
   }
- 
+
   editgeneral() {
     this.navCtrl.push(EditgeneralPage, {
       date: this.birthday,
@@ -155,5 +155,5 @@ export class GeneralPage {
       return false;
     }
   }
-  
+
 }

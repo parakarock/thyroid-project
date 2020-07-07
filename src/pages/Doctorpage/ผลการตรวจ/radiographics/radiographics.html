@@ -1,42 +1,54 @@
-<!-- <ion-header>
+
+<!-- ส่วนแสดงของหมอ -->
+<ion-header *ngIf="showMenu">
   <ion-navbar color="1">
-    <ion-title>Scan</ion-title>
+    <ion-title>อัพโหลดภาพ Thyroid Scan</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card id="css" padding>
-
-
-<div>ภาพ Thyroid Scan</div>
-  <div id="subtitle" ></div>
-  <div>ผลการรักษา</div>
-  <button ion-button  color="1">แก้ไข</button>
-</ion-card>
-</ion-content> -->
-
-<ion-header>
+<!-- ส่วนแสดงของผู้ป่วย -->
+<ion-header *ngIf="!showMenu">
   <ion-navbar color="1">
-    <ion-title>Scan</ion-title>
+    <ion-title>ภาพ Thyroid Scan</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content paddin id="css">
+<!-- ส่วนแสดงของหมอ -->
+<ion-content padding id="css" *ngIf="showMenu">
   <ion-card>
-  <ion-card-header>ภาพ Thyroid Scan</ion-card-header>
-  <button ion-button full (click)="takePhoto(0)">เลือกรูปภาพ</button>
-  <button ion-button full (click)="takePhoto(1)">เปิดกล้องถ่ายรูป</button>
-
-  <ion-item>
-    <h4>Image Preview</h4>
+  <ion-card-header><b>เลือกภาพ Thyroid Scan</b></ion-card-header>
+  <button ion-button full (click)="AlertTakePhoto()">เลือกรูปภาพ</button>
+  <ion-item *ngIf="myPhoto">
+    <!-- <h4>Image Preview</h4> -->
     <p><img align="center" src="{{ myPhoto }}"/></p>
   </ion-item>
 
-  <ion-item>
+  <ion-item *ngIf="myPhoto" >
+    <ion-textarea autosize [(ngModel)]="description" placeholder="เขียนคำอธิบายรูปภาพ"></ion-textarea>
+  </ion-item>
+
+  <ion-item *ngIf="myPhoto">
     <button ion-button full (click)="uploadFile()">อัพโหลดรูปภาพ</button>
   </ion-item>
 </ion-card>
 
-  <!-- <div>ผลการรักษา</div>
-  <button ion-button full (click)="uploadFile()">Edit</button> -->
+<!-- ส่วนแสดงรูปภาพ -->
+<ion-card *ngIf="imageFile">
+  <ion-item full>
+    <ion-card-header><b>รูปภาพ Thyroid Scan ของผู้ป่วย</b></ion-card-header><br>
+    <img src="{{imageFile}}"> <br><br>
+    <h2><b>คำอธิบายรูปภาพ</b></h2>
+    {{desc}}
+  </ion-item>
+</ion-card>
+</ion-content>
+
+<!-- ส่วนแสดงของผู้ป่วย -->
+<ion-content *ngIf="!showMenu">
+  <ion-item full>
+    <h2><b>รูปภาพ</b></h2><br>
+    <img src="{{imageFile}}"> <br><br>
+    <h2><b>คำอธิบายรูปภาพ</b></h2>
+    {{desc}}
+  </ion-item>
 </ion-content>

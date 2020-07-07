@@ -101,9 +101,8 @@ export class EditgeneralPage {
       from_name2: ["", Validators.pattern("^[ก-๏sa-zA-Z]+$")],
       to_name2: ["", Validators.pattern("^[ก-๏sa-zA-Z]+$")]
     });
-    
-    
   }
+
   updateAge(){
     this.age = moment().diff(moment(this.formgroup.controls.birthday.value,"YYYY-MM-DD").subtract(543, 'y'), 'years');
   }
@@ -205,7 +204,7 @@ export class EditgeneralPage {
               this.global.setSexLogin(this.formgroup.controls.sex.value)
             }
            this.global.setSex(this.formgroup.controls.sex.value);
-            this.presentAlert(data.result); 
+            this.presentAlert(data.result);
           }
         },
         error => {
@@ -235,8 +234,6 @@ export class EditgeneralPage {
           handler: () => {
             this.updateData();
             this.navCtrl.pop();
-           
-           
           }
         }
       ]

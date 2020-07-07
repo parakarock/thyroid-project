@@ -43,9 +43,9 @@ export class TabooPage {
   }
 
   ionViewWillEnter(){
-    if(this.navParams.get("formData")){ 
+    if(this.navParams.get("formData")){
     return  new Promise((resolve, reject) => {
-      this.showData = true; 
+      this.showData = true;
     this.showNeckSurgery = this.navParams.get("formData").therapy_1;
     this.showIrradiate = this.navParams.get("formData").therapy_2;
     this.showCorrection= this.navParams.get("formData").therapy_3;
@@ -55,7 +55,7 @@ export class TabooPage {
     this.showrecommend= this.navParams.get("formData").therapy_7;
     this.showInjection= this.navParams.get("formData").therapy_8;
         });
-  
+
     }
   }
 
@@ -75,7 +75,6 @@ export class TabooPage {
         data => {
           if ( data.therapy_1 !== null) {
             this.showData = true;
-            
             this.showNeckSurgery = data.therapy_1;
             this.showIrradiate = data.therapy_2;
             this.showCorrection = data.therapy_3;

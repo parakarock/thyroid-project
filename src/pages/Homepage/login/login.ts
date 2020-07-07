@@ -13,6 +13,7 @@ import {
   Headers,
   RequestOptions
 } from "@angular/http";
+
 import "rxjs/add/operator/map";
 import { DoctorHomePage } from "../../Doctorpage/doctor-home/doctor-home";
 import { PatientHomePage } from "../../Patientpage/patient-home/patient-home";
@@ -32,10 +33,10 @@ import {
 })
 export class LoginPage {
   formgroup: FormGroup;
-  
+
   @ViewChild("usernameInput") mUsername;
   @ViewChild("passwordInput") mPassword;
-  
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -154,5 +155,5 @@ export class LoginPage {
   changePass(){
     this.navCtrl.push(ChangepassLogin1Page);
   }
-  
+
 }

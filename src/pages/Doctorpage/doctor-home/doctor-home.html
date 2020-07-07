@@ -12,9 +12,9 @@
   <ion-list>
     <br>
     <img class="profile" src="../../../assets/icon/Pic_Icon/doctor.png" />
-    
+
       <h3>{{ name }}</h3>
-      
+
       <ion-item *ngIf="showMenu">
         <ion-label >รักษาครั้งที่</ion-label>
         <ion-select [(ngModel)]="number" interface="popover" (ionChange)="SelectRound()">
@@ -26,7 +26,7 @@
           >
         </ion-select>
       </ion-item>
-   
+
     <ion-item>
       <ion-label>Status</ion-label>
       <ion-select [(ngModel)]="status" interface="popover" (ionChange)="selectRole()">
@@ -55,7 +55,7 @@
           เปลี่ยนผู้ป่วย <ion-icon name="swap"></ion-icon>
         </button>
       </div>
-   
+
     </ion-card-content>
   </ion-card>
 
@@ -78,7 +78,7 @@
         />
         <h5>ผลการตรวจ</h5>
       </a>
-    </ion-row> 
+    </ion-row>
 
     <ion-row>
       <a class="col col-50 text-center" (click)="navigateIodineResult()">
@@ -111,12 +111,12 @@
           ถัดไป<ion-icon name="arrow-forward"></ion-icon>
         </button>
       </div>
-      
-       
- 
+
+
+
         <button ion-button (click)="scan()" color="1">Scan</button>
-      
-  
+
+
     </ion-card-content>
   </ion-card>
 </div>

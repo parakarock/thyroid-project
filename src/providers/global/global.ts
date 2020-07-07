@@ -16,14 +16,14 @@ export class GlobalProvider {
   private selectRole; //role คน login ที่เลือก
   private sexLogin; //เพศ คน login
 
-  private patientID: string; //ปปช. ผู้ป่วย
+  public patientID: string ; //ปปช. ผู้ป่วย
   private patientName: string; //ชื่อ ผู้ป่วย
   private round: any; //รอบ[] ผู้ป่วย
   private selectRound = 1; //เลือก รอบ
   private sex:string; //เพศผู้ป่วย
 
   private showMenuMain:boolean =false;
-  
+
 
   timeVar;
   timeVal;

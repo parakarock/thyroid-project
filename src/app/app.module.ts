@@ -1,3 +1,6 @@
+import { ShowExaminationPage } from '../pages/Doctorpage/ผลการตรวจ/show-examination/show-examination';
+import moment from 'moment';
+// import { EditlabtestPage } from '../pages/Nursepage/editlabtest/editlabtest';
 import { EditlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/editlabtest/editlabtest';
 import { EdittreatmentresultPage } from '../pages/Doctorpage/edittreatmentresult/edittreatmentresult';
 import { AddtreatmentresultPage } from '../pages/Doctorpage/addtreatmentresult/addtreatmentresult';
@@ -6,6 +9,8 @@ import { EditiodineresultdetailPage } from '../pages/Doctorpage/editiodineresult
 import { IodineresultdetailPage } from '../pages/Doctorpage/iodineresultdetail/iodineresultdetail';
 import { IodineresultPage } from '../pages/Doctorpage/iodineresult/iodineresult';
 import { DoctorHomePage } from '../pages/Doctorpage/doctor-home/doctor-home';
+// import { LabtestresultPage } from '../pages/Nursepage/labtestresult/labtestresult';
+// import { AddlabtestPage } from './../pages/Nursepage/addlabtest/addlabtest';
 import { LabtestresultPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/labtestresult/labtestresult';
 import { AddlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/addlabtest/addlabtest';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -13,6 +18,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
+
+// import { File } from '@ionic-native/file';
+import {Md5} from 'ts-md5/dist/md5';
+
 import { AppointmentPage } from "../pages/Nursepage/appointment/appointment";
 import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -61,6 +70,7 @@ import { EatfoodPage} from '../pages/Nursepage/ขั้นตอนการเ
 import { NofoodPage} from '../pages/Nursepage/ขั้นตอนการเตรียมตัว/nofood/nofood';
 import {InsertPage} from '../pages/Nursepage/ข้อมูลด้านสุขภาพ/insert/insert';
 
+// //Nurse Page//
 import { TestresultPage} from '../pages/Doctorpage/ผลการตรวจ/testresult/testresult';
 import { PhysicalPage} from '../pages/Doctorpage/ผลการตรวจ/physical/physical';
 import { PhysicalsPage} from '../pages/Doctorpage/ผลการตรวจ/physicals/physicals';
@@ -68,13 +78,19 @@ import { LabPage} from '../pages/Doctorpage/ผลการตรวจ/lab/lab'
 import { RadiographicPage} from '../pages/Doctorpage/ผลการตรวจ/radiographic/radiographic';
 import { RadiographicsPage} from '../pages/Doctorpage/ผลการตรวจ/radiographics/radiographics';
 import { ExaminationPage} from '../pages/Doctorpage/ผลการตรวจ/examination/examination';
+
 import { BiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/biopsy/biopsy';
 import { EditphysicalPage} from '../pages/Doctorpage/ผลการตรวจ/editphysical/editphysical';
 import { EditphysicalsPage} from '../pages/Doctorpage/ผลการตรวจ/editphysicals/editphysicals';
 import { EditlabPage} from '../pages/Doctorpage/ผลการตรวจ/editlab/editlab';
 import { EditbiopsyPage} from '../pages/Doctorpage/ผลการตรวจ/editbiopsy/editbiopsy';
 import { DiagnosticResultsPage} from '../pages/Doctorpage/ผลการตรวจ/diagnostic-results/diagnostic-results';
-import { GlobalProvider } from '../providers/global/global';
+
+// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+// import { File } from '@ionic-native/file';
+// import { Camera } from '@ionic-native/camera';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PatientHomePage } from '../pages/Patientpage/patient-home/patient-home';
 
@@ -90,7 +106,13 @@ import { ShowuserPage } from '../pages/AdminPage/showuser/showuser';
 
 import {  QrcodePage } from '../pages/qrscan/qrscan';
 import {  GenPage } from '../pages/gen/gen';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { GlobalProvider } from '../providers/global/global';
+
+
+import { FilePath } from '@ionic-native/file-path';
+import { FileOpener } from '@ionic-native/file-opener';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { AutosizeModule } from 'ngx-autosize';
 
 import { YoutubePipe } from '../pipes/youtube/youtube'
 
@@ -108,6 +130,7 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     TabsPage,
     LoginPage,
     RegisterPage,
+    NurseHomePage,
     RegistersPage,
     NurseHomePage,
     AddlabtestPage,
@@ -156,6 +179,20 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     EditlabPage,
     DiagnosticResultsPage,
     EditbiopsyPage,
+    // DocBiopsyPage,
+    // DocDiagnosticResultPage,
+    // DocEditPage,
+    // DocEditbiopsyPage,
+    // DocEditlabPage,
+    // DocEditphysicalPage,
+    // DocEditphysicalsPage,
+    // DocExaminationPage,
+    // DocLabPage,
+    // DocPhysicalPage,
+    // DocPhysicalsPage,
+    // DocRadiographicPage,
+    // DocRadiographicsPage,
+    // DocTestresultPage,
     PatientHomePage,
     ToxinthyPage,
     AgreePage,
@@ -177,6 +214,7 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     YoutubePipe,
     ChangepassLogin1Page,
     ChangepassLogin2Page,
+    ShowExaminationPage,
     ShowlabtestPage,
     AddiodineresultPage,
     ShowtreatmentdetailPage
@@ -189,6 +227,9 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    AutosizeModule,
+
     // IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -200,6 +241,7 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     TabsPage,
     LoginPage,
     RegisterPage,
+    NurseHomePage,
     RegistersPage,
     NurseHomePage,
     AddlabtestPage,
@@ -248,6 +290,20 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     EditlabPage,
     DiagnosticResultsPage,
     EditbiopsyPage,
+    // DocBiopsyPage,
+    // DocDiagnosticResultPage,
+    // DocEditPage,
+    // DocEditbiopsyPage,
+    // DocEditlabPage,
+    // DocEditphysicalPage,
+    // DocEditphysicalsPage,
+    // DocExaminationPage,
+    // DocLabPage,
+    // DocPhysicalPage,
+    // DocPhysicalsPage,
+    // DocRadiographicPage,
+    // DocRadiographicsPage,
+    // DocTestresultPage,
     PatientHomePage,
     ToxinthyPage,
     AgreePage,
@@ -268,6 +324,7 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     InsertPage,
     ChangepassLogin1Page,
     ChangepassLogin2Page,
+    ShowExaminationPage,
     ShowlabtestPage,
     AddiodineresultPage,
     ShowtreatmentdetailPage
@@ -284,7 +341,22 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     Camera,
     IonicStorageModule,
 
+
+    FileTransfer,
+    // FileUploadOptions,
+    FileTransferObject,
+    File,
+    Camera,
+    BarcodeScanner,
+    IonicStorageModule,
+    GlobalProvider,
+    Md5,
+    FilePath,
+    FileOpener,
+    FileChooser,
+
   ]
 })
+
 export class AppModule {}
 

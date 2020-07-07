@@ -10,13 +10,6 @@ import {
 import moment from "moment";
 import "moment/locale/TH";
 
-/**
- * Generated class for the EdithistoryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-edithistory',
@@ -44,12 +37,14 @@ export class EdithistoryPage {
         ])
      
       ],
-      datemineral: [moment().add(543, 'y').format()||moment(navParams.get("datemineral")).format("YYYY-MM-DD")],
+      datemineral: [moment(navParams.get("datemineral"),"Do MMMM YYYY").format("YYYY-MM-DD")],
       amount: [
         navParams.get("amount")
       ]   
     });
-    
+    if(navParams.get("specify") == false){
+      this.formgroup.controls.datemineral.setValue(moment().add(543, 'y').format()) 
+    }
   }
 
   changespecify() {

@@ -23,14 +23,14 @@ export class TabsPage {
 
   public show:boolean = false;
   public showHome:boolean = false;
- 
+
   constructor(public events: Events,public navCtrl: NavController,public global: GlobalProvider,) {
     events.subscribe('user:patient', () => {
       this.global.setSelectRole("ผู้ป่วย")
       this.tab1Root = PatientHomePage;
       this.tab2Root = "";
       this.tab3Root = ContactPage;
-      this.tab4Root = HomePage; 
+      this.tab4Root = HomePage;
       this.show = false;
       this.showHome = true
     });
@@ -57,7 +57,7 @@ export class TabsPage {
       this.tab3Root = ContactPage;
       this.show = false;
       this.showHome = false
-      
+
     });
     events.subscribe('user:admin', () => {
       this.global.setSelectRole("แอดมิน")
@@ -66,7 +66,7 @@ export class TabsPage {
       this.tab3Root = ContactPage;
       this.show = false;
       this.showHome = false
-      
+
     });
       this.tab1Root = HomePage;
       this.tab2Root = "";
@@ -74,6 +74,6 @@ export class TabsPage {
       this.show = false;
       this.showHome = false
   }
-  
+
 }
 

@@ -16,22 +16,22 @@
       <ion-slide style="background-color: green">
         <h2>Slide 1</h2>
       </ion-slide>
-  
+
       <ion-slide style="background-color: blue">
         <h2>Slide 2</h2>
       </ion-slide>
-  
+
       <ion-slide style="background-color: red">
         <h2>Slide 3</h2>
       </ion-slide>
     </ion-slides>
 
-    
+
       <div id="subtitle" >ความรู้ทั่วไปเกี่ยวกับโรคไทรอยด์</div>
-   
+
   <ion-grid>
     <ion-row>
-     
+
       <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 *ngFor="let item of posts">
         <ion-card >
           <ion-card-header>
@@ -39,10 +39,10 @@
           </ion-card-header>
           <ion-card-content>
             <iframe
-            
+
             height="80%"
-            width= "100%" 
-            
+            width= "100%"
+
             class="youtube-player" type="text/html"
             [src]="item.contentDetails.videoId | youtube"
             frameborder="0"
@@ -53,9 +53,9 @@
           <!-- <img [src]="item.snippet.thumbnails.high.url"> -->
           </ion-card-content>
         </ion-card>
-        
+
       </ion-col>
-     
+
     </ion-row>
   </ion-grid>
 </ion-content>

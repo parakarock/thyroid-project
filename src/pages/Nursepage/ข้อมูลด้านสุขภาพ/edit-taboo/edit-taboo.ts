@@ -139,7 +139,7 @@ export class EditTabooPage {
       therapy_7: this.editData(this.recommend),
       therapy_8: this.editData(this.Injection)
     };
-    
+
     this.navCtrl.getPrevious().data.formData = body
       this.http
         .post(

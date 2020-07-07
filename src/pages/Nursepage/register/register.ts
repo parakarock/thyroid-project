@@ -20,7 +20,7 @@ export class RegisterPage {
   age=0;
   startMin: any;
   startMax: any;
-  
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -53,7 +53,7 @@ export class RegisterPage {
           Validators.minLength(6),
           Validators.maxLength(13),
           Validators.pattern("[0-9a-zA-Z]+")
-          
+
         ])
       ],
       sex: ["หญิง", Validators.required],
@@ -76,7 +76,7 @@ export class RegisterPage {
       ]
     });
   }
-  
+
   updateAge() {
     this.age = moment().diff(
       moment(this.formgroup.controls.birthday.value).subtract(543, 'y'),
@@ -85,16 +85,33 @@ export class RegisterPage {
   }
   ionViewDidLoad() {
     console.log("ionViewDidLoad RegisterPage");
-    
+
   }
   onClickToRegister() {
   this.formgroup.controls.birthday.setValue(moment(this.formgroup.controls.birthday.value).format("YYYY-MM-DD"));
    this.navCtrl.push(RegistersPage, this.formgroup.value);
   }
+//   doRegister(){
+//     console.log(this.formgroup.value);
+//     console.log(this.formgroup.valid);
+// }
+  // getDayNames(): Array<string> {
+	//   return [
+	//           this.translate.instant('date:day:1:long'),
+	//           this.translate.instant('date:day:2:long'),
+	//           this.translate.instant('date:day:3:long'),
+	//           this.translate.instant('date:day:4:long'),
+	//           this.translate.instant('date:day:5:long'),
+	//           this.translate.instant('date:day:6:long'),
+	//           this.translate.instant('date:day:7:long')
+	//   ];
+  // }
+
+
+  // }
   doRegister() {
     console.log(this.formgroup.value);
     console.log(this.formgroup.valid);
   }
-  
 }
 

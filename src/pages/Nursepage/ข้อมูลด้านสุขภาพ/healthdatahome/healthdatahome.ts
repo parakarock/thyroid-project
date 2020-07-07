@@ -23,7 +23,7 @@ import { GlobalProvider } from "../../../../providers/global/global";
   templateUrl: "healthdatahome.html"
 })
 export class HealthdatahomePage {
-  
+
   roles;
   name;
   status: string;
@@ -37,7 +37,7 @@ export class HealthdatahomePage {
     public global: GlobalProvider,
     public events: Events
   ) {
-   
+
     if(this.global.getSelectRole() === "พยาบาล"){
       this.showMenu = true;
     }else{
@@ -50,12 +50,12 @@ export class HealthdatahomePage {
     }
   }
   ionViewDidLoad() {
-   
+
     console.log("global round :"+this.global.getRound());
     console.log("id :"+this.global.getpatientID());
     console.log("ionViewDidLoad HealthdatahomePage");
   }
-  
+
   general() {
     this.navCtrl.push(GeneralPage);
   }

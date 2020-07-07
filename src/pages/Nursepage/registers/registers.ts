@@ -135,7 +135,7 @@ export class RegistersPage {
             this.global.setShowMenuMain(true);
             this.navCtrl.remove(this.navCtrl.getActive().index - 1, 2);
           }
-          
+
         },
         error => {
           console.log(error);

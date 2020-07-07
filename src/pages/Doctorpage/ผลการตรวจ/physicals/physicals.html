@@ -1,24 +1,212 @@
 <ion-header>
   <ion-navbar color="1">
-    <ion-title>ตรวจร่างกาย</ion-title>
+    <ion-title>ผลการตรวจร่างกาย (ส่วนที่ 2)</ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <ion-card id="css" padding >
-<div>ขนาดของต่อมไทรอยด์:</div>
-<div>คลำได้ก้อนเนื้องอกในต่อมไทรอยด์:</div>
-<div>ระบบหัวใจและปอด:</div>
-<div>มือสั่น:</div>
-<div>ความแรงของกล้ามเนื้อต้นแขนและต้นขาทั้งสองข้าง:</div>
-<div>แขนซ้าย:</div>
-<div>แขนขวา:</div>
-<div>ขาซ้าย:</div>
-<div>ขาขวา:</div>
-<div>ผิวหนังบริเวณหน้าแข้งหนาและบวมแดง:</div>
-<div>เล็บเปราะแตกง่าย เล็บแยกจากฐานเล็บ:</div>
-<div>อื่นๆ</div>
+  <ion-card id="css" padding *ngIf="showData">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>ขนาดของต่อมไทรอยด์:</b> </div>
+          <!-- <div>{{ thyroid_size }}  กรัม</div> -->
+        </ion-col>
+        <ion-col>
+          <div>{{ thyroid_size }}  กรัม</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>คลำได้ก้อนเนื้องอกในต่อมไทรอยด์</b></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="thyroid_tumor_detect === 1">
+      <ion-row>
+        <ion-col>
+          <div>พบ ระบุ {{ thyroid_tumor_size }} กรัม</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="thyroid_tumor_detect === 0">
+      <ion-row>
+        <ion-col>
+          <div>ไม่พบความผิดปกติ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>ระบบหัวใจและปอด</b></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="heart_lung_unusual === 1">
+      <ion-row>
+        <ion-col>
+          <div>ผิดปกติ ระบุ: {{ heart_lung_detail }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="heart_lung_unusual === 0">
+      <ion-row>
+        <ion-col>
+          <div>ไม่พบความผิดปกติ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <!-- มือสั่น -->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>มือสั่น</b></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="trembling_hand === 1">
+      <ion-row>
+        <ion-col>
+          <div>พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="trembling_hand === 0">
+      <ion-row>
+        <ion-col>
+          <div>ไม่พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>ความแรงของกล้ามเนื้อต้นแขนและต้นขาทั้งสองข้าง</b></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div><b>แขนซ้าย:</b></div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ power_left_hand }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div><b>แขนขวา:</b></div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ power_right_hand }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div><b>ขาซ้าย:</b></div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ power_left_leg }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div><b>ขาขวา:</b></div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ power_right_leg }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>ผิวหนังบริเวณหน้าแข้งหนาและบวมแดง</b></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="swell_shin === 1">
+      <ion-row>
+        <ion-col>
+          <div>พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="swell_shin === 0">
+      <ion-row>
+        <ion-col>
+          <div>ไม่พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div><b>เล็บเปราะแตกง่าย เล็บแยกจากฐานเล็บ</b></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="brittle_nail === 1">
+      <ion-row>
+        <ion-col>
+          <div>พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="brittle_nail === 0">
+      <ion-row>
+        <ion-col>
+          <div>ไม่พบ</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div><b>อื่นๆ</b></div>
+        </ion-col>
+        <ion-col col-6>
+          <div>{{ detail }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-card>
-<button ion-button (click)="editphysicals()" color="1">Edit</button>
+
+<button ion-button *ngIf="showMenu" (click)="editphysicals()" color="1">แก้ไขข้อมูล</button>
 </ion-content>

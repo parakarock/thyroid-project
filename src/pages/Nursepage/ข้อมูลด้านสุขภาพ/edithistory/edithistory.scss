@@ -14,8 +14,11 @@ page-edithistory {
         margin-left: auto;
         margin-right: auto;
     }
+    .topic{
+        font-weight: bold;
+    }
     @media only screen and (min-width: 1024px) {
-     
+
         ion-list{
             width: 30%;
         }
@@ -35,7 +38,7 @@ page-edithistory {
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
 }
 }

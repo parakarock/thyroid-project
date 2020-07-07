@@ -1,3 +1,4 @@
+import { ShowExaminationPage } from '../show-examination/show-examination';
 import { ExaminationPage } from './../examination/examination';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -36,6 +37,6 @@ export class RadiographicPage {
     this.navCtrl.push(BiopsyPage)
   }
   thyroidUltrasound(){
-    this.navCtrl.push(ExaminationPage)
+    this.navCtrl.push(ShowExaminationPage)
   }
 }
