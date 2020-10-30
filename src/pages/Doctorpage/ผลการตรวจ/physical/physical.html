@@ -5,8 +5,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" padding *ngIf="showData">
 
+  <ng-container *ngIf="!body_weight">
+    <h3 align="center">ไม่พบข้อมูล</h3>
+  </ng-container>
+
+  <ng-container *ngIf="body_weight">
+  <ion-card id="css" padding *ngIf="showData">
     <ion-grid>
       <ion-row>
         <ion-col col-4>
@@ -198,8 +203,9 @@
       </ion-row>
     </ion-grid>
   </ion-card>
+</ng-container>
 
-<button ion-button id="button" *ngIf="showMenu" (click)="editphysical()" color="1" id="editphysical">แก้ไขข้อมูล</button>
+<button ion-button id="button" *ngIf="showMenu" (click)="editphysical()" color="1" id="editphysical">บันทึกข้อมูล</button>
 
 <button ion-button id="button" (click)="physicals()" color="1" id="physicals">ถัดไป</button>
 

@@ -33,7 +33,7 @@
 </ion-card>
 
 <!-- ส่วนแสดงรูปภาพ -->
-<ion-card *ngIf="imageFile">
+<ion-card *ngIf="imagepath">
   <ion-item full>
     <ion-card-header><b>รูปภาพ Thyroid Scan ของผู้ป่วย</b></ion-card-header><br>
     <img src="{{imageFile}}"> <br><br>
@@ -45,10 +45,18 @@
 
 <!-- ส่วนแสดงของผู้ป่วย -->
 <ion-content *ngIf="!showMenu">
-  <ion-item full>
-    <h2><b>รูปภาพ</b></h2><br>
-    <img src="{{imageFile}}"> <br><br>
-    <h2><b>คำอธิบายรูปภาพ</b></h2>
-    {{desc}}
-  </ion-item>
+  <ng-container *ngIf="imagepath">
+    <ion-item full>
+        <h2><b>รูปภาพ</b></h2><br>
+        <img src="{{imageFile}}"> <br><br>
+        <h2><b>คำอธิบายรูปภาพ</b></h2>
+        {{desc}}
+      </ion-item>
+  </ng-container>
+
+  <ng-container *ngIf="!imagepath">
+    <h3 align="center">ไม่พบข้อมูล</h3>
+  </ng-container>
+
+
 </ion-content>

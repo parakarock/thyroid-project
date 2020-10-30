@@ -80,26 +80,26 @@
     && formgroup.get('ThyroidMed').touched"
           >
             กรุณาเลือก
-          </p>  
+          </p>
         </ion-col>
         <ion-col col-3 >
           <input type="text" *ngIf="showAntiOther" formControlName="ThyroidMedEtc" id="ThyroidMedEtc" name="ThyroidMedEtc" size="20">
         </ion-col>
       </ion-row>
     </ion-grid>
-    
-    
+
+
     <ion-grid *ngIf="showAntiPill">
       <ion-row>
-          
-        <input type="number" formControlName="ThyroidMedVol" id="ThyroidMedVol" name="ThyroidMedVol" size="5">  
-        <label for="ThyroidMedVol" >&ensp;เม็ด &ensp;    </label>
-         
-      <input type="number"formControlName="ThyroidMedRoundPerDay" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">  
+
+        <input type="number" formControlName="ThyroidMedVol" id="ThyroidMedVol" name="ThyroidMedVol" size="5">
+        <label for="ThyroidMedVol" >&ensp; เม็ด &ensp;    </label>
+
+      <input type="number"formControlName="ThyroidMedRoundPerDay" id="ThyroidMedRoundPerDay" name="ThyroidMedRoundPerDay" size="5">
       <label for="ThyroidMedRoundPerDay" >&ensp; ครั้ง &ensp;  </label>
       </ion-row>
     </ion-grid>
-    
+
       <ion-grid>
         <ion-row>
           <ion-col col-4>
@@ -116,21 +116,21 @@
     && formgroup.get('BetaBlock').touched"
             >
               กรุณาเลือก
-            </p>  
+            </p>
           </ion-col>
           <ion-col col-3 >
             <input type="text" *ngIf="showBlockOther" formControlName="BetaBlockEtc" id="BetaBlockEtc" name="BetaBlockEtc" size="20">
           </ion-col>
         </ion-row>
       </ion-grid>
-    
+
       <ion-grid *ngIf="showBlockPill">
         <ion-row>
-            
-          <input type="number" formControlName="BetaBlockVol" id="BetaBlockVol" name="BetaBlockVol" size="5">  
+
+          <input type="number" formControlName="BetaBlockVol" id="BetaBlockVol" name="BetaBlockVol" size="5">
           <label for="BetaBlockVol" >&ensp; เม็ด &ensp;    </label>
-           
-        <input type="number" formControlName="BetaBlockRoundPerDay" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">  
+
+        <input type="number" formControlName="BetaBlockRoundPerDay" id="BetaBlockRoundPerDay" name="BetaBlockRoundPerDay" size="5">
         <label for="BetaBlockRoundPerDay" >&ensp; ครั้ง &ensp;    </label>
         </ion-row>
       </ion-grid>

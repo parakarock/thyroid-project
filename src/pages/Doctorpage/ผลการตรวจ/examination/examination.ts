@@ -10,6 +10,8 @@ import { Md5 } from 'ts-md5/dist/md5';
 import { EditbiopsyPage } from '../editbiopsy/editbiopsy';
 import { DiagnosticResultsPage } from '../diagnostic-results/diagnostic-results';
 import { RequestOptions, Http, Headers } from '@angular/http';
+import { createText } from '@angular/core/src/view/text';
+import { NativeStorage } from '@ionic-native/native-storage';
 /**
  * Generated class for the ExaminationPage page.
  *
@@ -34,6 +36,7 @@ export class ExaminationPage {
   canvasElement: any;
   filepath: any;
   lineSize = 1;
+  DeleteSize = 4;
   lineheight = 5;
   linewidth = 200;
   Size = 6;
@@ -49,8 +52,14 @@ export class ExaminationPage {
   selectedColor = '#f1a1b1';
   selectNum= 1;
   colors = [ '#f1a1b1', '#0cf514', '#0c7df5', '#f2cf07', '#ee07f2'];
+  deleteColor = '#ffffff';
   formCount: any = 1;
   imageLink: any;
+  thyroid_image: any;
+  thyroid_old_image: string;
+  thy_ult_result: any;
+  thy_image_path: any;
+
 
   constructor(public navCtrl: NavController,
               private file: File,
@@ -65,6 +74,7 @@ export class ExaminationPage {
               public global: GlobalProvider,
               public formBuilder: FormBuilder,
               public http: Http,
+              private nativeStorage: NativeStorage,
               ) {
                 this.startMin = moment().add(443, 'y').format("YYYY");
                 this.startMax = moment().add(543, 'y').format("YYYY");
@@ -101,6 +111,7 @@ export class ExaminationPage {
     // let scroll = this.content.getScrollElement();
     // itemHeight = Number.parseFloat(scroll.style.marginTop.replace("px", "")) + itemHeight;
     // scroll.style.marginTop = itemHeight + 'px';
+    // this.startDrawing();
   }
 
 
@@ -108,30 +119,68 @@ export class ExaminationPage {
     this.canvasElement = this.canvas.nativeElement;
     this.canvasElement.width = this.plt.width() + '';
     this.canvasElement.height = 200  ;
-
+    this.getImage();
+    // this.startDrawing();
   }
+
 
   selectColor(color,i) {
     this.selectedColor = color;
     this.selectNum = i;
-  }
+    console.log(this.selectedColor);
+    console.log(this.selectNum);
 
-  startDrawing(ev) {
+  }
+  drawImage(ev){
     var canvasPosition = this.canvasElement.getBoundingClientRect();
     let x = ev.clientX - canvasPosition.x;
     let y = ev.clientY - canvasPosition.y;
     let num = this.selectNum;
-    if(num <= 5) {
       let ctx = this.canvasElement.getContext("2d");
       ctx.beginPath();
-      ctx.lineWidth = (this.Size*this.lineSize);
-      ctx.arc(x, y,  this.lineSize*(this.n*3), 0, 2 * Math.PI, true,) ;
+
+      if(num != -1){
+        ctx.lineWidth = (this.Size*this.lineSize);
+        ctx.arc(x, y,  this.lineSize*(this.n*3), 0, 2 * Math.PI, true,) ;
+      } else {
+        ctx.lineWidth = (this.Size*this.DeleteSize);
+        ctx.arc(x, y,  this.DeleteSize*(this.n*3), 0, 2 * Math.PI, true,) ;
+      }
+
+
       ctx.strokeStyle = this.selectedColor;
+
+      if(num != -1) {
+        ctx.globalCompositeOperation = "source-over";
+      } else {
+        ctx.globalCompositeOperation = "destination-out";
+      }
       ctx.stroke();
-      ctx.fillText(num, x, y);
+      if(num != -1) {
+        ctx.fillText(num, x, y);
+      }
+
       ctx.closePath();
-      this.selectColor(this.colors[num], num+1);
-    }
+
+      if(num != -1){
+        this.selectColor(this.colors[num], num+1);
+      }
+  }
+
+  startDrawing() {
+      let ctx = this.canvasElement.getContext("2d");
+      let img = document.getElementById("thyroid_img") as HTMLImageElement;
+      ctx.drawImage(img,0,0);
+  }
+
+  clearCanvas(){
+    let ctx = this.canvasElement.getContext('2d');
+    ctx.clearRect(1, 0, this.canvasElement.width, this.canvasElement.height);
+    this.selectColor(this.colors[0], 1);
+  }
+
+  DeletePointCanvas(){
+    this.selectColor(this.deleteColor,-1);
   }
 
   saveCanvasImage() {
@@ -176,7 +225,12 @@ export class ExaminationPage {
 
 
   updateData(){
-    let headers = new Headers({ "Content-type": "application/json" });
+    // let headers = new Headers({ "Content-type": "application/json" });
+    var headers = new Headers();
+    headers.append('Access-Control-Allow-Origin' , '*');
+    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+    headers.append('Accept','application/json');
+    headers.append('content-type','application/json');
     let options = new RequestOptions({ headers: headers });
     let body = {
       idcard: this.global.getpatientID(),
@@ -312,38 +366,61 @@ export class ExaminationPage {
     return blob;
   }
 
-    getImagePath(imageName) {
-      let path = this.file.dataDirectory + imageName;
-      path = normalizeURL(path);
-      return path;
-    }
+  getImagePath(imageName) {
+    let path = this.file.dataDirectory + imageName;
+    path = normalizeURL(path);
+    return path;
+  }
 
-      clearCanvas(){
-        let ctx = this.canvasElement.getContext('2d');
-        ctx.clearRect(1, 0, this.canvasElement.width, this.canvasElement.height);
-    }
-
-    showConfirmAlert() {
-      let alert = this.alertController.create({
-        title: 'ยืนยันการบันทึกข้อมูล',
-        message: 'คุณต้องการดำเนินการต่อหรือไม่',
-        buttons: [
-          {
-            text: 'ยกเลิก',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
-            }
-          },
-          {
-            text: 'ตกลง',
-            handler: () => {
-              this.saveCanvasImage();
-            }
+  showConfirmAlert() {
+    let alert = this.alertController.create({
+      title: 'ยืนยันการบันทึกข้อมูล',
+      message: 'คุณต้องการดำเนินการต่อหรือไม่',
+      buttons: [
+        {
+          text: 'ยกเลิก',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
           }
-        ]
-      });
-      alert.present();
-    }
+        },
+        {
+          text: 'ตกลง',
+          handler: () => {
+            this.saveCanvasImage();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  async getImage(){
+    let headers = new Headers({ "Content-type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify({
+      idcard: this.global.getpatientID(),
+      round: this.global.getSelectRound()
+    });
+    console.log("body : " + body);
+    await this.http.post(
+        "http://" + this.global.getIP() + "/result.php?method=get_thyroidUltraPic&role=" + this.global.getSelectRole(),
+        body,
+        options
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          // this.showData = true;
+          this.thy_image_path = data.thyroid_image;
+          this.thyroid_old_image = "http://" + this.global.getIP() + "/" + data.thyroid_image;
+          this.thy_ult_result = data.thy_ult_result;
+          console.log(JSON.stringify(data));
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
 
  }

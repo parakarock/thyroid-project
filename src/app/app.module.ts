@@ -18,6 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 // import { File } from '@ionic-native/file';
 import {Md5} from 'ts-md5/dist/md5';
@@ -91,6 +92,8 @@ import { DiagnosticResultsPage} from '../pages/Doctorpage/ผลการตร�
 // import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { HttpClientModule } from '@angular/common/http';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+// import { HTTP } from '@ionic-native/http';
 
 import { PatientHomePage } from '../pages/Patientpage/patient-home/patient-home';
 
@@ -327,7 +330,8 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     ShowExaminationPage,
     ShowlabtestPage,
     AddiodineresultPage,
-    ShowtreatmentdetailPage
+    ShowtreatmentdetailPage,
+    // NativeStorage
 
   ],
   providers: [
@@ -340,6 +344,7 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     File,
     Camera,
     IonicStorageModule,
+    NativeStorage,
 
 
     FileTransfer,
@@ -354,7 +359,7 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     FilePath,
     FileOpener,
     FileChooser,
-
+    ScreenOrientation
   ]
 })
 

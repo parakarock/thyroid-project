@@ -20,7 +20,7 @@ import * as moment from "moment";
   templateUrl: 'physical.html',
 })
 export class PhysicalPage {
-  
+
   showMenu: boolean;
   showData: boolean = true;
   check_date: string;
@@ -37,6 +37,7 @@ export class PhysicalPage {
   doctor_file: any;
   doctor_result: any;
   treatment: any;
+  body1_data:any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public global: GlobalProvider,
@@ -48,9 +49,32 @@ export class PhysicalPage {
     }
   }
 
-  async ionViewDidLoad() {
+  ionViewDidLoad() {
     console.log('ionViewDidLoad PhysicalPage');
-    await this.getData();
+    this.getData();
+  }
+
+  ionViewWillEnter(){
+    // if(this.navParams.get("formData")){
+    //   return new Promise((resolve, reject) => {
+    //       this.showData = true;
+    //       this.check_date = this.navParams.get("formData").check_date;
+    //       this.sweat = this.navParams.get("formData").sweat;
+    //       this.hair_loss = this.navParams.get("formData").hair_loss;
+    //       this.body_weight = this.navParams.get("formData").body_weight;
+    //       this.heart_rate = this.navParams.get("formData").heart_rate;
+    //       this.blood_pressure_upper = this.navParams.get("formData").blood_pressure_upper;
+    //       this.blood_pressure_lower = this.navParams.get("formData").blood_pressure_lower;
+    //       this.eye_detect = this.navParams.get("formData").eye_detect;
+    //       this.eye_result = this.navParams.get("formData").eye_result;
+    //       this.doctor_name = this.navParams.get("formData").doctor_name;
+    //       this.doctor_date = this.navParams.get("formData").doctor_date;
+    //       this.doctor_file = "http://" + this.global.getIP() + "/" +  this.navParams.get("formData").doctor_file;
+    //       this.doctor_result= this.navParams.get("formData").doctor_result;
+    //       this.treatment = this.navParams.get("formData").treatment;
+    //     }
+    //   );
+    // }
   }
 
   physicals(){
@@ -88,7 +112,7 @@ export class PhysicalPage {
             this.doctor_file = "http://" + this.global.getIP() + "/" +  data.doctor_file;
             this.doctor_result= data.doctor_result;
             this.treatment = data.treatment;
-            console.log(JSON.stringify(data));
+            // console.log(JSON.stringify(data));
         },
         error => {
           console.log(error);

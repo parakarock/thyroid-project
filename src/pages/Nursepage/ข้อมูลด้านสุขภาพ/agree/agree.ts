@@ -37,6 +37,7 @@ export class AgreePage {
 
   imageFile: any;
   imageLink:any;
+  imagePath: any;
   desc: any;
   showMenu: boolean;
   ContentType = "image/jpeg";
@@ -182,6 +183,7 @@ export class AgreePage {
     .map(res=>res.json())
     .subscribe(
       data => {
+        this.imagePath = data.acceptionform;
         this.imageFile = "http://" + this.global.getIP() + "/" + data.acceptionform;
         console.log(data);
       }, error => {
