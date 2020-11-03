@@ -27,7 +27,7 @@ export class GlobalProvider {
   timeVar;
   timeVal;
   public using: boolean = false;
-  private ip = "192.168.0.14:8000"; //ip API
+  private ip = "192.168.1.135:8000"; //ip API
   constructor() {
     console.log("Hello GlobalProvider Provider");
   }

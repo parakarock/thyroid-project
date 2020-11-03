@@ -121,6 +121,9 @@ import { ChangepassLogin2Page } from '../pages/changepass-login2/changepass-logi
 import { ShowlabtestPage } from '../pages/Nursepage/ผลการตรวจทางห้องแลป/showlabtest/showlabtest'
 import { AddiodineresultPage } from '../pages/Doctorpage/addiodineresult/addiodineresult'
 import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail/showtreatmentdetail'
+
+import { AppLauncher } from '@ionic-native/app-launcher/ngx';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -354,6 +357,7 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
     FilePath,
     FileOpener,
     FileChooser,
+    AppLauncher
 
   ]
 })

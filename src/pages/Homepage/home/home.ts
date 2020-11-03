@@ -32,7 +32,7 @@ export class HomePage {
   ) {
     
     this.url =
-      "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=" +
+      "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=" +
       this.playlistId +
       "&key=" +
       this.googleToken1;
