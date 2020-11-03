@@ -1,83 +1,43 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,Platform } from 'ionic-angular';
-import { AppLauncher, AppLauncherOptions } from '@ionic-native/app-launcher/ngx';
-
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams, Platform } from "ionic-angular";
+import {
+  AppLauncher,
+  AppLauncherOptions,
+} from "@ionic-native/app-launcher/ngx";
+import {
+  InAppBrowser,
+  InAppBrowserOptions,
+} from "@ionic-native/in-app-browser";
 
 @IonicPage()
 @Component({
-  selector: 'page-practice',
-  templateUrl: 'practice.html',
+  selector: "page-practice",
+  templateUrl: "practice.html",
 })
 export class PracticePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public appLauncher: AppLauncher,public platform: Platform) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public appLauncher: AppLauncher,
+    public platform: Platform,
+    private iab: InAppBrowser
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PracticePage');
+    console.log("ionViewDidLoad PracticePage");
   }
 
-  Launcher(){
-    // let options:AppLauncherOptions = {
-    //   // packageName: "com.a23perspective.i_risk"
-    //   packageName: "com.ubercab"
-    // }
-    // this.appLauncher.canLaunch(options).then((launched:Boolean) => {
-    //   if(launched){
-    //     this.appLauncher.launch(options).then(() => {
-
-    //     },(err)=> {
-    //       alert(JSON.stringify(err));
-    //     }
-    //     )
-    //   }else{
-    //     alert("unable to launch app")
-    //   }
-    // },(err) =>{
-    //   alert(JSON.stringify(err));
-    // }
-    // )
-    // this.appLauncher.canLaunch(options)
-    // .then((canLaunch: boolean) => console.log('Facebook is available'))
-    // .catch((error: any) => console.error('Facebook is not available'));
-  
-    
-  // const options: AppLauncherOptions = {
-  // }
-  
-  // if(this.platform.is('android')) {
-  //   options.uri = 'fb://'
-  // } else {
-  //   options.packageName = 'com.ubercab'
-  // }
-  
-  // this.appLauncher.canLaunch(options)
-  //   .then((canLaunch: boolean) => console.log('Facebook is available'))
-  //   .catch((error: any) => console.error('Facebook is not available'));
-
-  if (this.platform.is('mobile')) {
-    let options:AppLauncherOptions = {
-      // packageName: "com.a23perspective.i_risk"
-      packageName: "com.ubercab"
+  openweb() {
+    const options: InAppBrowserOptions = {
+      zoom: "no",
+    };
+    let url
+    if (this.platform.is("ios")){
+      url = 'https://apps.apple.com/app/id1481426181?fbclid=IwAR1wIdHqy6ZWGjRN6peFKov5Tfbc0QQ48tAAYqNeKtxUWlg9NG2u5a9gGcw'
+    }else{
+      url = 'https://play.google.com/store/apps/details?id=com.a23perspective.i_risk&fbclid=IwAR3mkA2elOsQW819mZ7HdY56ZTpluzI45ZTSLPKNIA8_C_StsJCHwtSVIwU'
     }
-    this.appLauncher.canLaunch(options).then((launched:Boolean) => {
-      if(launched){
-        this.appLauncher.launch(options).then(() => {
-
-        },(err)=> {
-          alert(JSON.stringify(err));
-        }
-        )
-      }else{
-        alert("unable to launch app")
-      }
-    },(err) =>{
-      alert(JSON.stringify(err));
-    }
-    )
-  }else{
-    console.log(this.platform.platforms());
+    const browser = this.iab.create(url, "_system", options);
   }
   
-}
 }

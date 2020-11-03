@@ -1,19 +1,25 @@
 page-nofood {
-    #subtitle {
-        background-color: rgb(255, 255, 255);
-        margin: 15px;
-        padding: 5px;
-        border: 0.5px solid black;
-       height: 200px;
+    .topic {
+        font-weight: bold;
       }
-      @media only screen and (min-width: 1024px) {
-     
-        #subtitle {
-            background-color: rgb(255, 255, 255);
-            margin: 15px;
-            padding: 5px;
-            border: 0.5px solid black;
-           height: 500px;
-          }
-}
+  #subtitle {
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    padding: 5px;
+    border: 0.5px solid black;
+    height: 200px;
+  }
+  // css example
+  span {
+    content: "\00B7";
+  }
+  @media only screen and (min-width: 1024px) {
+    #subtitle {
+      background-color: rgb(255, 255, 255);
+      margin: 15px;
+      padding: 5px;
+      border: 0.5px solid black;
+      height: 500px;
+    }
+  }
 }

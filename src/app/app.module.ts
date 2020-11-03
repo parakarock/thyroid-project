@@ -124,6 +124,8 @@ import { ShowtreatmentdetailPage } from '../pages/Doctorpage/showtreatmentdetail
 
 import { AppLauncher } from '@ionic-native/app-launcher/ngx';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -231,7 +233,7 @@ import { AppLauncher } from '@ionic-native/app-launcher/ngx';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AutosizeModule,
+    AutosizeModule
 
     // IonicStorageModule.forRoot()
   ],
@@ -357,7 +359,8 @@ import { AppLauncher } from '@ionic-native/app-launcher/ngx';
     FilePath,
     FileOpener,
     FileChooser,
-    AppLauncher
+    AppLauncher,
+    InAppBrowser
 
   ]
 })
