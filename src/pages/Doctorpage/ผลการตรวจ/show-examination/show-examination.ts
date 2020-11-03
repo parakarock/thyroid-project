@@ -54,9 +54,9 @@ export class ShowExaminationPage {
 
   examination(){
     this.navCtrl.push(ExaminationPage,{
-      thyroid_image: this.thyroid_image,
-      thy_ult_result: this.thy_ult_result,
-      Thy_ult_data: this.Thy_ult_data
+      // thyroid_image: this.thyroid_image,
+      // thy_ult_result: this.thy_ult_result,
+      // Thy_ult_data: this.Thy_ult_data
       }
     );
   }

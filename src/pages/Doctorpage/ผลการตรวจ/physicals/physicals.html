@@ -5,8 +5,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card id="css" padding *ngIf="showData">
 
+  <ng-container *ngIf="!thyroid_size">
+    <h3 align="center">ไม่พบข้อมูล</h3>
+  </ng-container>
+
+  <ng-container *ngIf="thyroid_size">
+  <ion-card id="css" padding *ngIf="showData">
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -207,6 +212,7 @@
       </ion-row>
     </ion-grid>
 </ion-card>
+</ng-container>
 
-<button ion-button *ngIf="showMenu" (click)="editphysicals()" color="1">แก้ไขข้อมูล</button>
+<button ion-button *ngIf="showMenu" (click)="editphysicals()" color="1">บันทึกข้อมูล</button>
 </ion-content>

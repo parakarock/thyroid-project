@@ -37,6 +37,7 @@ export class RadiographicsPage {
   data:any;
 
   imageFile: any;
+  imagepath: any;
   imageLink:any;
   desc: any;
   showMenu: boolean;
@@ -188,6 +189,7 @@ export class RadiographicsPage {
     .map(res=>res.json())
     .subscribe(
       data => {
+        this.imagepath = data.thy_scan_image;
         this.imageFile = "http://" + this.global.getIP() + "/" + data.thy_scan_image;
         this.desc = data.thy_scan_desc;
         console.log(data);

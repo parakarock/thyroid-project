@@ -37,6 +37,8 @@ export class EditphysicalPage {
   imageLink: any;
   startMin: any;
   startMax: any;
+  presentDate: any;
+  presentDate2: any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertController: AlertController,
@@ -51,7 +53,8 @@ export class EditphysicalPage {
               ) {
                 this.startMin = moment().add(443, 'y').format("YYYY");
                 this.startMax = moment().add(543, 'y').format("YYYY");
-
+                this.presentDate = moment().add(543, 'y').toISOString(); //เก็บค่าเวลาปัจจุบัน
+                this.presentDate2 = moment().add(543, 'y').toISOString(); //เก็บค่าเวลาปัจจุบัน
                 this.formgroup = formBuilder.group({
                   check_date: ['',
                   // Validators.compose([Validators.required,
@@ -123,6 +126,15 @@ export class EditphysicalPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditphysicalPage');
+  }
+
+  setEyeResult(){
+    let eye_test:any = this.formgroup.controls.eye_detect.value
+    if(eye_test === 1){
+      return this.formgroup.controls.eye_result.value
+    } else {
+      return this.formgroup.controls.eye_result.setValue(null)
+    }
   }
 
   AlertTakePhoto(){
@@ -213,7 +225,7 @@ export class EditphysicalPage {
         blood_pressure_upper: this.formgroup.controls.blood_pressure_upper.value,
         blood_pressure_lower: this.formgroup.controls.blood_pressure_lower.value,
         eye_detect: this.formgroup.controls.eye_detect.value,
-        eye_result: this.formgroup.controls.eye_result.value,
+        eye_result : this.setEyeResult(),
         doctor_name: this.formgroup.controls.doctor_name.value,
         doctor_date: moment(this.formgroup.controls.doctor_date.value).format("YYYY-MM-DD").toString(),
         doctor_file: this.imageLink,
@@ -229,9 +241,9 @@ export class EditphysicalPage {
       .subscribe(
         data => {
           if(data.result){
-          this.presentAlert(data.result);
+            this.presentAlert(data.result);
+            this.navCtrl.pop()
           }
-          console.log(JSON.stringify(data));
         }, error => {
           console.log(error);
         }
@@ -255,7 +267,7 @@ export class EditphysicalPage {
             handler: () => {
               this.uploadFile()
               // this.navCtrl.getPrevious().data.formData = this.formgroup.value
-              this.navCtrl.pop();
+              // this.navCtrl.pop();
             }
           }
         ]

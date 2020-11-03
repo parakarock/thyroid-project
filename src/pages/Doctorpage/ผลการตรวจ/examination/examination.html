@@ -7,7 +7,15 @@
 </ion-header>
 
   <ion-content padding>
+
+    <ng-container *ngIf="thy_image_path">
       <ion-card color="1">
+        <ion-card-header><b>รูปภาพ Thyroid Ultrasound ของผู้ป่วย</b></ion-card-header>
+          <img src="{{ thyroid_old_image  }}">
+        </ion-card>
+      </ng-container>
+
+      <ion-card color="2">
         <ion-card-header><b>เพิ่มก้อนไทรอยด์</b></ion-card-header>
         <ion-grid>
           <ion-row>
@@ -25,11 +33,11 @@
 
         <ion-card-header>
           <ion-row>
-            <!--
-            <ion-col *ngFor="let color of colors; let i = index;" [style.background]="color" class="color-block" tappable (click)="selectColor(color,i+1)">
+
+            <!-- <ion-col *ngFor="let color of colors; let i = index;" [style.background]="color" class="color-block" tappable (click)="selectColor(color,i+1)">
               {{i+1}}
-            </ion-col>
-            -->
+            </ion-col> -->
+
             <ion-col [style.background]="colors[0]" class="color-block" tappable (click)="selectColor(colors[0],1)">{{1}}</ion-col>
             <ion-col [style.background]="colors[1]" class="color-block" tappable (click)="selectColor(colors[1],2)">{{2}}</ion-col>
             <ion-col [style.background]="colors[2]" class="color-block" tappable (click)="selectColor(colors[2],3)">{{3}}</ion-col>
@@ -43,9 +51,56 @@
             </ion-row>-->
         </ion-card-header>
 
+        <ion-grid>
+          <ion-row>
+            <ion-col  col-8>
+              <p>เลือกขนาด</p>
+            </ion-col>
+            <ion-col  col-3>
+              <p>Size = {{lineSize/2}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col >
+              <ion-range  min="1" max="6"  step="n" color="primary" snaps="true" [(ngModel)]="lineSize" >
+                <ion-label range-left>0.5</ion-label>
+                <ion-label range-right>3</ion-label>
+              </ion-range>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+            <!-- <ion-buttons> -->
+              <!-- <button ion-button icon-only (click)="clearCanvas()" color="danger">
+                <ion-icon name="trash"></ion-icon>
+              </button> -->
+              <button ion-button (click)="clearCanvas()" color="danger" full>
+                <ion-icon>clear</ion-icon>
+              </button>
+            <!-- </ion-buttons> -->
+          </ion-col>
+
+          <ion-col>
+            <!-- <ion-buttons> -->
+              <!-- <button ion-button icon-only (click)="clearCanvas()" color="danger">
+                <ion-icon name="trash"></ion-icon>
+              </button> -->
+              <button ion-button (click)="DeletePointCanvas()" color="danger" full>
+                <ion-icon>eraser</ion-icon>
+              </button>
+            <!-- </ion-buttons> -->
+          </ion-col>
+
+          </ion-row>
+        </ion-grid>
+
+        <canvas #imageCanvas  (click)="drawImage($event)"></canvas>
+
       </ion-card>
 
-      <ion-card color="2">
+      <!-- <ion-card color="2">
         <ion-grid>
           <ion-row>
             <ion-col  col-8>
@@ -64,17 +119,25 @@
               </ion-range>
             </ion-col>
             <ion-col   col-2 >
-              <ion-buttons>
-                <button ion-button icon-only (click)="clearCanvas()" color="danger">
+              <ion-buttons> -->
+                <!-- <button ion-button icon-only (click)="clearCanvas()" color="danger">
+                  <ion-icon name="trash"></ion-icon>
+                </button> -->
+                <!-- <button ion-button icon-only (click)="clearCanvas()" color="danger">
                   <ion-icon name="trash"></ion-icon>
                 </button>
               </ion-buttons>
             </ion-col>
           </ion-row>
         </ion-grid>
-      </ion-card>
+      </ion-card> -->
 
-      <canvas #imageCanvas (click)="startDrawing($event)"></canvas>
+        <!-- <canvas #imageCanvas  (click)="drawImage($event)"></canvas> -->
+
+        <img id="thyroid_img" src="{{ thyroid_old_image }}" style="display: none;">
+        <!-- <img id="thyroid_img" src="http://192.168.31.98:8000/Canvas/93ea3cbf8bc9d3659ed8920fc6280c24_r1_02-10-2020_2-23-58.jpg"> -->
+        <!-- {{ thyroid_old_image }} -->
+
 
       <form [formGroup]="formgroup">
       <ion-card>
@@ -88,7 +151,7 @@
                   </ion-col>
                 <ion-col col-6>
                   <ion-datetime
-                    displayFormat="DD-MM-YYYY"
+                    displayFormat="DD MMMM YYYY"
                     pickerFormat="DD MMMM YYYY"
                     min={{startMin}} max={{startMax}}
                     formControlName="thy_ult_date1"
@@ -171,7 +234,7 @@
                 </ion-col>
                 <ion-col col-6>
                   <ion-datetime
-                  displayFormat="DD-MM-YYYY"
+                  displayFormat="DD MMMM YYYY"
                   pickerFormat="DD MMMM YYYY"
                   min={{startMin}} max={{startMax}}
                   formControlName="thy_ult_date2"
@@ -254,7 +317,7 @@
                   </ion-col>
                 <ion-col col-6>
                   <ion-datetime
-                    displayFormat="DD-MM-YYYY"
+                    displayFormat="DD MMMM YYYY"
                     pickerFormat="DD MMMM YYYY"
                     min={{startMin}} max={{startMax}}
                     formControlName="thy_ult_date3"

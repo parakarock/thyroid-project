@@ -20,11 +20,14 @@
               min={{startMin}} max={{startMax}}
               formControlName="check_date"
               placeholder="ระบุวันที่ตรวจ"
+              [(ngModel)]="presentDate"
               monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, ">
           </ion-datetime>
           </ion-col>
         </ion-row>
       </ion-grid>
+
+
 
       <ion-item no-lines><div>เหงื่อแตก ผิวอุ่นและชื้น</div></ion-item>
       <ion-list radio-group formControlName="sweat">
@@ -163,7 +166,7 @@
       <ion-row>
         <ion-col>
           <div>
-           <h2>ส่งปรึกษาจักษุแพทย์</h2>
+           <h2><b>ส่งปรึกษาจักษุแพทย์</b></h2>
           </div>
         </ion-col>
       </ion-row>
@@ -197,11 +200,13 @@
             min={{startMin}} max={{startMax}}
             formControlName="doctor_date"
             placeholder="ระบุวันที่ตรวจ"
+            [(ngModel)]="presentDate2"
             monthNames="มกราคม, กุมภาพันธ์, มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม ,กันยายน ,ตุลาคม ,พฤศจิกายน ,ธันวาคม, ">
           </ion-datetime>
         </ion-col>
       </ion-row>
     </ion-grid>
+
 
       <ion-grid>
         <ion-col col-4>
