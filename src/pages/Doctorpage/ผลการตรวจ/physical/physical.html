@@ -207,7 +207,10 @@
 
 <button ion-button id="button" *ngIf="showMenu" (click)="editphysical()" color="1" id="editphysical">บันทึกข้อมูล</button>
 
-<button ion-button id="button" (click)="physicals()" color="1" id="physicals">ถัดไป</button>
+<ng-container *ngIf="body_weight">
+  <button ion-button id="button" (click)="physicals()" color="1" id="physicals">ถัดไป</button>
+</ng-container>
+<!-- <button ion-button id="button" (click)="physicals()" color="1" id="physicals">ถัดไป</button> -->
 
 
 </ion-content>

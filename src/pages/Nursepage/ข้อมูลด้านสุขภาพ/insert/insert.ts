@@ -101,11 +101,11 @@ export class InsertPage {
       name: "อื่นๆ",
     }
   ];
-  
+
   startMin: any;
   startMax: any;
   pages;
-  
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -119,10 +119,10 @@ export class InsertPage {
     this.pages = new Array(100);
     let year = this.startMax
     for (let index = 0; index <= 100; index++) {
-      this.pages[index] = year;  
-      year--;  
+      this.pages[index] = year;
+      year--;
     }
-   
+
     this.formgroup = formBuilder.group({
         month:[navParams.get("month")||moment().format("MMMM"),],
         year:[navParams.get("year")||this.startMax,],
@@ -144,7 +144,7 @@ export class InsertPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad InsertPage");
-    
+
     this.setMedical()
     this.setAllery()
     this.setToxic()
@@ -194,11 +194,11 @@ export class InsertPage {
       return this.formgroup.controls.Toxic.value
     }
   }
-  
+
   addThyroidMed(data){
     if(data === "อื่นๆ"){
     this.showAntiOther = true
-    this.showAntiPill = true    
+    this.showAntiPill = true
     }else if(data === "ไม่ต้องรับประทาน"){
       this.showAntiPill = false
       this.showAntiOther = false
@@ -209,7 +209,7 @@ export class InsertPage {
       this.showAntiOther = false
       this.formgroup.controls.ThyroidMed.setValue(data)
     }
-  
+
   }
   addBetaBlock(data){
     if(data === "อื่นๆ"){
@@ -225,7 +225,7 @@ export class InsertPage {
       this.showBlockOther = false
       this.formgroup.controls.BetaBlock.setValue(data)
     }
-  
+
   }
   setMedical(){
     let anti
@@ -237,8 +237,8 @@ export class InsertPage {
       anti = "Propylthiouracil (PTU)"
       beta = "Propranolol (10)"
     }
-    
-    
+
+
     this.formgroup.controls.ThyroidMed.setValue(anti)
     this.formgroup.controls.BetaBlock.setValue(beta)
     if(this.antinames.find(names => names.name === anti)){
@@ -268,7 +268,7 @@ export class InsertPage {
 
     if(this.toxics.find(names => names.name === toxic)){
       this.formgroup.controls.Toxic.setValue(toxic)
-      
+
     }else{
       this.formgroup.controls.Toxic.setValue("heart arrhythmia")
       this.formgroup.controls.ToxicEtc.setValue(toxic)
@@ -283,7 +283,7 @@ export class InsertPage {
     }else{
       allery = "medical failure"
     }
-    
+
     if(allery != "medical failure"&&allery != "มีภาวะแทรกซ้อนของโรค"&&allery != "Major adverse reactions to"){
       this.formgroup.controls.Allergy.setValue("ระบุอาการแพ้ยา")
       this.formgroup.controls.Drug.setValue(allery)
@@ -342,7 +342,7 @@ export class InsertPage {
     let body = {
       idcard: this.global.getpatientID(),
       round: this.global.getSelectRound(),
-      
+
       month:this.formgroup.controls.month.value,
       year:this.formgroup.controls.year.value,
       comp_status:this.sendToxic(),
@@ -353,7 +353,7 @@ export class InsertPage {
       comp_beta_amount:this.formgroup.controls.BetaBlockVol.value,
       comp_beta_daily:this.formgroup.controls.BetaBlockRoundPerDay.value,
       comp_indication:this.sendAllery()
-  
+
    }
     this.navCtrl.getPrevious().data.formData = body
     let headers = new Headers({ "Content-type": "application/json" });
@@ -376,7 +376,7 @@ export class InsertPage {
             console.log(error);
           }
         );
-   
+
   }
   }
   async presentAlert(txt: string) {
@@ -410,5 +410,5 @@ export class InsertPage {
     });
     alert.present();
   }
-  
+
 }

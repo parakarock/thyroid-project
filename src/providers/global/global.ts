@@ -29,7 +29,8 @@ export class GlobalProvider {
   public using: boolean = false;
   // private ip = "192.168.43.226:8000"; //ip API
   // private ip = "192.168.31.98:8000"; //IP Home
-  private ip = "10.80.34.212:8000";
+  private ip = "10.80.6.120:8000"; // Informatics Server
+  // private ip = "10.80.34.160:8000"; //IP Lab Com
   constructor() {
     console.log("Hello GlobalProvider Provider");
   }
