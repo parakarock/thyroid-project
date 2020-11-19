@@ -40,24 +40,24 @@ export class HistoryPage {
   }
 
   ionViewWillEnter(){
-    if(this.navParams.get("formData")){ 
+    if(this.navParams.get("formData")){
     return  new Promise((resolve, reject) => {
-      this.showData = true; 
+      this.showData = true;
       this.specify = this.navParams.get("formData").did;
       this.hospital =  this.navParams.get("formData").hospital;
       this.datemineral= moment(this.navParams.get("formData").therapy_date,"YYYY-MM-DD").format("Do MMMM YYYY");
       this.amount= this.navParams.get("formData").volume;
         });
-  
+
     }
   }
-  
+
 
   async getdata(){
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = { idcard: this.global.getpatientID(), round: this.global.getSelectRound() };
-    
+
    await this.http
       .post(
         "http://"+this.global.getIP()+"/healthdata.php?method=get_mineral_history&role="+this.global.getSelectRole(),
@@ -68,9 +68,9 @@ export class HistoryPage {
       .subscribe(
         data => {
           if ( data.did !== null) {
-            
+
             this.showData = true;
-            
+
             this.specify = data.did;
             this.hospital = data.hospital;
             this.datemineral = moment(data.therapy_date,"YYYY-MM-DD").format("Do MMMM YYYY");
@@ -80,7 +80,7 @@ export class HistoryPage {
             this.showData = false;
             console.log("data : " + this.showData);
           }
-         
+
         },
         error => {
           console.log(error);
@@ -89,7 +89,7 @@ export class HistoryPage {
   }
 
   checkRole(role){
-    if(role === "พยาบาล"){
+    if(role === "พยาบาล" || role === "หมอ"){
       return true;
     }else{
       return false;

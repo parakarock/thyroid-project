@@ -27,6 +27,7 @@ export class AddlabtestPage {
 
   Hospital;
   HospitalOther;
+  presentDate: any;
   SerumT3:number;
   SerumT4:number;
   SerumTSH:number;
@@ -35,6 +36,8 @@ export class AddlabtestPage {
   SerumT4st:number;
   SerumTSHst:number;
   SerumTRAbst:number;
+  startMin: any;
+  startMax: any;
   ThyroidMed:string;
   ThyroidMedVol:number;
   ThyroidMedRoundPerDay:number;
@@ -50,8 +53,11 @@ export class AddlabtestPage {
     public global: GlobalProvider,
     public http: Http,
     public alertCtrl: AlertController) {
-
+      this.startMin = moment().add(443, 'y').format("YYYY");
+      this.startMax = moment().add(543, 'y').format("YYYY");
+      this.presentDate = moment().add(543, 'y').toISOString();
       this.formgroup = formBuilder.group({
+        labdate: ["",],
         Hospital: [
           "",
           Validators.compose([Validators.required, Validators.pattern("^[ก-๏sa-zA-Z0-9]+$")])
@@ -74,7 +80,7 @@ export class AddlabtestPage {
         BetaBlockRoundPerDay: ["",],
         BetaBlockEtc: ["",]
       });
-    
+
   }
 
   ionViewDidLoad() {
@@ -82,7 +88,7 @@ export class AddlabtestPage {
     this.getHospital()
   }
 
-  
+
 
  addLabTest(){
   let hosnameother:string = this.formgroup.controls.HospitalOther.value
@@ -109,7 +115,7 @@ export class AddlabtestPage {
     let body = JSON.stringify({
       idcard: this.global.getpatientID(),
       round: this.global.getSelectRound(),
-      labdate:moment(this.date,"Do MMMM YYYY").format("YYYY-MM-DD"),
+      labdate:moment(this.formgroup.controls.labdate.value).format("YYYY-MM-DD").toString(),
       hospital:this.sendHospital(),
       t3:this.formgroup.controls.SerumT3.value,
       t4:this.formgroup.controls.SerumT4.value,
@@ -125,12 +131,12 @@ export class AddlabtestPage {
       betaname:this.sendBetaBlock(),
       betaamount:this.formgroup.controls.BetaBlockVol.value,
       betadaily:this.formgroup.controls.BetaBlockRoundPerDay.value
-  
+
    });
    console.log(body)
 
 
-   
+
    let headers = new Headers({ "Content-type": "application/json" });
    let options = new RequestOptions({ headers: headers });
       this.http
@@ -145,7 +151,7 @@ export class AddlabtestPage {
             this.presentAlert(data.result)
             if(data.result !== "Fail"){
               this.navCtrl.pop();
-            } 
+            }
           },
           error => {
             console.log(error);
@@ -153,7 +159,7 @@ export class AddlabtestPage {
         );
   }
 
-  
+
   }
 
 
@@ -234,7 +240,7 @@ export class AddlabtestPage {
   addThyroidMed(data){
     if(data === "อื่นๆ"){
     this.showAntiOther = true
-    this.showAntiPill = true    
+    this.showAntiPill = true
     }else if(data === "ไม่ต้องรับประทาน"){
       this.showAntiPill = false
       this.showAntiOther = false
@@ -245,7 +251,7 @@ export class AddlabtestPage {
       this.showAntiOther = false
       this.ThyroidMed = data;
     }
-  
+
   }
   addBetaBlock(data){
     if(data === "อื่นๆ"){
@@ -261,7 +267,7 @@ export class AddlabtestPage {
       this.showBlockOther = false
       this.BetaBlock = data;
     }
-  
+
   }
 
   async presentAlert(txt: string) {

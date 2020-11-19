@@ -35,7 +35,7 @@ export class DoctorHomePage {
   patientname;
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public menu: MenuController,public global: GlobalProvider,private http: Http,
     public scanner: BarcodeScanner,public alertCtrl: AlertController,) {
-    
+
   }
   options: BarcodeScannerOptions;
   selectRole() {
