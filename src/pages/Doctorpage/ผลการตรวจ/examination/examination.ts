@@ -12,13 +12,7 @@ import { DiagnosticResultsPage } from '../diagnostic-results/diagnostic-results'
 import { RequestOptions, Http, Headers } from '@angular/http';
 import { createText } from '@angular/core/src/view/text';
 import { NativeStorage } from '@ionic-native/native-storage';
-/**
- * Generated class for the ExaminationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-const STORAGE_KEY = 'IMAGE_LIST';
+
 @Component({
   selector: 'page-examination',
   templateUrl: 'examination.html',
@@ -78,7 +72,6 @@ export class ExaminationPage {
               ) {
                 this.startMin = moment().add(443, 'y').format("YYYY");
                 this.startMax = moment().add(543, 'y').format("YYYY");
-
                 this.formgroup = formBuilder.group({
                   thy_num1: ['',],
                   thy_ult_date1: ['',],
@@ -103,26 +96,17 @@ export class ExaminationPage {
                   thy_ult_surgury_desc3: ['',],
                   thy_ult_result: ['',]
                 });
-
-  }
+              }
 
   ionViewDidEnter() {
-    // let itemHeight = this.fixedContainer.nativeElement.offsetHeight;
-    // let scroll = this.content.getScrollElement();
-    // itemHeight = Number.parseFloat(scroll.style.marginTop.replace("px", "")) + itemHeight;
-    // scroll.style.marginTop = itemHeight + 'px';
-    // this.startDrawing();
   }
-
 
   ionViewDidLoad() {
     this.canvasElement = this.canvas.nativeElement;
     this.canvasElement.width = this.plt.width() + '';
     this.canvasElement.height = 200  ;
     this.getImage();
-    // this.startDrawing();
   }
-
 
   selectColor(color,i) {
     this.selectedColor = color;
@@ -146,7 +130,6 @@ export class ExaminationPage {
         ctx.lineWidth = (this.Size*this.DeleteSize);
         ctx.arc(x, y,  this.DeleteSize*(this.n*3), 0, 2 * Math.PI, true,) ;
       }
-
 
       ctx.strokeStyle = this.selectedColor;
 

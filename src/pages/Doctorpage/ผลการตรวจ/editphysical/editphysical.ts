@@ -56,71 +56,19 @@ export class EditphysicalPage {
                 this.presentDate = moment().add(543, 'y').toISOString(); //เก็บค่าเวลาปัจจุบัน
                 this.presentDate2 = moment().add(543, 'y').toISOString(); //เก็บค่าเวลาปัจจุบัน
                 this.formgroup = formBuilder.group({
-                  check_date: ['',
-                  // Validators.compose([Validators.required,
-                  //   // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  sweat: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  hair_loss: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  body_weight: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  heart_rate: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  blood_pressure_upper: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  blood_pressure_lower: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  eye_detect: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  eye_result: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  doctor_name: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  doctor_date: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  doctor_result: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ],
-                  treatment: ['',
-                  // Validators.compose([Validators.required,
-                  //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                  //   ])
-                  ]
+                  check_date: ['',],
+                  sweat: ['',],
+                  hair_loss: ['',],
+                  body_weight: ['',],
+                  heart_rate: ['',],
+                  blood_pressure_upper: ['',],
+                  blood_pressure_lower: ['',],
+                  eye_detect: ['',],
+                  eye_result: ['',],
+                  doctor_name: ['',],
+                  doctor_date: ['',],
+                  doctor_result: ['',],
+                  treatment: ['',]
                 });
   }
 
@@ -137,7 +85,7 @@ export class EditphysicalPage {
     }
   }
 
-  AlertTakePhoto(){
+  AlertTakePhoto(){ //ป๊อปอัพให้เลือกที่มาของรูปภาพ
     let alert = this.alertController.create({
       title: "โปรดเลือกวิธีการอัพโหลดรูป",
       buttons: [
@@ -177,7 +125,7 @@ export class EditphysicalPage {
     });
   }
 
-  uploadFile(){
+  uploadFile(){ //อัพโหลดไฟล์รูปภาพไปยังโฟลเดอร์ EyeImages
     let loader = this.loadingCtrl.create({
       content: "กำลังอัพโหลดรูปภาพ..."
     });
@@ -187,7 +135,7 @@ export class EditphysicalPage {
     this.Date = moment().format('DD_MM_YYYY').toString();
     this.Time = moment().format('h_mm_ss').toString();
     this.HashID = Md5.hashStr('this.global.getpatientID()').toString();
-    this.ImageName = this.HashID + "_r" + this.round + "_" + this.Date + "_" + this.Time + ".jpg";
+    this.ImageName = this.HashID + "_r" + this.round + "_" + this.Date + "_" + this.Time + ".jpg"; //ชื่อไฟล์รูปภาพ
     let options: FileUploadOptions = {
       fileKey: 'photo',
       fileName:  this.ImageName,
@@ -200,7 +148,7 @@ export class EditphysicalPage {
     fileTransfer.upload(this.myPhoto, 'http://' + this.global.getIP() + '/uploadEyeImage.php', options)
       .then((data) => {
         // alert("การอัพโหลดรูปเสร็จสมบูรณ์");
-        this.imageLink = data.response;
+        this.imageLink = data.response; //เอา File Path มาใส่ในตัวแปร
         this.updateData();
         console.log(data);
         console.log(this.imageLink);
@@ -211,7 +159,7 @@ export class EditphysicalPage {
     });
   }
 
-  async updateData(){
+  async updateData(){ //บันทึกข้อมูลจากฟอร์มไปยัง Database
       let headers = new Headers({ "Content-type": "application/json" });
       let options = new RequestOptions({ headers: headers });
       let body = {
@@ -250,7 +198,7 @@ export class EditphysicalPage {
       )
     }
 
-  async presentConfirm() {
+  async presentConfirm() { //แสดงป๊อปอัพยืนยักการบันทึกข้อมูล
       let alert = await this.alertController.create({
         title: "ยืนยันการอัพเดทข้อมูล",
         message: "คุณต้องการดำเนินการต่อหรือไม่",
@@ -266,8 +214,6 @@ export class EditphysicalPage {
             text: "ตกลง",
             handler: () => {
               this.uploadFile()
-              // this.navCtrl.getPrevious().data.formData = this.formgroup.value
-              // this.navCtrl.pop();
             }
           }
         ]
@@ -275,14 +221,11 @@ export class EditphysicalPage {
       alert.present();
     }
 
-
-
   doUpdate() {
       console.log(this.formgroup.value);
-
     }
 
-  async presentAlert(txt: string) {
+  async presentAlert(txt: string) { //แสดงสถานะหลังจากทำการอัพโหลดข้อมูล
     let alert = await this.alertController.create({
       title: 'แจ้งเตือน',
       subTitle: txt,
