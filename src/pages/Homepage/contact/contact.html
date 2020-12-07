@@ -8,21 +8,21 @@
 
 <ion-content>
 
-  <ion-card *ngFor="let Obj of myObj">
+  <ion-card *ngFor="let contact of contacts">
     <ion-grid>
       <ion-row>
         <ion-col col-4>
           <img
             id="logo"
-            src="../../../assets/icon/Pic_Icon/{{Obj.img}}"
+            src="../../../assets/icon/Pic_Icon/{{contact.path_profile}}"
             class="img-thumbnail"
           />
         </ion-col>
         <ion-col col-8>
-          <div id="name">{{Obj.name}}</div>
-          <div>{{Obj.major}}</div>
-          <div>{{Obj.branch}}</div>
-          <div>{{Obj.hospital}}</div>
+          <div>{{contact.contact_title+contact.contact_fname+" "+contact.contact_lname}}</div>
+          <div>{{contact.contact_position}}</div>
+          <div>{{contact.contact_department}}</div>
+          <div>{{contact.contact_hospital}}</div>
         </ion-col>
       </ion-row>
     </ion-grid>
