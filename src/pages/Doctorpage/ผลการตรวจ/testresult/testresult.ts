@@ -1,9 +1,11 @@
+import { LabtestresultPage } from './../../../Nursepage/ผลการตรวจทางห้องแลป/labtestresult/labtestresult';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PhysicalPage } from '../physical/physical';
 import { BiopsyPage } from '../biopsy/biopsy';
 import { LabPage } from '../lab/lab';
 import { RadiographicPage } from '../radiographic/radiographic';
+
 
 /**
  * Generated class for the TestresultPage page.
@@ -30,7 +32,7 @@ export class TestresultPage {
     this.navCtrl.push(PhysicalPage)
   }
   lab(){
-    this.navCtrl.push(LabPage)
+    this.navCtrl.push(LabtestresultPage)
   }
   radiographic(){
     this.navCtrl.push(RadiographicPage)

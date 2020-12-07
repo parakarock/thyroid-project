@@ -143,7 +143,7 @@ export class EditTabooPage {
     this.navCtrl.getPrevious().data.formData = body
       this.http
         .post(
-          "http://"+this.global.getIP()+"/healthdata.php?method=update_mineral_therapy&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/healthdata.php?method=update_mineral_therapy&role="+this.global.getSelectRole(),
           body,
           options
         )

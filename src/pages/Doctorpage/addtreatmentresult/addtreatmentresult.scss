@@ -1,11 +1,11 @@
 page-addtreatmentresult {
     ion-label{
-        font-size: 15px;
-        
+        font-size: 17px;
+
     }
-    
+
     .button{
-        font-size: 15px;
+        font-size: 17px;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -14,18 +14,18 @@ page-addtreatmentresult {
         font-size: 40px;
        }
        label{
-        font-size: 15px;
+        font-size: 17px;
         font-weight: bold;
     }
-    
+
     @media only screen and (min-width: 1224px) {
         ion-icon{
             font-size: 64px;
            }
-      
+
         ion-label{
             font-size: 20px;
-            
+
         }
         .button{
             font-size: 20px;
@@ -37,12 +37,12 @@ page-addtreatmentresult {
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
- 
+
         label{
             font-size: 20px;
-            
+
         }
       }
 }

@@ -56,7 +56,7 @@ export class PhysicalsPage {
     console.log("body : " + body);
    await this.http
       .post(
-        "http://"+ this.global.getIP() + "/result.php?method=get_bodyresult2&role=" + this.global.getSelectRole(),
+        "https://"+ this.global.getIP() + "/result.php?method=get_bodyresult2&role=" + this.global.getSelectRole(),
         body,
         options
       )

@@ -65,7 +65,7 @@ export class LoginPage {
     console.log("body : " + body);
     await this.http
       .post(
-        "http://"+this.global.getIP()+"/login.php?method=login&role=guest",
+        "https://"+this.global.getIP()+"/login.php?method=login&role=guest",
         body,
         options
       )

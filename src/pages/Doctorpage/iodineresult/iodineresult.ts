@@ -48,7 +48,7 @@ export class IodineresultPage {
     this.getData2();
     this.isDoctor()
   }
-  
+
   isDoctor(){
     if(this.global.getSelectRole() == 'หมอ'){
       this.doctorRole = true
@@ -76,12 +76,12 @@ export class IodineresultPage {
         this.presentAlert("ยังไม่ได้บันทึกข้อมูลก่อนหน้า");
       }
       }
-      
+
     }
-    
-   
+
+
   }
-  
+
   getData1() {
     let body = JSON.stringify({
       idcard: this.global.getpatientID(),
@@ -93,7 +93,7 @@ export class IodineresultPage {
     let options = new RequestOptions({ headers: headers });
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/pantient-follow.php?method=get_iodine&role=" +
           this.global.getSelectRole(),
@@ -132,7 +132,7 @@ export class IodineresultPage {
     let options = new RequestOptions({ headers: headers });
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/pantient-follow.php?method=get_summary&role=" +
           this.global.getSelectRole(),
@@ -199,12 +199,12 @@ export class IodineresultPage {
           iodine_result:this.iodine_result
         });
         console.log(body);
-    
+
         let headers = new Headers({ "Content-type": "application/json" });
         let options = new RequestOptions({ headers: headers });
         this.http
           .post(
-            "http://" +
+            "https://" +
               this.global.getIP() +
               "/pantient-follow.php?method=update_follow_iodine&role=" +
               this.global.getSelectRole(),
@@ -218,7 +218,7 @@ export class IodineresultPage {
               this.presentAlert(data.result)
               this.http
               .post(
-                "http://" +
+                "https://" +
                   this.global.getIP() +
                   "/pantient-follow.php?method=insert_new_phase&role=" +
                   this.global.getSelectRole(),
@@ -240,14 +240,14 @@ export class IodineresultPage {
               console.log(error);
             }
           );
-         
+
       }else{
         this.presentAlert("ต้องบันทึกข้อมูลให้ครบก่อน")
       }
     }else{
       this.presentAlert("ต้องบันทึกข้อมูลให้ครบก่อน")
     }
-    
+
   }
   volume(){
     if(this.data){
@@ -259,12 +259,12 @@ export class IodineresultPage {
             volume_result:this.volume_result
           });
           console.log(body);
-      
+
           let headers = new Headers({ "Content-type": "application/json" });
           let options = new RequestOptions({ headers: headers });
           this.http
             .post(
-              "http://" +
+              "https://" +
                 this.global.getIP() +
                 "/pantient-follow.php?method=update_volume_result&role=" +
                 this.global.getSelectRole(),
@@ -284,13 +284,13 @@ export class IodineresultPage {
         }else{
           this.presentAlert("กรุณาระบุปริมาณแร่")
         }
-        
+
       }else{
         this.presentAlert("ต้องบันทึกข้อมูลให้ครบก่อน")
       }
     }else{
       this.presentAlert("ต้องบันทึกข้อมูลให้ครบก่อน")
-      
+
     }
   }
   async presentConfirm(txt) {
@@ -314,7 +314,7 @@ export class IodineresultPage {
             }else{
               this.summary();
             }
-            
+
           }
         }
       ]

@@ -34,7 +34,7 @@ export class ChangepassLogin2Page {
       }else{
         this.changePass()
       }
-   
+
     }else{
       this.presentAlert("เปลี่ยนรหัสผ่านไม่สำเร็จ","กรุณากรอกรหัสผ่านให้ตรงกัน")
     }
@@ -47,7 +47,7 @@ export class ChangepassLogin2Page {
     console.log("body : " + JSON.stringify(body));
     await this.http
       .post(
-        "http://"+this.global.getIP()+"/login.php?method=changePassLogin2&role=guest",
+        "https://"+this.global.getIP()+"/login.php?method=changePassLogin2&role=guest",
         body,
         options
       )
@@ -58,11 +58,11 @@ export class ChangepassLogin2Page {
             this.presentAlert("รหัสผ่านใหม่","Username : "+data.username+"<br>"+"Password : "+data.password).then(()=>{
               this.navCtrl.remove(this.navCtrl.getActive().index - 1, 2);
             })
-            
+
           }else{
             this.presentAlert("เกิดข้อผิดพลาด",data.result)
           }
-          
+
         },
         error => {
           console.log(error);
@@ -79,6 +79,6 @@ export class ChangepassLogin2Page {
     });
     alert.present();
   }
- 
+
 
 }

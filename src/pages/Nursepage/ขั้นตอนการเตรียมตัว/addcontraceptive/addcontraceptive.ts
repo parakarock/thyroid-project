@@ -66,7 +66,7 @@ export class AddcontraceptivePage {
     console.log(status)
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/preparephase.php?method="+status+"&role=" +
           this.global.getSelectRole(),

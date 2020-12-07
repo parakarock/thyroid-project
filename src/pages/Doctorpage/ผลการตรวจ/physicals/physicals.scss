@@ -1,26 +1,26 @@
 page-physicals {
     .button{
- 
-        font-size: 15px;
+
+        font-size: 17px;
         display: block;
         margin-left: auto;
         margin-right: auto;
-       
+
     }
 
     div{
-        font-size: 15px;
+        font-size: 17px;
     }
     @media only screen and (min-width: 1024px) {
-        
+
        .button{
             font-size: 20px;
             display: block;
             margin-left: auto;
             margin-right: auto;
-        
+
         }
-        
+
         div{
             font-size: 20px;
         }
@@ -28,7 +28,7 @@ page-physicals {
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
       }
 }

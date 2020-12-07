@@ -79,7 +79,7 @@ export class EditphysicalsPage {
       detail: this.formgroup.controls.detail.value,
     };
     console.log(body);
-    await this.http.post("http://" + this.global.getIP() + "/result.php?method=update_bodyresult2&role=" + this.global.getSelectRole()
+    await this.http.post("https://" + this.global.getIP() + "/result.php?method=update_bodyresult2&role=" + this.global.getSelectRole()
     ,body
     ,options
     )

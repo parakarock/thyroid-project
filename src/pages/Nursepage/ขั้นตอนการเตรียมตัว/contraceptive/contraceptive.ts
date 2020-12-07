@@ -63,7 +63,7 @@ export class ContraceptivePage {
     };
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/preparephase.php?method=get_preparephase&role=" +
           this.global.getSelectRole(),
@@ -90,7 +90,7 @@ export class ContraceptivePage {
             }else{
               this.showData = false
             }
-            
+
           }
         },
         (error) => {
@@ -107,7 +107,7 @@ export class ContraceptivePage {
     };
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/preparephase.php?method=get_UTP&role=" +
           this.global.getSelectRole(),
@@ -162,9 +162,9 @@ export class ContraceptivePage {
     }else{
       let item = this.UPTs[id]
       item.UPT_date = moment(item.UPT_date,"DD/MM/YYYY").format("YYYY-MM-DD")
-    
+
       this.navCtrl.push(AddcontraceptivePage, item);
     }
-    
+
   }
 }

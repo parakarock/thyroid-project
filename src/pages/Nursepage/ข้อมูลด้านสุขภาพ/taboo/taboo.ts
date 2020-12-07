@@ -38,6 +38,7 @@ export class TabooPage {
   }
 
   async ionViewDidLoad() {
+    console.log("ionViewDidLoad tabooPage");
     this.showData = false;
     await this.getdata()
   }
@@ -66,7 +67,7 @@ export class TabooPage {
     console.log("body : " + body);
    await this.http
       .post(
-        "http://"+this.global.getIP()+"/healthdata.php?method=get_mineral_therapy&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/healthdata.php?method=get_mineral_therapy&role="+this.global.getSelectRole(),
         body,
         options
       )

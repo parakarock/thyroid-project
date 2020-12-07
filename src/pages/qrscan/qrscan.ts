@@ -48,7 +48,7 @@ export class QrcodePage {
   //   let body = { code: this.code };
   //   await this.http
   //     .post(
-  //       "http://192.168.42.83:8000/qrcode.php?method=get_patient&role=guest",
+  //       "https://192.168.42.83:8000/qrcode.php?method=get_patient&role=guest",
   //       body,
   //       options
   //     )

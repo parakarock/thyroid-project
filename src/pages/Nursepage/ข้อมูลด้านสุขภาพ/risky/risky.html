@@ -24,7 +24,7 @@
 
     <ion-item no-lines  *ngIf="nightWork">
       <input type="checkbox" name="nightWork" disabled="disabled" checked/>
-      <label for="nightWork"> งานแบบเข้ากะกลางคืนช่วงเข้ากะรอบละ</label>
+      <label for="nightWork"> งานแบบเข้ากะกลางคืนช่วงเข้ากะ<br>รอบละ</label>
       {{ night_work_hour }}
       <label >ชั่วโมง </label>
     </ion-item>
@@ -46,14 +46,14 @@
       <label for="pregnant">ไทรอยด์เป็นพิษขณะกำลังตั้งครรภ์</label><br />
     </ion-item>
 
-    
+
 
     <div *ngIf="smoking">
       <ion-item no-lines >
         <input type="checkbox" name="smoking" disabled="disabled" checked/>
         <label for="smoking">สูบบุหรี่</label><br />
       </ion-item>
-  
+
       <ion-grid *ngIf="amount">
         <ion-row>
           <ion-col col-4>
@@ -63,7 +63,7 @@
           {{ select_amount }}
         </ion-row>
       </ion-grid>
-  
+
       <ion-grid *ngIf="time">
         <ion-row>
           <ion-col col-4>
@@ -73,7 +73,7 @@
           {{ select_time }}
         </ion-row>
       </ion-grid>
-  
+
       <ion-grid *ngIf="stop">
         <ion-row>
           <ion-col col-4>
@@ -84,7 +84,7 @@
         </ion-row>
       </ion-grid>
     </div>
-    
+
 
     <ion-item no-lines *ngIf="no_risk_factor">
       <input type="checkbox" name="no_risk_factor" disabled="disabled" checked/>

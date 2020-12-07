@@ -145,7 +145,7 @@ export class EditphysicalPage {
       headers: {},
     }
 
-    fileTransfer.upload(this.myPhoto, 'http://' + this.global.getIP() + '/uploadEyeImage.php', options)
+    fileTransfer.upload(this.myPhoto, 'https://' + this.global.getIP() + '/uploadEyeImage.php', options)
       .then((data) => {
         // alert("การอัพโหลดรูปเสร็จสมบูรณ์");
         this.imageLink = data.response; //เอา File Path มาใส่ในตัวแปร
@@ -181,7 +181,7 @@ export class EditphysicalPage {
         treatment: this.formgroup.controls.treatment.value
       };
       console.log(body);
-      await this.http.post("http://" + this.global.getIP() + "/result.php?method=update_bodyresult1&role=" + this.global.getSelectRole()
+      await this.http.post("https://" + this.global.getIP() + "/result.php?method=update_bodyresult1&role=" + this.global.getSelectRole()
       ,body
       ,options
       )

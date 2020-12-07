@@ -57,6 +57,7 @@ export class RiskyPage {
   }
 
   async ionViewDidLoad() {
+    console.log("ionViewDidLoad riskyPage");
     this.showData = false;
     await this.getdata();
   }
@@ -162,7 +163,7 @@ export class RiskyPage {
 
     await this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/healthdata.php?method=get_sym-phase&role=" +
           this.global.getSelectRole(),

@@ -132,7 +132,7 @@ export class RadiographicsPage {
       headers: {},
     }
 
-    fileTransfer.upload(this.myPhoto, "http://" + this.global.getIP() + "/upload.php", options)
+    fileTransfer.upload(this.myPhoto, "https://" + this.global.getIP() + "/upload.php", options)
       .then((data) => {
       // alert("การอัพโหลดรูปเสร็จสมบูรณ์");
       this.imageLink = data.response; //เอา File Path มาใส่ในตัวแปร
@@ -157,7 +157,7 @@ export class RadiographicsPage {
         thy_scan_desc: this.description
       };
       console.log(JSON.stringify(body));
-      this.http.post("http://" + this.global.getIP() + "/result.php?method=update_thyroidScan&role=" + this.global.getSelectRole(),
+      this.http.post("https://" + this.global.getIP() + "/result.php?method=update_thyroidScan&role=" + this.global.getSelectRole(),
           body,
           options
         )
@@ -182,7 +182,7 @@ export class RadiographicsPage {
       round: this.global.getSelectRound()
     });
     console.log("body : " + body);
-    await this.http.post("http://" + this.global.getIP() + "/result.php?method=get_thyroidScan&role=" + this.global.getSelectRole()
+    await this.http.post("https://" + this.global.getIP() + "/result.php?method=get_thyroidScan&role=" + this.global.getSelectRole()
     ,body
     ,options
     )
@@ -190,7 +190,7 @@ export class RadiographicsPage {
     .subscribe(
       data => {
         this.imagepath = data.thy_scan_image;
-        this.imageFile = "http://" + this.global.getIP() + "/" + data.thy_scan_image;
+        this.imageFile = "https://" + this.global.getIP() + "/" + data.thy_scan_image;
         this.desc = data.thy_scan_desc;
         console.log(data);
       }, error => {

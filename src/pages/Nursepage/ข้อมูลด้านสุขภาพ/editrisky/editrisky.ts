@@ -34,13 +34,13 @@ export class EditriskyPage {
   pregnant: boolean = this.checkNull(this.navParams.get("pregnant"));
 
   smoking: boolean = this.navParams.get("smoking");
-  
+
   smoking_amount: number = this.navParams.get("smoking_amount");
   select_amount: boolean = this.selectChoice(this.navParams.get("select_amount"));
-  
+
   smoking_time: number = this.navParams.get("smoking_time");
   select_time: boolean = this.selectChoice(this.navParams.get("select_time"));
-  
+
   smoking_stop: number = this.navParams.get("smoking_stop");
   select_stop: boolean = this.selectChoice(this.navParams.get("select_stop"));
 
@@ -164,22 +164,22 @@ export class EditriskyPage {
 
       smoking_amount: this.beforeUpdate1(this.smoking,this.smoking_amount) || null,
       select_amount: this.beforeUpdate2(this.smoking,this.checkString(this.smoking_amount),this.revertChoice1(this.select_amount)),
-      
+
       smoking_time: this.beforeUpdate1(this.smoking,this.smoking_time) || null,
       select_time: this.beforeUpdate2(this.smoking,this.checkString(this.smoking_time),this.revertChoice2(this.select_time)),
-      
+
       smoking_stop: this.beforeUpdate1(this.smoking,this.smoking_stop) || null,
       select_stop: this.beforeUpdate2(this.smoking,this.checkString(this.smoking_stop),this.revertChoice2(this.select_stop)),
 
       no_risk_factor: this.editData(this.no_risk_factor),
       relative_toxic_thyroid: this.editData(this.relative_toxic_thyroid)
-      
+
     }
     this.data = body;
     this.navCtrl.getPrevious().data.formData = this.data
     this.http
       .post(
-        "http://"+this.global.getIP()+"/healthdata.php?method=update_sym-phase&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/healthdata.php?method=update_sym-phase&role="+this.global.getSelectRole(),
         body,
         options
       )
@@ -258,5 +258,5 @@ export class EditriskyPage {
     }
   }
 
-  
+
 }

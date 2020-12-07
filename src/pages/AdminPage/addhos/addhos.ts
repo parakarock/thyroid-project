@@ -79,7 +79,7 @@ export class AddhosPage {
     let options = new RequestOptions({ headers: headers });
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/admin.php?method="+event+"&role=" +
           this.global.getSelectRole(),

@@ -41,7 +41,7 @@ export class DatahosPage {
 
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/admin.php?method=" +
           action +
@@ -112,7 +112,7 @@ export class DatahosPage {
       let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://" +
+          "https://" +
             this.global.getIP() +
             "/admin.php?method=delete_hospital&role=" +
             this.global.getSelectRole(),

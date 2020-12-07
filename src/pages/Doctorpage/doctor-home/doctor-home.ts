@@ -112,7 +112,7 @@ export class DoctorHomePage {
     console.log(body)
     await this.http
       .post(
-        "http://"+this.global.getIP()+"/qrcode.php?method=get_patient&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/qrcode.php?method=get_patient&role="+this.global.getSelectRole(),
         body,
         options
       )

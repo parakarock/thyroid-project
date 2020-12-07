@@ -32,17 +32,24 @@
     <ion-item no-lines  >
       <input type="checkbox" (change)="changeNightWork()" id="nightWork"  *ngIf="nightWork" checked/>
       <input type="checkbox" (change)="changeNightWork()" id="nightWork"  *ngIf="!nightWork" />
-      <label for="nightWork" id="nightWork" > งานแบบเข้ากะกลางคืนช่วงเข้ากะรอบละ</label>
-      <input type="number" [(ngModel)]="night_work_hour" value="{{ night_work_hour }}" size="20" />
-      <label >ชั่วโมง </label>
+      <label for="nightWork" id="nightWork" > งานแบบเข้ากะกลางคืนช่วงเข้ากะ</label>
+      <div *ngIf="nightWork">
+        <label>รอบละ </label>
+        <input type="number" [(ngModel)]="night_work_hour" value="{{ night_work_hour }}" size="10" />
+        <label >ชั่วโมง </label>
+      </div>
     </ion-item>
 
     <ion-item no-lines >
       <input type="checkbox" (change)="changeOvertime()" id="Overtime" *ngIf="Overtime" checked/>
       <input type="checkbox" (change)="changeOvertime()" id="Overtime" *ngIf="!Overtime" />
-      <label for="Overtime"> งานล่วงเวลา รอบละ</label>
-      <input type="number" [(ngModel)]="overtime_hour" value="{{ overtime_hour }}" size="20" />
-      <label >ชั่วโมง </label>
+      <label for="Overtime"> งานล่วงเวลา</label>
+      <div *ngIf="Overtime">
+        <label>รอบละ </label>
+        <input type="number" [(ngModel)]="overtime_hour" value="{{ overtime_hour }}" size="10" />
+        <label >ชั่วโมง </label>
+      </div>
+
     </ion-item>
 
     <ion-item no-lines (change)="changeSleep_less_than_4()">

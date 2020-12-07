@@ -56,7 +56,7 @@ export class RegistersPage {
   getHospital() {
     this.http
       .get(
-        "http://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
+        "https://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
       )
       .map(res => res.json())
       .subscribe(
@@ -120,7 +120,7 @@ export class RegistersPage {
     });
     console.log(body);
     await this.http
-      .post("http://"+this.global.getIP()+"/register.php?method=insert_pantient&role="+this.global.getSelectRole(), body, options)
+      .post("https://"+this.global.getIP()+"/register.php?method=insert_pantient&role="+this.global.getSelectRole(), body, options)
       .map(res => res.json())
       .subscribe(
         data => {

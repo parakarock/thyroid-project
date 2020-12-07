@@ -53,6 +53,7 @@ export class InitiallyPage {
   }
 
   async ionViewDidLoad() {
+    console.log("ionViewDidLoad InitiallyPage");
     this.showData = false;
     await this.getdata();
   }
@@ -165,7 +166,7 @@ export class InitiallyPage {
 
     await this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/healthdata.php?method=get_init-phase&role=" +
           this.global.getSelectRole(),

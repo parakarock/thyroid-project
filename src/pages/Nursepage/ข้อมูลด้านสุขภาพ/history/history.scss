@@ -1,11 +1,11 @@
 page-history {
     ion-label {
-        font-size: 15px;
+        font-size: 17px;
         text-align: left;
     }
 
     .button{
-        font-size: 15px;
+        font-size: 17px;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -13,17 +13,21 @@ page-history {
     .topic{
         font-weight: bold;
     }
+    div, label {
+      font-size: 17px;
+    }
+
     @media only screen and (min-width: 1224px) {
         ion-label {
             font-size: 20px;
-           
+
         }
         label{
             font-size:  20px;
          }
         div{
             font-size:  20px;
-         } 
+         }
         .button{
             font-size: 20px;
             display: block;

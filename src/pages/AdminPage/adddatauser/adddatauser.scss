@@ -1,17 +1,17 @@
 page-adddatauser {
     ion-label {
-        font-size: 15px;
-        
+        font-size: 17px;
+
     }
-    
+
     .button{
-        font-size: 15px;
+        font-size: 17px;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
     label {
-        font-size: 15px;
+        font-size: 17px;
         font-weight: bold;
     }
     .help-inline{
@@ -20,8 +20,8 @@ page-adddatauser {
     @media only screen and (min-width: 1224px) {
         ion-label {
             font-size: 20px;
-           
-        } 
+
+        }
         .button{
             font-size: 20px;
             display: block;
@@ -32,11 +32,11 @@ page-adddatauser {
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
         label {
             font-size: 20px;
-            
+
         }
       }
 }

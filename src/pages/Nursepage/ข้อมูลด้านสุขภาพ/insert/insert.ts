@@ -360,7 +360,7 @@ export class InsertPage {
     let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://"+this.global.getIP()+"/healthdata.php?method=update_complication&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/healthdata.php?method=update_complication&role="+this.global.getSelectRole(),
           body,
           options
         )

@@ -1,6 +1,8 @@
+import { EditlabtestPage } from '../../../Nursepage/ผลการตรวจทางห้องแลป/editlabtest/editlabtest';
+import { AddlabtestPage } from '../../../Nursepage/ผลการตรวจทางห้องแลป/addlabtest/addlabtest';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { EditlabPage } from '../editlab/editlab';
+// import { EditlabPage } from '../editlab/editlab';
 import { ShowlabtestPage } from '../../../Nursepage/ผลการตรวจทางห้องแลป/showlabtest/showlabtest';
 import { GlobalProvider } from "../../../../providers/global/global";
 import {
@@ -31,8 +33,8 @@ export class LabPage {
   items;
   shownGroup = null;
   constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider, private http: Http) {
-        
-  
+
+
   }
 
   ionViewDidLoad() {
@@ -47,7 +49,7 @@ export class LabPage {
     };
       this.http
         .post(
-          "http://"+this.global.getIP()+"/labtest.php?method=get_labtest&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/labtest.php?method=get_labtest&role="+this.global.getSelectRole(),
           body,
           options
         )
@@ -55,7 +57,7 @@ export class LabPage {
         .subscribe(
           data => {
             if(data.result){
-              this.showData = false; 
+              this.showData = false;
             }else{
               this.showData = true;
               for(let i = 0;i < data.length; i++){
@@ -71,6 +73,14 @@ export class LabPage {
           }
         );
   }
+
+  onClickAddLabTest(){
+    this.navCtrl.push(AddlabtestPage);
+  }
+
+  onClickEditLabTest(id){
+    this.navCtrl.push(EditlabtestPage,this.items[id]);
+  }
   ShowMore(){
     this.showMore = !this.showMore
   }
@@ -80,6 +90,5 @@ export class LabPage {
   showLabtest(id){
     this.navCtrl.push(ShowlabtestPage,this.items[id])
   }
-  
- 
+
 }

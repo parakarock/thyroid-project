@@ -1,15 +1,15 @@
 page-edithistory {
     div{
-        font-size:  15px;
+        font-size:  17px;
      }
-     label{
-        font-size:  15px;
+     label, ion-datetime, input{
+        font-size:  17px;
      }
     ion-list{
         width: 70%;
     }
     .button{
-        font-size: 15px;
+        font-size: 17px;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -17,6 +17,7 @@ page-edithistory {
     .topic{
         font-weight: bold;
     }
+
     @media only screen and (min-width: 1024px) {
 
         ion-list{

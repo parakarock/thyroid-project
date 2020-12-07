@@ -123,7 +123,7 @@ export class AgreePage {
       headers: {}
     }
 
-    fileTransfer.upload(this.myContract, "http://" + this.global.getIP() + "/uploadContract.php", options)
+    fileTransfer.upload(this.myContract, "https://" + this.global.getIP() + "/uploadContract.php", options)
       .then((data) => {
       // alert("การอัพโหลดรูปเสร็จสมบูรณ์");
       this.imageLink = data.response; //เอา File Path มาใส่ในตัวแปร
@@ -147,7 +147,7 @@ export class AgreePage {
       acceptionform: this.imageLink,
     };
     console.log(JSON.stringify(body));
-    this.http.post("http://" + this.global.getIP() + "/acceptionform.php?method=update_acceptionform&role=" + this.global.getSelectRole(),
+    this.http.post("https://" + this.global.getIP() + "/acceptionform.php?method=update_acceptionform&role=" + this.global.getSelectRole(),
         body,
         options
       )
@@ -172,7 +172,7 @@ export class AgreePage {
       round: this.global.getSelectRound()
     });
     console.log("body : " + body);
-    await this.http.post("http://" + this.global.getIP() + "/acceptionform.php?method=get_acceptionform&role=" + this.global.getSelectRole()
+    await this.http.post("https://" + this.global.getIP() + "/acceptionform.php?method=get_acceptionform&role=" + this.global.getSelectRole()
     ,body
     ,options
     )
@@ -180,7 +180,7 @@ export class AgreePage {
     .subscribe(
       data => {
         this.imagePath = data.acceptionform;
-        this.imageFile = "http://" + this.global.getIP() + "/" + data.acceptionform;
+        this.imageFile = "https://" + this.global.getIP() + "/" + data.acceptionform;
         console.log(data);
       }, error => {
         console.log(error);

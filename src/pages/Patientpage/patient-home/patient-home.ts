@@ -46,7 +46,7 @@ export class PatientHomePage {
     public alertCtrl: AlertController,
     public scanner: BarcodeScanner
   ) {
-   
+
   }
 
   ionViewDidLoad() {
@@ -80,7 +80,7 @@ export class PatientHomePage {
     console.log(body)
      this.http
       .post(
-        "http://"+this.global.getIP()+"/login.php?method=getRounds&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/login.php?method=getRounds&role="+this.global.getSelectRole(),
         body,
         options
       )
@@ -92,7 +92,7 @@ export class PatientHomePage {
           } else {
             this.global.setRound(data);
             this.rounds = this.global.getRound();
-            
+
           }
         },
         error => {
@@ -107,7 +107,7 @@ export class PatientHomePage {
     console.log(body)
      this.http
       .post(
-        "http://"+this.global.getIP()+"/qrcode.php?method=genarate_QRcode&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/qrcode.php?method=genarate_QRcode&role="+this.global.getSelectRole(),
         body,
         options
       )

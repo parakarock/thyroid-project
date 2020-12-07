@@ -1,21 +1,21 @@
 page-radiographic {
     ion-label {
-        font-size: 15px;
-        
+        font-size: 17px;
+
     }
-    
+
     .button{
-        font-size: 15px;
+        font-size: 17px;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     @media only screen and (min-width: 1224px) {
         ion-label {
             font-size: 20px;
-           
-        } 
+
+        }
         .button{
             font-size: 20px;
             display: block;
@@ -26,7 +26,7 @@ page-radiographic {
             width: 40%;
             position: relative;
             left: 30%;
-          
+
         }
       }
 }

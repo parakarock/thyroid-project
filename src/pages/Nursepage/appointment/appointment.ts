@@ -40,10 +40,10 @@ export class AppointmentPage {
 
   getdata(){
     let body = JSON.stringify({
-      
-      date: moment(this.date).format("YYYY-MM-DD") 
-      
-  
+
+      date: moment(this.date).format("YYYY-MM-DD")
+
+
    });
    console.log(body)
 
@@ -51,14 +51,14 @@ export class AppointmentPage {
    let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://"+this.global.getIP()+"/preparephase.php?method=get_prep&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/preparephase.php?method=get_prep&role="+this.global.getSelectRole(),
           body,
           options
         )
         .map(res => res.json())
         .subscribe(
           data => {
-            
+
             if(data.result !== "Fail"){
               this.items = data
               console.log(data)

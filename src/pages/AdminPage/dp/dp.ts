@@ -37,7 +37,7 @@ export class DpPage {
     console.log(JSON.stringify(body));
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/admin.php?method=get_user&role=" +
           this.global.getSelectRole(),
@@ -104,7 +104,7 @@ export class DpPage {
       }else{
         item["header"] = "รายละเอียดข้อมูลพยาบาล";
       }
-      
+
       this.navCtrl.push(ShowuserPage,item);
     }
   }
@@ -118,7 +118,7 @@ export class DpPage {
       let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://" +
+          "https://" +
             this.global.getIP() +
             "/admin.php?method=delete_user&role=" +
             this.global.getSelectRole(),

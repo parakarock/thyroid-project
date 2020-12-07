@@ -162,7 +162,7 @@ export class AddiodineresultPage {
 
       this.http
         .post(
-          "http://" +
+          "https://" +
             this.global.getIP() +
             "/pantient-follow.php?method=" +
             action +

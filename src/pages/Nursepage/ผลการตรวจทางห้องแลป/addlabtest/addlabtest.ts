@@ -141,7 +141,7 @@ export class AddlabtestPage {
    let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://"+this.global.getIP()+"/labtest.php?method=insert_labtest&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/labtest.php?method=insert_labtest&role="+this.global.getSelectRole(),
           body,
           options
         )
@@ -174,7 +174,7 @@ export class AddlabtestPage {
   getHospital() {
     this.http
       .get(
-        "http://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
+        "https://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
       )
       .map(res => res.json())
       .subscribe(

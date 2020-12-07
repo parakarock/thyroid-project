@@ -160,7 +160,7 @@ export class EdittreatmentresultPage {
 
       this.http
         .post(
-          "http://" +
+          "https://" +
             this.global.getIP() +
             "/pantient-follow.php?method=" +
             action +

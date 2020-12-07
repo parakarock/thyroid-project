@@ -44,7 +44,7 @@ export class PreparehomePage {
     };
       this.http
         .post(
-          "http://"+this.global.getIP()+"/preparephase.php?method=get_preparephase&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/preparephase.php?method=get_preparephase&role="+this.global.getSelectRole(),
           body,
           options
         )
@@ -119,6 +119,6 @@ export class PreparehomePage {
       return false;
     }
   }
- 
- 
+
+
 }

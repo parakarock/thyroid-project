@@ -39,7 +39,7 @@ import { ChangepassPage } from "../../changepass/changepass";
   templateUrl: "nurse-home.html",
 })
 export class NurseHomePage {
- 
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -143,7 +143,7 @@ export class NurseHomePage {
     console.log(body)
     await this.http
       .post(
-        "http://"+this.global.getIP()+"/qrcode.php?method=get_patient&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/qrcode.php?method=get_patient&role="+this.global.getSelectRole(),
         body,
         options
       )

@@ -58,7 +58,7 @@ export class GeneralPage {
     console.log("body : " + body);
    await this.http
       .post(
-        "http://"+this.global.getIP()+"/healthdata.php?method=get_profile&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/healthdata.php?method=get_profile&role="+this.global.getSelectRole(),
         body,
         options
       )
@@ -100,6 +100,7 @@ export class GeneralPage {
 
 
   async ionViewDidLoad() {
+    console.log("ionViewDidLoad GeneralPage");
     this.showData = false;
     await this.getdata()
   }

@@ -118,7 +118,7 @@ export class EditinitiallyPage {
     this.navCtrl.getPrevious().data.formData = this.data
     this.http
       .post(
-        "http://"+this.global.getIP()+"/healthdata.php?method=update_init-phase&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/healthdata.php?method=update_init-phase&role="+this.global.getSelectRole(),
         body,
         options
       )

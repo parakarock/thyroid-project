@@ -25,8 +25,8 @@ export class FollowuptreatmentresultPage {
   items;
   shownGroup = null;
   constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider, private http: Http) {
-        
-  
+
+
   }
 
   ionViewDidLoad() {
@@ -42,7 +42,7 @@ export class FollowuptreatmentresultPage {
     };
       this.http
         .post(
-          "http://"+this.global.getIP()+"/pantient-follow.php?method=get_follow&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/pantient-follow.php?method=get_follow&role="+this.global.getSelectRole(),
           body,
           options
         )
@@ -50,7 +50,7 @@ export class FollowuptreatmentresultPage {
         .subscribe(
           data => {
             if(data.result){
-              this.showData = false; 
+              this.showData = false;
             }else{
               this.showData = true;
               for(let i = 0;i < data.length; i++){

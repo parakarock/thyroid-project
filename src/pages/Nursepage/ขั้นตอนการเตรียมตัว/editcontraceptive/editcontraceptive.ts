@@ -60,7 +60,7 @@ export class EditcontraceptivePage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad EditcontraceptivePage");
-    
+
   }
 
   isControl(txt) {
@@ -96,7 +96,7 @@ export class EditcontraceptivePage {
       let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://" +
+          "https://" +
             this.global.getIP() +
             "/preparephase.php?method=update_period&role=" +
             this.global.getSelectRole(),

@@ -30,7 +30,7 @@ export class HomePage {
     public global: GlobalProvider,
     private http: Http
   ) {
-    
+
     this.url =
       "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=" +
       this.playlistId +
@@ -50,8 +50,7 @@ export class HomePage {
       );
   }
   ionViewDidLoad() {
-    
-    // console.log("ionViewDidLoad")
+    console.log("ionViewDidLoad HomePage")
   }
   ionViewWillEnter(){
     this.isPatient()

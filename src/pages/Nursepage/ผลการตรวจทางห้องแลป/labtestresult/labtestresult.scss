@@ -3,13 +3,14 @@ page-labtestresult {
     font-size: 40px;
     }
    ion-label {
-    font-size: 15px;  
-    } 
+    font-size: 18px;
+    }
     .topic{
         font-weight: bold;
+        
     }
     .button{
-        font-size: 15px;
+        font-size: 17px;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -20,18 +21,18 @@ page-labtestresult {
     }
 
    @media only screen and (min-width: 1024px) {
-     
+
     ion-icon{
         font-size: 64px;
        }
     ion-label {
         font-size: 20px;
-       } 
+       }
        #css{
         width: 40%;
         position: relative;
         left: 30%;
-      
+
     }
     .button{
         font-size: 20px;
@@ -40,7 +41,7 @@ page-labtestresult {
         margin-right: auto;
     }
     .editButton{
-        margin-right: 30px;  
+        margin-right: 30px;
     }
     }
 }

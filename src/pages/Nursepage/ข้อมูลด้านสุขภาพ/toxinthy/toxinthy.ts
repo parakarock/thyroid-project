@@ -5,6 +5,7 @@ import { GlobalProvider } from "../../../../providers/global/global";
 import { Http, Headers, RequestOptions } from "@angular/http";
 import moment from "moment";
 import "moment/locale/TH";
+import { CompileMetadataResolver } from "@angular/compiler";
 
 /**
  * Generated class for the ToxinthyPage page.
@@ -120,7 +121,7 @@ export class ToxinthyPage {
     console.log("body : " + body);
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/healthdata.php?method=get_complication&role=" +
           this.global.getSelectRole(),

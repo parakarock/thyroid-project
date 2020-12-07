@@ -29,11 +29,18 @@ import 'moment/locale/TH';
 export class LabtestresultPage {
   showData: boolean = true;
   showMore: boolean = false;
+  showMenu: boolean;
   items;
   shownGroup = null;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider, private http: Http) {
-        
-  
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public global: GlobalProvider,
+              private http: Http){
+                if(this.global.getSelectRole() === "หมอ" || this.global.getSelectRole() === "พยาบาล"){
+                  this.showMenu = true;
+                }else{
+                  this.showMenu = false;
+                }
   }
 
   ionViewDidLoad() {
@@ -48,7 +55,7 @@ export class LabtestresultPage {
     };
       this.http
         .post(
-          "http://"+this.global.getIP()+"/labtest.php?method=get_labtest&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/labtest.php?method=get_labtest&role="+this.global.getSelectRole(),
           body,
           options
         )
@@ -56,7 +63,7 @@ export class LabtestresultPage {
         .subscribe(
           data => {
             if(data.result){
-              this.showData = false; 
+              this.showData = false;
             }else{
               this.showData = true;
               for(let i = 0;i < data.length; i++){
@@ -89,6 +96,5 @@ export class LabtestresultPage {
   showLabtest(id){
     this.navCtrl.push(ShowlabtestPage,this.items[id])
   }
-  
- 
+
 }

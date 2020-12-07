@@ -100,7 +100,7 @@ export class EditiodineresultdetailPage {
     console.log("ionViewDidLoad EditiodineresultdetailPage");
     this.setMedical();
   }
-  
+
   update() {
     let anti: string = this.formgroup.controls.ThyroidMed.value;
     let antiother: string = this.formgroup.controls.ThyroidMedEtc.value;
@@ -153,7 +153,7 @@ export class EditiodineresultdetailPage {
 
       this.http
         .post(
-          "http://" +
+          "https://" +
             this.global.getIP() +
             "/pantient-follow.php?method=" +
             action +
@@ -274,5 +274,5 @@ export class EditiodineresultdetailPage {
     });
     alert.present();
   }
- 
+
 }

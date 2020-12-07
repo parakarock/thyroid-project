@@ -36,7 +36,7 @@ export class EditdatePage {
     this.startMax = moment().add(643, 'y').format("YYYY");
 
   }
- 
+
   ionViewDidLoad() {
     if(this.navParams.get("method")){
       this.method = this.navParams.get("method")
@@ -48,9 +48,9 @@ export class EditdatePage {
       console.log("out")
     }
     this.selectMethod(this.navParams.get("method"))
-    
+
   }
-  
+
   selectMethod(method){
     if(method == "วิธีการประมาณ"){
       this.showDate = false;
@@ -77,8 +77,8 @@ export class EditdatePage {
       prep_date:this.date1,
       end_date: this.checkDate2(),
       method:this.method
-      
-  
+
+
    });
    console.log(body)
 
@@ -86,7 +86,7 @@ export class EditdatePage {
    let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://"+this.global.getIP()+"/preparephase.php?method=update_preparephase&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/preparephase.php?method=update_preparephase&role="+this.global.getSelectRole(),
           body,
           options
         )
@@ -96,7 +96,7 @@ export class EditdatePage {
             this.presentAlert(data.result)
             if(data.result !== "Fail"){
               this.navCtrl.pop();
-            } 
+            }
           },
           error => {
             console.log(error);

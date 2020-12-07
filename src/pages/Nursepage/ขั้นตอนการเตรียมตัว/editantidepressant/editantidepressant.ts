@@ -36,7 +36,7 @@ export class EditantidepressantPage {
           .add(5, "days")
           .format("Do MMMM YYYY");
         }
-      
+
   }
 
   ionViewDidLoad() {
@@ -61,14 +61,14 @@ export class EditantidepressantPage {
         idcard: this.global.getpatientID(),
         round: this.global.getSelectRound(),
         period_control: this.isControl,
-        
+
       };
       this.navCtrl.getPrevious().data.formData = body
       let headers = new Headers({ "Content-type": "application/json" });
       let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://" +
+          "https://" +
             this.global.getIP() +
             "/preparephase.php?method=update_control&role=" +
             this.global.getSelectRole(),
@@ -87,7 +87,7 @@ export class EditantidepressantPage {
             console.log(error);
           }
         );
-    
+
   }
   async presentAlert(txt: string) {
     let alert = await this.alertCtrl.create({
@@ -119,5 +119,5 @@ export class EditantidepressantPage {
     });
     alert.present();
   }
- 
+
 }

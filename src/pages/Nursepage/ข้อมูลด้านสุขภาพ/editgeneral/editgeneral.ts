@@ -113,7 +113,7 @@ export class EditgeneralPage {
   getHospital() {
     this.http
       .get(
-        "http://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
+        "https://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
       )
       .map(res => res.json())
       .subscribe(
@@ -123,18 +123,18 @@ export class EditgeneralPage {
           this.hospitals = data;
           this.addOtherItem(this.hospitals);
           if(this.hospitals.find(hospital => hospital.hos_name === hosin)||hosin===""){
-      
+
           }else{
             this.hospitals.unshift({
-              hos_name: hosin 
-            }); 
+              hos_name: hosin
+            });
           }
           if(this.hospitals.find(hospital => hospital.hos_name === hosout)||hosout===""){
-      
+
           }else{
             this.hospitals.unshift({
-              hos_name: hosout 
-            }); 
+              hos_name: hosout
+            });
           }
           console.log(this.hospitals);
         },
@@ -192,7 +192,7 @@ export class EditgeneralPage {
     console.log("body : " + body);
     this.http
       .post(
-        "http://"+this.global.getIP()+"/healthdata.php?method=update_profile&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/healthdata.php?method=update_profile&role="+this.global.getSelectRole(),
         body,
         options
       )

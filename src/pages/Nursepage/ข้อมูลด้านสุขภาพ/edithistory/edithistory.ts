@@ -25,25 +25,25 @@ export class EdithistoryPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public formBuilder: FormBuilder,public global: GlobalProvider,public alertCtrl: AlertController, private http: Http,) {
     this.startMin = moment().add(443, 'y').format("YYYY");
     this.startMax = moment().add(543, 'y').format("YYYY");
-    
+
     this.specify = this.checkNull(navParams.get("specify"));
 
     this.formgroup = formBuilder.group({
       hospital: [
         navParams.get("hospital")||"",
         Validators.compose([
-          
+
           Validators.pattern("^[ก-๏sa-zA-Z]+$")
         ])
-     
+
       ],
       datemineral: [moment(navParams.get("datemineral"),"Do MMMM YYYY").format("YYYY-MM-DD")],
       amount: [
         navParams.get("amount")
-      ]   
+      ]
     });
     if(navParams.get("specify") == false){
-      this.formgroup.controls.datemineral.setValue(moment().add(543, 'y').format()) 
+      this.formgroup.controls.datemineral.setValue(moment().add(543, 'y').format())
     }
   }
 
@@ -51,8 +51,8 @@ export class EdithistoryPage {
     this.specify = !this.specify
     console.log(this.specify);
   }
-  
-  
+
+
   checkNull(data) {
     if (data === null) {
       return false;
@@ -100,7 +100,7 @@ export class EdithistoryPage {
     this.navCtrl.getPrevious().data.formData = this.data
       this.http
         .post(
-          "http://"+this.global.getIP()+"/healthdata.php?method=update_mineral_history&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/healthdata.php?method=update_mineral_history&role="+this.global.getSelectRole(),
           body,
           options
         )

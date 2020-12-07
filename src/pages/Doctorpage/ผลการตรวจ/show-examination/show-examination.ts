@@ -60,7 +60,7 @@ export class ShowExaminationPage {
     });
     console.log("body : " + body);
     await this.http.post(
-        "http://" + this.global.getIP() + "/result.php?method=get_thyroidUltraMass&role=" + this.global.getSelectRole(),
+        "https://" + this.global.getIP() + "/result.php?method=get_thyroidUltraMass&role=" + this.global.getSelectRole(),
         body,
         options
       )
@@ -86,7 +86,7 @@ export class ShowExaminationPage {
     });
     console.log("body : " + body);
     await this.http.post(
-        "http://" + this.global.getIP() + "/result.php?method=get_thyroidUltraPic&role=" + this.global.getSelectRole(),
+        "https://" + this.global.getIP() + "/result.php?method=get_thyroidUltraPic&role=" + this.global.getSelectRole(),
         body,
         options
       )
@@ -94,7 +94,7 @@ export class ShowExaminationPage {
       .subscribe(
         data => {
           this.showData = true;
-          this.thyroid_image = "http://" + this.global.getIP() + "/" + data.thyroid_image;
+          this.thyroid_image = "https://" + this.global.getIP() + "/" + data.thyroid_image;
           this.thy_ult_result = data.thy_ult_result;
           console.log(JSON.stringify(data));
         },

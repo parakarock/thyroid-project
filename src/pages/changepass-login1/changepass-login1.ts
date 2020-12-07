@@ -28,7 +28,7 @@ export class ChangepassLogin1Page {
   birthday;
   startMin: any;
   startMax: any;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: Http,public alertCtrl: AlertController,public global: GlobalProvider) {
     this.startMin = moment().add(443, 'y').format("YYYY");
     this.startMax = moment().add(543, 'y').format("YYYY");
@@ -46,7 +46,7 @@ export class ChangepassLogin1Page {
     console.log("body : " + JSON.stringify(body));
     await this.http
       .post(
-        "http://"+this.global.getIP()+"/login.php?method=changePassLogin1&role=guest",
+        "https://"+this.global.getIP()+"/login.php?method=changePassLogin1&role=guest",
         body,
         options
       )

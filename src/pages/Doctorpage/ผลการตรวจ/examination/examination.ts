@@ -191,7 +191,7 @@ export class ExaminationPage {
             mimeType: "image/jpeg",
             headers: {}
           }
-          fileTransfer.upload(this.filepath, "http://" + this.global.getIP() + "/uploadCanvas.php", options)
+          fileTransfer.upload(this.filepath, "https://" + this.global.getIP() + "/uploadCanvas.php", options)
               .then((data) => {
               alert("บันทึกข้อมูลเสร็จสมบูรณ์");
               this.imageLink = data.response;
@@ -221,7 +221,7 @@ export class ExaminationPage {
       thyroid_image: this.imageLink,
       thy_ult_result: this.formgroup.controls.thy_ult_result.value
     };
-      this.http.post("http://" + this.global.getIP() + "/result.php?method=update_thyroidUltraPic&role=" + this.global.getSelectRole()
+      this.http.post("https://" + this.global.getIP() + "/result.php?method=update_thyroidUltraPic&role=" + this.global.getSelectRole()
       ,body
       ,options
       )
@@ -251,7 +251,7 @@ export class ExaminationPage {
     thy_ult_surgury_desc: this.formgroup.controls.thy_ult_surgury_desc1.value,
     };
     console.log(body);
-    this.http.post("http://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
+    this.http.post("https://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
     ,body
     ,options
     )
@@ -281,7 +281,7 @@ export class ExaminationPage {
     thy_ult_surgury_desc: this.formgroup.controls.thy_ult_surgury_desc2.value,
     };
     console.log(body);
-    this.http.post("http://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
+    this.http.post("https://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
     ,body
     ,options
     )
@@ -311,7 +311,7 @@ export class ExaminationPage {
     thy_ult_surgury_desc: this.formgroup.controls.thy_ult_surgury_desc3.value,
     };
     console.log(body);
-    this.http.post("http://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
+    this.http.post("https://" + this.global.getIP() + "/result.php?method=insert_thyroidUltraMass&role=" + this.global.getSelectRole()
     ,body
     ,options
     )
@@ -387,7 +387,7 @@ export class ExaminationPage {
     });
     console.log("body : " + body);
     await this.http.post(
-        "http://" + this.global.getIP() + "/result.php?method=get_thyroidUltraPic&role=" + this.global.getSelectRole(),
+        "https://" + this.global.getIP() + "/result.php?method=get_thyroidUltraPic&role=" + this.global.getSelectRole(),
         body,
         options
       )
@@ -396,7 +396,7 @@ export class ExaminationPage {
         data => {
           // this.showData = true;
           this.thy_image_path = data.thyroid_image;
-          this.thyroid_old_image = "http://" + this.global.getIP() + "/" + data.thyroid_image;
+          this.thyroid_old_image = "https://" + this.global.getIP() + "/" + data.thyroid_image;
           this.thy_ult_result = data.thy_ult_result;
           console.log(JSON.stringify(data));
         },

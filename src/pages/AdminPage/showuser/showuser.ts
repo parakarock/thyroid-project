@@ -55,7 +55,7 @@ export class ShowuserPage {
     console.log("body : " + body);
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/admin.php?method=getrole_user&role=" +
           this.global.getSelectRole(),

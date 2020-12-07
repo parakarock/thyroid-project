@@ -69,7 +69,7 @@ export class PhysicalPage {
     //       this.eye_result = this.navParams.get("formData").eye_result;
     //       this.doctor_name = this.navParams.get("formData").doctor_name;
     //       this.doctor_date = this.navParams.get("formData").doctor_date;
-    //       this.doctor_file = "http://" + this.global.getIP() + "/" +  this.navParams.get("formData").doctor_file;
+    //       this.doctor_file = "https://" + this.global.getIP() + "/" +  this.navParams.get("formData").doctor_file;
     //       this.doctor_result= this.navParams.get("formData").doctor_result;
     //       this.treatment = this.navParams.get("formData").treatment;
     //     }
@@ -90,7 +90,7 @@ export class PhysicalPage {
     });
     console.log("body : " + body);
     await this.http.post(
-        "http://" + this.global.getIP() + "/result.php?method=get_bodyresult1&role=" + this.global.getSelectRole(),
+        "https://" + this.global.getIP() + "/result.php?method=get_bodyresult1&role=" + this.global.getSelectRole(),
         body,
         options
       )
@@ -109,7 +109,7 @@ export class PhysicalPage {
             this.eye_result = data.eye_result;
             this.doctor_name = data.doctor_name;
             this.doctor_date = moment(data.doctor_date,"YYYY-MM-DD").format("Do MMMM YYYY");
-            this.doctor_file = "http://" + this.global.getIP() + "/" +  data.doctor_file;
+            this.doctor_file = "https://" + this.global.getIP() + "/" +  data.doctor_file;
             this.doctor_result= data.doctor_result;
             this.treatment = data.treatment;
             // console.log(JSON.stringify(data));

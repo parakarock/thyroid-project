@@ -102,7 +102,7 @@ export class AdddatauserPage {
       this.formgroup.controls.birthday.setValue(
         moment(this.formgroup.controls.birthday.value).format("YYYY-MM-DD")
       );
-      let body = 
+      let body =
         {
           idcard: this.formgroup.controls.idCard.value,
           title: this.formgroup.controls.title.value,
@@ -128,7 +128,7 @@ export class AdddatauserPage {
     }
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/admin.php?method="+event+"&role=" +
           this.global.getSelectRole(),
@@ -226,7 +226,7 @@ export class AdddatauserPage {
     console.log("body : " + body);
     this.http
       .post(
-        "http://" +
+        "https://" +
           this.global.getIP() +
           "/admin.php?method=getrole_user&role=" +
           this.global.getSelectRole(),

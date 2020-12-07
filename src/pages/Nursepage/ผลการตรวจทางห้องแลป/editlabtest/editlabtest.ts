@@ -129,7 +129,7 @@ export class EditlabtestPage {
     this.setMedical()
   }
 
-  
+
 
  addLabTest(){
   let hosnameother:string = this.formgroup.controls.HospitalOther.value
@@ -173,7 +173,7 @@ export class EditlabtestPage {
       betaname:this.sendBetaBlock(),
       betaamount:this.formgroup.controls.BetaBlockVol.value,
       betadaily:this.formgroup.controls.BetaBlockRoundPerDay.value
-  
+
    });
    console.log(body)
 
@@ -181,7 +181,7 @@ export class EditlabtestPage {
    let options = new RequestOptions({ headers: headers });
       this.http
         .post(
-          "http://"+this.global.getIP()+"/labtest.php?method=update_labtest&role="+this.global.getSelectRole(),
+          "https://"+this.global.getIP()+"/labtest.php?method=update_labtest&role="+this.global.getSelectRole(),
           body,
           options
         )
@@ -191,7 +191,7 @@ export class EditlabtestPage {
             this.presentAlert(data.result)
             if(data.result !== "Fail"){
               this.navCtrl.pop();
-            } 
+            }
           },
           error => {
             console.log(error);
@@ -199,7 +199,7 @@ export class EditlabtestPage {
         );
   }
 
-  
+
   }
 
 
@@ -236,7 +236,7 @@ export class EditlabtestPage {
   getHospital() {
     this.http
       .get(
-        "http://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
+        "https://"+this.global.getIP()+"/admin.php?method=get_hospital&role="+this.global.getSelectRole()
       )
       .map(res => res.json())
       .subscribe(
@@ -244,7 +244,7 @@ export class EditlabtestPage {
           let hos = this.navParams.get("Lab_test_hosp")
           this.hospitals = data;
             if(data.find(hospital => hospital.hos_name === hos)){
-      
+
             }else{
               this.hospitals.unshift({
                 hos_name: hos,
@@ -252,12 +252,12 @@ export class EditlabtestPage {
                 freeT4_standard: this.navParams.get("free_T4_stan"),
                 TSH_standard: this.navParams.get("TSH_stan"),
                 TRAb_standard: this.navParams.get("TRAb_stan"),
-              }); 
-            
+              });
+
             }
           this.formgroup.controls.Hospital.setValue(hos)
           this.addOtherItem(this.hospitals);
-          this.showHosIn() 
+          this.showHosIn()
         },
         error => {
           console.log(error);
@@ -316,7 +316,7 @@ export class EditlabtestPage {
   addThyroidMed(data){
     if(data === "อื่นๆ"){
     this.showAntiOther = true
-    this.showAntiPill = true    
+    this.showAntiPill = true
     }else if(data === "ไม่ต้องรับประทาน"){
       this.showAntiPill = false
       this.showAntiOther = false
@@ -327,7 +327,7 @@ export class EditlabtestPage {
       this.showAntiOther = false
       this.ThyroidMed = data;
     }
-  
+
   }
   addBetaBlock(data){
     if(data === "อื่นๆ"){
@@ -343,7 +343,7 @@ export class EditlabtestPage {
       this.showBlockOther = false
       this.BetaBlock = data;
     }
-  
+
   }
   async presentConfirm() {
     let alert = await this.alertCtrl.create({

@@ -35,6 +35,7 @@ export class HistoryPage {
     this.showButtonedit = this.checkRole(this.global.getSelectRole());
   }
   async ionViewDidLoad() {
+    console.log("ionViewDidLoad HistoryPage");
     this.showData = false;
     await this.getdata()
   }
@@ -60,7 +61,7 @@ export class HistoryPage {
 
    await this.http
       .post(
-        "http://"+this.global.getIP()+"/healthdata.php?method=get_mineral_history&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/healthdata.php?method=get_mineral_history&role="+this.global.getSelectRole(),
         body,
         options
       )

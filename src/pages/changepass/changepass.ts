@@ -54,11 +54,11 @@ export class ChangepassPage {
       idcard: this.global.getLoginID(),
       oldpass: this.formgroup.controls.oldPassword.value,
       newpass: this.formgroup.controls.confirmPassword.value,
-      
+
     };
     this.http
       .post(
-        "http://"+this.global.getIP()+"/login.php?method=changePassTab&role="+this.global.getSelectRole(),
+        "https://"+this.global.getIP()+"/login.php?method=changePassTab&role="+this.global.getSelectRole(),
         body,
         options
       )
