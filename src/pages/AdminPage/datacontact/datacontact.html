@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>จัดการข้อมูลติดต่อ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div id="css">
+    <ion-item>
+      <ion-label
+        ><ion-searchbar
+          [(ngModel)]="searchTerm"
+          placeholder="ระบุชื่อหมอ"
+          (ionInput)="setFilteredItems($event.target.value)"
+        ></ion-searchbar
+      ></ion-label>
+    </ion-item>
+    <ion-label
+      ><button ion-button float-right (click)="addcontact()" color="1">
+        เพิ่ม
+      </button></ion-label
+    >
+
+    <div *ngIf="showData">
+      <div *ngFor="let contact of contacts; let i = index">
+        <ion-card>
+          <div >
+            <ion-item>
+              <ion-label class="topic" color="dark">ลำดับ</ion-label>
+              <ion-label color="dark">{{contact.contact_level}}</ion-label>
+            </ion-item>
+          <ion-row>
+            <ion-col col-4>
+              <img
+                id="logo"
+                src="../../../assets/icon/Pic_Icon/{{contact.path_profile}}"
+                class="img-thumbnail"
+              />
+            </ion-col>
+
+            <ion-col col-8>
+              <div>{{contact.contact_title+contact.contact_fname+" "+contact.contact_lname}}</div>
+              <div>{{contact.contact_position}}</div>
+              <div>{{contact.contact_department}}</div>
+              <div>{{contact.contact_hospital}}</div>
+            </ion-col>
+          </ion-row>
+          </div>
+          <button ion-button float-right (click)="addcontact(i)" color="1">
+            แก้ไข
+          </button>
+          <button
+            ion-button
+            float-right
+            (click)="presentConfirm(contact.contact_title,i,hospital.contact_id)"
+            color="1"
+          >
+            ลบ
+          </button>
+
+          <div style="margin: 10px"></div>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngIf="!showData" style="text-align: center">
+      <ion-label color="dark">ไม่พบข้อมูล</ion-label>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,187 @@
+<ion-header>
+  <ion-navbar color="1">
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card id="css" padding>
+    <form [formGroup]="formgroup">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label>ลำดับ*</label>
+          </ion-col>
+          <ion-col col-6>
+            <input
+              type="number"
+              id="contact_level"
+              name="contact_level"
+              formControlName="contact_level"
+              size="20"
+            />
+            <p
+              class="help-inline"
+              *ngIf="!formgroup.get('contact_level').valid
+    && formgroup.get('contact_level').touched"
+            >
+              กรุณากรอกตัวเลข
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label>คำนำหน้าชื่อ </label>
+          </ion-col>
+          <ion-col col-6>
+            <select formControlName="contact_title">
+              <option value="นาย" selected>นาย</option>
+              <option value="นาง">นาง</option>
+              <option value="นางสาว">นางสาว</option>
+              <option value="นพ.">นพ.</option>
+              <option value="พญ.">พญ.</option>
+              <option value="พญ.">ดร.</option>
+              <option value="Mr.">Mr.</option>
+              <option value="Mrs.">Mrs.</option>
+              <option value="Miss ">Miss</option>
+            </select>
+            <p
+              class="help-inline"
+              *ngIf="!formgroup.get('contact_title').valid
+  && formgroup.get('contact_title').touched"
+            >
+              กรุณากรอกเลือกคำนำหน้าชื่อ
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label>ชื่อ*</label>
+          </ion-col>
+          <ion-col col-6>
+            <input
+              type="text"
+              id="contact_fname"
+              name="contact_fname"
+              formControlName="contact_fname"
+              size="20"
+            />
+            <p
+              class="help-inline"
+              *ngIf="!formgroup.get('contact_fname').valid
+    && formgroup.get('contact_fname').touched"
+            >
+              กรุณากรอกชื่อ ภาษาไทย หรือ ภาษาอังกฤษ เท่านั้น
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label>นามสกุล*</label>
+          </ion-col>
+          <ion-col col-6>
+            <input
+              type="text"
+              id="contact_lname"
+              name="contact_lname"
+              formControlName="contact_lname"
+              size="20"
+            />
+            <p class="help-inline"
+            *ngIf="!formgroup.get('contact_lname').valid
+            && formgroup.get('contact_lname').touched">กรุณากรอกนามสกุล ภาษาไทย หรือ ภาษาอังกฤษ เท่านั้น</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label>ตำแหน่ง*</label>
+          </ion-col>
+          <ion-col col-6>
+            <input
+              type="text"
+              id="contact_position"
+              name="contact_position"
+              formControlName="contact_position"
+              size="20"
+            />
+            <p
+              class="help-inline"
+              *ngIf="!formgroup.get('contact_position').valid
+    && formgroup.get('contact_position').touched"
+            >
+              กรุณากรอกข้อมูล
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label>หน่วยงาน*</label>
+          </ion-col>
+          <ion-col col-6>
+            <input
+              type="text"
+              id="contact_department"
+              name="contact_department"
+              formControlName="contact_department"
+              size="20"
+            />
+            <p
+              class="help-inline"
+              *ngIf="!formgroup.get('contact_department').valid
+    && formgroup.get('contact_department').touched"
+            >
+              กรุณากรอกข้อมูล
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <label>สถานที่*</label>
+          </ion-col>
+          <ion-col col-6>
+            <input
+              type="text"
+              id="contact_hospital"
+              name="contact_hospital"
+              formControlName="contact_hospital"
+              size="20"
+            />
+            <p
+              class="help-inline"
+              *ngIf="!formgroup.get('contact_hospital').valid
+    && formgroup.get('contact_hospital').touched"
+            >
+              กรุณากรอกข้อมูล
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    </ion-card>
+  <button
+    ion-button
+    color="1"
+    [disabled]="!formgroup.valid"
+    (click)="presentConfirm()"
+  >
+    บันทึก
+  </button>
+</ion-content>

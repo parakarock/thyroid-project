@@ -4,58 +4,65 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding >
- <div id="css">
-
- 
- 
-  <ion-item >
-    <ion-label ><ion-searchbar [(ngModel)]="searchTerm" placeholder="ระบุชื่อโรงพยาบาล" (ionInput)="setFilteredItems($event.target.value)"></ion-searchbar></ion-label>
-    
-  </ion-item>
-  <ion-label ><button ion-button float-right (click)=addhos() color="1">เพิ่ม</button></ion-label>
-  
-  <div *ngIf="showData">
-    <div *ngFor="let hospital of hospitals; let i = index">
-  <ion-card  >
-    <div (click)=showDetail(i)>
-
-  
-    <ion-item >
-      <ion-label class="topic" color="dark">รหัสโรงพยาบาล</ion-label>
-      <ion-label color="dark">{{hospital.h_id}}</ion-label>
-    </ion-item>
+<ion-content padding>
+  <div id="css">
     <ion-item>
-      <ion-label class="topic" color="dark">ชื่อโรงพยาบาล</ion-label>
-      <ion-label color="dark">{{hospital.hos_name}}</ion-label>
+      <ion-label
+        ><ion-searchbar
+          [(ngModel)]="searchTerm"
+          placeholder="ระบุชื่อโรงพยาบาล"
+          (ionInput)="setFilteredItems($event.target.value)"
+        ></ion-searchbar
+      ></ion-label>
     </ion-item>
+    <ion-label
+      ><button ion-button float-right (click)="addhos()" color="1">
+        เพิ่ม
+      </button></ion-label
+    >
 
-    <ion-item>
-      <ion-label class="topic" color="dark">ที่อยู่</ion-label>
-      <ion-label color="dark">{{hospital.address}}</ion-label>
-    </ion-item>
+    <div *ngIf="showData">
+      <div *ngFor="let hospital of hospitals; let i = index">
+        <ion-card>
+          <div (click)="showDetail(i)">
+            <ion-item>
+              <ion-label class="topic" color="dark">รหัสโรงพยาบาล</ion-label>
+              <ion-label color="dark">{{hospital.h_id}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="topic" color="dark">ชื่อโรงพยาบาล</ion-label>
+              <ion-label color="dark">{{hospital.hos_name}}</ion-label>
+            </ion-item>
 
-    <ion-item>
-      <ion-label class="topic" color="dark">เบอร์โทรศัพท์</ion-label>
-      <ion-label color="dark">{{hospital.phone}}</ion-label>
-    </ion-item>
+            <ion-item>
+              <ion-label class="topic" color="dark">ที่อยู่</ion-label>
+              <ion-label color="dark">{{hospital.address}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label class="topic" color="dark">เบอร์โทรศัพท์</ion-label>
+              <ion-label color="dark">{{hospital.phone}}</ion-label>
+            </ion-item>
+          </div>
+          <button ion-button float-right (click)="addhos(i)" color="1">
+            แก้ไข
+          </button>
+          <button
+            ion-button
+            float-right
+            (click)="presentConfirm(hospital.hos_name,i,hospital.id)"
+            color="1"
+          >
+            ลบ
+          </button>
+
+          <div style="margin: 10px"></div>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngIf="!showData" style="text-align: center">
+      <ion-label color="dark">ไม่พบข้อมูล</ion-label>
+    </div>
   </div>
-    <button ion-button float-right (click)=addhos(i) color="1">แก้ไข</button>
-    <button ion-button float-right (click)=presentConfirm(hospital.hos_name,i,hospital.id) color="1">ลบ</button>
-    
-    
-    <div style="margin: 10px;"></div>
-  </ion-card>
-</div>
-</div>
-
-  <div *ngIf="!showData" style="text-align: center;">
-
-  
-    <ion-label  color="dark">ไม่พบข้อมูล</ion-label>
-  
-  
-  </div>
-     
-</div>
 </ion-content>

@@ -105,6 +105,9 @@ import { AdddatauserPage } from '../pages/AdminPage/adddatauser/adddatauser';
 import { AddhosPage } from '../pages/AdminPage/addhos/addhos';
 import { ShowhosPage } from '../pages/AdminPage/showhos/showhos';
 import { ShowuserPage } from '../pages/AdminPage/showuser/showuser';
+import { AdddatacontactPage } from '../pages/AdminPage/adddatacontact/adddatacontact';
+import { DatacontactPage } from '../pages/AdminPage/datacontact/datacontact';
+import { ShowdatacontactPage } from '../pages/AdminPage/showdatacontact/showdatacontact';
 
 
 import {  QrcodePage } from '../pages/qrscan/qrscan';
@@ -140,7 +143,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     RegisterPage,
     NurseHomePage,
     RegistersPage,
-    NurseHomePage,
     AddlabtestPage,
     EditlabtestPage,
     LabtestresultPage,
@@ -187,20 +189,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     EditlabPage,
     DiagnosticResultsPage,
     EditbiopsyPage,
-    // DocBiopsyPage,
-    // DocDiagnosticResultPage,
-    // DocEditPage,
-    // DocEditbiopsyPage,
-    // DocEditlabPage,
-    // DocEditphysicalPage,
-    // DocEditphysicalsPage,
-    // DocExaminationPage,
-    // DocLabPage,
-    // DocPhysicalPage,
-    // DocPhysicalsPage,
-    // DocRadiographicPage,
-    // DocRadiographicsPage,
-    // DocTestresultPage,
     PatientHomePage,
     ToxinthyPage,
     AgreePage,
@@ -225,7 +213,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     ShowExaminationPage,
     ShowlabtestPage,
     AddiodineresultPage,
-    ShowtreatmentdetailPage
+    ShowtreatmentdetailPage,
+    AdddatacontactPage,
+    DatacontactPage,
+    ShowdatacontactPage
 
 
   ],
@@ -298,20 +289,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     EditlabPage,
     DiagnosticResultsPage,
     EditbiopsyPage,
-    // DocBiopsyPage,
-    // DocDiagnosticResultPage,
-    // DocEditPage,
-    // DocEditbiopsyPage,
-    // DocEditlabPage,
-    // DocEditphysicalPage,
-    // DocEditphysicalsPage,
-    // DocExaminationPage,
-    // DocLabPage,
-    // DocPhysicalPage,
-    // DocPhysicalsPage,
-    // DocRadiographicPage,
-    // DocRadiographicsPage,
-    // DocTestresultPage,
     PatientHomePage,
     ToxinthyPage,
     AgreePage,
@@ -336,7 +313,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     ShowlabtestPage,
     AddiodineresultPage,
     ShowtreatmentdetailPage,
-    // NativeStorage
+    //NativeStorage,
+    AdddatacontactPage,
+    DatacontactPage,
+    ShowdatacontactPage
 
   ],
   providers: [
