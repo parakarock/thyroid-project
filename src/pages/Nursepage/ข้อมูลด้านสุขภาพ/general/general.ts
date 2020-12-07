@@ -122,7 +122,7 @@ export class GeneralPage {
     this.output= this.navParams.get("formData").to_name;
     this.hnoutput= this.navParams.get("formData").to_id;
     this.tel= this.navParams.get("formData").phone;
-     
+
         });
 
     }
@@ -149,7 +149,7 @@ export class GeneralPage {
   }
 
   checkRole(role){
-    if(role === "พยาบาล"){
+    if(role === "พยาบาล" || role === "หมอ"){
       return true;
     }else{
       return false;

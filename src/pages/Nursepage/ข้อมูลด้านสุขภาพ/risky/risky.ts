@@ -83,7 +83,7 @@ export class RiskyPage {
             this.navParams.get("formData").select_stop
           ) === true ||
           this.navParams.get("formData").no_risk_factor === 1 ||
-          this.navParams.get("formData").relative_toxic_thyroid === 1 
+          this.navParams.get("formData").relative_toxic_thyroid === 1
         ) {
           this.showData = true;
           this.stress = this.navParams.get("formData").stress;
@@ -146,7 +146,7 @@ export class RiskyPage {
           this.relative_toxic_thyroid = this.navParams.get(
             "formData"
           ).relative_toxic_thyroid;
-          
+
         }
       });
     }
@@ -188,7 +188,7 @@ export class RiskyPage {
               data.select_stop
             ) === true ||
             data.no_risk_factor === 1 ||
-            data.relative_toxic_thyroid === 1 
+            data.relative_toxic_thyroid === 1
           ) {
             this.showData = true;
             this.stress = data.stress;
@@ -212,7 +212,7 @@ export class RiskyPage {
 
             this.no_risk_factor = data.no_risk_factor;
             this.relative_toxic_thyroid = data.relative_toxic_thyroid;
-         
+
           } else {
             this.showData = false;
           }
@@ -250,7 +250,7 @@ export class RiskyPage {
 
       no_risk_factor: this.no_risk_factor,
       relative_toxic_thyroid: this.relative_toxic_thyroid,
-     
+
       showFormSex: this.showFormSex,
       showData: this.showData,
     });
@@ -263,7 +263,7 @@ export class RiskyPage {
     }
   }
   checkRole(role) {
-    if (role === "พยาบาล") {
+    if (role === "พยาบาล" || role === "หมอ") {
       return true;
     } else {
       return false;
@@ -317,5 +317,5 @@ export class RiskyPage {
       return false;
     }
   }
-  
+
 }

@@ -219,7 +219,7 @@ export class InitiallyPage {
     }
   }
   checkRole(role) {
-    if (role === "พยาบาล") {
+    if (role === "พยาบาล" || role === 'หมอ') {
       return true;
     } else {
       return false;

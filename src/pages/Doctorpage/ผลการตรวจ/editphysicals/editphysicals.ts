@@ -34,67 +34,19 @@ export class EditphysicalsPage {
             {
 
               this.formgroup = formBuilder.group({
-                thyroid_size: ['',
-                // Validators.required
-                  // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                ],
-                thyroid_tumor_detect: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-
-                ],
-                thyroid_tumor_size: ['',
-                // Validators.compose([Validators.required,
-                //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                //   ])
-                ],
-                heart_lung_unusual: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                ],
-                heart_lung_detail: ['',
-                // Validators.compose([Validators.required,
-                //     // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                //   ])
-                ],
-                trembling_hand: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-
-                ],
-                power_left_hand: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-
-                ],
-                power_right_hand: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-
-                ],
-                power_left_leg: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-
-                ],
-                power_right_leg: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-
-                ],
-                swell_shin: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-
-                ],
-                brittle_nail: ['',
-                // Validators.required
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                ],
-                detail: ['',
-                // Validators.required,
-                    // Validators.pattern("^[ก-๏sa-zA-Z]+$")
-                ]
+                thyroid_size: ['',],
+                thyroid_tumor_detect: ['',],
+                thyroid_tumor_size: ['',],
+                heart_lung_unusual: ['',],
+                heart_lung_detail: ['',],
+                trembling_hand: ['',],
+                power_left_hand: ['',],
+                power_right_hand: ['',],
+                power_left_leg: ['',],
+                power_right_leg: ['',],
+                swell_shin: ['',],
+                brittle_nail: ['',],
+                detail: ['',]
               });
   }
 
@@ -106,7 +58,7 @@ export class EditphysicalsPage {
     console.log(this.formgroup.value);
   }
 
-  async updateData(){
+  async updateData(){ //บันทึกข้อมูลจากฟอร์มไปยัง Database
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = {
@@ -144,7 +96,7 @@ export class EditphysicalsPage {
     )
   }
 
-  async presentConfirm() {
+  async presentConfirm() { //แสดงป๊อปอัพยืนยักการบันทึกข้อมูล
     let alert = await this.alertCtrl.create({
       title: "ยืนยันการอัพเดทข้อมูล",
       message: "คุณต้องการดำเนินการต่อหรือไม่",
@@ -169,7 +121,7 @@ export class EditphysicalsPage {
     alert.present();
   }
 
-  async presentAlert(txt: string) {
+  async presentAlert(txt: string) { //แสดงสถานะหลังจากทำการอัพโหลดข้อมูล
     let alert = await this.alertCtrl.create({
       title: 'แจ้งเตือน',
       subTitle: txt,

@@ -71,7 +71,7 @@ export class RadiographicsPage {
     this.getData()
   }
 
-  AlertTakePhoto(){
+  AlertTakePhoto(){ //ป๊อปอัพให้เลือกที่มาของรูปภาพ
     let alert = this.alertController.create({
       title: "โปรดเลือกวิธีการอัพโหลดรูป",
       buttons: [
@@ -199,7 +199,7 @@ export class RadiographicsPage {
     )
   }
 
-  async presentAlert() {
+  async presentAlert() { //แสดงสถานะหลังจากทำการอัพโหลดข้อมูล
     const alert = await this.alertController.create({
       title: 'แจ้งเตือน',
       message: 'การบันทึกข้อมูลเสร็จสมบูรณ์',

@@ -10,12 +10,6 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-/**
- * Generated class for the AgreePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -69,7 +63,7 @@ export class AgreePage {
     this.getData()
   }
 
-  AlertTakePhoto(){
+  AlertTakePhoto(){ //ป๊อปอัพให้เลือกที่มาของรูปภาพ
     let alert = this.alertController.create({
       title: "โปรดเลือกวิธีการอัพโหลดรูป",
       buttons: [
@@ -109,6 +103,7 @@ export class AgreePage {
     });
   }
 
+  //Upload รูปไปยัง Server โดยไปไว้ใน Folder Contract
   uploadFile(){
     let loader = this.loadingCtrl.create({
       content: "กำลังอัพโหลดรูปภาพ..."
@@ -136,13 +131,13 @@ export class AgreePage {
       console.log(data);
       console.log(this.imageLink);
       loader.dismiss();
-      //this.presentToast("Image uploaded successfully");
     }, (err) => {
       alert(JSON.stringify(err));
       loader.dismiss();
     });
   }
 
+  //Update Path รูปภาพไปยัง Database
   updateData(){
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
@@ -168,6 +163,7 @@ export class AgreePage {
       );
   }
 
+  //ดึง Path รูปภาพและคำอธิบายรูปมาแสดง
   async getData(){
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
@@ -192,21 +188,7 @@ export class AgreePage {
     )
   }
 
-  presentToast(msg) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 3000,
-      position: 'bottom'
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
-    toast.present();
-  }
-
-  async presentAlert() {
+  async presentAlert() { ///แสดงสถานะหลังจากทำการอัพโหลดข้อมูล
     const alert = await this.alertController.create({
       title: 'แจ้งเตือน',
       message: 'การบันทึกข้อมูลเสร็จสมบูรณ์',

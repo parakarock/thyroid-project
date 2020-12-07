@@ -19,13 +19,6 @@ import { Http } from '@angular/http';
   templateUrl: 'show-examination.html',
 })
 export class ShowExaminationPage {
-  // thy_num: any;
-  // thy_ult_date: any;
-  // thy_ult_advice: any;
-  // thy_ult_follow_num: any;
-  // thy_ult_follow_unit: any;
-  // thy_ult_fine_result: any;
-  // thy_ult_surgury_desc: any;
   momentjs: any = moment;
   Thy_ult_data: any = '';
   thyroid_image: any;
@@ -54,14 +47,11 @@ export class ShowExaminationPage {
 
   examination(){
     this.navCtrl.push(ExaminationPage,{
-      // thyroid_image: this.thyroid_image,
-      // thy_ult_result: this.thy_ult_result,
-      // Thy_ult_data: this.Thy_ult_data
       }
     );
   }
 
-  async getData(){
+  async getData(){ //ดึงข้อมูลมาแสดง
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = JSON.stringify({
@@ -77,19 +67,9 @@ export class ShowExaminationPage {
       .map(res => res.json())
       .subscribe(
         data => {
-          // for(let i = 0; i <= data.length; i++){
-            // this.thy_num = data.thy_num;
-            // this.thy_ult_date = data.thy_ult_date;
-            // this.thy_ult_advice = data.thy_ult_advice;
-            // this.thy_ult_follow_num = data.thy_ult_follow_num;
-            // this.thy_ult_follow_unit = data.thy_ult_follow_unit;
-            // this.thy_ult_fine_result = data.thy_ult_fine_result;
-            // this.thy_ult_surgury_desc = data.thy_ult_surgury_desc;
             this.showData = true;
             this.Thy_ult_data = JSON.parse(JSON.stringify(data));
             console.log(this.Thy_ult_data);
-          // }
-            // console.log(JSON.stringify(data[i]));
         },
         error => {
           console.log(error);
@@ -97,7 +77,7 @@ export class ShowExaminationPage {
       );
   }
 
-  async getImage(){
+  async getImage(){ //ดึงรูปภาพ Thyroid Ultrasound และผลลัพธ์มาแสดง
     let headers = new Headers({ "Content-type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let body = JSON.stringify({

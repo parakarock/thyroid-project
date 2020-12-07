@@ -33,7 +33,7 @@
       <input type="checkbox" (change)="changeNightWork()" id="nightWork"  *ngIf="nightWork" checked/>
       <input type="checkbox" (change)="changeNightWork()" id="nightWork"  *ngIf="!nightWork" />
       <label for="nightWork" id="nightWork" > งานแบบเข้ากะกลางคืนช่วงเข้ากะรอบละ</label>
-      <input type="number"  [(ngModel)]="night_work_hour" value="{{ night_work_hour }}" size="20" />
+      <input type="number" [(ngModel)]="night_work_hour" value="{{ night_work_hour }}" size="20" />
       <label >ชั่วโมง </label>
     </ion-item>
 
@@ -58,7 +58,7 @@
     </ion-item>
 
 
-    
+
     <ion-item no-lines (change)="changeSmoking()">
       <input type="checkbox" id="smoking" *ngIf="smoking" checked/>
       <input type="checkbox" id="smoking" *ngIf="!smoking" />
@@ -117,7 +117,7 @@
         </select>
         <select (change)="changeSelect_stop()" *ngIf="!select_stop">
           <option value="เดือน" selected="selected">เดือน </option>
-          <option value="ปี" >ปี </option>     
+          <option value="ปี" >ปี </option>
         </select>
       </ion-row>
     </ion-grid>
@@ -136,7 +136,7 @@
     ><br />
   </ion-item>
 
- 
+
   </ion-card>
 
   <button ion-button small (click)="presentConfirm()" color="1">บันทึก</button>
